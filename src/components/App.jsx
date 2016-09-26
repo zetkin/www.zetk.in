@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import Header from './header/Header';
 import { LandingPage } from './pages';
 
 
@@ -12,13 +13,14 @@ export default class App extends React.Component {
         return (
             <html>
                 <head>
-                    <title>Hello</title>
+                    <title>Zetkin</title>
                     <script src="/static/main.js"></script>
                     <link rel="stylesheet" href="/static/css/style.css"/>
                     <link rel="icon" type="image/png"
                         href="/static/img/favicon.png"/>
                 </head>
                 <body>
+                    <Header/>
                     <LandingPage />
                 </body>
             </html>
