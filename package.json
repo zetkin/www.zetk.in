@@ -34,7 +34,7 @@
     "redux-immutable": "^3.0.8",
     "redux-promise-middleware": "^4.0.0",
     "sugar-date": "^2.0.0",
-    "zetkin": "^0.7.0"
+    "zetkin": "git+ssh://git@github.com/zetkin/zetkin-js.git"
   },
   "devDependencies": {
     "del": "^1.1.1",
