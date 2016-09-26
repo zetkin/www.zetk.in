@@ -1,6 +1,7 @@
 import { compose, applyMiddleware, createStore } from 'redux';
 import { createReducer } from 'redux-create-reducer';
 import { combineReducers } from 'redux-immutable';
+import { intlReducer } from 'react-intl-redux';
 import promiseMiddleware from 'redux-promise-middleware';
 
 let message = createReducer('Hello world', {
@@ -8,7 +9,8 @@ let message = createReducer('Hello world', {
 });
 
 const appReducer = combineReducers({
-    message
+    message,
+    intl: intlReducer,
 });
 
 export const configureStore = (initialState, z) => {

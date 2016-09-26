@@ -5,10 +5,10 @@ import immutable from 'immutable';
 import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { Provider } from 'react-redux';
 
 import { configureStore } from '../store';
 import App from '../components/App';
+import IntlReduxProvider from '../components/IntlReduxProvider';
 
 
 const authOpts = {
@@ -55,7 +55,7 @@ function renderReactPage(Component, req, res) {
         };
 
         var html = ReactDOMServer.renderToString(
-            React.createElement(Provider, { store: req.store },
+            React.createElement(IntlReduxProvider, { store: req.store },
                 PageFactory(props)));
 
         res.send(html);
