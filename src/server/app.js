@@ -1,12 +1,22 @@
+import auth from 'express-zetkin-auth';
+import cookieParser from 'cookie-parser';
 import express from 'express';
 import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 
-import { appState, finalCreateStore } from '../reducers';
+import { configureStore } from '../store';
 import App from '../components/App';
 
+
+const authOpts = {
+    loginUrl: process.env.ZETKIN_LOGIN_URL,
+    app: {
+        id: process.env.ZETKIN_APP_ID,
+        key: process.env.ZETKIN_APP_KEY,
+    }
+};
 
 const app = express();
 
@@ -23,8 +33,13 @@ app.use('/static/', express.static(
     path.join(__dirname, '../../static'),
     { fallthrough: false }));
 
+app.use(cookieParser());
+app.use(auth.initialize(authOpts));
+app.get('/', auth.callback(authOpts));
+app.get('/logout', auth.logout(authOpts));
+
 app.use(function(req, res, next) {
-    req.store = finalCreateStore(appState);
+    req.store = configureStore(undefined, req.z);
 
     renderReactPage(App, req, res);
 });

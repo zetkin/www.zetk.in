@@ -20,12 +20,17 @@
   },
   "homepage": "https://www.zetk.in",
   "dependencies": {
+    "array.prototype.find": "^2.0.0",
+    "cookie-cutter": "^0.2.0",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-zetkin-auth": "git+ssh://git@github.com/zetkin/express-zetkin-auth.git",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",
+    "redux-promise-middleware": "^4.0.0",
+    "sugar-date": "^2.0.0",
     "zetkin": "^0.7.0"
   },
   "devDependencies": {
