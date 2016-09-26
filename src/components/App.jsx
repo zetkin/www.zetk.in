@@ -16,6 +16,8 @@ export default class App extends React.Component {
                     <title>Hello</title>
                     <script src="/static/main.js"></script>
                     <link rel="stylesheet" href="/static/css/style.css"/>
+                    <link rel="icon" type="image/png"
+                        href="/static/img/favicon.png"/>
                 </head>
                 <body>
                     <Hello message={ this.props.message }/>
