@@ -27,11 +27,9 @@ window.onload = function() {
         Z.setTicket(JSON.parse(ticket));
     }
 
-    /* TODO: Uncomment when initial state is in DOM
     let stateElem = document.getElementById('App-initialState');
     let stateJson = stateElem.innerText || stateElem.textContent;
-    let initialState = JSON.parse(stateJson);
-    */let initialState = immutable.Map();
+    let initialState = immutable.Map(JSON.parse(stateJson));
 
     let store = configureStore(initialState, Z);
     let props = { initialState, }
