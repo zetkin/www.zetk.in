@@ -1,0 +1,19 @@
+{
+  "name": "www.zetk.in",
+  "version": "1.0.0",
+  "description": "Main (activist) front-end for Zetkin",
+  "main": "src/server/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/zetkin/www.zetk.in.git"
+  },
+  "author": "Zetkin Foundation <info@zetkin.org>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zetkin/www.zetk.in/issues"
+  },
+  "homepage": "https://www.zetk.in"
+}
