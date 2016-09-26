@@ -1,14 +1,11 @@
-import { combineReducers, compose, applyMiddleware, createStore } from 'redux';
+import { compose, applyMiddleware, createStore } from 'redux';
+import { createReducer } from 'redux-create-reducer';
+import { combineReducers } from 'redux-immutable';
 import promiseMiddleware from 'redux-promise-middleware';
 
-function message(state = 'Hello world!', action) {
-    switch (action.type) {
-        case 'SET_MESSAGE':
-            return action.message;
-        default:
-            return state;
-    }
-}
+let message = createReducer('Hello world', {
+    SET_MESSAGE: (state, action) => action.message,
+});
 
 const appReducer = combineReducers({
     message

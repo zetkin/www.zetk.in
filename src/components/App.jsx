@@ -5,7 +5,7 @@ import Hello from './Hello';
 import { setMessage } from '../actions';
 
 
-@connect(state => state)
+@connect(state => ({ message: state.get('message') }))
 export default class App extends React.Component {
     render() {
         var debugPanel = null;

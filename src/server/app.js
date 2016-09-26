@@ -1,6 +1,7 @@
 import auth from 'express-zetkin-auth';
 import cookieParser from 'cookie-parser';
 import express from 'express';
+import immutable from 'immutable';
 import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
@@ -39,7 +40,8 @@ app.get('/', auth.callback(authOpts));
 app.get('/logout', auth.logout(authOpts));
 
 app.use(function(req, res, next) {
-    req.store = configureStore(undefined, req.z);
+    let initialState = immutable.Map();
+    req.store = configureStore(initialState, req.z);
 
     renderReactPage(App, req, res);
 });

@@ -4,6 +4,7 @@
  * in the App-initialState script element.
 */
 import cookie from 'cookie-cutter';
+import immutable from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -30,7 +31,7 @@ window.onload = function() {
     let stateElem = document.getElementById('App-initialState');
     let stateJson = stateElem.innerText || stateElem.textContent;
     let initialState = JSON.parse(stateJson);
-    */let initialState;
+    */let initialState = immutable.Map();
 
     let store = configureStore(initialState, Z);
     let props = { initialState, }
