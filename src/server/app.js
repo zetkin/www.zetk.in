@@ -40,7 +40,16 @@ app.get('/', auth.callback(authOpts));
 app.get('/logout', auth.logout(authOpts));
 
 app.use(function(req, res, next) {
-    let initialState = immutable.Map();
+    let initialState = immutable.Map({
+        intl: {
+            // TODO: negotiate this
+            locale: 'sv',
+
+            // TODO: Implement more dynamic loading of messages
+            messages: require('../../locale/sv/messages.json'),
+        },
+    });
+
     req.store = configureStore(initialState, req.z);
 
     renderReactPage(App, req, res);
