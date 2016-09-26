@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import Hello from './Hello';
-import { setMessage } from '../actions';
+import { LandingPage } from './pages';
 
 
 @connect(state => ({ message: state.get('message') }))
@@ -20,9 +19,7 @@ export default class App extends React.Component {
                         href="/static/img/favicon.png"/>
                 </head>
                 <body>
-                    <Hello message={ this.props.message }/>
-                    <button onClick={ this.onClick.bind(this) }>
-                        Click to change message</button>
+                    <LandingPage />
                 </body>
             </html>
         );
