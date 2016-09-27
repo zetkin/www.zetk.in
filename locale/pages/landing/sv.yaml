@@ -26,3 +26,52 @@ zetkin:
     usp1: "Säkert"
     usp2: "Radikalt"
     usp3: "Effektivt"
+
+features:
+    h1: "Zetkin har många bra funktioner"
+    h2: "Här är en genomgång"
+    signUpLink: "Registrera dig"
+    f1:
+        title: "Funktion 1"
+        desc: |
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
+            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+    f2:
+        title: "Funktion 2"
+        desc: |
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
+            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+    f3:
+        title: "Funktion 3"
+        desc: |
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
+            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+    f4:
+        title: "Funktion 4"
+        desc: |
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
+            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+
+foundation:
+    h1: "Zetkin görs av Zetkin Foundation"
+    h2: "Zetkin Foundation är inte som andra företag"
+    paragraph: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non
+        tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis
+        mi vel finibus. Maecenas at odio rhoncus, congue purus ac, consequat
+        diam.
+    infoLink: "Läs mer om Zetkin Foundation"
+
+connect:
+    h1: "Zetkin för din organisation"
+    h2: "Vill du börja använda Zetkin i din organisation?"
+    applyLink: "Ansök om tillgång"
+    paragraph: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non
+        tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis
+        mi vel finibus. Maecenas at odio rhoncus, congue purus ac, consequat
+        diam.
