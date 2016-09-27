@@ -6,6 +6,21 @@ splash:
     caption: |
         Palestinska aktivister ropar slagord vid en demonstration i Malmö
         mot Israels anfall sommaren 2014.
+
+    form:
+        h1: "Registrera dig"
+        firstName: "Förnamn"
+        lastName: "Efternamn"
+        email: "E-postadress"
+        password: "Lösenord"
+        submitButton: "Registrera"
+        error:
+            exists: "E-postadressen { email } är redan registrerad."
+
+    done:
+        h1: "Tack och välkommen, { firstName }!"
+        h2: "Kolla din inbox för att bekräfta din e-postadress"
+
 zetkin:
     h1: "Rubrik om vad Zetkin är"
     h2: "En underrubrik"
