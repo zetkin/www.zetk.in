@@ -5,11 +5,13 @@ import immutable from 'immutable';
 import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { match, RouterContext } from 'react-router';
 
 import App from '../components/App';
 import { configureStore } from '../store';
 import IntlReduxProvider from '../components/IntlReduxProvider';
 import { localizeHandler, loadLocaleHandler } from './locale';
+import routes from '../components/routes';
 
 
 const authOpts = {
@@ -60,17 +62,13 @@ app.use(function(req, res, next) {
 
 function renderReactPage(Component, req, res) {
     try {
-        var PageFactory = React.createFactory(Component);
-        var props = {
-            initialState: req.store.getState(),
-            path: req.path,
-        };
+        match({ routes, location: req.url }, (err, redirect, props) => {
+            let html = ReactDOMServer.renderToString(
+                React.createElement(IntlReduxProvider, { store: req.store },
+                    React.createElement(RouterContext, props)));
 
-        var html = ReactDOMServer.renderToString(
-            React.createElement(IntlReduxProvider, { store: req.store },
-                PageFactory(props)));
-
-        res.send(html);
+            res.send(html);
+        });
     }
     catch (err) {
         throw err; // TODO: Better error handling

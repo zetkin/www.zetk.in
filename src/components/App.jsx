@@ -2,14 +2,12 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import Header from './header/Header';
-import { LandingPage } from './pages';
 
 
-@connect(state => ({ message: state.get('message') }))
+@connect(state => ({ fullState: state }))
 export default class App extends React.Component {
     render() {
-        let stateJson = JSON.stringify(this.props.initialState);
-        var debugPanel = null;
+        let stateJson = JSON.stringify(this.props.fullState);
 
         return (
             <html>
@@ -22,7 +20,9 @@ export default class App extends React.Component {
                 </head>
                 <body>
                     <Header/>
-                    <LandingPage />
+                    <div className="App-content">
+                        { this.props.children }
+                    </div>
                     <script type="text/json"
                         id="App-initialState"
                         dangerouslySetInnerHTML={{ __html: stateJson }}/>

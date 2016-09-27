@@ -10,11 +10,12 @@ import ReactDOM from 'react-dom';
 import Z from 'zetkin';
 import { addLocaleData } from 'react-intl';
 import svLocaleData from 'react-intl/locale-data/sv';
+import { Router, browserHistory } from 'react-router';
 
 import polyfills from '../utils/polyfills';
-import App from '../components/App';
 import { configureStore } from '../store';
 import IntlReduxProvider from '../components/IntlReduxProvider';
+import routes from '../components/routes';
 
 
 window.onload = function() {
@@ -38,8 +39,11 @@ window.onload = function() {
     let initialState = immutable.Map(JSON.parse(stateJson));
 
     let store = configureStore(initialState, Z);
-    let props = { initialState, }
+    let props = {
+        routes,
+        history: browserHistory
+    };
 
-    ReactDOM.render(React.createElement(IntlReduxProvider, { store: store },
-        React.createElement(App, props)), document);
+    ReactDOM.render(React.createElement(IntlReduxProvider, { store },
+        React.createElement(Router, props)), document);
 };
