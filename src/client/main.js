@@ -8,6 +8,8 @@ import immutable from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Z from 'zetkin';
+import { addLocaleData } from 'react-intl';
+import svLocaleData from 'react-intl/locale-data/sv';
 
 import polyfills from '../utils/polyfills';
 import App from '../components/App';
@@ -21,6 +23,10 @@ window.onload = function() {
         port: 80,
         ssl: false
     });
+
+    addLocaleData([
+        ...svLocaleData,
+    ]);
 
     let ticket = cookie.get('apiTicket');
     if (ticket) {
