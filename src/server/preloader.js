@@ -3,6 +3,7 @@ import immutable from 'immutable';
 
 import { configureStore } from '../store';
 import { createLocalizeHandler } from './locale';
+import { setUserData } from '../actions/user';
 
 
 export default (messages) => {
@@ -22,7 +23,16 @@ export default (messages) => {
 
         req.store = configureStore(initialState, req.z);
 
-        next();
+        req.z.resource('users', 'me').get()
+            .then(res => {
+                console.log('Retrieved user data', res);
+                req.store.dispatch(setUserData(res.data.data));
+                next();
+            })
+            .catch(err => {
+                console.log('Could not retrieve user', err);
+                next();
+            });
     });
 
     return preloader;
