@@ -1,6 +1,7 @@
 import { compose, applyMiddleware, createStore } from 'redux';
 import { createReducer } from 'redux-create-reducer';
 import { combineReducers } from 'redux-immutable';
+import immutable from 'immutable';
 import { intlReducer } from 'react-intl-redux';
 import promiseMiddleware from 'redux-promise-middleware';
 
@@ -29,7 +30,9 @@ export const configureStore = (initialState, z) => {
 
     let devTools = f => f;
     if (typeof window === 'object' && window.devToolsExtension) {
-        devTools = window.devToolsExtension();
+        devTools = window.devToolsExtension({
+            deserializeState: state => immutable.fromJS(state)
+        });
     }
 
     let createWithMiddleware = compose(
