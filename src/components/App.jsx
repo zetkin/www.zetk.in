@@ -8,6 +8,7 @@ import { LandingPage } from './pages';
 @connect(state => ({ message: state.get('message') }))
 export default class App extends React.Component {
     render() {
+        let stateJson = JSON.stringify(this.props.initialState);
         var debugPanel = null;
 
         return (
@@ -22,6 +23,9 @@ export default class App extends React.Component {
                 <body>
                     <Header/>
                     <LandingPage />
+                    <script type="text/json"
+                        id="App-initialState"
+                        dangerouslySetInnerHTML={{ __html: stateJson }}/>
                 </body>
             </html>
         );

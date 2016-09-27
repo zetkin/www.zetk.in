@@ -5,10 +5,11 @@ import immutable from 'immutable';
 import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { Provider } from 'react-redux';
 
-import { configureStore } from '../store';
 import App from '../components/App';
+import { configureStore } from '../store';
+import IntlReduxProvider from '../components/IntlReduxProvider';
+import { localizeHandler, loadLocaleHandler } from './locale';
 
 
 const authOpts = {
@@ -39,8 +40,19 @@ app.use(auth.initialize(authOpts));
 app.get('/', auth.callback(authOpts));
 app.get('/logout', auth.logout(authOpts));
 
+app.get('/l10n', loadLocaleHandler());
+
+// TODO: Change scope depending on URL
+app.use(localizeHandler());
+
 app.use(function(req, res, next) {
-    let initialState = immutable.Map();
+    let initialState = immutable.Map({
+        intl: {
+            locale: req.intl.locale,
+            messages: req.intl.messages,
+        },
+    });
+
     req.store = configureStore(initialState, req.z);
 
     renderReactPage(App, req, res);
@@ -55,7 +67,7 @@ function renderReactPage(Component, req, res) {
         };
 
         var html = ReactDOMServer.renderToString(
-            React.createElement(Provider, { store: req.store },
+            React.createElement(IntlReduxProvider, { store: req.store },
                 PageFactory(props)));
 
         res.send(html);

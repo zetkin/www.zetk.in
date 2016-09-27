@@ -1,17 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { FormattedMessage as Msg } from 'react-intl';
 
 
 export default class SignUpSplash extends React.Component {
     render() {
         return (
             <div className="SignUpSplash">
-                <h1>Motivational headline</h1>
-                <h2>Very nice subheader</h2>
-                <Link to="/register">Ok, register!</Link>
-                <Link to="/info">Tell me more</Link>
+                <Msg tagName="h1" id="pages.landing.splash.h1"/>
+                <Msg tagName="h2" id="pages.landing.splash.h2"/>
+                <Link to="/register">
+                    <Msg id="pages.landing.splash.signUpLink"/></Link>
+                <Link to="/info">
+                    <Msg id="pages.landing.splash.infoLink"/></Link>
                 <div className="SignUpSplash-imageCaption">
-                    Do you want your photo here?
+                    <Msg tagName="p" id="pages.landing.splash.caption"/>
                 </div>
             </div>
         );

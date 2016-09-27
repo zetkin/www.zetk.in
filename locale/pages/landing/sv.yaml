@@ -1,0 +1,77 @@
+splash:
+    h1: "Inspirerande huvudrubrik"
+    h2: "Någon form av underrubrik"
+    signUpLink: "Registrera dig"
+    infoLink: "Lär dig mer"
+    caption: |
+        Palestinska aktivister ropar slagord vid en demonstration i Malmö
+        mot Israels anfall sommaren 2014.
+zetkin:
+    h1: "Rubrik om vad Zetkin är"
+    h2: "En underrubrik"
+    paragraph: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non
+        tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis
+        mi vel finibus. Maecenas at odio rhoncus, congue purus ac, consequat
+        diam. Morbi sed purus at ligula maximus consectetur. Pellentesque
+        consectetur malesuada turpis non mollis. Nulla nisi sapien, tristique
+        dictum magna sed, ultricies sollicitudin lectus. Mauris elit diam,
+        vehicula id egestas at, pharetra in tellus. Nullam sit amet leo a mi
+        suscipit rhoncus nec eu odio. Nam vitae est magna. Sed nisl odio,
+        ultrices in vestibulum at, laoreet maximus tellus. Praesent vel erat
+        pulvinar tellus rhoncus condimentum sit amet eu mauris. Nunc facilisis
+        nulla orci, vel volutpat tellus scelerisque sit amet. Curabitur
+        eleifend diam a nunc tempus aliquet. In vitae massa sagittis, pretium
+        dui in, accumsan diam. Suspendisse viverra nec lorem vitae faucibus.
+    usp1: "Säkert"
+    usp2: "Radikalt"
+    usp3: "Effektivt"
+
+features:
+    h1: "Zetkin har många bra funktioner"
+    h2: "Här är en genomgång"
+    signUpLink: "Registrera dig"
+    f1:
+        title: "Funktion 1"
+        desc: |
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
+            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+    f2:
+        title: "Funktion 2"
+        desc: |
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
+            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+    f3:
+        title: "Funktion 3"
+        desc: |
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
+            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+    f4:
+        title: "Funktion 4"
+        desc: |
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
+            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+
+foundation:
+    h1: "Zetkin görs av Zetkin Foundation"
+    h2: "Zetkin Foundation är inte som andra företag"
+    paragraph: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non
+        tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis
+        mi vel finibus. Maecenas at odio rhoncus, congue purus ac, consequat
+        diam.
+    infoLink: "Läs mer om Zetkin Foundation"
+
+connect:
+    h1: "Zetkin för din organisation"
+    h2: "Vill du börja använda Zetkin i din organisation?"
+    applyLink: "Ansök om tillgång"
+    paragraph: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non
+        tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis
+        mi vel finibus. Maecenas at odio rhoncus, congue purus ac, consequat
+        diam.

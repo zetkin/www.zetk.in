@@ -1,27 +1,18 @@
 import React from 'react';
+import { FormattedMessage as Msg } from 'react-intl';
 
 
 export default class ZetkinIntro extends React.Component {
     render() {
         return (
             <div className="ZetkinIntro">
-                <h2>Headline about what Zetkin is about</h2>
-                <h3>Subheading the other thing</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Maecenas ornare dictum odio, nec pharetra ipsum tristique nec.
-                    Aenean efficitur, sem sed tincidunt volutpat, enim erat
-                    suscipit erat, vitae gravida mauris mi a arcu. Cras aliquet
-                    scelerisque lorem vitae varius. Cras scelerisque erat eu augue
-                    lacinia, vel porta magna accumsan. Sed sit amet urna nibh.
-                    Maecenas magna lectus, viverra at pharetra ornare,
-                    sollicitudin nec dolor. Sed commodo velit vitae suscipit
-                    pulvinar.
-                </p>
+                <Msg tagName="h2" id="pages.landing.zetkin.h1"/>
+                <Msg tagName="h3" id="pages.landing.zetkin.h2"/>
+                <Msg tagName="p" id="pages.landing.zetkin.paragraph"/>
                 <ul className="ZetkinIntro-highlights">
-                    <li>Super safe</li>
-                    <li>Radical & revolutionary</li>
-                    <li>Very efficient</li>
+                    <Msg tagName="li" id="pages.landing.zetkin.usp1"/>
+                    <Msg tagName="li" id="pages.landing.zetkin.usp2"/>
+                    <Msg tagName="li" id="pages.landing.zetkin.usp3"/>
                 </ul>
             </div>
         );
