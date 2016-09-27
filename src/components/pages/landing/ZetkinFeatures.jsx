@@ -1,3 +1,4 @@
+import { FormattedMessage as Msg } from 'react-intl';
 import React from 'react';
 import { Link } from 'react-router';
 
@@ -6,35 +7,28 @@ export default class ZetkinFeatures extends React.Component {
     render() {
         return (
             <div className="ZetkinFeatures">
-                <h2>Activist highlights</h2>
-                <h3>Subheading the other thing</h3>
+                <Msg id="pages.landing.features.h1" tagName="h2"/>
+                <Msg id="pages.landing.features.h2" tagName="h3"/>
                 <ul className="ZetkinFeatures-features">
                     <li>
-                        <h4>Overview of all the things</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
+                        <Msg id="pages.landing.features.f1.title" tagName="h4"/>
+                        <Msg id="pages.landing.features.f1.desc" tagName="p"/>
                     </li>
                     <li>
-                        <h4>Get organized in activities</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
+                        <Msg id="pages.landing.features.f2.title" tagName="h4"/>
+                        <Msg id="pages.landing.features.f2.desc" tagName="p"/>
                     </li>
                     <li>
-                        <h4>Reach out to the crowds</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
+                        <Msg id="pages.landing.features.f3.title" tagName="h4"/>
+                        <Msg id="pages.landing.features.f3.desc" tagName="p"/>
                     </li>
                     <li>
-                        <h4>Help your organization grow</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
+                        <Msg id="pages.landing.features.f4.title" tagName="h4"/>
+                        <Msg id="pages.landing.features.f4.desc" tagName="p"/>
                     </li>
                 </ul>
-                <Link to="/register">Register</Link>
+                <Link to="/register">
+                    <Msg id="pages.landing.features.signUpLink"/></Link>
             </div>
         );
     }
