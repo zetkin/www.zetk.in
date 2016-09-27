@@ -6,9 +6,10 @@ import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import { configureStore } from '../store';
 import App from '../components/App';
+import { configureStore } from '../store';
 import IntlReduxProvider from '../components/IntlReduxProvider';
+import { localizeHandler, loadLocaleHandler } from './locale';
 
 
 const authOpts = {
@@ -39,14 +40,14 @@ app.use(auth.initialize(authOpts));
 app.get('/', auth.callback(authOpts));
 app.get('/logout', auth.logout(authOpts));
 
+// TODO: Change scope depending on URL
+app.use(localizeHandler());
+
 app.use(function(req, res, next) {
     let initialState = immutable.Map({
         intl: {
-            // TODO: negotiate this
-            locale: 'sv',
-
-            // TODO: Implement more dynamic loading of messages
-            messages: require('../../locale/sv/messages.json'),
+            locale: req.intl.locale,
+            messages: req.intl.messages,
         },
     });
 
