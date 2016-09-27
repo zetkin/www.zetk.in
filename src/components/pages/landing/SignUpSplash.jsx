@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import { FormattedMessage as Msg } from 'react-intl';
 import React from 'react';
 import { injectIntl } from 'react-intl';
@@ -40,8 +41,12 @@ export default class SignUpSplash extends React.Component {
             ];
         }
 
+        let classes = cx('SignUpSplash', {
+            'SignUpSplash-withForm': this.props.showForm,
+        });
+
         return (
-            <div className="SignUpSplash">
+            <div className={ classes }>
                 { content }
             </div>
         );
