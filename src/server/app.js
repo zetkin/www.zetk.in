@@ -40,6 +40,8 @@ app.use(auth.initialize(authOpts));
 app.get('/', auth.callback(authOpts));
 app.get('/logout', auth.logout(authOpts));
 
+app.get('/l10n', loadLocaleHandler());
+
 // TODO: Change scope depending on URL
 app.use(localizeHandler());
 

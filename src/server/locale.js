@@ -30,6 +30,19 @@ export function localizeHandler(scope) {
     };
 }
 
+export function loadLocaleHandler() {
+    return (req, res, next) => {
+        let scope = req.query.scope.split(',');
+        let locale = req.query.lc;
+
+        let messages = getMessageSubset(req.app.messages, scope, locale);
+
+        res.status(200).json({
+            locale, scope, messages,
+        });
+    };
+}
+
 export function loadMessages(path, cb) {
     let messages = {};
 
