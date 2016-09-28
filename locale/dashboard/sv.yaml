@@ -1,0 +1,10 @@
+campaigns:
+    h: "Pågående kampanjer"
+
+events:
+    h: "Dina bokningar"
+    more: "Visa +{ numExtra } ytterligare"
+
+assignments:
+    h: "Dina uppdrag"
+    startCalling: "Börja ringa"
