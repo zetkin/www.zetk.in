@@ -5,6 +5,7 @@ import { intlReducer } from 'react-intl-redux';
 import promiseMiddleware from 'redux-promise-middleware';
 
 import actions from './actions';
+import callAssignments from './callAssignments';
 import campaigns from './campaigns';
 import register from './register';
 import user from './user';
@@ -13,6 +14,7 @@ import user from './user';
 const appReducer = combineReducers({
     intl: intlReducer,
     actions,
+    callAssignments,
     campaigns,
     register,
     user,
