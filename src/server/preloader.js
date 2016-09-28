@@ -4,6 +4,7 @@ import immutable from 'immutable';
 import { configureStore } from '../store';
 import { createLocalizeHandler } from './locale';
 import { setUserData } from '../actions/user';
+import { retrieveAllCampaigns } from '../actions/campaign';
 import { retrieveUserActions } from '../actions/action';
 
 
@@ -19,6 +20,7 @@ export default (messages) => {
     preloader.use(initStore);
 
     preloader.get('/dashboard', waitForActions(req => [
+        retrieveAllCampaigns(),
         retrieveUserActions()
     ]));
 
