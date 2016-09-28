@@ -4,6 +4,7 @@ import immutable from 'immutable';
 import { configureStore } from '../store';
 import { createLocalizeHandler } from './locale';
 import { setUserData } from '../actions/user';
+import { retrieveUserActions } from '../actions/action';
 
 
 export default (messages) => {
@@ -17,6 +18,9 @@ export default (messages) => {
     //       Right now it relies on the intl data from localizeHandler()
     preloader.use(initStore);
 
+    preloader.get('/dashboard', waitForActions(req => [
+        retrieveUserActions()
+    ]));
 
     return preloader;
 }
