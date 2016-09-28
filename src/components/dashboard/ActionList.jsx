@@ -1,4 +1,8 @@
 import React from 'react';
+import { FormattedMessage as Msg } from 'react-intl';
+
+import Link from '../misc/FormattedLink';
+
 
 
 export default class ActionList extends React.Component {
@@ -22,10 +26,19 @@ export default class ActionList extends React.Component {
             return <span>ERROR!</span>;
         }
         else if (actionList.get('items')) {
+            let moreLink;
+            let maxVisible = this.state.maxVisible;
             let actions = actionList.get('items');
 
-            if (this.state.maxVisible) {
-                actions = actions.slice(0, this.state.maxVisible);
+            if (maxVisible && actions.size > maxVisible) {
+                let numExtra = actions.size - maxVisible;
+                actions = actions.slice(0, maxVisible);
+
+                moreLink = (
+                    <Link msgId="dashboard.events.more"
+                        msgValues={{ numExtra }}
+                        onClick={ this.onClickMore.bind(this) }/>
+                );
             }
 
             return (
@@ -36,12 +49,19 @@ export default class ActionList extends React.Component {
                             action={ item }/>
                     ))}
                     </ul>
+                    { moreLink }
                 </div>
             );
         }
         else {
             return null;
         }
+    }
+
+    onClickMore(ev) {
+        this.setState({
+            maxVisible: undefined,
+        });
     }
 }
 

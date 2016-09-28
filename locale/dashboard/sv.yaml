@@ -3,6 +3,7 @@ campaigns:
 
 events:
     h: "Dina bokningar"
+    more: "Visa +{ numExtra } ytterligare"
 
 assignments:
     h: "Dina uppdrag"
