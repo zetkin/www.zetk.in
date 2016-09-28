@@ -19,7 +19,9 @@ export default class Dashboard extends React.Component {
     };
 
     componentDidMount() {
-        this.props.dispatch(retrieveUserActions());
+        if (!this.props.userActionList.get('items')) {
+            this.props.dispatch(retrieveUserActions());
+        }
     }
 
     render() {
