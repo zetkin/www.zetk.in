@@ -1,7 +1,8 @@
 import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
+import { Link } from 'react-router';
 
-import Link from '../misc/FormattedLink';
+import FormattedLink from '../misc/FormattedLink';
 import LoadingIndicator from '../misc/LoadingIndicator';
 
 
@@ -34,7 +35,7 @@ export default class AssignmentList extends React.Component {
                 assignments = assignments.slice(0, maxVisible);
 
                 moreLink = (
-                    <Link msgId="dashboard.events.more"
+                    <FormattedLink msgId="dashboard.events.more"
                         msgValues={{ numExtra }}
                         onClick={ this.onClickMore.bind(this) }/>
                 );
@@ -72,11 +73,11 @@ const AssignmentListItem = props => {
 
     return (
         <li className="AssignmentListItem">
-            <h3>{ title }</h3>
+            <h3><Link to={ href }>{ title }</Link></h3>
             <p>
                 { description }
             </p>
-            <Link href={ href }
+            <FormattedLink href={ href }
                 msgId="dashboard.assignments.startCalling"/>
         </li>
     );
