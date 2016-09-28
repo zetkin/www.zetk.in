@@ -32,6 +32,7 @@
     "object-subset": "0.0.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-immutable-proptypes": "^2.1.0",
     "react-intl": "^2.1.5",
     "react-intl-redux": "^0.1.0",
     "react-redux": "^4.4.5",
