@@ -1,7 +1,8 @@
 import cx from 'classnames';
-import { Link } from 'react-router';
 import React from 'react';
 import { injectIntl } from 'react-intl';
+
+import FormattedLink from './FormattedLink';
 
 
 @injectIntl
@@ -16,33 +17,23 @@ export default class Button extends React.Component {
 
     render() {
         let msgId = this.props.labelMsg;
-        let label = this.props.intl.formatMessage({ id: msgId },
-            this.props.labelValues)
 
         let classes = cx('Button', this.props.className);
 
         let href = this.props.href;
         if (href) {
-            if (href.indexOf('//')===0) {
-                href = ((process.env.NODE_ENV === 'production')?
-                    'https:' : 'http:') + href;
-
-                return (
-                    <a href={ href } className={ classes }
-                        onClick={ this.props.onClick }>
-                        { label }
-                    </a>
-                );
-            }
-            else {
-                return (
-                    <Link to={ href } className={ classes }>
-                        { label }
-                    </Link>
-                );
-            }
+            return (
+                <FormattedLink href={ href }
+                    className={ this.props.className }
+                    msgId={ msgId }
+                    msgValues={ this.props.labelValues }
+                    onClick={ this.props.onClick }/>
+            );
         }
         else {
+            let label = this.props.intl.formatMessage({ id: msgId },
+                this.props.labelValues)
+
             return (
                 <button className={ classes }
                     onClick={ this.props.onClick }>
