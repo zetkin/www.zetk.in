@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
 import Link from '../misc/FormattedLink';
-
+import LoadingIndicator from '../misc/LoadingIndicator';
 
 
 export default class ActionList extends React.Component {
@@ -18,8 +18,7 @@ export default class ActionList extends React.Component {
         let actionList = this.props.actionList;
 
         if (actionList.get('isPending')) {
-            // TODO: Proper loading indicator
-            return <span>LOADING!</span>;
+            return <LoadingIndicator/>
         }
         else if (actionList.get('error')) {
             // TODO: Proper error message

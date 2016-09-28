@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
 import Link from '../misc/FormattedLink';
-
+import LoadingIndicator from '../misc/LoadingIndicator';
 
 
 export default class AssignmentList extends React.Component {
@@ -18,8 +18,7 @@ export default class AssignmentList extends React.Component {
         let assignmentList = this.props.assignmentList;
 
         if (assignmentList.get('isPending')) {
-            // TODO: Proper loading indicator
-            return <span>LOADING!</span>;
+            return <LoadingIndicator/>
         }
         else if (assignmentList.get('error')) {
             // TODO: Proper error message

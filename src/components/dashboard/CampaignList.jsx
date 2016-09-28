@@ -3,6 +3,7 @@ import { FormattedMessage as Msg } from 'react-intl';
 import { Link } from 'react-router';
 
 import FormattedLink from '../misc/FormattedLink';
+import LoadingIndicator from '../misc/LoadingIndicator';
 
 
 
@@ -19,8 +20,7 @@ export default class CampaignList extends React.Component {
         let campaignList = this.props.campaignList;
 
         if (campaignList.get('isPending')) {
-            // TODO: Proper loading indicator
-            return <span>LOADING!</span>;
+            return <LoadingIndicator/>
         }
         else if (campaignList.get('error')) {
             // TODO: Proper error message
