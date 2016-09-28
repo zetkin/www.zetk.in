@@ -1,3 +1,7 @@
 .Header {
     height: 100px;
+
+    .Header-loginButton, .UserContinueButton, .UserMenu {
+        float: right;
+    }
 }

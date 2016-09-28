@@ -1,0 +1,5 @@
+login: "Logga in"
+user:
+    continue: "Fortsätt till dashboard"
+    wrongUser: "Är detta inte du?"
+    logout: "Logga ut"

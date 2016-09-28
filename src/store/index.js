@@ -5,11 +5,13 @@ import { intlReducer } from 'react-intl-redux';
 import promiseMiddleware from 'redux-promise-middleware';
 
 import register from './register';
+import user from './user';
 
 
 const appReducer = combineReducers({
     intl: intlReducer,
     register,
+    user,
 });
 
 export const configureStore = (initialState, z) => {

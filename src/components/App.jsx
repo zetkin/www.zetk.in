@@ -7,7 +7,9 @@ import Header from './header/Header';
 @connect(state => ({ fullState: state }))
 export default class App extends React.Component {
     render() {
+        let path = this.props.location.pathname;
         let stateJson = JSON.stringify(this.props.fullState);
+        let showContinueButton = (path == '/' || path == '/register');
 
         return (
             <html>
@@ -19,7 +21,7 @@ export default class App extends React.Component {
                         href="/static/img/favicon.png"/>
                 </head>
                 <body>
-                    <Header/>
+                    <Header showContinueButton={ showContinueButton }/>
                     <div className="App-content">
                         { this.props.children }
                     </div>

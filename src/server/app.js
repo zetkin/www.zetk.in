@@ -1,16 +1,15 @@
 import auth from 'express-zetkin-auth';
 import cookieParser from 'cookie-parser';
 import express from 'express';
-import immutable from 'immutable';
 import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 
 import App from '../components/App';
-import { configureStore } from '../store';
 import IntlReduxProvider from '../components/IntlReduxProvider';
-import { localizeHandler, loadLocaleHandler } from './locale';
+import { loadLocaleHandler } from './locale';
+import preloader from './preloader';
 import routes from '../components/routes';
 
 
@@ -22,43 +21,37 @@ const authOpts = {
     }
 };
 
-const app = express();
+export default function initApp(messages) {
+    const app = express();
 
-if (process.env.NODE_ENV !== 'production') {
-    // When not in production, redirect requests for the main JS file to the
-    // Webpack dev server running on localhost.
-    // TODO: Configure dev server using environment variables?
-    app.get('/static/main.js', function(req, res) {
-        res.redirect(303, 'http://localhost:8080/static/main.js');
+    if (process.env.NODE_ENV !== 'production') {
+        // When not in production, redirect requests for the main JS file to the
+        // Webpack dev server running on localhost.
+        // TODO: Configure dev server using environment variables?
+        app.get('/static/main.js', function(req, res) {
+            res.redirect(303, 'http://localhost:8080/static/main.js');
+        });
+    }
+
+    app.use('/static/', express.static(
+        path.join(__dirname, '../../static'),
+        { fallthrough: false }));
+
+    app.use(cookieParser());
+    app.use(auth.initialize(authOpts));
+    app.get('/', auth.callback(authOpts));
+    app.get('/logout', auth.logout(authOpts));
+
+    app.get('/l10n', loadLocaleHandler());
+
+    app.use(preloader(messages));
+
+    app.use(function(req, res, next) {
+        renderReactPage(App, req, res);
     });
+
+    return app;
 }
-
-app.use('/static/', express.static(
-    path.join(__dirname, '../../static'),
-    { fallthrough: false }));
-
-app.use(cookieParser());
-app.use(auth.initialize(authOpts));
-app.get('/', auth.callback(authOpts));
-app.get('/logout', auth.logout(authOpts));
-
-app.get('/l10n', loadLocaleHandler());
-
-// TODO: Change scope depending on URL
-app.use(localizeHandler());
-
-app.use(function(req, res, next) {
-    let initialState = immutable.Map({
-        intl: {
-            locale: req.intl.locale,
-            messages: req.intl.messages,
-        },
-    });
-
-    req.store = configureStore(initialState, req.z);
-
-    renderReactPage(App, req, res);
-});
 
 function renderReactPage(Component, req, res) {
     try {
@@ -74,5 +67,3 @@ function renderReactPage(Component, req, res) {
         throw err; // TODO: Better error handling
     }
 }
-
-export default app;

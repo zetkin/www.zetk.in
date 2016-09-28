@@ -16,14 +16,14 @@ export function getMessageSubset(messages, scope, locale) {
     return flat;
 }
 
-export function localizeHandler(scope) {
-    return (req, res, next) => {
+export function createLocalizeHandler(messages) {
+    return scope => (req, res, next) => {
         // TODO: Negotiate locale
         let locale = 'sv';
 
         req.intl = {
             locale,
-            messages: getMessageSubset(req.app.messages, scope, locale)
+            messages: getMessageSubset(messages, scope, locale)
         };
 
         next();
