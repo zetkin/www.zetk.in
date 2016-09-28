@@ -1,0 +1,13 @@
+.Dashboard {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    & > div {
+        float: left;
+        width: 20%;
+        margin: 0 2.5%;
+    }
+}

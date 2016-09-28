@@ -32,7 +32,7 @@ export default class ActionList extends React.Component {
                 <div className="ActionList">
                     <ul>
                     { actions.map(item => (
-                        <ActionItem key={ item.get('id') }
+                        <ActionListItem key={ item.get('id') }
                             action={ item }/>
                     ))}
                     </ul>
@@ -45,19 +45,17 @@ export default class ActionList extends React.Component {
     }
 }
 
-const ActionItem = props => {
+const ActionListItem = props => {
     let action = props.action;
     let activity = action.getIn(['activity', 'title']);
     let startTime = Date.create(action.get('start_time'),
         { fromUTC: true, setUTC: true });
 
     return (
-        <li>
-            <span className="ActionList-itemDate">
-                { startTime.format('{d}/{M}') }</span>
-            <span className="ActionList-itemTime">
-                { startTime.format('{HH}:{mm}') }</span>
-            <span className="ActionList-itemActivity">{ activity }</span>
+        <li className="ActionListItem">
+            <span className="ActionListItem-dateTime">
+                { startTime.format('{d}/{M} {HH}:{mm}') }</span>
+            <span className="ActionListItem-activity">{ activity }</span>
         </li>
     );
 };
