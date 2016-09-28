@@ -1,5 +1,4 @@
 import React from 'react';
-import { FormattedDate, FormattedTime } from 'react-intl';
 
 
 export default class ActionList extends React.Component {
@@ -48,15 +47,16 @@ export default class ActionList extends React.Component {
 
 const ActionItem = props => {
     let action = props.action;
-    let startTime = action.get('start_time');
     let activity = action.getIn(['activity', 'title']);
+    let startTime = Date.create(action.get('start_time'),
+        { fromUTC: true, setUTC: true });
 
     return (
         <li>
-            <FormattedDate className="ActionList-itemDate"
-                month="numeric" day="numeric" value={ startTime }/>
-            <FormattedTime className="ActionList-itemTime"
-                hour="numeric" minute="numeric" value={ startTime }/>
+            <span className="ActionList-itemDate">
+                { startTime.format('{d}/{M}') }</span>
+            <span className="ActionList-itemTime">
+                { startTime.format('{HH}:{mm}') }</span>
             <span className="ActionList-itemActivity">{ activity }</span>
         </li>
     );
