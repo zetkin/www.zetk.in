@@ -37,4 +37,27 @@ export default createReducer(initialState, {
             .setIn(['userActionList', 'isPending'], false)
             .setIn(['userActionList', 'items'], immutable.fromJS(actions));
     },
+
+    [types.RETRIEVE_ALL_ACTIONS + '_PENDING']: (state, action) => {
+        return state
+            .setIn(['actionList', 'error'], null)
+            .setIn(['actionList', 'isPending'], true);
+    },
+
+    [types.RETRIEVE_ALL_ACTIONS + '_FULFILLED']: (state, action) => {
+        // Reduce list of orgs with list of actions to a flat list
+        // of actions with ID references to the orgs.
+        let actions = action.payload.reduce((arr, org) => {
+            let orgActions = org.data.data.map(a => Object.assign(a, {
+                org_id: org.meta.org.id
+            }));
+
+            return arr.concat(orgActions);
+        }, []);
+
+        return state
+            .setIn(['actionList', 'error'], null)
+            .setIn(['actionList', 'isPending'], false)
+            .setIn(['actionList', 'items'], immutable.fromJS(actions));
+    }
 });
