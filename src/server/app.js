@@ -44,6 +44,8 @@ export default function initApp(messages) {
 
     app.get('/l10n', loadLocaleHandler());
 
+    app.get('/dashboard', auth.validate(authOpts));
+
     app.use(preloader(messages));
 
     app.use(function(req, res, next) {
