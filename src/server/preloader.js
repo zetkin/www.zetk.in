@@ -5,7 +5,7 @@ import { configureStore } from '../store';
 import { createLocalizeHandler } from './locale';
 import { setUserData } from '../actions/user';
 import { retrieveAllCampaigns } from '../actions/campaign';
-import { retrieveUserActions } from '../actions/action';
+import { retrieveAllActions, retrieveUserActions } from '../actions/action';
 import { retrieveUserAssignments } from '../actions/callAssignment';
 
 
@@ -22,6 +22,7 @@ export default (messages) => {
 
     preloader.get('/dashboard', waitForActions(req => [
         retrieveAllCampaigns(),
+        retrieveAllActions(),
         retrieveUserActions(),
         retrieveUserAssignments(),
     ]));

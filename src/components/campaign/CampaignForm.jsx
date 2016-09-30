@@ -20,7 +20,9 @@ export default class CampaignForm extends React.Component {
     };
 
     componentDidMount() {
-        this.props.dispatch(retrieveAllActions());
+        if (!this.props.actionList.get('items')) {
+            this.props.dispatch(retrieveAllActions());
+        }
     }
 
     render() {
