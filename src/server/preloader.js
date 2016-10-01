@@ -7,6 +7,7 @@ import { setUserData } from '../actions/user';
 import { retrieveAllCampaigns } from '../actions/campaign';
 import { retrieveAllActions, retrieveUserActions } from '../actions/action';
 import { retrieveUserAssignments } from '../actions/callAssignment';
+import { retrieveUserMemberships } from '../actions/org';
 
 
 export default (messages) => {
@@ -25,6 +26,8 @@ export default (messages) => {
         retrieveAllActions(),
         retrieveUserActions(),
         retrieveUserAssignments(),
+        // TODO: Maybe this should be universal for all URLs?
+        retrieveUserMemberships(),
     ]));
 
     return preloader;
