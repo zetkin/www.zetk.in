@@ -6,6 +6,7 @@ export default class ActionForm extends React.Component {
     static propTypes = {
         onChange: React.PropTypes.func,
         isBooked: React.PropTypes.bool,
+        response: React.PropTypes.bool,
     };
 
     render() {
@@ -44,6 +45,7 @@ export default class ActionForm extends React.Component {
                 <input key="checkbox" type="checkbox"
                     className="ActionForm-checkbox"
                     onChange={ this.onChange.bind(this) }
+                    checked={ this.props.response }
                     id={ id } name={ id }/>,
                 <label key="label" className="ActionForm-checkboxLabel"
                     htmlFor={ id }/>
