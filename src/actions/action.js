@@ -33,6 +33,17 @@ export function retrieveUserActions() {
     };
 }
 
+export function retrieveUserResponses() {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.RETRIEVE_USER_RESPONSES,
+            payload: {
+                promise: z.resource('users', 'me', 'action_responses').get()
+            }
+        });
+    };
+}
+
 export function updateActionResponse(action, responseBool) {
     return ({ dispatch, getState, z }) => {
         let orgId = action.get('org_id');
