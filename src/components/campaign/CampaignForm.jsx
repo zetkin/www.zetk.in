@@ -5,7 +5,10 @@ import React from 'react';
 import ActionForm from './ActionForm';
 import LoadingIndicator from '../misc/LoadingIndicator';
 import PropTypes from '../../utils/PropTypes';
-import { retrieveAllActions } from '../../actions/action';
+import {
+    retrieveAllActions,
+    updateActionResponse,
+} from '../../actions/action';
 
 
 const mapStateToProps = state => ({
@@ -51,7 +54,8 @@ export default class CampaignForm extends React.Component {
                     // TODO: Do more logic to group actions as shifts et c
                     <li key={ action.get('id') }
                         className="CampaignForm-action">
-                        <ActionForm action={ action }/>
+                        <ActionForm action={ action }
+                            onChange={ this.onActionChange.bind(this) }/>
                     </li>
                 ));
 
@@ -76,5 +80,9 @@ export default class CampaignForm extends React.Component {
         else {
             return null;
         }
+    }
+
+    onActionChange(action, checked) {
+        this.props.dispatch(updateActionResponse(action, checked));
     }
 }
