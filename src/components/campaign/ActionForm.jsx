@@ -1,9 +1,11 @@
 import React from 'react';
+import { FormattedMessage as Msg } from 'react-intl';
 
 
 export default class ActionForm extends React.Component {
     static propTypes = {
         onChange: React.PropTypes.func,
+        isBooked: React.PropTypes.bool,
     };
 
     render() {
@@ -30,6 +32,24 @@ export default class ActionForm extends React.Component {
 
         let id = action.get('id');
 
+        let respondWidget = null;
+        if (this.props.isBooked) {
+            respondWidget = (
+                <Msg id="campaignForm.action.booked"
+                    className="ActionForm-booked"/>
+            );
+        }
+        else {
+            respondWidget = [
+                <input key="checkbox" type="checkbox"
+                    className="ActionForm-checkbox"
+                    onChange={ this.onChange.bind(this) }
+                    id={ id } name={ id }/>,
+                <label key="label" className="ActionForm-checkboxLabel"
+                    htmlFor={ id }/>
+            ];
+        }
+
         return (
             <div className="ActionForm">
                 <h3>
@@ -38,11 +58,7 @@ export default class ActionForm extends React.Component {
                 </h3>
                 { infoText }
 
-                <input type="checkbox" className="ActionForm-checkbox"
-                    onChange={ this.onChange.bind(this) }
-                    id={ id } name={ id }/>
-                <label className="ActionForm-checkboxLabel"
-                    htmlFor={ id }/>
+                { respondWidget }
             </div>
         );
     }

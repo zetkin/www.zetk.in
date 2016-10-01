@@ -13,6 +13,7 @@ import {
 
 const mapStateToProps = state => ({
     actionList: state.getIn(['actions', 'actionList']),
+    userActionList: state.getIn(['actions', 'userActionList']),
 });
 
 
@@ -40,6 +41,7 @@ export default class CampaignForm extends React.Component {
             return <span>ERROR!</span>;
         }
         else if (actionList.get('items')) {
+            let userActionList = this.props.userActionList;
             let actionsByDay = actionList.get('items').groupBy(action => {
                 let startTime = Date.create(action.get('start_time'),
                     { fromUTC: true, setUTC: true });
@@ -50,14 +52,20 @@ export default class CampaignForm extends React.Component {
             actionsByDay = actionsByDay.sortBy((val, key) => key);
 
             let dayComponents = actionsByDay.toList().map((actions, key) => {
-                let actionComponents = actions.map(action => (
-                    // TODO: Do more logic to group actions as shifts et c
-                    <li key={ action.get('id') }
-                        className="CampaignForm-action">
-                        <ActionForm action={ action }
-                            onChange={ this.onActionChange.bind(this) }/>
-                    </li>
-                ));
+                // TODO: Do more logic to group actions as shifts et c
+                let actionComponents = actions.map(action => {
+                    let booked = !!userActionList.get('items').find(item =>
+                        item.get('id') == action.get('id'));
+
+                    return (
+                        <li key={ action.get('id') }
+                            className="CampaignForm-action">
+                            <ActionForm action={ action }
+                                isBooked={ booked }
+                                onChange={ this.onActionChange.bind(this) }/>
+                        </li>
+                    );
+                });
 
                 return (
                     <li className="CampaignForm-day" key={ key }>
