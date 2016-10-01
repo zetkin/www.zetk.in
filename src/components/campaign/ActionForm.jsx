@@ -48,7 +48,9 @@ export default class ActionForm extends React.Component {
                     checked={ this.props.response }
                     id={ id } name={ id }/>,
                 <label key="label" className="ActionForm-checkboxLabel"
-                    htmlFor={ id }/>
+                    htmlFor={ id }>
+                    <Msg id="campaignForm.action.yesLabel"/>
+                </label>
             ];
         }
 
