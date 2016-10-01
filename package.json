@@ -21,6 +21,7 @@
   "homepage": "https://www.zetk.in",
   "dependencies": {
     "array.prototype.find": "^2.0.0",
+    "body-parser": "^1.15.2",
     "classnames": "^2.2.5",
     "cookie-cutter": "^0.2.0",
     "cookie-parser": "^1.4.3",
