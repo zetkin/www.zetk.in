@@ -9,7 +9,8 @@ export default class DashboardPage extends React.Component {
         return (
             <div className="DashboardPage">
                 <Dashboard/>
-                <CampaignForm/>
+                <CampaignForm
+                    redirPath={ this.props.location.pathname }/>
             </div>
         );
     }

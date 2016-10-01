@@ -1,4 +1,5 @@
 import immutable from 'immutable';
+import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import React from 'react';
 
@@ -19,11 +20,23 @@ const mapStateToProps = state => ({
 });
 
 
+@injectIntl
 @connect(mapStateToProps)
 export default class CampaignForm extends React.Component {
     static propTypes = {
+        redirPath: PropTypes.string.isRequired,
         actionList: PropTypes.complexList.isRequired,
     };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            // Unknown when rendering on the server. Will be set by
+            // componentDidMount(), which only executes client-side.
+            browserHasJavascript: null,
+        };
+    }
 
     componentDidMount() {
         // TODO: Don't load in this component
@@ -37,6 +50,10 @@ export default class CampaignForm extends React.Component {
         if (!this.props.responseList.get('items')) {
             this.props.dispatch(retrieveUserResponses());
         }
+
+        this.setState({
+            browserHasJavascript: true,
+        });
     }
 
     render() {
@@ -97,11 +114,26 @@ export default class CampaignForm extends React.Component {
                 );
             });
 
+            let submitButton = null;
+            if (!this.state.browserHasJavascript) {
+                let submitLabel = this.props.intl.formatMessage({
+                    id: 'campaignForm.submitLabel' });
+
+                submitButton = (
+                    <input type="submit" value={ submitLabel }/>
+                );
+            }
+
             return (
                 <div className="CampaignForm">
-                    <ul className="CampaignForm-days">
-                        { dayComponents }
-                    </ul>
+                    <form method="post" action="/forms/actionResponse">
+                        <ul className="CampaignForm-days">
+                            { dayComponents }
+                        </ul>
+                        <input type="hidden" name="redirPath"
+                            value={ this.props.redirPath }/>
+                        { submitButton }
+                    </form>
                 </div>
             );
         }

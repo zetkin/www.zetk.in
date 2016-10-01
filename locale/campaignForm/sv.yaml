@@ -1,3 +1,5 @@
 action:
     booked: "Bokad"
     yesLabel: "Ja"
+
+submitLabel: "Spara mina anmälningar"

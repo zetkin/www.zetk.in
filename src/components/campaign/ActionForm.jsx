@@ -41,12 +41,20 @@ export default class ActionForm extends React.Component {
             );
         }
         else {
+            // Include meta-data about org and previous (current) state in the
+            // form data for when form is submitted without javascript. The
+            // POST handler uses id.org, id.prev and id.response to figure out
+            // the correct API requests.
             respondWidget = [
+                <input key="org" type="hidden" name={ id + '.org' }
+                    value={ action.get('org_id') }/>,
+                <input key="prev" type="hidden" name={ id + '.prev' }
+                    value={ this.props.response? 'on' : 'off' }/>,
                 <input key="checkbox" type="checkbox"
                     className="ActionForm-checkbox"
                     onChange={ this.onChange.bind(this) }
                     checked={ this.props.response }
-                    id={ id } name={ id }/>,
+                    id={ id } name={ id + '.res' }/>,
                 <label key="label" className="ActionForm-checkboxLabel"
                     htmlFor={ id }>
                     <Msg id="campaignForm.action.yesLabel"/>
