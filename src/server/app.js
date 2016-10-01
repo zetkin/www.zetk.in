@@ -34,6 +34,7 @@ export default function initApp(messages) {
         });
     }
 
+    app.use('/favicon.ico', (req, res) => res.status(404).end());
     app.use('/static/', express.static(
         path.join(__dirname, '../../static'),
         { fallthrough: false }));
