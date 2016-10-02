@@ -39,4 +39,16 @@ export default createReducer(initialState, {
             .setIn(['campaignList', 'isPending'], false)
             .setIn(['campaignList', 'items'], immutable.fromJS(campaigns));
     },
+
+    [types.RETRIEVE_CAMPAIGN + '_FULFILLED']: (state, action) => {
+        if (!state.getIn(['campaignList', 'items'])) {
+            state = state.setIn(['campaignList', 'items'], immutable.List());
+        }
+
+        return state
+            .updateIn(['campaignList', 'items'], items => items
+                // TODO: Don't just push. Could create duplicates
+                .push(immutable.fromJS(action.payload.data.data))
+            );
+    },
 });
