@@ -25,13 +25,15 @@ export default (messages) => {
     //       Right now it relies on the intl data from localizeHandler()
     preloader.use(initStore);
 
+    preloader.get('*', waitForActions(req => [
+        retrieveUserMemberships(),
+    ]));
+
     preloader.get('/dashboard', waitForActions(req => [
         retrieveAllCampaigns(),
         retrieveAllActions(),
         retrieveUserActions(),
         retrieveUserAssignments(),
-        // TODO: Maybe this should be universal for all URLs?
-        retrieveUserMemberships(),
         retrieveUserResponses(),
     ]));
 
