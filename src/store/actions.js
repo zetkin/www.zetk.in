@@ -88,7 +88,9 @@ export default createReducer(initialState, {
     },
 
     [types.RETRIEVE_CAMPAIGN_ACTIONS + '_FULFILLED']: (state, action) => {
-        let actions = action.payload.data.data;
+        // Add org_id to action objects
+        let actions = action.payload.data.data.map(a =>
+            Object.assign({}, a, { org_id: action.meta.orgId }));
 
         return state
             .setIn(['actionList', 'error'], null)
