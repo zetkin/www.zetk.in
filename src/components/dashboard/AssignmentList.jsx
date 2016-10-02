@@ -44,7 +44,7 @@ export default class AssignmentList extends React.Component {
             return (
                 <div className="AssignmentList">
                     <ul>
-                    { assignments.map(item => (
+                    { assignments.toList().map(item => (
                         <AssignmentListItem key={ item.get('id') }
                             assignment={ item }/>
                     ))}
