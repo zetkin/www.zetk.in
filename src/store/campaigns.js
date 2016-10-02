@@ -4,6 +4,18 @@ import immutable from 'immutable';
 import * as types from '../actions';
 
 
+// Selector for a single campaign
+export const campaign = (state, id) => {
+    let items = state.getIn(['campaigns', 'campaignList', 'items']);
+
+    // Return null for empty lists
+    if (!items)
+        return null;
+
+    return items
+        .find(campaign => campaign.get('id') == id);
+};
+
 const initialState = immutable.fromJS({
     campaignList: {
         isPending: false,
