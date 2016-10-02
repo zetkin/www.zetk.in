@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CampaignForm from '../campaign/CampaignForm';
+import LoadingIndicator from '../misc/LoadingIndicator';
+import { campaign } from '../../store/campaigns';
 import { campaignActionList } from '../../store/actions';
+import { retrieveCampaign } from '../../actions/campaign';
 import {
     retrieveCampaignActions,
     updateActionResponse,
@@ -12,6 +15,7 @@ import {
 
 
 const mapStateToProps = (state, props) => ({
+    campaign: campaign(state, props.params.campaignId),
     actionList: campaignActionList(state, props.params.campaignId),
     responseList: state.getIn(['actions', 'responseList']),
     userActionList: state.getIn(['actions', 'userActionList']),
@@ -26,6 +30,10 @@ export default class CampaignPage extends React.Component {
 
         this.props.dispatch(retrieveCampaignActions(orgId, campaignId));
 
+        if (!this.props.campaign) {
+            this.props.dispatch(retrieveCampaign(orgId, campaignId));
+        }
+
         if (!this.props.userActionList.get('items')) {
             this.props.dispatch(retrieveUserActions());
         }
@@ -36,8 +44,22 @@ export default class CampaignPage extends React.Component {
     }
 
     render() {
+        let campaign = this.props.campaign;
+        let campaignInfo = <LoadingIndicator />;
+        if (campaign) {
+            campaignInfo = [
+                <h2 key="title">{ campaign.get('title') }</h2>,
+                <p key="infoText">
+                    { campaign.get('info_text') }
+                </p>
+            ];
+        }
+
         return (
             <div className="CampaignPage">
+                <div className="CampaignPage-info">
+                    { campaignInfo }
+                </div>
                 <CampaignForm
                     redirPath={ this.props.location.pathname }
                     // TODO: Don't use full action list
