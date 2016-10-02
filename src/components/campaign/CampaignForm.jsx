@@ -1,31 +1,20 @@
 import immutable from 'immutable';
 import { injectIntl } from 'react-intl';
-import { connect } from 'react-redux';
 import React from 'react';
 
 import ActionForm from './ActionForm';
 import LoadingIndicator from '../misc/LoadingIndicator';
 import PropTypes from '../../utils/PropTypes';
-import {
-    retrieveAllActions,
-    updateActionResponse,
-    retrieveUserResponses,
-} from '../../actions/action';
-
-
-const mapStateToProps = state => ({
-    actionList: state.getIn(['actions', 'actionList']),
-    responseList: state.getIn(['actions', 'responseList']),
-    userActionList: state.getIn(['actions', 'userActionList']),
-});
 
 
 @injectIntl
-@connect(mapStateToProps)
 export default class CampaignForm extends React.Component {
     static propTypes = {
         redirPath: PropTypes.string.isRequired,
         actionList: PropTypes.complexList.isRequired,
+        userActionList: PropTypes.complexList.isRequired,
+        responseList: PropTypes.complexList.isRequired,
+        onResponse: PropTypes.func,
     };
 
     constructor(props) {
@@ -39,18 +28,6 @@ export default class CampaignForm extends React.Component {
     }
 
     componentDidMount() {
-        // TODO: Don't load in this component
-        //       The component will be shared with other app and should not
-        //       be in any way directly connected to store.
-
-        if (!this.props.actionList.get('items')) {
-            this.props.dispatch(retrieveAllActions());
-        }
-
-        if (!this.props.responseList.get('items')) {
-            this.props.dispatch(retrieveUserResponses());
-        }
-
         this.setState({
             browserHasJavascript: true,
         });
@@ -143,6 +120,8 @@ export default class CampaignForm extends React.Component {
     }
 
     onActionChange(action, checked) {
-        this.props.dispatch(updateActionResponse(action, checked));
+        if (this.props.onResponse) {
+            this.props.onResponse(action, checked);
+        }
     }
 }
