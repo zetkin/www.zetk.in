@@ -66,6 +66,22 @@ export default createReducer(initialState, {
             .setIn(['actionList', 'items'], immutable.fromJS(actions));
     },
 
+    [types.RETRIEVE_CAMPAIGN_ACTIONS + '_PENDING']: (state, action) => {
+        return state
+            .setIn(['actionList', 'error'], null)
+            .setIn(['actionList', 'items'], null)
+            .setIn(['actionList', 'isPending'], true);
+    },
+
+    [types.RETRIEVE_CAMPAIGN_ACTIONS + '_FULFILLED']: (state, action) => {
+        let actions = action.payload.data.data;
+
+        return state
+            .setIn(['actionList', 'error'], null)
+            .setIn(['actionList', 'isPending'], false)
+            .setIn(['actionList', 'items'], immutable.fromJS(actions));
+    },
+
     [types.RETRIEVE_USER_RESPONSES + '_PENDING']: (state, action) => {
         return state
             .setIn(['responseList', 'error'], null)
