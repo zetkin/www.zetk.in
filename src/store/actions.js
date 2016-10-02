@@ -4,6 +4,20 @@ import immutable from 'immutable';
 import * as types from '../actions';
 
 
+// Selector to get actionList filtered by campaign
+export const campaignActionList = (state, campaignId) => {
+    let list = state.getIn(['actions', 'actionList']);
+
+    // No need to filter empty list
+    if (!list.get('items')) {
+        return list;
+    }
+
+    return list
+        .updateIn(['items'], items => items
+            .filter(item => item.getIn(['campaign', 'id']) == campaignId));
+};
+
 const initialState = immutable.fromJS({
     actionList: {
         isPending: false,
