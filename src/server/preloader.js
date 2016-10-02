@@ -7,8 +7,10 @@ import { setUserData } from '../actions/user';
 import { retrieveAllCampaigns } from '../actions/campaign';
 import { retrieveUserAssignments } from '../actions/callAssignment';
 import { retrieveUserMemberships } from '../actions/org';
+import { retrieveCampaign } from '../actions/campaign';
 import {
     retrieveAllActions,
+    retrieveCampaignActions,
     retrieveUserActions,
     retrieveUserResponses,
 } from '../actions/action';
@@ -34,6 +36,13 @@ export default (messages) => {
         retrieveAllActions(),
         retrieveUserActions(),
         retrieveUserAssignments(),
+        retrieveUserResponses(),
+    ]));
+
+    preloader.get('/o/:orgId/campaigns/:campaignId', waitForActions(req => [
+        retrieveCampaign(req.params.orgId, req.params.campaignId),
+        retrieveCampaignActions(req.params.orgId, req.params.campaignId),
+        retrieveUserActions(),
         retrieveUserResponses(),
     ]));
 
