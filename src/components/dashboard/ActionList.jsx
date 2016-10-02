@@ -43,7 +43,7 @@ export default class ActionList extends React.Component {
             return (
                 <div className="ActionList">
                     <ul>
-                    { actions.map(item => (
+                    { actions.toList().map(item => (
                         <ActionListItem key={ item.get('id') }
                             action={ item }/>
                     ))}

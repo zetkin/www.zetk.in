@@ -26,11 +26,15 @@ export default createReducer(initialState, {
     },
 
     [RETRIEVE_USER_ASSIGNMENTS + '_FULFILLED']: (state, action) => {
-        let assignments = action.payload.data.data;
+        let assignments = {};
+        action.payload.data.data.forEach(assignment =>
+            assignments[assignment.id] = assignment);
 
         return state
             .setIn(['assignmentList', 'error'], null)
             .setIn(['assignmentList', 'isPending'], false)
-            .setIn(['assignmentList', 'items'], immutable.fromJS(assignments));
+            .updateIn(['assignmentList', 'items'], items => items?
+                items.merge(immutable.fromJS(assignments)) :
+                immutable.fromJS(assignments));
     },
 });

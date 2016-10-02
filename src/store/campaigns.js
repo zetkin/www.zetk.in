@@ -5,16 +5,9 @@ import * as types from '../actions';
 
 
 // Selector for a single campaign
-export const campaign = (state, id) => {
-    let items = state.getIn(['campaigns', 'campaignList', 'items']);
+export const campaign = (state, id) =>
+    state.getIn(['campaigns', 'campaignList', 'items', id]);
 
-    // Return null for empty lists
-    if (!items)
-        return null;
-
-    return items
-        .find(campaign => campaign.get('id') == id);
-};
 
 const initialState = immutable.fromJS({
     campaignList: {
@@ -36,31 +29,32 @@ export default createReducer(initialState, {
     },
 
     [types.RETRIEVE_ALL_CAMPAIGNS + '_FULFILLED']: (state, action) => {
-        let campaigns = action.payload.reduce((arr, org) => {
-            // Add org_id to campaigns
-            let orgId = org.meta.org.id;
-            let orgCampaigns = org.data.data
-                .map(campaign =>
-                    Object.assign({}, campaign, { org_id: orgId }));
+        let campaigns = {};
+        action.payload.forEach(res => {
+            let orgId = res.meta.org.id;
 
-            return arr.concat(orgCampaigns);
-        }, []);
+            res.data.data
+                .forEach(campaign => {
+                    // Add organization ID to campaign objects
+                    campaigns[campaign.id] = Object.assign(campaign, {
+                        org_id: orgId
+                    });
+                });
+        });
 
         return state
             .setIn(['campaignList', 'error'], null)
             .setIn(['campaignList', 'isPending'], false)
-            .setIn(['campaignList', 'items'], immutable.fromJS(campaigns));
+            .updateIn(['campaignList', 'items'], items => items?
+                items.merge(immutable.fromJS(campaigns)) :
+                immutable.fromJS(campaigns));
     },
 
     [types.RETRIEVE_CAMPAIGN + '_FULFILLED']: (state, action) => {
-        if (!state.getIn(['campaignList', 'items'])) {
-            state = state.setIn(['campaignList', 'items'], immutable.List());
-        }
-
+        let campaign = action.payload.data.data;
         return state
-            .updateIn(['campaignList', 'items'], items => items
-                // TODO: Don't just push. Could create duplicates
-                .push(immutable.fromJS(action.payload.data.data))
-            );
+            .updateIn(['campaignList', 'items'], items => items?
+                items.set(campaign.id, campaign) :
+                immutable.fromJS({ [campaign.id]: campaign }));
     },
 });

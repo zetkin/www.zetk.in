@@ -49,12 +49,16 @@ export default createReducer(initialState, {
     },
 
     [types.RETRIEVE_USER_ACTIONS + '_FULFILLED']: (state, action) => {
-        let actions = action.payload.data.data;
+        let actions = {};
+        action.payload.data.data.forEach(obj =>
+            actions[obj.id] = obj);
 
         return state
             .setIn(['userActionList', 'error'], null)
             .setIn(['userActionList', 'isPending'], false)
-            .setIn(['userActionList', 'items'], immutable.fromJS(actions));
+            .updateIn(['userActionList', 'items'], items => items?
+                items.merge(immutable.fromJS(actions)) :
+                immutable.fromJS(actions));
     },
 
     [types.RETRIEVE_ALL_ACTIONS + '_PENDING']: (state, action) => {
@@ -64,20 +68,21 @@ export default createReducer(initialState, {
     },
 
     [types.RETRIEVE_ALL_ACTIONS + '_FULFILLED']: (state, action) => {
-        // Reduce list of orgs with list of actions to a flat list
-        // of actions with ID references to the orgs.
-        let actions = action.payload.reduce((arr, org) => {
-            let orgActions = org.data.data.map(a => Object.assign(a, {
-                org_id: org.meta.org.id
-            }));
-
-            return arr.concat(orgActions);
-        }, []);
+        let actions = {};
+        action.payload.forEach(res => {
+            let orgId = res.meta.org.id;
+            res.data.data.forEach(obj =>
+                actions[obj.id] = Object.assign(obj, {
+                    org_id: orgId
+                }));
+        });
 
         return state
             .setIn(['actionList', 'error'], null)
             .setIn(['actionList', 'isPending'], false)
-            .setIn(['actionList', 'items'], immutable.fromJS(actions));
+            .updateIn(['actionList', 'items'], items => items?
+                items.merge(immutable.fromJS(actions)) :
+                immutable.fromJS(actions));
     },
 
     [types.RETRIEVE_CAMPAIGN_ACTIONS + '_PENDING']: (state, action) => {
@@ -89,13 +94,18 @@ export default createReducer(initialState, {
 
     [types.RETRIEVE_CAMPAIGN_ACTIONS + '_FULFILLED']: (state, action) => {
         // Add org_id to action objects
-        let actions = action.payload.data.data.map(a =>
-            Object.assign({}, a, { org_id: action.meta.orgId }));
+        let actions = {};
+        action.payload.data.data.forEach(obj =>
+            actions[obj.id] = Object.assign(obj, {
+                org_id: action.meta.orgId
+            }));
 
         return state
             .setIn(['actionList', 'error'], null)
             .setIn(['actionList', 'isPending'], false)
-            .setIn(['actionList', 'items'], immutable.fromJS(actions));
+            .updateIn(['actionList', 'items'], items => items?
+                items.merge(immutable.fromJS(actions)) :
+                immutable.fromJS(actions));
     },
 
     [types.RETRIEVE_USER_RESPONSES + '_PENDING']: (state, action) => {
@@ -105,30 +115,34 @@ export default createReducer(initialState, {
     },
 
     [types.RETRIEVE_USER_RESPONSES + '_FULFILLED']: (state, action) => {
-        let responses = action.payload.data.data;
+        let responses = {};
+        action.payload.data.data.forEach(obj =>
+            responses[obj.action_id.toString()] = obj);
 
         return state
             .setIn(['responseList', 'error'], null)
             .setIn(['responseList', 'isPending'], false)
-            .setIn(['responseList', 'items'], immutable.fromJS(responses));
+            .updateIn(['responseList', 'items'], items => items?
+                items.merge(immutable.fromJS(responses)) :
+                immutable.fromJS(responses));
     },
 
     [types.UPDATE_ACTION_RESPONSE + '_FULFILLED']: (state, action) => {
+        let actionId = action.meta.actionId.toString();
         if (action.meta.responseBool) {
             let response = immutable.fromJS({
                 ...action.payload.data.data,
-                action_id: action.meta.actionId,
+                action_id: actionId,
             });
 
             return state
-                .updateIn(['responseList', 'items'], items =>
-                    items.push(response));
+                .updateIn(['responseList', 'items'], items => items?
+                    items.set(actionId, response) :
+                    immutable.toJS({ [actionId]: response }));
         }
         else {
-            let key = state.getIn(['responseList', 'items']).findKey(item =>
-                        item.get('action_id') === action.meta.actionId);
             return state
-                .deleteIn(['responseList', 'items', key]);
+                .deleteIn(['responseList', 'items', actionId]);
         }
     },
 });

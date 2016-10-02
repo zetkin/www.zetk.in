@@ -45,7 +45,7 @@ export default class CampaignList extends React.Component {
             return (
                 <div className="CampaignList">
                     <ul>
-                    { campaigns.map(item => (
+                    { campaigns.toList().map(item => (
                         <CampaignListItem key={ item.get('id') }
                             campaign={ item }/>
                     ))}

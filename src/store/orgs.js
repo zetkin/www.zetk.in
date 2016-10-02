@@ -29,20 +29,29 @@ export default createReducer(initialState, {
     },
 
     [types.RETRIEVE_USER_MEMBERSHIPS + '_FULFILLED']: (state, action) => {
-        let orgs = action.payload.data.data;
+        let memberships = {};
+
+        action.payload.data.data.forEach(membership =>
+            memberships[membership.organization.id] = membership);
 
         return state
             .setIn(['membershipList', 'error'], null)
             .setIn(['membershipList', 'isPending'], false)
-            .setIn(['membershipList', 'items'], immutable.fromJS(orgs));
+            .updateIn(['membershipList', 'items'], items => items?
+                items.merge(immutable.fromJS(memberships)) :
+                immutable.fromJS(memberships));
     },
 
     [types.RETRIEVE_ALL_ACTIONS + '_FULFILLED']: (state, action) => {
-        // TODO: Merge instead of replacing?
-        let orgs = action.payload.map(res => res.meta.org);
+        let orgs = {};
+        action.payload.forEach(res =>
+            orgs[res.meta.org.id] = res.meta.org);
+
         return state
             .setIn(['orgList', 'error'], null)
             .setIn(['orgList', 'isPending'], false)
-            .setIn(['orgList', 'items'], immutable.fromJS(orgs));
+            .updateIn(['orgList', 'items'], items => items?
+                items.merge(immutable.fromJS(orgs)) :
+                immutable.fromJS(orgs));
     }
 });
