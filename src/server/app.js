@@ -9,6 +9,7 @@ import { match, RouterContext } from 'react-router';
 import App from '../components/App';
 import IntlReduxProvider from '../components/IntlReduxProvider';
 import { loadLocaleHandler } from './locale';
+import formEndpoints from './forms';
 import preloader from './preloader';
 import routes from '../components/routes';
 
@@ -33,6 +34,7 @@ export default function initApp(messages) {
         });
     }
 
+    app.use('/favicon.ico', (req, res) => res.status(404).end());
     app.use('/static/', express.static(
         path.join(__dirname, '../../static'),
         { fallthrough: false }));
@@ -41,6 +43,8 @@ export default function initApp(messages) {
     app.use(auth.initialize(authOpts));
     app.get('/', auth.callback(authOpts));
     app.get('/logout', auth.logout(authOpts));
+
+    app.use('/forms', auth.validate(authOpts), formEndpoints);
 
     app.get('/l10n', loadLocaleHandler());
 

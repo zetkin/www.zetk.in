@@ -5,8 +5,13 @@ import { configureStore } from '../store';
 import { createLocalizeHandler } from './locale';
 import { setUserData } from '../actions/user';
 import { retrieveAllCampaigns } from '../actions/campaign';
-import { retrieveUserActions } from '../actions/action';
 import { retrieveUserAssignments } from '../actions/callAssignment';
+import { retrieveUserMemberships } from '../actions/org';
+import {
+    retrieveAllActions,
+    retrieveUserActions,
+    retrieveUserResponses,
+} from '../actions/action';
 
 
 export default (messages) => {
@@ -22,8 +27,12 @@ export default (messages) => {
 
     preloader.get('/dashboard', waitForActions(req => [
         retrieveAllCampaigns(),
+        retrieveAllActions(),
         retrieveUserActions(),
         retrieveUserAssignments(),
+        // TODO: Maybe this should be universal for all URLs?
+        retrieveUserMemberships(),
+        retrieveUserResponses(),
     ]));
 
     return preloader;
