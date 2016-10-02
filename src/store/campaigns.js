@@ -24,8 +24,15 @@ export default createReducer(initialState, {
     },
 
     [types.RETRIEVE_ALL_CAMPAIGNS + '_FULFILLED']: (state, action) => {
-        let campaigns = action.payload.reduce((arr, org) =>
-            arr.concat(org.data.data), []);
+        let campaigns = action.payload.reduce((arr, org) => {
+            // Add org_id to campaigns
+            let orgId = org.meta.org.id;
+            let orgCampaigns = org.data.data
+                .map(campaign =>
+                    Object.assign({}, campaign, { org_id: orgId }));
+
+            return arr.concat(orgCampaigns);
+        }, []);
 
         return state
             .setIn(['campaignList', 'error'], null)
