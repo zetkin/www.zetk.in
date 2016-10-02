@@ -68,7 +68,8 @@ export default class CampaignList extends React.Component {
 
 const CampaignListItem = props => {
     let title = props.campaign.get('title');
-    let href = '/campaigns/' + props.campaign.get('id');
+    let href = '/o/' + props.campaign.get('org_id')
+        + '/campaigns/' + props.campaign.get('id');
 
     return (
         <li className="CampaignListItem">

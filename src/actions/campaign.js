@@ -21,3 +21,16 @@ export function retrieveAllCampaigns() {
         });
     };
 }
+
+export function retrieveCampaign(orgId, campaignId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.RETRIEVE_CAMPAIGN,
+            meta: { orgId, campaignId },
+            payload: {
+                promise: z.resource('orgs', orgId,
+                    'campaigns', campaignId).get()
+            }
+        });
+    };
+}

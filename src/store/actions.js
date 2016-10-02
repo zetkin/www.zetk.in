@@ -4,6 +4,20 @@ import immutable from 'immutable';
 import * as types from '../actions';
 
 
+// Selector to get actionList filtered by campaign
+export const campaignActionList = (state, campaignId) => {
+    let list = state.getIn(['actions', 'actionList']);
+
+    // No need to filter empty list
+    if (!list.get('items')) {
+        return list;
+    }
+
+    return list
+        .updateIn(['items'], items => items
+            .filter(item => item.getIn(['campaign', 'id']) == campaignId));
+};
+
 const initialState = immutable.fromJS({
     actionList: {
         isPending: false,
@@ -59,6 +73,24 @@ export default createReducer(initialState, {
 
             return arr.concat(orgActions);
         }, []);
+
+        return state
+            .setIn(['actionList', 'error'], null)
+            .setIn(['actionList', 'isPending'], false)
+            .setIn(['actionList', 'items'], immutable.fromJS(actions));
+    },
+
+    [types.RETRIEVE_CAMPAIGN_ACTIONS + '_PENDING']: (state, action) => {
+        return state
+            .setIn(['actionList', 'error'], null)
+            .setIn(['actionList', 'items'], null)
+            .setIn(['actionList', 'isPending'], true);
+    },
+
+    [types.RETRIEVE_CAMPAIGN_ACTIONS + '_FULFILLED']: (state, action) => {
+        // Add org_id to action objects
+        let actions = action.payload.data.data.map(a =>
+            Object.assign({}, a, { org_id: action.meta.orgId }));
 
         return state
             .setIn(['actionList', 'error'], null)
