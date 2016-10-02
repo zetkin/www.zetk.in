@@ -69,15 +69,17 @@ const AssignmentListItem = props => {
     let assignment = props.assignment;
     let title = assignment.get('title');
     let description = assignment.get('description');
-    let href = '/call-assignments/' + assignment.get('id');
+    let infoHref = '/call-assignments/' + assignment.get('id');
+    let callHref = '//call.' + process.env.ZETKIN_DOMAIN
+            + '/assignments/' + assignment.get('id') + '/call';
 
     return (
         <li className="AssignmentListItem">
-            <h3><Link to={ href }>{ title }</Link></h3>
+            <h3><Link to={ infoHref }>{ title }</Link></h3>
             <p>
                 { description }
             </p>
-            <FormattedLink href={ href }
+            <FormattedLink href={ callHref }
                 msgId="dashboard.assignments.startCalling"/>
         </li>
     );
