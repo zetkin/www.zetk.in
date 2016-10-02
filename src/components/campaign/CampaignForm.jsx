@@ -64,7 +64,7 @@ export default class CampaignForm extends React.Component {
 
             let dayComponents = actionsByDay.toList().map((actions, key) => {
                 // TODO: Do more logic to group actions as shifts et c
-                let actionComponents = actions.map(action => {
+                let actionComponents = actions.toList().map(action => {
                     let response = !!responseList.get('items').find(item =>
                         item.get('action_id') == action.get('id'));
 
