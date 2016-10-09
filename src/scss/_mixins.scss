@@ -1,11 +1,233 @@
-@mixin medium-screen {
-    @media (min-width: #{$medium-min-width}) {
-        @content;
+@mixin list-unstyled {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+@mixin card {
+    color: #333;
+    background-color: #fefefe;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    border-radius: 2px;
+}
+
+@mixin page {
+    max-width: 30em;
+    margin: 0 auto;
+}
+
+@mixin input-base {
+    font-size: 1.25em;
+    border: 1px solid #eaeaea;
+    padding: 8px 5px;
+    margin: 0 auto 15px;
+    width: 100%;
+    border-radius: 2px;
+    color: inherit;
+    &:focus{
+        outline: none;
+        border-color: #ccc;
     }
 }
 
-@mixin wide-screen {
-    @media (min-width: #{$wide-min-width}) {
-        @content;
+@mixin button-color($color, $amount:5) {
+    //TODO: switch darken/lighten based on lightness
+    background-color: $color;
+    border-color: darken($color, 10);
+
+    @if (lightness($color) < 70%) {
+        color: $c-text-contrast;
     }
+    @else {
+        color: inherit;
+    }
+
+    &:hover {
+        @include button-active($color, $amount);
+    }
+    &:focus {
+        border-color: darken($color, $amount * 1.5);
+        background-color: darken($color, $amount * 1.5);
+    }
+    &.selected {
+        border-color: darken($color, $amount * 1.5);
+        background-color: darken($color, $amount * 1.5);
+    }
+}
+
+@mixin button-active($color, $amount) {
+    background-color: darken($color, $amount);
+    border-color: darken($color, $amount*2);
+}
+
+@mixin button($color: $c-brand-confirm, $amount:5, $icon:false) {
+    font-size: 1.4em;
+    font-weight: 500;
+    border-width: 0;
+    display: inline-block;
+    padding: 1.2em 1em 0.9em;
+    border-bottom: 3px solid;
+    border-radius: 3px;
+    @include button-color($color, $amount);
+    @if $icon {
+        &:before {
+            @include icon($icon);
+            line-height: 0;
+            height: 0;
+        }
+    }
+}
+
+@mixin inline-button($color: lighten($c-ui-bg, 1), $amount:5, $icon:false) {
+    @include input-base;
+    width: auto;
+    content: lightness($color); // for reference;
+    padding: .5em 1em .4em;
+    cursor: pointer;
+    margin-bottom: inherit;
+    @include button-color($color, $amount);
+    @if $icon {
+        padding-left: .3em;
+        &:before {
+            @include icon($icon);
+            line-height: 0;
+            height: 0;
+        }
+    }
+}
+
+@mixin key-reference {
+    font-family: 'Consolas', 'Courier New', 'monospace';
+    display: inline-block;
+    background-color: #efefef;
+    color: #666;
+    border-radius: 0.2em;
+    padding: 0.3em .4em 0.1em;
+    min-width: 2.5em;
+    line-height: 1.4;
+    text-align: center;
+}
+
+@mixin icon($fa-character) {
+    @include fa-icon;
+    text-align: center;
+    height: 1.6em;
+    width: 1.6em;
+    line-height: 1.6;
+    margin-right: .2em;
+    content: $fa-character;
+}
+
+@mixin icon-spin {
+    -webkit-animation: fa-spin 1s infinite steps(24);
+        animation: fa-spin 1s infinite steps(24);
+}
+
+@mixin icon-button($fa-character) {
+    padding: .35em 1em .25em;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+    &::before{
+        @include icon($fa-character);
+        display: inline;
+        margin-right: .5em;
+    }
+}
+
+@mixin icon-button-only() {
+    width: 3em;
+    color: transparent;
+    &::before{
+        display:inline;
+        color: $c-ui-darker;
+    }
+}
+
+@mixin icon-button-add($fa-character) {
+    @include icon-button($fa-character);
+    padding: .35em .75em .25em;
+    &::after{
+        @include icon($fa-var-plus);
+        color: $c-ui-darker;
+        position: absolute;
+        right: .25em;
+        top: .4em;
+    }
+}
+
+@mixin ghost-placeholder() {
+    border: 2px dashed $c-ui-dark;
+    text-align: center;
+    padding: 15px 10px;
+    margin: 0 0 10px;
+
+    transition: border-color 0.3s;
+
+    p {
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
+
+    a {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+@mixin flex-container($direction: row, $wrapping: none){
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+
+    -webkit-flex-wrap: $wrapping;
+    -ms-flex-wrap: $wrapping;
+    flex-wrap: $wrapping;
+}
+@mixin flex($number: 1){
+    -webkit-box-flex: $number;
+    -webkit-flex: $number;
+    -ms-flex: $number;
+    flex: $number;
+}
+@mixin justify-content($justification: space-around){
+    -webkit-justify-content: $justification;
+    -ms-justify-content: $justification;
+    justify-content: $justification;
+}
+@mixin align-items($alignment: flex-start){
+    -webkit-align-items: $alignment;
+    align-items: $alignment;
+}
+
+@mixin medium-screen {
+  @media (min-width: #{$medium-width}) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media only screen and (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+@mixin col ($col, $sum, $gap: 0.5em, $align: top, $first: false, $last: false) {
+    width: percentage($col/$sum);
+    vertical-align: $align;
+    display: inline-block;
+    padding-left: if($first, 0, $gap);
+    padding-right: if($last, 0, $gap);
+
+    &.fluid { width: percentage($col/$sum); }
+}
+
+@mixin col-offset($col, $sum) {
+    margin-left: percentage($col/$sum);
 }
