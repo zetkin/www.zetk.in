@@ -77,6 +77,25 @@
     }
 }
 
+@mixin gradient-button($gradColor1: $c-brand-main-orange, $gradColor2: $c-brand-main-pink, $textColor: $c-text-contrast, $icon:false) {
+    font-size: 1.25em;
+    font-weight: 500;
+    border-width: 0;
+    display: inline-block;
+    padding: 0 2.5em;
+    line-height: 3em;
+    border-radius: 3em;
+    color: $textColor;
+    background: linear-gradient(to right, $gradColor1 , $gradColor2);
+    @if $icon {
+        &:before {
+            @include icon($icon);
+            line-height: 0;
+            height: 0;
+        }
+    }
+}
+
 @mixin inline-button($color: lighten($c-ui-bg, 1), $amount:5, $icon:false) {
     @include input-base;
     width: auto;
