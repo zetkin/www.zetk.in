@@ -1,0 +1,33 @@
+body {
+    font-family: franklin-gothic-urw-comp, sans-serif;
+    color: $c-text;
+    background-color: #FFF;
+    font-size: 18px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'azo-sans-web';
+    font-style: normal;
+    font-weight: 400;
+    color: darken($c-text, 5);
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+a {
+    color: $c-brand-main;
+}
+
+p {
+    line-height: 1.7em;
+}
