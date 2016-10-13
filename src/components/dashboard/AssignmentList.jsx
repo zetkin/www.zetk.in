@@ -75,12 +75,10 @@ const AssignmentListItem = props => {
 
     return (
         <li className="AssignmentListItem">
-            <h3><Link to={ infoHref }>{ title }</Link></h3>
+            <h3><Link to={ callHref }>{ title }</Link></h3>
             <p>
                 { description }
             </p>
-            <FormattedLink href={ callHref }
-                msgId="dashboard.assignments.startCalling"/>
         </li>
     );
 };
