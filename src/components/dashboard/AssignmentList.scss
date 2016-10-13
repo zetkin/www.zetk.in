@@ -1,0 +1,25 @@
+.AssignmentList {
+
+}
+.AssignmentListItem {
+    h3 {
+        font-size: 1em;
+        margin: 0;
+    }
+    p {
+        font-size: 0.8em;
+        margin: 0.1em 0;
+
+       overflow: hidden;
+       text-overflow: ellipsis;
+       display: -webkit-box;
+       max-height: 3.4em;      /* fallback */
+       -webkit-line-clamp: 2; /* number of lines to show */
+       -webkit-box-orient: vertical;
+
+    }
+    & > a {
+        float: right;
+        font-size: 0.8em;
+    }
+}

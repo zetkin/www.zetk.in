@@ -1,8 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: franklin-gothic-urw-comp, sans-serif;
+    font-family: franklin-gothic-urw, sans-serif;
     color: $c-text;
     background-color: #FFF;
     font-size: 18px;
+    margin: 0;
 }
 
 h1, h2, h3, h4 {
