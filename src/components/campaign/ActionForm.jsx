@@ -22,10 +22,12 @@ export default class ActionForm extends React.Component {
         let timeLabel = startTime.format('{HH}:{mm}')
             + ' - ' + endTime.format('{HH}:{mm}');
 
+        let location = action.getIn(['location', 'title']);
+
         let infoText = null;
         if (action.get('info_text')) {
             infoText = (
-                <p>
+                <p className="ActionForm-info">
                     { action.get('info_text') }
                 </p>
             );
@@ -64,13 +66,21 @@ export default class ActionForm extends React.Component {
 
         return (
             <div className="ActionForm">
-                <h3>
+                <h3 className="ActionForm-title">
                     <span className="ActionForm-activity">{ activity }</span>
-                    <span className="ActionForm-time">{ timeLabel }</span>
                 </h3>
+                <div className="ActionForm-location">
+                    <span className="ActionForm-locationItem">{ location }</span>
+                </div>
+                <div className="ActionForm-time">
+                    <span className="ActionForm-timeItem">{ timeLabel }</span>
+                </div>
+
                 { infoText }
 
-                { respondWidget }
+                <div className="ActionForm-response">
+                    { respondWidget }
+                </div>
             </div>
         );
     }
