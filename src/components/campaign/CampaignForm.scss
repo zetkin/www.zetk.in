@@ -6,12 +6,35 @@
     float:left;
 }
 .CampaignForm-actions {
-    @include col(4,12); 
+    @include col(4,12);
     .CampaignForm-action {
+        position: relative;
         margin: 1em 0;
+        list-style: none;
+        &:before {
+            content: " ";
+            background: $c-brand-main;
+            height: 1em;
+            width: 1em;
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            margin-left: -2.5em;
+            top: calc(50% - 0.5em);
+        }
     }
 }
 .CampaignForm-days {
     list-style: none;
     padding: 0;
+    margin-left: 4em;
+    &:before {
+        content: " ";
+        background: $c-brand-main;
+        height: 100%;
+        width: 0.2em;
+        display: block;
+        position: absolute;
+        margin-left: -1.6em;
+    }
 }
