@@ -43,11 +43,30 @@
     bottom: calc(50% - 1em);
     color: $c-brand-main;
     .ActionForm-checkbox {
-        width: 2em;
-        height: 2em;
+        display: none;
         & + label {
-            display: none;
+            display: block;
+            &:before {
+                content: ' ';
+                display: block;
+                width: 1.5em;
+                height: 1.5em;
+                background-color: darken(#fff, 1);
+                border: 1px solid darken(#fff, 15);
+                border-radius: 2px;
+                transition: background-color 0.2s;
+            }
+            span {
+                display: none;
+            }
         }
+        &:checked +label:before {
+                background-color: darken(#fff, 5);
+                @include icon($fa-var-check);
+                height: 1.5em;
+                width: 1.5em;
+                margin: 0;
+            }
     }
 
 }
