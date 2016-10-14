@@ -1,0 +1,53 @@
+.ActionForm {
+    @include card;
+    padding: 1em;
+    position: relative;
+}
+.ActionForm-title {
+    margin: 0.5em 0 0.2em;
+    font-size: 1.2em;
+}
+.ActionForm-location, .ActionForm-time {
+    font-size: 0.9em;
+    color: lighten($c-text, 20);
+    margin-bottom: 0.2em;
+}
+.ActionForm-location {
+    &:before {
+        @include icon($fa-var-map-marker);
+    }
+}
+.ActionForm-time {
+    &:before {
+        @include icon($fa-var-clock-o);
+    }
+}
+.ActionForm-info {
+    color: lighten($c-text, 30);
+    font-size: 0.8em;
+    line-height: 1.5em;
+    margin: 0 3em 0 0;
+
+
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-height: 4.5em;      /* fallback */
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+.ActionForm-response {
+    position: absolute;
+    right: 1em;
+    bottom: calc(50% - 1em);
+    color: $c-brand-main;
+    .ActionForm-checkbox {
+        width: 2em;
+        height: 2em;
+        & + label {
+            display: none;
+        }
+    }
+
+}

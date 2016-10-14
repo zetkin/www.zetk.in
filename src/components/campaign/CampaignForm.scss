@@ -5,3 +5,13 @@
     width: 100%;
     float:left;
 }
+.CampaignForm-actions {
+    @include col(4,12); 
+    .CampaignForm-action {
+        margin: 1em 0;
+    }
+}
+.CampaignForm-days {
+    list-style: none;
+    padding: 0;
+}
