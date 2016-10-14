@@ -27,7 +27,7 @@
 .CampaignForm-days {
     list-style: none;
     padding: 0;
-    margin-left: 4em;
+    margin-left: 8em;
     &:before {
         content: " ";
         background: $c-brand-main;
@@ -36,5 +36,13 @@
         display: block;
         position: absolute;
         margin-left: -1.6em;
+    }
+    .CampaignForm-day {
+        .CampaignForm-date {
+            color: $c-text;
+            position: absolute;
+            margin-left: -6em;
+            text-align: right;
+        }
     }
 }
