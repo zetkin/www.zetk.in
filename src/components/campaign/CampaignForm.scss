@@ -13,13 +13,14 @@
         list-style: none;
         &:before {
             content: " ";
-            background: $c-brand-main;
+            background: #fff;
+            border: 0.2em solid $c-brand-main;
             height: 1em;
             width: 1em;
             display: block;
             border-radius: 50%;
             position: absolute;
-            margin-left: -2.5em;
+            margin-left: -2.6em;
             top: calc(50% - 0.5em);
         }
     }
