@@ -5,6 +5,7 @@ import React from 'react';
 import ActionForm from './ActionForm';
 import LoadingIndicator from '../misc/LoadingIndicator';
 import PropTypes from '../../utils/PropTypes';
+import cx from 'classnames';
 
 
 @injectIntl
@@ -71,9 +72,11 @@ export default class CampaignForm extends React.Component {
                     let booked = !!userActionList.get('items').find(item =>
                         item.get('id') == action.get('id'));
 
+                    const classes = cx("CampaignForm-action", ( booked ? 'booked' : '' ) );
+
                     return (
                         <li key={ action.get('id') }
-                            className="CampaignForm-action">
+                            className={ classes }>
                             <ActionForm action={ action }
                                 isBooked={ booked } response={ response }
                                 onChange={ this.onActionChange.bind(this) }/>
