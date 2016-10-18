@@ -1,4 +1,6 @@
 import React from 'react';
+import cx from 'classnames';
+import ReactDOM from 'react-dom';
 import { FormattedMessage as Msg } from 'react-intl';
 
 
@@ -8,6 +10,26 @@ export default class ActionForm extends React.Component {
         isBooked: React.PropTypes.bool,
         response: React.PropTypes.bool,
     };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            viewMode: undefined,
+        };
+    }
+
+    componentDidMount() {
+        let node = ReactDOM.findDOMNode(this.refs.infoText);
+        if (node) {
+            console.log(node.clientHeight);
+            if (node.clientHeight > 63) {
+                this.setState({
+                    viewMode: 'contracted',
+                });
+            }
+        }
+    }
 
     render() {
         let action = this.props.action;
@@ -26,11 +48,23 @@ export default class ActionForm extends React.Component {
 
         let infoText = null;
         if (action.get('info_text')) {
-            infoText = (
-                <p className="ActionForm-info">
+            infoText = [
+                <p key="infoText" ref="infoText"
+                    className="ActionForm-info">
                     { action.get('info_text') }
                 </p>
-            );
+            ];
+
+            if (this.state.viewMode) {
+                infoText.push(
+                    <button
+                        key="toggleExpandButton"
+                        className="ActionForm-toggleExpandButton"
+                        onClick={ this.onClickToggleExpandButton.bind(this) }>
+                        </button>
+                );
+            }
+
         }
 
         let id = action.get('id');
@@ -64,8 +98,13 @@ export default class ActionForm extends React.Component {
             ];
         }
 
+        let classes = cx('ActionForm', {
+            contracted: this.state.viewMode === 'contracted',
+            expanded: this.state.viewMode === 'expanded',
+        });
+
         return (
-            <div className="ActionForm">
+            <div className={ classes }>
                 <h3 className="ActionForm-title">
                     <span className="ActionForm-activity">{ activity }</span>
                 </h3>
@@ -83,6 +122,14 @@ export default class ActionForm extends React.Component {
                 </div>
             </div>
         );
+    }
+
+    onClickToggleExpandButton(ev) {
+        ev.preventDefault();
+        this.setState({
+            viewMode: (this.state.viewMode === 'contracted')?
+                'expanded' : 'contracted',
+        });
     }
 
     onChange(ev) {
