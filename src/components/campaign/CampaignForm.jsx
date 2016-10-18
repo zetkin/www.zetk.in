@@ -84,11 +84,11 @@ export default class CampaignForm extends React.Component {
                     );
                 });
 
-                let date = actions.toList().map(action => {
-                    let startTime = Date.create(action.get('start_time'),
-                        { fromUTC: true, setUTC: true });
-                    return startTime.format('{dd}/{MM}')
-                });
+                // Use date from first action on day
+                let action = actions.toList().get(0);
+                let startTime = Date.create(action.get('start_time'),
+                    { fromUTC: true, setUTC: true });
+                let date = startTime.format('{dd}/{MM}')
 
                 return (
                     <li className="CampaignForm-day" key={ key }>
