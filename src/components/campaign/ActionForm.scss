@@ -27,15 +27,39 @@
     font-size: 0.8em;
     line-height: 1.5em;
     margin: 0 3em 0 0;
-
-
-
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    max-height: 4.5em;      /* fallback */
-    -webkit-line-clamp: 3; /* number of lines to show */
-    -webkit-box-orient: vertical;
+    max-height: 4.5em;
+    transition: max-height 0.5s;
+}
+.ActionForm-toggleExpandButton {
+    bottom: 0;
+    margin-top: 0.5em;
+    margin-left: calc(50% - 1em);
+}
+.ActionForm.contracted {
+    &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 3em;
+        width: 30%;
+        height: 1.5em;
+        background: linear-gradient(to right, 
+            rgba(255, 255, 255, 0), 
+            rgba(255, 255, 255, 1) 50%);
+    }
+    .ActionForm-toggleExpandButton {
+        @include circle-button($icon:$fa-var-caret-down);
+    }
+}
+.ActionForm.expanded {
+    .ActionForm-info {
+        max-height: 10em;
+    }
+    .ActionForm-toggleExpandButton {
+        @include circle-button($icon:$fa-var-caret-up);
+    }
 }
 .ActionForm-response {
     position: absolute;
