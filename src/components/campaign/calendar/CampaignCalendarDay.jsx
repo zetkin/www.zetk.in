@@ -24,6 +24,7 @@ export default class CampaignCalendarDay extends React.Component {
 
             link = (
                 <a className="CampaignCalendarDay-link"
+                    onClick={ this.onClick.bind(this, fragment) }
                     href={ href }/>
             );
         }
@@ -33,5 +34,17 @@ export default class CampaignCalendarDay extends React.Component {
                 { link }
             </li>
         );
+    }
+
+    onClick(fragment, ev) {
+        ev.preventDefault();
+
+        let target = document.getElementById(fragment);
+        let rect = target.getBoundingClientRect();
+        let scrollTop = rect.top;
+
+        let animatedScrollTo = require('animated-scrollto');
+        let duration = 200 + scrollTop / 15;
+        animatedScrollTo(document.body, scrollTop, duration);
     }
 }
