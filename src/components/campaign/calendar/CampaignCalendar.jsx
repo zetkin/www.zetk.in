@@ -8,6 +8,7 @@ import CampaignCalendarDay from './CampaignCalendarDay';
 export default class CampaignCalendar extends React.Component {
     static propTypes = {
         actions: PropTypes.list.isRequired,
+        bookings: PropTypes.list.isRequired,
         startDate: PropTypes.object,
         endDate: PropTypes.object,
     };
@@ -15,6 +16,7 @@ export default class CampaignCalendar extends React.Component {
     render() {
         let startDate = this.props.startDate;
         let endDate = this.props.endDate;
+        let bookings = this.props.bookings;
         let actions = this.props.actions.sort((a0, a1) => {
             let d0 = new Date(a0.get('start_time')),
                 d1 = new Date(a1.get('start_time'));
@@ -37,8 +39,6 @@ export default class CampaignCalendar extends React.Component {
         // Always end on next Sunday
         endDate.setDate(endDate.getDate() + (7 - endDate.getDay()));
 
-        console.log('cal', startDate, endDate);
-
         // Don't show calendar when actions span less than seven days
         let duration = endDate.getTime() - startDate.getTime();
         if (duration < (7 * 24 * 60 * 60 * 1000)) {
@@ -52,6 +52,7 @@ export default class CampaignCalendar extends React.Component {
 
         while (d <= endDate) {
             let numDayActions = 0;
+            let hasBookings = false;
 
             while (idx < actions.size) {
                 let action = actions.get(idx);
@@ -66,11 +67,16 @@ export default class CampaignCalendar extends React.Component {
                 else {
                     break;
                 }
+
+                hasBookings = hasBookings ||
+                    bookings.contains(action.get('id').toString());
             }
+
 
             days.push(
                 <CampaignCalendarDay key={ d } date={ new Date(d) }
                     numActions={ numDayActions }
+                    hasBookings={ hasBookings }
                     />
             );
 

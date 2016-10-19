@@ -237,10 +237,16 @@ export default class CampaignForm extends React.Component {
                 );
             }
 
+            let bookings = userActionList.get('items')
+                .map(item => item.get('id').toString())
+                .toList();
+
             return (
                 <div className="CampaignForm">
                     <CampaignCalendar
-                        actions={ actionList.get('items').toList() }/>
+                        actions={ actionList.get('items').toList() }
+                        bookings={ bookings }
+                        />
                     <form method="post" action="/forms/actionResponse">
                         <ul className="CampaignForm-days">
                             { dayComponents }
