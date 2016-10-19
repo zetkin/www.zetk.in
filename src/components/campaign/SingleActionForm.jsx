@@ -3,8 +3,10 @@ import cx from 'classnames';
 import ReactDOM from 'react-dom';
 import { FormattedMessage as Msg } from 'react-intl';
 
+import ResponseWidget from './ResponseWidget';
 
-export default class ActionForm extends React.Component {
+
+export default class SingleActionForm extends React.Component {
     static propTypes = {
         onChange: React.PropTypes.func,
         isBooked: React.PropTypes.bool,
@@ -49,7 +51,7 @@ export default class ActionForm extends React.Component {
         if (action.get('info_text')) {
             infoText = [
                 <p key="infoText" ref="infoText"
-                    className="ActionForm-info">
+                    className="SingleActionForm-info">
                     { action.get('info_text') }
                 </p>
             ];
@@ -58,7 +60,7 @@ export default class ActionForm extends React.Component {
                 infoText.push(
                     <button
                         key="toggleExpandButton"
-                        className="ActionForm-toggleExpandButton"
+                        className="SingleActionForm-toggleExpandButton"
                         onClick={ this.onClickToggleExpandButton.bind(this) }>
                         </button>
                 );
@@ -66,58 +68,33 @@ export default class ActionForm extends React.Component {
 
         }
 
-        let id = action.get('id');
-
-        let respondWidget = null;
-        if (this.props.isBooked) {
-            respondWidget = (
-                <Msg id="campaignForm.action.booked"
-                    className="ActionForm-booked"/>
-            );
-        }
-        else {
-            // Include meta-data about org and previous (current) state in the
-            // form data for when form is submitted without javascript. The
-            // POST handler uses id.org, id.prev and id.response to figure out
-            // the correct API requests.
-            respondWidget = [
-                <input key="org" type="hidden" name={ id + '.org' }
-                    value={ action.get('org_id') }/>,
-                <input key="prev" type="hidden" name={ id + '.prev' }
-                    value={ this.props.response? 'on' : 'off' }/>,
-                <input key="checkbox" type="checkbox"
-                    className="ActionForm-checkbox"
-                    onChange={ this.onChange.bind(this) }
-                    checked={ this.props.response }
-                    id={ id } name={ id + '.res' }/>,
-                <label key="label" className="ActionForm-checkboxLabel"
-                    htmlFor={ id }>
-                    <Msg id="campaignForm.action.yesLabel"/>
-                </label>
-            ];
-        }
-
-        let classes = cx('ActionForm', {
+        let classes = cx('SingleActionForm', {
             contracted: this.state.viewMode === 'contracted',
             expanded: this.state.viewMode === 'expanded',
         });
 
         return (
             <div className={ classes }>
-                <h3 className="ActionForm-title">
-                    <span className="ActionForm-activity">{ activity }</span>
+                <h3 className="SingleActionForm-title">
+                    <span className="SingleActionForm-activity">
+                        { activity }</span>
                 </h3>
-                <div className="ActionForm-location">
-                    <span className="ActionForm-locationItem">{ location }</span>
+                <div className="SingleActionForm-location">
+                    <span className="SingleActionForm-locationItem">
+                        { location }</span>
                 </div>
-                <div className="ActionForm-time">
-                    <span className="ActionForm-timeItem">{ timeLabel }</span>
+                <div className="SingleActionForm-time">
+                    <span className="SingleActionForm-timeItem">
+                        { timeLabel }</span>
                 </div>
 
                 { infoText }
 
-                <div className="ActionForm-response">
-                    { respondWidget }
+                <div className="SingleActionForm-response">
+                    <ResponseWidget action={ action }
+                        isBooked={ this.props.isBooked }
+                        response={ this.props.response }
+                        onChange={ this.onChange.bind(this) }/>
                 </div>
             </div>
         );

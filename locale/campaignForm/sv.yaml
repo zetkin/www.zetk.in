@@ -1,5 +1,13 @@
 action:
     booked: "Bokad"
     yesLabel: "Ja"
+    multiLocationLabel: |
+        {count, plural,
+            =2 {På två platser}
+            =3 {På tre platser}
+            =4 {På fyra platser}
+            =5 {På fem platser}
+            other {På # platser}
+        }
 
 submitLabel: "Spara mina anmälningar"
