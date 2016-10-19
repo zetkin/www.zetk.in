@@ -165,25 +165,46 @@ export default class CampaignForm extends React.Component {
                             </li>
                         );
                     }
-                    else if (group.type === 'shifts') {
+                    else {
                         let actions = group.actions;
+                        let onActionChange = this.onActionChange.bind(this);
 
-                        return (
-                            <li key={ actions[0].get('id') }
-                                className="CampaignForm-action">
-                                <MultiShiftActionForm/>
-                            </li>
-                        );
-                    }
-                    else if (group.type === 'parallel') {
-                        let actions = group.actions;
+                        let responses = responseList.get('items')
+                            .map(item => item.get('action_id').toString())
+                            .filter(id => !!actions
+                                .find(a => a.get('id').toString() === id))
+                            .toList()
+                            .toJS();
 
-                        return (
-                            <li key={ actions[0].get('id') }
-                                className="CampaignForm-action">
-                                <MultiLocationActionForm/>
-                            </li>
-                        );
+                        let bookings = userActionList.get('items')
+                            .map(item => item.get('id').toString())
+                            .filter(id => !!actions
+                                .find(a => a.get('id').toString() === id))
+                            .toList()
+                            .toJS();
+
+                        if (group.type === 'shifts') {
+                            return (
+                                <li key={ actions[0].get('id') }
+                                    className="CampaignForm-action">
+                                    <MultiShiftActionForm actions={ actions }
+                                        bookings={ bookings }
+                                        responses={ responses }
+                                        onChange={ onActionChange }/>
+                                </li>
+                            );
+                        }
+                        else if (group.type === 'parallel') {
+                            return (
+                                <li key={ actions[0].get('id') }
+                                    className="CampaignForm-action">
+                                    <MultiLocationActionForm actions={ actions }
+                                        bookings={ bookings }
+                                        responses={ responses }
+                                        onChange={ onActionChange }/>
+                                </li>
+                            );
+                        }
                     }
                 });
 
