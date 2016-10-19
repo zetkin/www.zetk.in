@@ -2,9 +2,9 @@ import immutable from 'immutable';
 import { injectIntl } from 'react-intl';
 import React from 'react';
 
-import SingleActionForm from './SingleActionForm';
-import MultiShiftActionForm from './MultiShiftActionForm';
-import MultiLocationActionForm from './MultiLocationActionForm';
+import SingleActionForm from './action/SingleActionForm';
+import MultiShiftActionForm from './action/MultiShiftActionForm';
+import MultiLocationActionForm from './action/MultiLocationActionForm';
 import LoadingIndicator from '../misc/LoadingIndicator';
 import PropTypes from '../../utils/PropTypes';
 import cx from 'classnames';
