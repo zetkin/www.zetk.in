@@ -5,6 +5,7 @@ import React from 'react';
 import ActionForm from './ActionForm';
 import LoadingIndicator from '../misc/LoadingIndicator';
 import PropTypes from '../../utils/PropTypes';
+import cx from 'classnames';
 
 
 @injectIntl
@@ -71,9 +72,11 @@ export default class CampaignForm extends React.Component {
                     let booked = !!userActionList.get('items').find(item =>
                         item.get('id') == action.get('id'));
 
+                    let classes = cx('CampaignForm-action', { booked });
+
                     return (
                         <li key={ action.get('id') }
-                            className="CampaignForm-action">
+                            className={ classes }>
                             <ActionForm action={ action }
                                 isBooked={ booked } response={ response }
                                 onChange={ this.onActionChange.bind(this) }/>
@@ -81,9 +84,15 @@ export default class CampaignForm extends React.Component {
                     );
                 });
 
+                // Use date from first action on day
+                let action = actions.toList().get(0);
+                let startTime = Date.create(action.get('start_time'),
+                    { fromUTC: true, setUTC: true });
+                let date = startTime.format('{dd}/{MM}')
+
                 return (
                     <li className="CampaignForm-day" key={ key }>
-                        <h4>{ key }</h4>
+                        <div className="CampaignForm-date">{ date }</div>
                         <ul className="CampaignForm-actions">
                             { actionComponents }
                         </ul>

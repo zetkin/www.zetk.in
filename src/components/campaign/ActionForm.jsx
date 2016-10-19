@@ -1,4 +1,6 @@
 import React from 'react';
+import cx from 'classnames';
+import ReactDOM from 'react-dom';
 import { FormattedMessage as Msg } from 'react-intl';
 
 
@@ -8,6 +10,25 @@ export default class ActionForm extends React.Component {
         isBooked: React.PropTypes.bool,
         response: React.PropTypes.bool,
     };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            viewMode: undefined,
+        };
+    }
+
+    componentDidMount() {
+        let node = ReactDOM.findDOMNode(this.refs.infoText);
+        if (node) {
+            if (node.clientHeight > 63) {
+                this.setState({
+                    viewMode: 'contracted',
+                });
+            }
+        }
+    }
 
     render() {
         let action = this.props.action;
@@ -22,13 +43,27 @@ export default class ActionForm extends React.Component {
         let timeLabel = startTime.format('{HH}:{mm}')
             + ' - ' + endTime.format('{HH}:{mm}');
 
+        let location = action.getIn(['location', 'title']);
+
         let infoText = null;
         if (action.get('info_text')) {
-            infoText = (
-                <p>
+            infoText = [
+                <p key="infoText" ref="infoText"
+                    className="ActionForm-info">
                     { action.get('info_text') }
                 </p>
-            );
+            ];
+
+            if (this.state.viewMode) {
+                infoText.push(
+                    <button
+                        key="toggleExpandButton"
+                        className="ActionForm-toggleExpandButton"
+                        onClick={ this.onClickToggleExpandButton.bind(this) }>
+                        </button>
+                );
+            }
+
         }
 
         let id = action.get('id');
@@ -62,17 +97,38 @@ export default class ActionForm extends React.Component {
             ];
         }
 
+        let classes = cx('ActionForm', {
+            contracted: this.state.viewMode === 'contracted',
+            expanded: this.state.viewMode === 'expanded',
+        });
+
         return (
-            <div className="ActionForm">
-                <h3>
+            <div className={ classes }>
+                <h3 className="ActionForm-title">
                     <span className="ActionForm-activity">{ activity }</span>
-                    <span className="ActionForm-time">{ timeLabel }</span>
                 </h3>
+                <div className="ActionForm-location">
+                    <span className="ActionForm-locationItem">{ location }</span>
+                </div>
+                <div className="ActionForm-time">
+                    <span className="ActionForm-timeItem">{ timeLabel }</span>
+                </div>
+
                 { infoText }
 
-                { respondWidget }
+                <div className="ActionForm-response">
+                    { respondWidget }
+                </div>
             </div>
         );
+    }
+
+    onClickToggleExpandButton(ev) {
+        ev.preventDefault();
+        this.setState({
+            viewMode: (this.state.viewMode === 'contracted')?
+                'expanded' : 'contracted',
+        });
     }
 
     onChange(ev) {
