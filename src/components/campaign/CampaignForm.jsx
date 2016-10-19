@@ -72,7 +72,7 @@ export default class CampaignForm extends React.Component {
                     let booked = !!userActionList.get('items').find(item =>
                         item.get('id') == action.get('id'));
 
-                    const classes = cx("CampaignForm-action", ( booked ? 'booked' : '' ) );
+                    let classes = cx('CampaignForm-action', { booked });
 
                     return (
                         <li key={ action.get('id') }
