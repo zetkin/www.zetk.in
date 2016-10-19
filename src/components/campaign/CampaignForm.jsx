@@ -2,7 +2,7 @@ import immutable from 'immutable';
 import { injectIntl } from 'react-intl';
 import React from 'react';
 
-import ActionForm from './ActionForm';
+import SingleActionForm from './SingleActionForm';
 import MultiShiftActionForm from './MultiShiftActionForm';
 import MultiLocationActionForm from './MultiLocationActionForm';
 import LoadingIndicator from '../misc/LoadingIndicator';
@@ -159,7 +159,7 @@ export default class CampaignForm extends React.Component {
                         return (
                             <li key={ action.get('id') }
                                 className={ classes }>
-                                <ActionForm action={ action }
+                                <SingleActionForm action={ action }
                                     isBooked={ booked } response={ response }
                                     onChange={ this.onActionChange.bind(this) }/>
                             </li>

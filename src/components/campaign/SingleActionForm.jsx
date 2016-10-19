@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { FormattedMessage as Msg } from 'react-intl';
 
 
-export default class ActionForm extends React.Component {
+export default class SingleActionForm extends React.Component {
     static propTypes = {
         onChange: React.PropTypes.func,
         isBooked: React.PropTypes.bool,
@@ -49,7 +49,7 @@ export default class ActionForm extends React.Component {
         if (action.get('info_text')) {
             infoText = [
                 <p key="infoText" ref="infoText"
-                    className="ActionForm-info">
+                    className="SingleActionForm-info">
                     { action.get('info_text') }
                 </p>
             ];
@@ -58,7 +58,7 @@ export default class ActionForm extends React.Component {
                 infoText.push(
                     <button
                         key="toggleExpandButton"
-                        className="ActionForm-toggleExpandButton"
+                        className="SingleActionForm-toggleExpandButton"
                         onClick={ this.onClickToggleExpandButton.bind(this) }>
                         </button>
                 );
@@ -72,7 +72,7 @@ export default class ActionForm extends React.Component {
         if (this.props.isBooked) {
             respondWidget = (
                 <Msg id="campaignForm.action.booked"
-                    className="ActionForm-booked"/>
+                    className="SingleActionForm-booked"/>
             );
         }
         else {
@@ -86,37 +86,40 @@ export default class ActionForm extends React.Component {
                 <input key="prev" type="hidden" name={ id + '.prev' }
                     value={ this.props.response? 'on' : 'off' }/>,
                 <input key="checkbox" type="checkbox"
-                    className="ActionForm-checkbox"
+                    className="SingleActionForm-checkbox"
                     onChange={ this.onChange.bind(this) }
                     checked={ this.props.response }
                     id={ id } name={ id + '.res' }/>,
-                <label key="label" className="ActionForm-checkboxLabel"
+                <label key="label" className="SingleActionForm-checkboxLabel"
                     htmlFor={ id }>
                     <Msg id="campaignForm.action.yesLabel"/>
                 </label>
             ];
         }
 
-        let classes = cx('ActionForm', {
+        let classes = cx('SingleActionForm', {
             contracted: this.state.viewMode === 'contracted',
             expanded: this.state.viewMode === 'expanded',
         });
 
         return (
             <div className={ classes }>
-                <h3 className="ActionForm-title">
-                    <span className="ActionForm-activity">{ activity }</span>
+                <h3 className="SingleActionForm-title">
+                    <span className="SingleActionForm-activity">
+                        { activity }</span>
                 </h3>
-                <div className="ActionForm-location">
-                    <span className="ActionForm-locationItem">{ location }</span>
+                <div className="SingleActionForm-location">
+                    <span className="SingleActionForm-locationItem">
+                        { location }</span>
                 </div>
-                <div className="ActionForm-time">
-                    <span className="ActionForm-timeItem">{ timeLabel }</span>
+                <div className="SingleActionForm-time">
+                    <span className="SingleActionForm-timeItem">
+                        { timeLabel }</span>
                 </div>
 
                 { infoText }
 
-                <div className="ActionForm-response">
+                <div className="SingleActionForm-response">
                     { respondWidget }
                 </div>
             </div>

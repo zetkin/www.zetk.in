@@ -1,28 +1,28 @@
-.ActionForm {
+.SingleActionForm {
     @include card;
     padding: 1em;
     position: relative;
 }
-.ActionForm-title {
+.SingleActionForm-title {
     margin: 0.5em 0 0.2em;
     font-size: 1.2em;
 }
-.ActionForm-location, .ActionForm-time {
+.SingleActionForm-location, .SingleActionForm-time {
     font-size: 0.9em;
     color: lighten($c-text, 20);
     margin-bottom: 0.2em;
 }
-.ActionForm-location {
+.SingleActionForm-location {
     &:before {
         @include icon($fa-var-map-marker);
     }
 }
-.ActionForm-time {
+.SingleActionForm-time {
     &:before {
         @include icon($fa-var-clock-o);
     }
 }
-.ActionForm-info {
+.SingleActionForm-info {
     color: lighten($c-text, 30);
     font-size: 0.8em;
     line-height: 1.5em;
@@ -32,12 +32,12 @@
     max-height: 4.5em;
     transition: max-height 0.5s;
 }
-.ActionForm-toggleExpandButton {
+.SingleActionForm-toggleExpandButton {
     bottom: 0;
     margin-top: 0.5em;
     margin-left: calc(50% - 1em);
 }
-.ActionForm.contracted {
+.SingleActionForm.contracted {
     &:after {
         content: "";
         position: absolute;
@@ -49,24 +49,24 @@
             rgba(255, 255, 255, 0), 
             rgba(255, 255, 255, 1) 50%);
     }
-    .ActionForm-toggleExpandButton {
+    .SingleActionForm-toggleExpandButton {
         @include circle-button($icon:$fa-var-caret-down);
     }
 }
-.ActionForm.expanded {
-    .ActionForm-info {
+.SingleActionForm.expanded {
+    .SingleActionForm-info {
         max-height: 10em;
     }
-    .ActionForm-toggleExpandButton {
+    .SingleActionForm-toggleExpandButton {
         @include circle-button($icon:$fa-var-caret-up);
     }
 }
-.ActionForm-response {
+.SingleActionForm-response {
     position: absolute;
     right: 1em;
     bottom: calc(50% - 1em);
     color: $c-brand-main;
-    .ActionForm-checkbox {
+    .SingleActionForm-checkbox {
         display: none;
         & + label {
             display: block;
