@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import { FormattedMessage as Msg } from 'react-intl';
 
 import CampaignFilterList from './CampaignFilterList';
@@ -67,8 +68,10 @@ export default class CampaignFilter extends React.Component {
             );
         }
 
+        let classes = cx('CampaignFilter', this.props.className);
+
         return (
-            <div className="CampaignFilter">
+            <div className={ classes }>
                 <Msg tagName="h3"
                     id="campaignForm.filter.h"/>
                 { filters }

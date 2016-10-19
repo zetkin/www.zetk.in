@@ -270,17 +270,20 @@ export default class CampaignForm extends React.Component {
             return (
                 <div className="CampaignForm">
                     <CampaignCalendar
+                        className="CampaignForm-calendar"
                         actions={ allActions }
                         bookings={ bookings }
                         />
                     <CampaignFilter
+                        className="CampaignForm-filter"
                         actions={ allActions }
                         selectedActivities={ this.state.filterActivities }
                         selectedCampaigns={ this.state.filterCampaigns }
                         selectedLocations={ this.state.filterLocations }
                         onChange={ this.onFilterChange.bind(this) }
                         />
-                    <form method="post" action="/forms/actionResponse">
+                    <form method="post" action="/forms/actionResponse"
+                        className="CampaignForm-form">
                         <ul className="CampaignForm-days">
                             { dayComponents }
                         </ul>
