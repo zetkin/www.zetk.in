@@ -1,4 +1,4 @@
-# www.zetk.in
+# Zetkin activist front-end
 This is the main front-end for Zetkin, the system for organizing activism.
 
 Zetkin is developed by the Zetkin Foundation and friends. If you want to learn
