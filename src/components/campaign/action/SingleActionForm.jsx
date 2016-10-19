@@ -108,9 +108,9 @@ export default class SingleActionForm extends React.Component {
         });
     }
 
-    onChange(ev) {
+    onChange(action, ev) {
         if (this.props.onChange) {
-            this.props.onChange(this.props.action, ev.target.checked);
+            this.props.onChange(action, ev.target.checked);
         }
     }
 };
