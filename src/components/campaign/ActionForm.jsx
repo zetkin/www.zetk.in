@@ -22,7 +22,6 @@ export default class ActionForm extends React.Component {
     componentDidMount() {
         let node = ReactDOM.findDOMNode(this.refs.infoText);
         if (node) {
-            console.log(node.clientHeight);
             if (node.clientHeight > 63) {
                 this.setState({
                     viewMode: 'contracted',
