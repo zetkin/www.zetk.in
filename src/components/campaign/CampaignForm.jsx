@@ -29,6 +29,9 @@ export default class CampaignForm extends React.Component {
             // Unknown when rendering on the server. Will be set by
             // componentDidMount(), which only executes client-side.
             browserHasJavascript: null,
+            filterActivities: [],
+            filterCampaigns: [],
+            filterLocations: [],
         };
     }
 
@@ -58,7 +61,27 @@ export default class CampaignForm extends React.Component {
         else if (actionList.get('items') && userActionList.get('items')
             && responseList.get('items')) {
 
-            let actionsByDay = actionList.get('items').groupBy(action => {
+            let filteredActions = actionList.get('items');
+
+            if (this.state.filterActivities.length) {
+                let activities = this.state.filterActivities;
+                filteredActions = filteredActions.filter(action => activities
+                    .indexOf(action.getIn(['activity', 'id']).toString()) >= 0);
+            }
+
+            if (this.state.filterCampaigns.length) {
+                let campaigns = this.state.filterCampaigns;
+                filteredActions = filteredActions.filter(action => campaigns
+                    .indexOf(action.getIn(['campaign', 'id']).toString()) >= 0);
+            }
+
+            if (this.state.filterLocations.length) {
+                let locations = this.state.filterLocations;
+                filteredActions = filteredActions.filter(action => locations
+                    .indexOf(action.getIn(['location', 'id']).toString()) >= 0);
+            }
+
+            let actionsByDay = filteredActions.groupBy(action => {
                 let startTime = Date.create(action.get('start_time'),
                     { fromUTC: true, setUTC: true });
                 return startTime.format('{yyyy}{MM}{dd}')
@@ -242,16 +265,20 @@ export default class CampaignForm extends React.Component {
                 .map(item => item.get('id').toString())
                 .toList();
 
-            let actions = actionList.get('items').toList();
+            let allActions = actionList.get('items').toList();
 
             return (
                 <div className="CampaignForm">
                     <CampaignCalendar
-                        actions={ actions }
+                        actions={ allActions }
                         bookings={ bookings }
                         />
                     <CampaignFilter
-                        actions={ actions }
+                        actions={ allActions }
+                        selectedActivities={ this.state.filterActivities }
+                        selectedCampaigns={ this.state.filterCampaigns }
+                        selectedLocations={ this.state.filterLocations }
+                        onChange={ this.onFilterChange.bind(this) }
                         />
                     <form method="post" action="/forms/actionResponse">
                         <ul className="CampaignForm-days">
@@ -266,6 +293,18 @@ export default class CampaignForm extends React.Component {
         }
         else {
             return null;
+        }
+    }
+
+    onFilterChange(type, selected) {
+        if (type == 'activities') {
+            this.setState({ filterActivities: selected });
+        }
+        else if (type == 'campaigns') {
+            this.setState({ filterCampaigns: selected });
+        }
+        else if (type == 'locations') {
+            this.setState({ filterLocations: selected });
         }
     }
 

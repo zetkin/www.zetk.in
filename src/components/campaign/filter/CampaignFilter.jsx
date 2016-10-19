@@ -8,17 +8,11 @@ import PropTypes from '../../../utils/PropTypes';
 export default class CampaignFilter extends React.Component {
     static propTypes = {
         actions: PropTypes.list.isRequired,
+        selectedActivities: PropTypes.array.isRequired,
+        selectedCampaigns: PropTypes.array.isRequired,
+        selectedLocations: PropTypes.array.isRequired,
+        onChange: PropTypes.func,
     };
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            selectedActivities: [],
-            selectedCampaigns: [],
-            selectedLocations: [],
-        };
-    }
 
     render() {
         let campaigns = {};
@@ -43,8 +37,8 @@ export default class CampaignFilter extends React.Component {
                     id="campaignForm.filter.campaigns.h"/>,
                 <CampaignFilterList key="campaignFilter"
                     options={ campaigns }
-                    selectedIds={ this.state.selectedCampaigns }
-                    onChange={ this.onChangeCampaigns.bind(this) }
+                    selectedIds={ this.props.selectedCampaigns }
+                    onChange={ this.onChange.bind(this, 'campaigns') }
                     />
             );
         }
@@ -55,8 +49,8 @@ export default class CampaignFilter extends React.Component {
                     id="campaignForm.filter.locations.h"/>,
                 <CampaignFilterList key="locationFilter"
                     options={ locations }
-                    selectedIds={ this.state.selectedLocations }
-                    onChange={ this.onChangeLocations.bind(this) }
+                    selectedIds={ this.props.selectedLocations }
+                    onChange={ this.onChange.bind(this, 'locations') }
                     />
             );
         }
@@ -67,8 +61,8 @@ export default class CampaignFilter extends React.Component {
                     id="campaignForm.filter.activities.h"/>,
                 <CampaignFilterList key="activityFilter"
                     options={ activities }
-                    selectedIds={ this.state.selectedActivities }
-                    onChange={ this.onChangeActivities.bind(this) }
+                    selectedIds={ this.props.selectedActivities }
+                    onChange={ this.onChange.bind(this, 'activities') }
                     />
             );
         }
@@ -82,21 +76,9 @@ export default class CampaignFilter extends React.Component {
         );
     }
 
-    onChangeActivities(selected) {
-        this.setState({
-            selectedActivities: selected,
-        });
-    }
-
-    onChangeCampaigns(selected) {
-        this.setState({
-            selectedCampaigns: selected,
-        });
-    }
-
-    onChangeLocations(selected) {
-        this.setState({
-            selectedLocations: selected,
-        });
+    onChange(type, selected) {
+        if (this.props.onChange) {
+            this.props.onChange(type, selected);
+        }
     }
 }
