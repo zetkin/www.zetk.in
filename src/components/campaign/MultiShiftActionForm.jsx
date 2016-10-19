@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
 import PropTypes from '../../utils/PropTypes';
+import ResponseWidget from './ResponseWidget';
 
 
 export default class MultiShiftActionForm extends React.Component {
@@ -30,43 +31,13 @@ export default class MultiShiftActionForm extends React.Component {
             let response = this.props.responses
                 .indexOf(action.get('id').toString()) >= 0;
 
-            // TODO: Remove this duplication
-            //       Same as SingleActionForm and MultiLocationActionForm
-            let respondWidget = null;
-            if (isBooked) {
-                respondWidget = (
-                    <Msg id="campaignForm.action.booked"
-                        className="MultiShiftActionForm-booked"/>
-                );
-            }
-            else {
-                // Include meta-data about org and previous (current) state in the
-                // form data for when form is submitted without javascript. The
-                // POST handler uses id.org, id.prev and id.response to figure out
-                // the correct API requests.
-                respondWidget = [
-                    <input key="org" type="hidden" name={ id + '.org' }
-                        value={ action.get('org_id') }/>,
-                    <input key="prev" type="hidden" name={ id + '.prev' }
-                        value={ response? 'on' : 'off' }/>,
-                    <input key="checkbox" type="checkbox"
-                        className="SingleActionForm-checkbox"
-                        onChange={ this.onChange.bind(this, action) }
-                        checked={ response }
-                        id={ id } name={ id + '.res' }/>,
-                    <label key="label" className="MultiShiftActionForm-checkboxLabel"
-                        htmlFor={ id }>
-                        <Msg id="campaignForm.action.yesLabel"/>
-                    </label>
-                ];
-            }
-
-
             return (
                 <li key={ timeLabel }
                     className="MultiShiftActionForm-shiftItem">
                     { timeLabel }
-                    { respondWidget }
+                    <ResponseWidget action={ action }
+                        isBooked={ isBooked } response={ response }
+                        onChange={ this.onChange.bind(this) }/>
                 </li>
             );
         });

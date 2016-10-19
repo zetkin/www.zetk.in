@@ -3,6 +3,8 @@ import cx from 'classnames';
 import ReactDOM from 'react-dom';
 import { FormattedMessage as Msg } from 'react-intl';
 
+import ResponseWidget from './ResponseWidget';
+
 
 export default class SingleActionForm extends React.Component {
     static propTypes = {
@@ -66,37 +68,6 @@ export default class SingleActionForm extends React.Component {
 
         }
 
-        let id = action.get('id');
-
-        let respondWidget = null;
-        if (this.props.isBooked) {
-            respondWidget = (
-                <Msg id="campaignForm.action.booked"
-                    className="SingleActionForm-booked"/>
-            );
-        }
-        else {
-            // Include meta-data about org and previous (current) state in the
-            // form data for when form is submitted without javascript. The
-            // POST handler uses id.org, id.prev and id.response to figure out
-            // the correct API requests.
-            respondWidget = [
-                <input key="org" type="hidden" name={ id + '.org' }
-                    value={ action.get('org_id') }/>,
-                <input key="prev" type="hidden" name={ id + '.prev' }
-                    value={ this.props.response? 'on' : 'off' }/>,
-                <input key="checkbox" type="checkbox"
-                    className="SingleActionForm-checkbox"
-                    onChange={ this.onChange.bind(this) }
-                    checked={ this.props.response }
-                    id={ id } name={ id + '.res' }/>,
-                <label key="label" className="SingleActionForm-checkboxLabel"
-                    htmlFor={ id }>
-                    <Msg id="campaignForm.action.yesLabel"/>
-                </label>
-            ];
-        }
-
         let classes = cx('SingleActionForm', {
             contracted: this.state.viewMode === 'contracted',
             expanded: this.state.viewMode === 'expanded',
@@ -120,7 +91,10 @@ export default class SingleActionForm extends React.Component {
                 { infoText }
 
                 <div className="SingleActionForm-response">
-                    { respondWidget }
+                    <ResponseWidget action={ action }
+                        isBooked={ this.props.isBooked }
+                        response={ this.props.response }
+                        onChange={ this.onChange.bind(this) }/>
                 </div>
             </div>
         );
