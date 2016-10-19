@@ -3,6 +3,7 @@ import { injectIntl } from 'react-intl';
 import React from 'react';
 
 import CampaignCalendar from './calendar/CampaignCalendar';
+import CampaignFilter from './filter/CampaignFilter';
 import SingleActionForm from './action/SingleActionForm';
 import MultiShiftActionForm from './action/MultiShiftActionForm';
 import MultiLocationActionForm from './action/MultiLocationActionForm';
@@ -28,6 +29,9 @@ export default class CampaignForm extends React.Component {
             // Unknown when rendering on the server. Will be set by
             // componentDidMount(), which only executes client-side.
             browserHasJavascript: null,
+            filterActivities: [],
+            filterCampaigns: [],
+            filterLocations: [],
         };
     }
 
@@ -57,7 +61,27 @@ export default class CampaignForm extends React.Component {
         else if (actionList.get('items') && userActionList.get('items')
             && responseList.get('items')) {
 
-            let actionsByDay = actionList.get('items').groupBy(action => {
+            let filteredActions = actionList.get('items');
+
+            if (this.state.filterActivities.length) {
+                let activities = this.state.filterActivities;
+                filteredActions = filteredActions.filter(action => activities
+                    .indexOf(action.getIn(['activity', 'id']).toString()) >= 0);
+            }
+
+            if (this.state.filterCampaigns.length) {
+                let campaigns = this.state.filterCampaigns;
+                filteredActions = filteredActions.filter(action => campaigns
+                    .indexOf(action.getIn(['campaign', 'id']).toString()) >= 0);
+            }
+
+            if (this.state.filterLocations.length) {
+                let locations = this.state.filterLocations;
+                filteredActions = filteredActions.filter(action => locations
+                    .indexOf(action.getIn(['location', 'id']).toString()) >= 0);
+            }
+
+            let actionsByDay = filteredActions.groupBy(action => {
                 let startTime = Date.create(action.get('start_time'),
                     { fromUTC: true, setUTC: true });
                 return startTime.format('{yyyy}{MM}{dd}')
@@ -241,13 +265,25 @@ export default class CampaignForm extends React.Component {
                 .map(item => item.get('id').toString())
                 .toList();
 
+            let allActions = actionList.get('items').toList();
+
             return (
                 <div className="CampaignForm">
                     <CampaignCalendar
-                        actions={ actionList.get('items').toList() }
+                        className="CampaignForm-calendar"
+                        actions={ allActions }
                         bookings={ bookings }
                         />
-                    <form method="post" action="/forms/actionResponse">
+                    <CampaignFilter
+                        className="CampaignForm-filter"
+                        actions={ allActions }
+                        selectedActivities={ this.state.filterActivities }
+                        selectedCampaigns={ this.state.filterCampaigns }
+                        selectedLocations={ this.state.filterLocations }
+                        onChange={ this.onFilterChange.bind(this) }
+                        />
+                    <form method="post" action="/forms/actionResponse"
+                        className="CampaignForm-form">
                         <ul className="CampaignForm-days">
                             { dayComponents }
                         </ul>
@@ -260,6 +296,18 @@ export default class CampaignForm extends React.Component {
         }
         else {
             return null;
+        }
+    }
+
+    onFilterChange(type, selected) {
+        if (type == 'activities') {
+            this.setState({ filterActivities: selected });
+        }
+        else if (type == 'campaigns') {
+            this.setState({ filterCampaigns: selected });
+        }
+        else if (type == 'locations') {
+            this.setState({ filterLocations: selected });
         }
     }
 

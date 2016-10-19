@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 
 import PropTypes from '../../../utils/PropTypes';
 import CampaignCalendarWeek from './CampaignCalendarWeek';
@@ -94,8 +95,10 @@ export default class CampaignCalendar extends React.Component {
             d.setDate(d.getDate() + 1);
         }
 
+        let classes = cx('CampaignCalendar', this.props.className);
+
         return (
-            <div className="CampaignCalendar">
+            <div className={ classes }>
                 { weeks }
             </div>
         );

@@ -10,4 +10,17 @@ action:
             other {På # platser}
         }
 
+filter:
+    h: "Filtrera aktioner"
+
+    activities:
+        h: "På aktiviteter"
+
+    campaigns:
+        h: "På kampanjer"
+
+    locations:
+        h: "På platser"
+
+
 submitLabel: "Spara mina anmälningar"
