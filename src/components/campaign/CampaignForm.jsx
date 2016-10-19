@@ -2,6 +2,7 @@ import immutable from 'immutable';
 import { injectIntl } from 'react-intl';
 import React from 'react';
 
+import CampaignCalendar from './calendar/CampaignCalendar';
 import SingleActionForm from './action/SingleActionForm';
 import MultiShiftActionForm from './action/MultiShiftActionForm';
 import MultiLocationActionForm from './action/MultiLocationActionForm';
@@ -236,6 +237,8 @@ export default class CampaignForm extends React.Component {
 
             return (
                 <div className="CampaignForm">
+                    <CampaignCalendar
+                        actions={ actionList.get('items').toList() }/>
                     <form method="post" action="/forms/actionResponse">
                         <ul className="CampaignForm-days">
                             { dayComponents }
