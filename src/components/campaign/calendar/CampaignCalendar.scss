@@ -1,0 +1,7 @@
+.CampaignCalendar {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}

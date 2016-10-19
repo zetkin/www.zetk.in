@@ -1,8 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 
-import Link from '../misc/FormattedLink';
-import PropTypes from '../../utils/PropTypes';
+import Link from '../../misc/FormattedLink';
+import PropTypes from '../../../utils/PropTypes';
 import ResponseWidget from './ResponseWidget';
 
 

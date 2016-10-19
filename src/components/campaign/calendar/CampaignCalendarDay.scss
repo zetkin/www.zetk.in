@@ -1,0 +1,33 @@
+.CampaignCalendarDay {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 30px;
+    height: 30px;
+
+    &.CampaignCalendarDay-month0,
+    &.CampaignCalendarDay-month2,
+    &.CampaignCalendarDay-month4,
+    &.CampaignCalendarDay-month6,
+    &.CampaignCalendarDay-month8,
+    &.CampaignCalendarDay-month10 {
+        background-color: #eee;
+    }
+
+    .CampaignCalendarDay-link {
+        content: "";
+        display: block;
+        width: 50%;
+        height: 50%;
+        margin: 25%;
+        border-radius: 50%;
+        background-color: #888;
+    }
+
+    &.hasBookings {
+        .CampaignCalendarDay-link {
+            background-color: red;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
-import PropTypes from '../../utils/PropTypes';
+import PropTypes from '../../../utils/PropTypes';
 import ResponseWidget from './ResponseWidget';
 
 
