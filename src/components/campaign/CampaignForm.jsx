@@ -214,10 +214,12 @@ export default class CampaignForm extends React.Component {
                 let startTime = Date.create(action.get('start_time'),
                     { fromUTC: true, setUTC: true });
                 let date = startTime.format('{dd}/{MM}')
+                let dateId = startTime.format('{yyyy}-{MM}-{dd}');
 
                 return (
                     <li className="CampaignForm-day" key={ key }>
-                        <div className="CampaignForm-date">{ date }</div>
+                        <div id={ dateId }
+                            className="CampaignForm-date">{ date }</div>
                         <ul className="CampaignForm-actions">
                             { actionComponents }
                         </ul>
