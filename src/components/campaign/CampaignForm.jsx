@@ -3,6 +3,7 @@ import { injectIntl } from 'react-intl';
 import React from 'react';
 
 import CampaignCalendar from './calendar/CampaignCalendar';
+import CampaignFilter from './filter/CampaignFilter';
 import SingleActionForm from './action/SingleActionForm';
 import MultiShiftActionForm from './action/MultiShiftActionForm';
 import MultiLocationActionForm from './action/MultiLocationActionForm';
@@ -241,11 +242,16 @@ export default class CampaignForm extends React.Component {
                 .map(item => item.get('id').toString())
                 .toList();
 
+            let actions = actionList.get('items').toList();
+
             return (
                 <div className="CampaignForm">
                     <CampaignCalendar
-                        actions={ actionList.get('items').toList() }
+                        actions={ actions }
                         bookings={ bookings }
+                        />
+                    <CampaignFilter
+                        actions={ actions }
                         />
                     <form method="post" action="/forms/actionResponse">
                         <ul className="CampaignForm-days">
