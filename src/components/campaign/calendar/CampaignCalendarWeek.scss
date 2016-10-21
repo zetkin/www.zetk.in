@@ -4,11 +4,16 @@
 
 .CampaignCalendarWeek-number {
     float: left;
-    width: 40px;
+    font-size: 0.8em;
+    line-height: 2.5em;
+    color: lighten($c-text, 10);
+    margin-right: 0.5em;
 }
 
 .CampaignCalendarWeek-days {
     float: left;
     margin: 0;
     padding: 0;
+    border-bottom: 1px solid darken(white, 5);
+    border-left: 1px solid darken(white, 5);
 }
