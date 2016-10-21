@@ -24,19 +24,29 @@ export default createReducer(initialState, {
 
     [types.RETRIEVE_USER_MEMBERSHIPS + '_PENDING']: (state, action) => {
         return state
+            .setIn(['orgList', 'error'], null)
+            .setIn(['orgList', 'isPending'], true)
             .setIn(['membershipList', 'error'], null)
             .setIn(['membershipList', 'isPending'], true);
     },
 
     [types.RETRIEVE_USER_MEMBERSHIPS + '_FULFILLED']: (state, action) => {
         let memberships = {};
+        let orgs = {};
 
-        action.payload.data.data.forEach(membership =>
-            memberships[membership.organization.id] = membership);
+        action.payload.data.data.forEach(membership => {
+            orgs[membership.organization.id] = membership.organization;
+            memberships[membership.organization.id] = membership;
+        });
 
         return state
             .setIn(['membershipList', 'error'], null)
             .setIn(['membershipList', 'isPending'], false)
+            .setIn(['orgList', 'error'], null)
+            .setIn(['orgList', 'isPending'], false)
+            .updateIn(['orgList', 'items'], items => items?
+                items.merge(immutable.fromJS(orgs)) :
+                immutable.fromJS(orgs))
             .updateIn(['membershipList', 'items'], items => items?
                 items.merge(immutable.fromJS(memberships)) :
                 immutable.fromJS(memberships));
