@@ -1,4 +1,6 @@
 .CampaignFilterList {
+    padding: 0;
+
     &:after {
         content: "";
         display: block;
@@ -8,13 +10,8 @@
 
 .CampaignFilterList-item {
     list-style-type: none;
-    padding: 5px 10px;
-    margin: 2px;
-
+    @include inline-button(white);
     float: left;
-    background-color: #eee;
-
-    &.selected {
-        background-color: red;
-    }
+    font-size: 0.9em;
+    margin-right: 0.5em;
 }
