@@ -53,6 +53,9 @@ export default class CampaignPage extends React.Component {
         if (campaign) {
             campaignInfo = [
                 <h2 key="title">{ campaign.get('title') }</h2>,
+                <span key="org" className="CampaignPage-infoOrg">
+                    { this.props.organization.get('title') }
+                </span>,
                 <p key="infoText">
                     { campaign.get('info_text') }
                 </p>
