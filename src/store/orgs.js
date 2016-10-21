@@ -3,6 +3,8 @@ import immutable from 'immutable';
 
 import * as types from '../actions';
 
+export const organization = (state, id) =>
+    state.getIn(['orgs', 'orgList', 'items', id.toString()]);
 
 const initialState = immutable.fromJS({
     orgList: {
