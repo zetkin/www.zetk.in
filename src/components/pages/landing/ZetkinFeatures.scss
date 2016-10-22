@@ -1,0 +1,66 @@
+.ZetkinFeatures{
+    @include landing-page-section;
+    padding-bottom: 1em;
+    margin: 0 0 3em;
+    background: linear-gradient(to bottom, $c-brand-main-orange, $c-brand-main-pink);
+    color: $c-text-contrast;
+
+    a {
+        @include gradient-button;
+        border: 2px solid;
+        position: relative;
+        top: 2.5em;
+    }
+
+    .ZetkinFeatures-features {
+        list-style: none;
+        padding: 0;
+        margin: 3em auto 0;
+        max-width: 30em;
+    }
+
+    .ZetkinFeatures-feature{
+        margin: 1em auto 2em;
+        padding: 0 1.5em;
+    }
+
+    .ZetkinFeatures-featureIcon{
+        display: inline-block;
+        width: 50%;
+        height: auto;
+        margin: 0 0 0.5em 0;
+    }
+
+    .ZetkinFeatures-feature p {
+        margin: 0 auto;
+        max-width: 25em;
+        line-height: 1.5;
+    }
+
+    @media only screen and (min-width: $medium-width) {
+        .ZetkinFeatures-features {
+            max-width: 80em;
+        }
+
+        .ZetkinFeatures-feature {
+            width: 50%;
+            display: inline-block;
+        }
+    }
+
+    @media only screen and (min-width: $large-width) {
+        .ZetkinFeatures-feature {
+            text-align: left;
+
+            h4, p {
+                margin-left: 28%;
+            }
+        }
+
+        .ZetkinFeatures-featureIcon{
+            float: left;
+            width: 25%;
+            margin: 0;
+        }
+    }
+}
