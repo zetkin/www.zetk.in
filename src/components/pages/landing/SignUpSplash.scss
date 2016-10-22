@@ -47,12 +47,14 @@ section.SignUpSplash {
 
         form {
             margin: auto;
+            padding: 0 1em;
         }
 
         input {
             display: block;
+            width: 100%;
             max-width: 100%;
-            margin: 0.5em 0;
+            margin: 0.75em 0;
             border: 0;
             font-size: 1.2em;
             border-bottom: 2px solid $c-brand-main;
@@ -62,6 +64,7 @@ section.SignUpSplash {
 
         input[type="submit"] {
             @include gradient-button;
+            margin-top: 1em;
             width: auto;
         }
 
