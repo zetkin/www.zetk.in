@@ -1,0 +1,38 @@
+.ZetkinIntro {
+  @include landing-page-section;
+
+    & > p {
+        margin: 1em auto;
+        max-width: 30em;
+    }
+
+    .ZetkinIntro-highlights {
+        list-style: none;
+        padding: 0;
+        margin: 3em auto 0;
+        max-width: 40em;
+    }
+
+    .ZetkinIntro-highlight{
+        display: inline-block;
+        width: 33%;
+        margin: 1em auto;
+        text-align: center;
+    }
+
+    .ZetkinIntro-highlightIcon{
+        display: inline-block;
+        width: 50%;
+        height: auto;
+        margin: 0 0 1em 0;
+    }
+
+
+    @media only screen and (min-width: $large-width) {
+        & > p{
+            max-width: 53em;
+            column-count: 2;
+            column-gap: 3em;
+        }
+    }
+}
