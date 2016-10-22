@@ -1,10 +1,21 @@
 .Header {
-    height: 150px;
-    width: auto;
-    padding: 20px 50px;
+    height: 64px;
+    padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.8888em;
+
+    @include medium-screen{
+        height: 120px;
+        padding: 16px 16px;
+        font-size: 1em;
+    }
+
+    @include large-screen{
+        height: 132px;
+        padding: 16px 32px;
+    }
 }
 
 .Header-loginButton {

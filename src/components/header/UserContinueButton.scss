@@ -1,9 +1,7 @@
 .UserContinueButton {
     float: right;
-    margin-top: 1em;
-
     .UserMenu {
-        float: left;
+        display: none;
     }
 }
 
@@ -12,6 +10,7 @@
 }
 
 .UserContinueButton-wrongUser {
+    display: none;
     clear: both;
     margin-top: 1em;
     font-size: 0.85em;
@@ -20,6 +19,23 @@
 }
 
 .UserContinueButton-logout {
-    color: inherit;
     margin: 0 0 0 0.25em;
+}
+
+@include medium-screen{
+    .UserContinueButton {
+        margin-top: 1em;
+
+        .UserMenu {
+            float: left;
+            display: block;
+        }
+    }
+    .UserContinueButton-button {
+        margin-left: 1em;
+    }
+
+    .UserContinueButton-wrongUser {
+        display: block;
+    }
 }
