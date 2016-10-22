@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage as Msg } from 'react-intl';
 import cx from 'classnames';
 
 import PropTypes from '../../../utils/PropTypes';
@@ -99,6 +100,17 @@ export default class CampaignCalendar extends React.Component {
 
         return (
             <div className={ classes }>
+                <div className="CampaignCalendar-header">
+                    <ul>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.monday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.tuesday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.wednesday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.thursday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.friday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.saturday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.sunday"/>
+                    </ul>
+                </div>
                 { weeks }
             </div>
         );

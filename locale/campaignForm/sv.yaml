@@ -10,6 +10,16 @@ action:
             other {På # platser}
         }
 
+calendar:
+    weekDays:
+        monday: "M"
+        tuesday: "T"
+        wednesday: "O"
+        thursday: "T"
+        friday: "F"
+        saturday: "L"
+        sunday: "S"
+
 filter:
     h: "Filtrera aktioner"
 

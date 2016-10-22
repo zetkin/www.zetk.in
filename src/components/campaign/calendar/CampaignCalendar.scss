@@ -7,3 +7,16 @@
         clear: both;
     }
 }
+.CampaignCalendar-header {
+    ul {
+        list-style: none;
+        padding-left: 1.5em;
+        margin: 0 0 0.5em 0;
+    }
+    li {
+        display: inline-block;
+        width: 2em;
+        text-align: center;
+        color: lighten($c-text, 65);
+    }
+}
