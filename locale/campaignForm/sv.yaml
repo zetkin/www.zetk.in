@@ -25,12 +25,15 @@ filter:
 
     activities:
         h: "På aktiviteter"
+        label: "Aktiviteter ({ num })"
 
     campaigns:
         h: "På kampanjer"
+        label: "Kampanjer ({ num })"
 
     locations:
         h: "På platser"
+        label: "Platser ({ num })"
 
 
 submitLabel: "Spara mina anmälningar"
