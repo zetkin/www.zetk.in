@@ -67,6 +67,7 @@
     border-bottom: 3px solid;
     border-radius: 3px;
     text-decoration: none;
+    cursor: pointer;
     @include button-color($color, $amount);
     @if $icon {
         &:before {
