@@ -1,7 +1,10 @@
 .Header {
-    height: 164px;
+    height: 150px;
     width: auto;
-    padding: 32px 20px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .Header-loginButton {
