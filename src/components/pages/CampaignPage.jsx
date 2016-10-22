@@ -5,6 +5,7 @@ import CampaignForm from '../campaign/CampaignForm';
 import LoadingIndicator from '../misc/LoadingIndicator';
 import { campaign } from '../../store/campaigns';
 import { campaignActionList } from '../../store/actions';
+import { organization } from '../../store/orgs';
 import { retrieveCampaign } from '../../actions/campaign';
 import {
     retrieveCampaignActions,
@@ -14,13 +15,16 @@ import {
 } from '../../actions/action';
 
 
-const mapStateToProps = (state, props) => ({
-    campaign: campaign(state, props.params.campaignId),
-    actionList: campaignActionList(state, props.params.campaignId),
-    responseList: state.getIn(['actions', 'responseList']),
-    userActionList: state.getIn(['actions', 'userActionList']),
-});
-
+const mapStateToProps = (state, props) => {
+    let c = campaign(state, props.params.campaignId);
+    return {
+        campaign: c,
+        organization: organization(state, c.get('org_id')),
+        actionList: campaignActionList(state, props.params.campaignId),
+        responseList: state.getIn(['actions', 'responseList']),
+        userActionList: state.getIn(['actions', 'userActionList']),
+    };
+}
 
 @connect(mapStateToProps)
 export default class CampaignPage extends React.Component {
@@ -49,6 +53,9 @@ export default class CampaignPage extends React.Component {
         if (campaign) {
             campaignInfo = [
                 <h2 key="title">{ campaign.get('title') }</h2>,
+                <span key="org" className="CampaignPage-infoOrg">
+                    { this.props.organization.get('title') }
+                </span>,
                 <p key="infoText">
                     { campaign.get('info_text') }
                 </p>

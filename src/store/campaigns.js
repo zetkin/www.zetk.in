@@ -52,6 +52,7 @@ export default createReducer(initialState, {
 
     [types.RETRIEVE_CAMPAIGN + '_FULFILLED']: (state, action) => {
         let campaign = action.payload.data.data;
+        campaign.org_id = action.meta.orgId;
         return state
             .updateIn(['campaignList', 'items'], items => items?
                 items.set(campaign.id, campaign) :
