@@ -1,0 +1,24 @@
+.UserContinueButton {
+    float: right;
+
+    .UserMenu {
+        float: left;
+    }
+}
+
+.UserContinueButton-button {
+    @include gradient-button;
+}
+
+.UserContinueButton-wrongUser {
+    clear: both;
+    margin-top: 1em;
+    font-size: 0.85em;
+    text-align: center;
+    color: $c-ui-darker;
+}
+
+.UserContinueButton-logout {
+    color: inherit;
+    margin: 0 0 0 0.25em;
+}
