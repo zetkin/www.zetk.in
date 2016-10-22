@@ -72,13 +72,15 @@ export default class SignUpSplash extends React.Component {
             content = [
                 <Msg key="h1" tagName="h1" id="pages.landing.splash.h1"/>,
                 <Msg key="h2" tagName="h2" id="pages.landing.splash.h2"/>,
-                <Link key="signUpLink" to="/register">
-                    <Msg id="pages.landing.splash.signUpLink"/></Link>,
-                <Link key="infoLink" to="/info">
-                    <Msg id="pages.landing.splash.infoLink"/></Link>,
-                <div key="caption" className="SignUpSplash-imageCaption">
-                    <Msg tagName="p" id="pages.landing.splash.caption"/>
+                <div key="actions" className="SignUpSplash-actions">
+                    <Link key="signUpLink" to="/register">
+                        <Msg id="pages.landing.splash.signUpLink"/></Link>
+                    <Link key="infoLink" to="/info">
+                        <Msg id="pages.landing.splash.infoLink"/></Link>
                 </div>,
+                // <div key="caption" className="SignUpSplash-imageCaption">
+                //     <Msg tagName="p" id="pages.landing.splash.caption"/>
+                // </div>,
             ];
         }
 
@@ -87,9 +89,11 @@ export default class SignUpSplash extends React.Component {
         });
 
         return (
-            <div className={ classes }>
-                { content }
-            </div>
+            <section className={ classes }>
+                <div className="SignUpSplash-content">
+                    { content }
+                </div>
+            </section>
         );
     }
 
