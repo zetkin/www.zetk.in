@@ -1,4 +1,5 @@
 .CampaignCalendarDay {
+    box-sizing: content-box;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -18,18 +19,19 @@
     }
 
     .CampaignCalendarDay-link {
-        content: "";
         display: block;
-        width: 100%;
-        height: 100%;
-        background-color: white;
-        @include button-color(white, 2);
-        border-bottom: 2px solid $c-brand-main;
+        @include button-color(darken(white, 10), 2);
+        border: 1px solid #dcdcdc;
         transition: all 0.5s;
+        border-radius: 50%;
+        height: 50%;
+        width: 50%;
+        margin: 25%;
+    }
 
-        &:hover {
-            border-bottom: 3px solid $c-brand-main;
-            box-shadow: 0 0px 1em rgba(0, 0, 0, 0.15);
+    &:hover {
+        .CampaignCalendarDay-link {
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
             z-index: 999;
             position: absolute;
             width: 110%;
@@ -37,6 +39,19 @@
             margin-left: -5%;
             margin-top: -5%;
             transition: all 0.2s;
+        }
+    }
+    &.hasResponses {
+        .CampaignCalendarDay-link {
+            &:before {
+                content: " ";
+                display: block;
+                width: 50%;
+                height: 50%;
+                background: $c-brand-main;
+                margin: 25%;
+                border-radius: 50%;
+            }
         }
     }
 
