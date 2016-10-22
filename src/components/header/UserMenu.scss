@@ -1,0 +1,31 @@
+.UserMenu {
+    float: right;
+    border-radius: 3em;
+    color: $c-brand-main;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $c-ui-bg;
+    }
+}
+.UserMenu-avatar {
+    display: inline-block;
+    margin-right: .5em;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    background: linear-gradient(to right, $c-brand-main-orange, $c-brand-main-pink);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    vertical-align: middle;
+}
+.UserMenu-name {
+    display: inline;
+    vertical-align: middle;
+
+    &::after{
+        @include icon("\f0d7");
+        color: $c-ui-dark; 
+    }
+}
