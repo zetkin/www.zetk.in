@@ -1,7 +1,10 @@
 .Header {
-    height: 100px;
+    height: 164px;
+    width: auto;
+    padding: 32px 20px;
+}
 
-    .Header-loginButton, .UserContinueButton, .UserMenu {
-        float: right;
-    }
+.Header-loginButton {
+    @include gradient-button;
+    float: right;
 }
