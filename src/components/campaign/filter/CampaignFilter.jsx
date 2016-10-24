@@ -34,10 +34,9 @@ export default class CampaignFilter extends React.Component {
 
         if (Object.keys(campaigns).length > 1) {
             filters.push(
-                <Msg key="campaignHeader" tagName="h4"
-                    id="campaignForm.filter.campaigns.h"/>,
                 <CampaignFilterList key="campaignFilter"
                     options={ campaigns }
+                    headerMsg="campaignForm.filter.campaigns.h"
                     selectedIds={ this.props.selectedCampaigns }
                     onChange={ this.onChange.bind(this, 'campaigns') }
                     />
@@ -46,10 +45,9 @@ export default class CampaignFilter extends React.Component {
 
         if (Object.keys(locations).length > 1) {
             filters.push(
-                <Msg key="locationHeader" tagName="h4"
-                    id="campaignForm.filter.locations.h"/>,
                 <CampaignFilterList key="locationFilter"
                     options={ locations }
+                    headerMsg="campaignForm.filter.locations.h"
                     selectedIds={ this.props.selectedLocations }
                     onChange={ this.onChange.bind(this, 'locations') }
                     />
@@ -58,10 +56,9 @@ export default class CampaignFilter extends React.Component {
 
         if (Object.keys(activities).length > 1) {
             filters.push(
-                <Msg key="activityHeader" tagName="h4"
-                    id="campaignForm.filter.activities.h"/>,
                 <CampaignFilterList key="activityFilter"
                     options={ activities }
+                    headerMsg="campaignForm.filter.activities.h"
                     selectedIds={ this.props.selectedActivities }
                     onChange={ this.onChange.bind(this, 'activities') }
                     />

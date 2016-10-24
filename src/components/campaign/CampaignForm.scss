@@ -5,23 +5,48 @@
     width: 100%;
     float:left;
 }
-.CampaignForm-actions {
+
+.CampaignForm-calendar {
+    @include col(3,12);
+    position: absolute;
+    left: 0;
+}
+
+.CampaignForm-filter {
     @include col(4,12);
+    position: absolute;
+    right: 0;
+}
+
+.CampaignForm-form {
+    @include col(5,12); 
+    @include col-offset(3, 12);
+}
+
+.CampaignForm-actions {
+    @include col(12,12);
     .CampaignForm-action {
         position: relative;
         margin: 1em 0;
         list-style: none;
+
         &:before {
             content: " ";
-            background: #fff;
-            border: 0.2em solid $c-brand-main;
-            height: 1em;
-            width: 1em;
+            background: darken(white, 10);
+            height: 1.5em;
+            width: 1.5em;
             display: block;
             border-radius: 50%;
             position: absolute;
             margin-left: -2.6em;
             top: calc(50% - 0.5em);
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+        }
+        &.response:before {
+            content: "●";
+            text-align: center;
+            line-height: 1.5em;
+            color: $c-brand-main;
         }
         &.booked:before {
             background: $c-brand-main;
@@ -31,16 +56,19 @@
 .CampaignForm-days {
     list-style: none;
     padding: 0;
-    margin-left: 8em;
+    margin-left: 6em;
+
     &:before {
         content: " ";
-        background: $c-brand-main;
+        background: darken(white, 10);
         height: 100%;
         width: 0.2em;
         display: block;
         position: absolute;
-        margin-left: -1.6em;
+        top: 0;
+        margin-left: -1.45em;
     }
+
     .CampaignForm-day {
         .CampaignForm-date {
             color: $c-text;

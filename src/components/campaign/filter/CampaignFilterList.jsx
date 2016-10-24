@@ -2,6 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import { FormattedMessage as Msg } from 'react-intl';
 
+import Link from '../../misc/FormattedLink';
+
 
 export default class CampaignFilterList extends React.Component {
     static propTypes = {
@@ -9,6 +11,14 @@ export default class CampaignFilterList extends React.Component {
         selectedIds: React.PropTypes.array.isRequired,
         onChange: React.PropTypes.func,
     };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            viewMode: 'contracted',
+        };
+    }
 
     render() {
         let options = this.props.options;
@@ -26,10 +36,25 @@ export default class CampaignFilterList extends React.Component {
             );
         });
 
+        let classes = cx('CampaignFilterList', {
+            contracted: this.state.viewMode === 'contracted',
+            expanded: this.state.viewMode === 'expanded',
+        });
+
+        let count = Object.keys(options).length;
+
         return (
-            <ul className="CampaignFilterList">
-                { items }
-            </ul>
+            <div className={ classes }>
+                <Link key="campaignLink"
+                    className="CampaignFilterList-toggle"
+                    msgId={ this.props.headerMsg }
+                    msgValues={{ count }}
+                    onClick={ this.onClickToggle.bind(this) }/>
+
+                <ul className="CampaignFilterList-list">
+                    { items }
+                </ul>
+            </div>
         );
     }
 
@@ -49,5 +74,12 @@ export default class CampaignFilterList extends React.Component {
 
             this.props.onChange(selectedIds);
         }
+    }
+
+    onClickToggle(ev) {
+        this.setState({
+            viewMode: (this.state.viewMode === 'contracted')?
+                'expanded' : 'contracted',
+        });
     }
 }

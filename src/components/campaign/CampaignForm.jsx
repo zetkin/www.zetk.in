@@ -179,7 +179,7 @@ export default class CampaignForm extends React.Component {
                         let booked = !!userActionList.get('items').find(item =>
                             item.get('id') == action.get('id'));
 
-                        let classes = cx('CampaignForm-action', { booked });
+                        let classes = cx('CampaignForm-action', { booked, response });
 
                         return (
                             <li key={ action.get('id') }
@@ -265,6 +265,10 @@ export default class CampaignForm extends React.Component {
                 .map(item => item.get('id').toString())
                 .toList();
 
+            let responses = responseList.get('items')
+                .map(item => item.get('action_id').toString())
+                .toList();
+
             let allActions = actionList.get('items').toList();
 
             return (
@@ -272,6 +276,7 @@ export default class CampaignForm extends React.Component {
                     <CampaignCalendar
                         className="CampaignForm-calendar"
                         actions={ allActions }
+                        responses={ responses }
                         bookings={ bookings }
                         />
                     <CampaignFilter

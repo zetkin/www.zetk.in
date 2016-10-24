@@ -15,6 +15,7 @@ export default class CampaignCalendarDay extends React.Component {
             'CampaignCalendarDay-month' + date.getMonth(), {
                 'hasActions': this.props.numActions > 0,
                 'hasBookings': this.props.hasBookings,
+                'hasResponses': this.props.hasResponses,
             });
 
         let link = null;

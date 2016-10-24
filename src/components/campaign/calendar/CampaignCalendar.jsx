@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage as Msg } from 'react-intl';
 import cx from 'classnames';
 
 import PropTypes from '../../../utils/PropTypes';
@@ -9,6 +10,7 @@ import CampaignCalendarDay from './CampaignCalendarDay';
 export default class CampaignCalendar extends React.Component {
     static propTypes = {
         actions: PropTypes.list.isRequired,
+        responses: PropTypes.list.isRequired,
         bookings: PropTypes.list.isRequired,
         startDate: PropTypes.object,
         endDate: PropTypes.object,
@@ -18,6 +20,7 @@ export default class CampaignCalendar extends React.Component {
         let startDate = this.props.startDate;
         let endDate = this.props.endDate;
         let bookings = this.props.bookings;
+        let responses = this.props.responses;
         let actions = this.props.actions.sort((a0, a1) => {
             let d0 = new Date(a0.get('start_time')),
                 d1 = new Date(a1.get('start_time'));
@@ -54,6 +57,7 @@ export default class CampaignCalendar extends React.Component {
         while (d <= endDate) {
             let numDayActions = 0;
             let hasBookings = false;
+            let hasResponses = false;
 
             while (idx < actions.size) {
                 let action = actions.get(idx);
@@ -71,6 +75,9 @@ export default class CampaignCalendar extends React.Component {
 
                 hasBookings = hasBookings ||
                     bookings.contains(action.get('id').toString());
+
+                hasResponses = hasResponses ||
+                    responses.contains(action.get('id').toString());
             }
 
 
@@ -78,6 +85,7 @@ export default class CampaignCalendar extends React.Component {
                 <CampaignCalendarDay key={ d } date={ new Date(d) }
                     numActions={ numDayActions }
                     hasBookings={ hasBookings }
+                    hasResponses={ hasResponses }
                     />
             );
 
@@ -99,6 +107,17 @@ export default class CampaignCalendar extends React.Component {
 
         return (
             <div className={ classes }>
+                <div className="CampaignCalendar-header">
+                    <ul>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.monday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.tuesday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.wednesday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.thursday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.friday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.saturday"/>
+                        <Msg tagName="li" id="campaignForm.calendar.weekDays.sunday"/>
+                    </ul>
+                </div>
                 { weeks }
             </div>
         );

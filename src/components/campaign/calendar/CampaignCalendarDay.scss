@@ -1,10 +1,13 @@
 .CampaignCalendarDay {
+    box-sizing: content-box;
     list-style-type: none;
     padding: 0;
     margin: 0;
     float: left;
-    width: 30px;
-    height: 30px;
+    width: 2em;
+    height: 2em;
+    border-right: 1px solid darken(white, 5);
+    position: relative;
 
     &.CampaignCalendarDay-month0,
     &.CampaignCalendarDay-month2,
@@ -12,22 +15,49 @@
     &.CampaignCalendarDay-month6,
     &.CampaignCalendarDay-month8,
     &.CampaignCalendarDay-month10 {
-        background-color: #eee;
+        background-color: darken(white, 3);
     }
 
     .CampaignCalendarDay-link {
-        content: "";
         display: block;
-        width: 50%;
-        height: 50%;
-        margin: 25%;
+        @include button-color(darken(white, 10), 2);
+        border: 1px solid #dcdcdc;
+        transition: all 0.5s;
         border-radius: 50%;
-        background-color: #888;
+        height: 50%;
+        width: 50%;
+        margin: 25%;
+    }
+
+    &:hover {
+        .CampaignCalendarDay-link {
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            position: absolute;
+            width: 110%;
+            height: 110%;
+            margin-left: -5%;
+            margin-top: -5%;
+            transition: all 0.2s;
+        }
+    }
+    &.hasResponses {
+        .CampaignCalendarDay-link {
+            &:before {
+                content: " ";
+                display: block;
+                width: 50%;
+                height: 50%;
+                background: $c-brand-main;
+                margin: 25%;
+                border-radius: 50%;
+            }
+        }
     }
 
     &.hasBookings {
         .CampaignCalendarDay-link {
-            background-color: red;
+            @include button-color($c-brand-main);
         }
     }
 }

@@ -10,17 +10,27 @@ action:
             other {På # platser}
         }
 
+calendar:
+    weekDays:
+        monday: "M"
+        tuesday: "T"
+        wednesday: "O"
+        thursday: "T"
+        friday: "F"
+        saturday: "L"
+        sunday: "S"
+
 filter:
     h: "Filtrera aktioner"
 
     activities:
-        h: "På aktiviteter"
+        h: "Aktiviteter ({ count })"
 
     campaigns:
-        h: "På kampanjer"
+        h: "Kampanjer ({ count })"
 
     locations:
-        h: "På platser"
+        h: "Platser ({ count })"
 
 
 submitLabel: "Spara mina anmälningar"
