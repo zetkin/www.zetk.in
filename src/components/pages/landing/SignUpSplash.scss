@@ -1,9 +1,105 @@
 .SignUpSplash {
-    height: 600px;
-    background-color: #eee;
-    transition: background-color 0.3s;
+    font-size: 1.1667em;
+    position: relative;
+    background: linear-gradient(to bottom, lighten($c-brand-main-orange, 10), lighten($c-brand-main-pink, 10));
 
-    &.SignUpSplash-withForm {
-        background-color: #ccc;
+    .SignUpSplash-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 600px;
+        height: 60vh;
+        // max-height: 700px;
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 0.3s;
+        padding: 5vmax 0;
+
+        @media only screen and (orientation: portrait) {
+            // height: 60vmax;
+        }
     }
+
+    h1 {
+        margin: 0 0 0.25em;
+        font-size: 7.5vmin;
+        color: $c-text-contrast;
+    }
+
+    h2 {
+        font-size: 5vmin;
+        margin: 0 0 1em;
+        color: $c-text-contrast;
+    }
+
+
+    .SignUpSplash-actions {
+        a {
+            @include gradient-button;
+            margin: 0.5em 1em;
+        }
+    }
+
+    .SignUpSplash-imageCaption {
+        display: none;
+    }
+
+    @include medium-screen {
+        .signUpSplash-imageCaption {
+            display: block;
+            position: absolute;
+            left: 1em;
+            bottom: 1em;
+            right: 1em;
+
+            p {
+                font-size: 0.8em;
+                margin: 0;
+                color: white;
+            }
+        }
+    }
+
+    &.SignUpSplash-withForm  {
+        .SignUpSplash-content {
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        form {
+            margin: auto;
+            padding: 0 1em;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin: 0.75em 0;
+            border: 0;
+            font-size: 1.2em;
+            border-bottom: 2px solid $c-brand-main;
+            background-color: transparent;
+            color: $c-text-contrast;
+        }
+
+        input[type="submit"] {
+            @include gradient-button;
+            margin-top: 1em;
+            width: auto;
+        }
+
+        @media only screen and (min-width: $small-width) {
+            form {
+                width: 460px;
+            }
+
+            input {
+                display: inline-block;
+                width: 48%;
+                margin: 0.5em 1%;
+            }
+        }
+    }
+
 }

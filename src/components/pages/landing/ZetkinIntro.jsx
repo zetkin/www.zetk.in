@@ -5,16 +5,31 @@ import { FormattedMessage as Msg } from 'react-intl';
 export default class ZetkinIntro extends React.Component {
     render() {
         return (
-            <div className="ZetkinIntro">
+            <section className="ZetkinIntro">
                 <Msg tagName="h2" id="pages.landing.zetkin.h1"/>
                 <Msg tagName="h3" id="pages.landing.zetkin.h2"/>
-                <Msg tagName="p" id="pages.landing.zetkin.paragraph"/>
+                <Msg className="ZetkinIntro-text" tagName="p" id="pages.landing.zetkin.paragraph"/>
                 <ul className="ZetkinIntro-highlights">
-                    <Msg tagName="li" id="pages.landing.zetkin.usp1"/>
-                    <Msg tagName="li" id="pages.landing.zetkin.usp2"/>
-                    <Msg tagName="li" id="pages.landing.zetkin.usp3"/>
+                    <li className="ZetkinIntro-highlight">
+                        <img src="/static/img/logo-red.png"
+                        className="ZetkinIntro-highlightIcon"
+                        alt="Zetkin"/>
+                        <Msg tagName="h4" id="pages.landing.zetkin.usp1"/>
+                    </li>
+                    <li className="ZetkinIntro-highlight">
+                        <img src="/static/img/logo-red.png"
+                        className="ZetkinIntro-highlightIcon"
+                        alt="Zetkin"/>
+                        <Msg tagName="h4" id="pages.landing.zetkin.usp2"/>
+                    </li>
+                    <li className="ZetkinIntro-highlight">
+                        <img src="/static/img/logo-red.png"
+                        className="ZetkinIntro-highlightIcon"
+                        alt="Zetkin"/>
+                        <Msg tagName="h4" id="pages.landing.zetkin.usp3"/>
+                    </li>
                 </ul>
-            </div>
+            </section>
         );
     }
 }
