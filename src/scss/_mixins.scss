@@ -103,15 +103,18 @@
     border-color: darken($color, $amount*2);
 }
 
-@mixin button($color: $c-brand-confirm, $amount:5, $icon:false) {
-    font-size: 1.4em;
-    border-width: 0;
+@mixin button($color: $c-brand-main, $amount:5, $icon:false) {
     display: inline-block;
-    padding: 1.2em 1em 0.9em;
-    border-bottom: 3px solid;
-    border-radius: 3px;
+    padding: 0 2.5em;
+    border-width: 0;
+    border-radius: 3em;
     text-decoration: none;
+    font-family: franklin-gothic-urw, sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    line-height: 3em;
     cursor: pointer;
+
     @include button-color($color, $amount);
     @if $icon {
         &:before {
@@ -122,18 +125,25 @@
     }
 }
 
-@mixin gradient-button($gradColor1: $c-brand-main-orange, $gradColor2: $c-brand-main-pink, $textColor: $c-text-contrast, $icon:false) {
-    @include button;
-    padding: 0 2.5em;
-    color: $textColor;
+@mixin gradient-button($gradColor1: $c-brand-main-orange, $gradColor2: $c-brand-main-pink, $amount:5, $icon:false) {
+    @include button($color: $gradColor1, $amount: $amount, $icon: $icon);
     background: linear-gradient(to right, $gradColor1 , $gradColor2);
-    font-size: 1em;
     font-weight: 300;
     font-family: azo-sans-web, sans-serif;
     text-transform: uppercase;
-    line-height: 3em;
-    border-bottom: 0;
-    border-radius: 3em;
+
+    //TODO: Merge this with button-color mixin
+    &:hover {
+        filter: brightness(110%);
+    }
+
+    &:active {
+        filter: brightness(130%);
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
 
 @mixin inline-button($color: lighten($c-ui-bg, 1), $amount:5, $icon:false) {

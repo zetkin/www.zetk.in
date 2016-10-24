@@ -38,20 +38,23 @@
     }
 }
 
+.CampaignFilterList-list {
+    margin: 0;
+    padding-left: 0;
+}
+
 .CampaignFilterList-item {
     list-style-type: none;
     @include inline-button(white);
-    float: left;
+    float: right;
     font-size: 0.9em;
-    margin-right: 0.5em;
+    margin: 0.3em;
 }
 
 .CampaignFilterList-toggle {
     //TODO: Update with new button mixin
-    @include gradient-button();
-    background: darken(white, 5);
-    color: lighten($c-text, 30);
-    font-size: 1em;
+    @include button($color:darken(white, 5));
+    font-size: 0.9em;
     padding: 0 1.5em;
     cursor: pointer;
 }
