@@ -7,6 +7,35 @@
         display: block;
         clear: both;
     }
+
+    &.contracted {
+        .CampaignFilterList-toggle {
+            &:after {
+                @include icon($fa-var-chevron-down);
+            }
+        }
+
+        .CampaignFilterList-list {
+            visibility: hidden;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+    }
+    &.expanded {
+        .CampaignFilterList-toggle {
+            &:after {
+                @include icon($fa-var-chevron-up);
+            }
+        }
+
+        .CampaignFilterList-list {
+            visibility: visible;
+            max-height: 100em;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+    }
 }
 
 .CampaignFilterList-item {
@@ -15,4 +44,14 @@
     float: left;
     font-size: 0.9em;
     margin-right: 0.5em;
+}
+
+.CampaignFilterList-toggle {
+    //TODO: Update with new button mixin
+    @include gradient-button();
+    background: darken(white, 5);
+    color: lighten($c-text, 30);
+    font-size: 1em;
+    padding: 0 1.5em;
+    cursor: pointer;
 }

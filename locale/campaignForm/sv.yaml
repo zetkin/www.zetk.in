@@ -24,16 +24,13 @@ filter:
     h: "Filtrera aktioner"
 
     activities:
-        h: "På aktiviteter"
-        label: "Aktiviteter ({ num })"
+        h: "Aktiviteter ({ count })"
 
     campaigns:
-        h: "På kampanjer"
-        label: "Kampanjer ({ num })"
+        h: "Kampanjer ({ count })"
 
     locations:
-        h: "På platser"
-        label: "Platser ({ num })"
+        h: "Platser ({ count })"
 
 
 submitLabel: "Spara mina anmälningar"
