@@ -1,7 +1,8 @@
 .SignUpSplash {
     font-size: 1.1667em;
     position: relative;
-    background: linear-gradient(to bottom, lighten($c-brand-main-orange, 10), lighten($c-brand-main-pink, 10));
+    background: url(/static/img/cover.jpg) center center no-repeat;
+    background-size: cover;
 
     .SignUpSplash-content {
         text-align: center;
