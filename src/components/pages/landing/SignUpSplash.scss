@@ -1,5 +1,6 @@
-section.SignUpSplash {
+.SignUpSplash {
     font-size: 1.1667em;
+    position: relative;
     background: linear-gradient(to bottom, lighten($c-brand-main-orange, 10), lighten($c-brand-main-pink, 10));
 
     .SignUpSplash-content {
@@ -36,6 +37,26 @@ section.SignUpSplash {
         a {
             @include gradient-button;
             margin: 0.5em 1em;
+        }
+    }
+
+    .SignUpSplash-imageCaption {
+        display: none;
+    }
+
+    @include medium-screen {
+        .signUpSplash-imageCaption {
+            display: block;
+            position: absolute;
+            left: 1em;
+            bottom: 1em;
+            right: 1em;
+
+            p {
+                font-size: 0.8em;
+                margin: 0;
+                color: white;
+            }
         }
     }
 

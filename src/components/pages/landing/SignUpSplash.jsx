@@ -78,9 +78,6 @@ export default class SignUpSplash extends React.Component {
                     <Link key="infoLink" to="/info">
                         <Msg id="pages.landing.splash.infoLink"/></Link>
                 </div>,
-                // <div key="caption" className="SignUpSplash-imageCaption">
-                //     <Msg tagName="p" id="pages.landing.splash.caption"/>
-                // </div>,
             ];
         }
 
@@ -93,6 +90,9 @@ export default class SignUpSplash extends React.Component {
                 <div className="SignUpSplash-content">
                     { content }
                 </div>
+                <footer key="caption" className="SignUpSplash-imageCaption">
+                    <Msg tagName="p" id="pages.landing.splash.caption"/>
+                </footer>
             </section>
         );
     }
