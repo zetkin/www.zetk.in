@@ -1,8 +1,3 @@
-.SingleActionForm {
-    @include card;
-    padding: 1em;
-    position: relative;
-}
 .SingleActionForm-title {
     margin: 0.5em 0 0.2em;
     font-size: 1.2em;
@@ -26,7 +21,7 @@
     color: lighten($c-text, 30);
     font-size: 0.8em;
     line-height: 1.5em;
-    margin: 0 3em 0 0;
+    margin: 0 3.5em 0 0;
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 4.5em;

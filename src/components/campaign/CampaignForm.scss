@@ -52,6 +52,17 @@
         &.booked:before {
             background: $c-brand-main;
         }
+
+        > div {
+            @include card;
+            padding: 1em;
+            position: relative;
+
+            ul {
+                padding: 0;
+                list-style: none;
+            }
+        }
     }
 }
 .CampaignForm-days {
