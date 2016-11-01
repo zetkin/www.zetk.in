@@ -3,6 +3,7 @@
     .MultiLocationActionForm-locationsLink {
         text-decoration: underline;
         cursor: pointer;
+        color: lighten($c-text, 20);
 
         &:before {
             @include icon($fa-var-map-marker);
