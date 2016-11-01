@@ -21,10 +21,10 @@
     color: lighten($c-text, 30);
     font-size: 0.8em;
     line-height: 1.5em;
-    margin: 0 3.5em 0 0;
+    margin: 0 3.2em 0 0;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 4.5em;
+    max-height: 3em;
     transition: max-height 0.5s;
 }
 .SingleActionForm-toggleExpandButton {
@@ -38,7 +38,7 @@
         position: absolute;
         right: 0;
         bottom: 3em;
-        width: 30%;
+        width: 40%;
         height: 1.5em;
         background: linear-gradient(to right, 
             rgba(255, 255, 255, 0), 

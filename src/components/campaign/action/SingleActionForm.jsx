@@ -27,7 +27,7 @@ export default class SingleActionForm extends React.Component {
     componentDidMount() {
         let node = ReactDOM.findDOMNode(this.refs.infoText);
         if (node) {
-            if (node.clientHeight > 63) {
+            if (node.clientHeight > 42) {
                 this.setState({
                     viewMode: 'contracted',
                 });
