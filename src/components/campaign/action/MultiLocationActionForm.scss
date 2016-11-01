@@ -1,5 +1,19 @@
 .MultiLocationActionForm {
-    .ResponseWidget {
-        position: static;
+
+    .MultiLocationActionForm-locationsLink {
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:before {
+            @include icon($fa-var-map-marker);
+        }
+    }
+
+    .MultiLocationActionForm-locationItem {
+        position: relative;
+
+        .ResponseWidget {
+            right: 0;
+        }
     }
 }

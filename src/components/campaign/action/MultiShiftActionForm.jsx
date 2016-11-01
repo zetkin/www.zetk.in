@@ -2,6 +2,9 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
 import PropTypes from '../../../utils/PropTypes';
+import ActionFormTitle from './ActionFormTitle';
+import ActionFormLocation from './ActionFormLocation';
+import ActionFormTime from './ActionFormTime';
 import ResponseWidget from './ResponseWidget';
 
 
@@ -34,7 +37,7 @@ export default class MultiShiftActionForm extends React.Component {
             return (
                 <li key={ timeLabel }
                     className="MultiShiftActionForm-shiftItem">
-                    { timeLabel }
+                    <ActionFormTime time={ timeLabel } />
                     <ResponseWidget action={ action }
                         isBooked={ isBooked } response={ response }
                         onChange={ this.onChange.bind(this) }/>
@@ -44,12 +47,10 @@ export default class MultiShiftActionForm extends React.Component {
 
         return (
             <div className="MultiShiftActionForm">
-                <h3 className="MultiShiftActionForm-title">
-                    { actions[0].getIn(['activity', 'title']) }
-                </h3>
-                <div className="MultiShiftactionForm-location">
-                    { actions[0].getIn(['location', 'title']) }
-                </div>
+                <ActionFormTitle
+                    title={ actions[0].getIn(['activity', 'title']) } />
+                <ActionFormLocation
+                    location={ actions[0].getIn(['location', 'title']) } />
                 <ul className="MultiShiftactionForm-shifts">
                     { shiftItems }
                 </ul>

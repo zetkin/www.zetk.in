@@ -3,6 +3,9 @@ import cx from 'classnames';
 
 import Link from '../../misc/FormattedLink';
 import PropTypes from '../../../utils/PropTypes';
+import ActionFormTitle from './ActionFormTitle';
+import ActionFormLocation from './ActionFormLocation';
+import ActionFormTime from './ActionFormTime';
 import ResponseWidget from './ResponseWidget';
 
 
@@ -62,7 +65,7 @@ export default class MultiLocationActionForm extends React.Component {
                 return (
                     <li key={ locLabel }
                         className="MultiLocationActionForm-locationItem">
-                        { locLabel }
+                        <ActionFormLocation location={ locLabel } />
                         <ResponseWidget action={ action }
                             isBooked={ isBooked } response={ response }
                             onChange={ this.onChange.bind(this) }/>
@@ -82,6 +85,7 @@ export default class MultiLocationActionForm extends React.Component {
 
             content = [
                 <Link key="multiLocationLink"
+                    className="MultiLocationActionForm-locationsLink"
                     msgId="campaignForm.action.multiLocationLabel"
                     msgValues={{ count: actions.length }}
                     onClick={ this.onClickExpand.bind(this) }/>,
@@ -99,12 +103,9 @@ export default class MultiLocationActionForm extends React.Component {
 
         return (
             <div className="MultiLocationActionForm">
-                <h3 className="MultiLocationActionForm-title">
-                    { actions[0].getIn(['activity', 'title']) }
-                </h3>
-                <div className="MultiLocationactionForm-time">
-                    { timeLabel }
-                </div>
+                <ActionFormTitle
+                    title={ actions[0].getIn(['activity', 'title']) } />
+                <ActionFormTime time={ timeLabel } />
                 { content }
             </div>
         );

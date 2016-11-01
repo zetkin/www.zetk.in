@@ -3,6 +3,9 @@ import cx from 'classnames';
 import ReactDOM from 'react-dom';
 import { FormattedMessage as Msg } from 'react-intl';
 
+import ActionFormTitle from './ActionFormTitle';
+import ActionFormLocation from './ActionFormLocation';
+import ActionFormTime from './ActionFormTime';
 import ResponseWidget from './ResponseWidget';
 
 
@@ -75,18 +78,9 @@ export default class SingleActionForm extends React.Component {
 
         return (
             <div className={ classes }>
-                <h3 className="SingleActionForm-title">
-                    <span className="SingleActionForm-activity">
-                        { activity }</span>
-                </h3>
-                <div className="SingleActionForm-location">
-                    <span className="SingleActionForm-locationItem">
-                        { location }</span>
-                </div>
-                <div className="SingleActionForm-time">
-                    <span className="SingleActionForm-timeItem">
-                        { timeLabel }</span>
-                </div>
+                <ActionFormTitle title={ activity } />
+                <ActionFormLocation location={ location } />
+                <ActionFormTime time={ timeLabel } />
 
                 { infoText }
 
