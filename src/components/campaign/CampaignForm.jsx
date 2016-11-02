@@ -95,7 +95,11 @@ export default class CampaignForm extends React.Component {
 
                 let groups = [];
 
-                actions.toList().forEach(action => {
+                // Sort by start time
+                // TODO: This should be done on server (preferrable) or in store
+                actions = actions.toList().sortBy(action => action.get('start_time'));
+
+                actions.forEach(action => {
                     let startTime = action.get('start_time');
                     let endTime = action.get('end_time');
                     let location = action.getIn(['location', 'id']);
