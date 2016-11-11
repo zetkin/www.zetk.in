@@ -7,21 +7,18 @@
 }
 
 .CampaignForm-calendar {
-    @include col(3,12);
-    position: absolute;
-    left: 0;
+    @include col(10,12);
+    @include col-offset(1, 12);
 }
 
 .CampaignForm-filter {
-    @include col(4,12);
-    position: absolute;
-    right: 0;
-    text-align: right;
+    @include col(11,12);
+    @include col-offset(1, 12);
+    margin-top: 1em;
 }
 
 .CampaignForm-form {
-    @include col(5,12); 
-    @include col-offset(3, 12);
+    @include col(12,12);
 }
 
 .CampaignForm-actions {
@@ -68,7 +65,8 @@
 .CampaignForm-days {
     list-style: none;
     padding: 0;
-    margin-left: 6em;
+    margin-left: 2.5em;
+    margin-top: 2em;
 
     &:before {
         content: " ";
@@ -82,11 +80,53 @@
     }
 
     .CampaignForm-day {
+        margin-bottom: 1em;
         .CampaignForm-date {
             color: $c-text;
             position: absolute;
-            margin-left: -6em;
+            margin-left: 1em;
+            margin-top: -1em;
             text-align: right;
+            font-size: 0.8em;
+        }
+    }
+}
+
+@include medium-screen {
+    .Dashboard {
+        & > div {
+            float: left;
+            @include col(6, 12);
+        }
+    }
+}
+
+@include large-screen {
+    .CampaignForm-calendar {
+        @include col(3,12);
+        @include col-offset(0, 12);
+        padding-left: 2em;
+        float: left;
+        position: absolute;
+        left: 0;
+    }
+
+    .CampaignForm-filter {
+        @include col(8,12);
+        @include col-offset(4, 12);
+    }
+
+    .CampaignForm-form {
+        @include col(5,12);
+        @include col-offset(3, 12);
+    }
+    .CampaignForm-days {
+        margin-left: 6em;
+
+        .CampaignForm-day {
+            .CampaignForm-date {
+                margin-left: -6em;
+            }
         }
     }
 }

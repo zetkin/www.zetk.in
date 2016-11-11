@@ -5,10 +5,11 @@
         content: " ";
         background: $c-brand-main;
         height: 100%;
-        width: 0.1em;
+        width: 0.15em;
         display: block;
         position: absolute;
-        margin-left: -1.51em;
+        margin-left: -1.53em;
+        padding-bottom: 100em;
     }
     & > a {
         &:hover {
@@ -33,5 +34,13 @@
         font-weight: 600;
         display: inline-block;
         margin-right: 0.5em;
+    }
+}
+
+@include medium-screen {
+    .ActionList {
+        &:before {
+            padding-bottom: 100em;
+        }
     }
 }

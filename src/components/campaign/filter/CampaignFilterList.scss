@@ -1,6 +1,7 @@
 .CampaignFilterList {
     padding: 0;
-    margin: 0.5em;
+    margin: 0.2em;
+    display: inline-block;
 
     &:after {
         content: "";
@@ -18,6 +19,7 @@
         .CampaignFilterList-list {
             visibility: hidden;
             max-height: 0;
+            max-width: 0;
             overflow: hidden;
             transition: all 0.5s;
         }
@@ -46,7 +48,7 @@
 .CampaignFilterList-item {
     list-style-type: none;
     @include inline-button(white);
-    float: right;
+    float: left;
     font-size: 0.9em;
     margin: 0.3em;
 }
@@ -54,7 +56,7 @@
 .CampaignFilterList-toggle {
     //TODO: Update with new button mixin
     @include button($color:darken(white, 5));
-    font-size: 0.9em;
+    font-size: 0.8em;
     padding: 0 1.5em;
     cursor: pointer;
 }

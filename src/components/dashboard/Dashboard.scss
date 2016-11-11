@@ -4,6 +4,7 @@
     background-color: #FFF;
     padding-top: 2em;
     box-shadow: 0 2px 2px rgba(0,0,0,0.05);
+    overflow: hidden;
     &:after {
         content: "";
         display: block;
@@ -13,6 +14,7 @@
     & > div {
         float: left;
         @include col(12, 12);
+        padding-left: 3em;
         h2 {
             font-size: 1.3em;
         }
@@ -29,19 +31,32 @@
 @include medium-screen {
     .Dashboard {
         & > div {
-            float: left;
+            float: right;
             @include col(6, 12);
+        }
+        .Dashboard-events {
+            float:left;
+            padding-left: 3em;
         }
     }
 }
 
 @include large-screen {
     .Dashboard {
-        display: flex;
         justify-content: center;
         & > div {
             float: left;
             @include col(3, 12);
+        }
+
+        .Dashboard-campaigns {
+            padding-left: 2em;
+        }
+
+        .Dashboard-events {
+            padding-left: 0.5em;
+            margin-left: 6em;
+            @include col(4, 12)
         }
     }
 }
