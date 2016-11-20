@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import CampaignForm from '../campaign/CampaignForm';
+import CampaignForm from '../../common/campaignForm/CampaignForm';
 import Dashboard from '../dashboard/Dashboard';
 import {
     retrieveAllActions,

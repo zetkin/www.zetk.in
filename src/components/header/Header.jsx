@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage as Msg } from 'react-intl';
 import React from 'react';
 
-import Button from '../misc/Button';
+import Button from '../../common/misc/Button';
 import Logo from './Logo';
 import UserContinueButton from './UserContinueButton';
 import UserMenu from './UserMenu';
