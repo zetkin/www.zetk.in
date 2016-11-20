@@ -2,7 +2,7 @@ import { FormattedMessage as Msg } from 'react-intl';
 import React from 'react';
 import ImPropTypes from 'react-immutable-proptypes';
 
-import Button from '../misc/Button';
+import Button from '../../common/misc/Button';
 import UserMenu from './UserMenu';
 
 

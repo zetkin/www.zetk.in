@@ -1,9 +1,8 @@
 import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
-import { Link } from 'react-router';
 
-import FormattedLink from '../misc/FormattedLink';
-import LoadingIndicator from '../misc/LoadingIndicator';
+import FormattedLink from '../../common/misc/FormattedLink';
+import LoadingIndicator from '../../common/misc/LoadingIndicator';
 
 
 export default class AssignmentList extends React.Component {
@@ -75,7 +74,7 @@ const AssignmentListItem = props => {
 
     return (
         <li className="AssignmentListItem">
-            <h3><Link to={ callHref }>{ title }</Link></h3>
+            <h3><a href={ callHref }>{ title }</a></h3>
             <p>
                 { description }
             </p>

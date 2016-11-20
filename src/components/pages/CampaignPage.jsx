@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import CampaignForm from '../campaign/CampaignForm';
-import LoadingIndicator from '../misc/LoadingIndicator';
+import LoadingIndicator from '../../common/misc/LoadingIndicator';
+import CampaignForm from '../../common/campaignForm/CampaignForm';
 import { campaign } from '../../store/campaigns';
 import { campaignActionList } from '../../store/actions';
 import { organization } from '../../store/orgs';
