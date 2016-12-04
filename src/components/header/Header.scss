@@ -1,10 +1,12 @@
 .Header {
+    position: relative;
     height: 64px;
     padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.8888em;
+    z-index: 3;
 
     @include medium-screen{
         height: 120px;
