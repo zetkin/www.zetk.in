@@ -10,11 +10,9 @@ module.exports = {
     ],
     plugins: [
         new webpack.DefinePlugin({
-            'proccess.env': {
-                'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-                'ZETKIN_DOMAIN': JSON.stringify('dev.zetkin.org'),
-                'ZETKIN_APP_ID': JSON.stringify(appId),
-            }
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+            'process.env.ZETKIN_DOMAIN': JSON.stringify('dev.zetkin.org'),
+            'process.env.ZETKIN_APP_ID': JSON.stringify(appId),
         }),
     ],
     output: {
