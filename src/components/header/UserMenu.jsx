@@ -38,7 +38,8 @@ export default class UserContinueButton extends React.Component {
 
         if (dropDownOpen) {
             dropDown = <ul className="UserMenu-dropDown">
-                <li><FormattedLink className="UserMenu-logout" href={logoutUrl} msgId="header.user.logout">log out</FormattedLink></li>
+                <li><FormattedLink className="UserMenu-settings" href="/settings" msgId="header.user.settings">Settings</FormattedLink></li>
+                <li><FormattedLink className="UserMenu-logout" href={logoutUrl} msgId="header.user.logout">Log out</FormattedLink></li>
             </ul>
         }
 

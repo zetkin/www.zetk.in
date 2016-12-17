@@ -57,6 +57,7 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     color: $c-text;
     list-style: none;
+    background-color: $c-text-contrast;
 
     a {
         color: inherit;
@@ -70,6 +71,6 @@
 .UserMenu-logout:before {
     @include icon($fa-var-power-off);
 }
-.UserMenu-account:before {
+.UserMenu-settings:before {
     @include icon($fa-var-user);
 }
