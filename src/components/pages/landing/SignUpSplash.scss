@@ -11,8 +11,7 @@
         justify-content: flex-end;
         height: 600px;
         height: 60vh;
-        // max-height: 700px;
-        background-color: rgba(0, 0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s;
         padding: 5vmax 0;
 
@@ -23,14 +22,16 @@
 
     h1 {
         margin: 0 0 0.25em;
-        font-size: 7.5vmin;
+        font-size: 5.5vmin;
         color: $c-text-contrast;
+        text-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     h2 {
-        font-size: 5vmin;
+        font-size: 4vmin;
         margin: 0 0 1em;
         color: $c-text-contrast;
+        text-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
 
@@ -49,9 +50,12 @@
         .signUpSplash-imageCaption {
             display: block;
             position: absolute;
-            left: 1em;
-            bottom: 1em;
-            right: 1em;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            padding: 1em 1em 0.5em;
+            background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+            transition: opacity 0.2s;
 
             p {
                 font-size: 0.8em;
@@ -67,21 +71,30 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
+        .SignUpSplash-imageCaption {
+            opacity: 0.2;
+        }
+
         form {
-            margin: auto;
-            padding: 0 1em;
+            margin: 0 1em;
+            padding: 0;
         }
 
         input {
+            outline: none;
             display: block;
             width: 100%;
             max-width: 100%;
-            margin: 0.75em 0;
+            margin: 1em 0;
             border: 0;
             font-size: 1.2em;
-            border-bottom: 2px solid $c-brand-main;
+            border-bottom: 2px solid $c-ui-bg;
             background-color: transparent;
             color: $c-text-contrast;
+        }
+
+        input:focus {
+            border-color: $c-brand-comp-light;
         }
 
         input[type="submit"] {
@@ -92,13 +105,15 @@
 
         @media only screen and (min-width: $small-width) {
             form {
-                width: 460px;
+                width: 80%;
+                margin: auto;
+                max-width: 800px;
             }
 
             input {
                 display: inline-block;
                 width: 48%;
-                margin: 0.5em 1%;
+                margin: 1em 1%;
             }
         }
     }

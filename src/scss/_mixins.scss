@@ -128,6 +128,7 @@
 @mixin gradient-button($gradColor1: $c-brand-main-orange, $gradColor2: $c-brand-main-pink, $amount:5, $icon:false) {
     @include button($color: $gradColor1, $amount: $amount, $icon: $icon);
     background: linear-gradient(to right, $gradColor1 , $gradColor2);
+    font-size: 14px;
     font-weight: 300;
     font-family: azo-sans-web, sans-serif;
     text-transform: uppercase;
@@ -143,6 +144,14 @@
 
     &:focus {
         outline: none;
+    }
+
+    @include medium-screen {
+        font-size: 1.4vmax;
+    }
+
+    @include large-screen {
+        font-size: 0.9em;
     }
 }
 
