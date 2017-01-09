@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import Header from './header/Header';
+import Footer from './Footer';
 
 
 @connect(state => ({ fullState: state }))
@@ -29,6 +30,7 @@ export default class App extends React.Component {
                     <div className="App-content">
                         { this.props.children }
                     </div>
+                    <Footer />
                     <script type="text/json"
                         id="App-initialState"
                         dangerouslySetInnerHTML={{ __html: stateJson }}/>
