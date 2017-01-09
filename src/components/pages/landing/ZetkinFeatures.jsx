@@ -1,6 +1,7 @@
 import { FormattedMessage as Msg } from 'react-intl';
 import React from 'react';
-import { Link } from 'react-router';
+
+import FormattedLink from '../../../common/misc/FormattedLink';
 
 
 export default class ZetkinFeatures extends React.Component {
@@ -39,9 +40,17 @@ export default class ZetkinFeatures extends React.Component {
                         <Msg id="pages.landing.features.f4.desc" tagName="p"/>
                     </li>
                 </ul>
-                <Link to="/register">
-                    <Msg id="pages.landing.features.signUpLink"/></Link>
+                <FormattedLink href="/register"
+                    msgId="pages.landing.features.signUpLink"
+                    onClick={ this.onSignUpLinkClick.bind(this) }/>
             </section>
         );
+    }
+
+    onSignUpLinkClick() {
+        let animatedScrollTo = require('animated-scrollto');
+        let signUpSplash = document.querySelector('.SignUpSplash');
+
+        animatedScrollTo(document.body, 0, 500);
     }
 }
