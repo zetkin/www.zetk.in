@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
 import cx from 'classnames';
-import { FormattedMessage as Msg } from 'react-intl';
+import { FormattedMessage as Msg, injectIntl } from 'react-intl';
 import React from 'react';
-import { injectIntl } from 'react-intl';
-import { Link } from 'react-router';
 
 import { register } from '../../../actions/register';
+import FormattedLink from '../../../common/misc/FormattedLink';
 
 
 const mapStateToProps = state => ({
@@ -69,14 +68,17 @@ export default class SignUpSplash extends React.Component {
             );
         }
         else {
+            let infoHref = this.props.intl.formatMessage(
+                { id: 'pages.landing.splash.infoLink.href' });
+
             content = [
                 <Msg key="h1" tagName="h1" id="pages.landing.splash.h1"/>,
                 <Msg key="h2" tagName="h2" id="pages.landing.splash.h2"/>,
                 <div key="actions" className="SignUpSplash-actions">
-                    <Link key="signUpLink" to="/register">
-                        <Msg id="pages.landing.splash.signUpLink"/></Link>
-                    <Link key="infoLink" to="/info">
-                        <Msg id="pages.landing.splash.infoLink"/></Link>
+                    <FormattedLink href="/register"
+                        msgId="pages.landing.splash.signUpLink"/>
+                    <FormattedLink href={ infoHref }
+                        msgId="pages.landing.splash.infoLink.text"/>
                 </div>,
             ];
         }

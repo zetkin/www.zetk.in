@@ -2,7 +2,9 @@ splash:
     h1: "Inspirerande huvudrubrik"
     h2: "Någon form av underrubrik"
     signUpLink: "Registrera dig"
-    infoLink: "Lär dig mer"
+    infoLink:
+        text: "Läs mer om Zetkin"
+        href: "http://zetkin.org/sv"
     caption: |
         Vänsterpartiets rekordstora 1 maj 2014. Planerat och genomfört
         med Zetkin.
@@ -79,12 +81,16 @@ foundation:
         tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis
         mi vel finibus. Maecenas at odio rhoncus, congue purus ac, consequat
         diam.
-    infoLink: "Läs mer om Zetkin Foundation"
+    infoLink:
+        text: "Läs mer om Zetkin Foundation"
+        href: "http://zetkin.org/sv/foundation"
 
 connect:
     h1: "Zetkin för din organisation"
     h2: "Vill du börja använda Zetkin i din organisation?"
-    applyLink: "Ansök om tillgång"
+    applyLink:
+        text: "Ansök om tillgång"
+        href: "http://zetkin.org/sv/anslut"
     paragraph: |
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non
         tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis

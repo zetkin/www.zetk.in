@@ -1,17 +1,22 @@
-import { FormattedMessage as Msg } from 'react-intl';
+import { FormattedMessage as Msg, injectIntl } from 'react-intl';
 import React from 'react';
-import { Link } from 'react-router';
+
+import FormattedLink from '../../../common/misc/FormattedLink';
 
 
+@injectIntl
 export default class ConnectInfo extends React.Component {
     render() {
+        let applyHref = this.props.intl.formatMessage(
+            { id: 'pages.landing.connect.applyLink.href' });
+
         return (
             <section className="ConnectInfo">
                 <Msg id="pages.landing.connect.h1" tagName="h2"/>
                 <Msg id="pages.landing.connect.h2" tagName="h3"/>
                 <Msg id="pages.landing.connect.paragraph" tagName="p"/>
-                <Link to="https://zetkin.org/join">
-                    <Msg id="pages.landing.connect.applyLink"/></Link>
+                <FormattedLink href={ applyHref }
+                    msgId="pages.landing.connect.applyLink.text"/>
             </section>
         );
     }
