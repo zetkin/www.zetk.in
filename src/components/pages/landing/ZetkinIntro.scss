@@ -15,8 +15,7 @@
     }
 
     .ZetkinIntro-highlight {
-        display: inline-block;
-        width: 33%;
+        width: 90%;
         margin: 1em auto;
         text-align: center;
 
@@ -33,7 +32,14 @@
         }
     }
 
-    @media only screen and (min-width: $large-width) {
+    @include medium-screen {
+        .ZetkinIntro-highlight {
+            display: inline-block;
+            width: 33%;
+        }
+    }
+
+    @include large-screen {
         & > p{
             max-width: 53em;
             column-count: 2;
