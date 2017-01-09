@@ -1,11 +1,13 @@
 splash:
-    h1: "Inspirerande huvudrubrik"
-    h2: "Någon form av underrubrik"
-    signUpLink: "Registrera dig"
-    infoLink: "Lär dig mer"
+    h1: "Delta i kampen för rättvisa"
+    h2: "Kom igång med ditt engagemang genom Zetkin"
+    signUpLink: "Skapa användarkonto"
+    infoLink:
+        text: "Läs mer om Zetkin"
+        href: "http://zetkin.org/sv"
     caption: |
-        Vänsterpartiets rekordstora 1 maj 2014. Planerat och genomfört
-        med Zetkin.
+        Gatufesten "Vår stad" organiserades med Zetkin av Vänsterpartiet i Malmö
+        i maj 2014.
 
     form:
         h1: "Registrera dig"
@@ -22,71 +24,63 @@ splash:
         h2: "Kolla din inbox för att bekräfta din e-postadress"
 
 zetkin:
-    h1: "Rubrik om vad Zetkin är"
-    h2: "En underrubrik"
+    h1: "Gör engagemang enkelt"
+    h2: "En plattform för att organisera aktivism"
     paragraph: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non
-        tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis
-        mi vel finibus. Maecenas at odio rhoncus, congue purus ac, consequat
-        diam. Morbi sed purus at ligula maximus consectetur. Pellentesque
-        consectetur malesuada turpis non mollis. Nulla nisi sapien, tristique
-        dictum magna sed, ultricies sollicitudin lectus. Mauris elit diam,
-        vehicula id egestas at, pharetra in tellus. Nullam sit amet leo a mi
-        suscipit rhoncus nec eu odio. Nam vitae est magna. Sed nisl odio,
-        ultrices in vestibulum at, laoreet maximus tellus. Praesent vel erat
-        pulvinar tellus rhoncus condimentum sit amet eu mauris. Nunc facilisis
-        nulla orci, vel volutpat tellus scelerisque sit amet. Curabitur
-        eleifend diam a nunc tempus aliquet. In vitae massa sagittis, pretium
-        dui in, accumsan diam. Suspendisse viverra nec lorem vitae faucibus.
-    usp1: "Säkert"
-    usp2: "Radikalt"
-    usp3: "Effektivt"
+        Zetkin är en webbaserad plattform för att underlätta engagemang. Det
+        används av organisationer och enskilda aktivister som deltar i
+        organisationernas arbete.
+
+        Vem som helst kan skapa ett användarkonto i Zetkin. Som användare i
+        Zetkin kan du delta i arbete och arrangemang som organiseras av de
+        organisationer du är ansluten till.
+    usp1: "Tryggt och säkert"
+    usp2: "Aktivisten i fokus"
+    usp3: "Beprövat"
 
 features:
-    h1: "Zetkin har många bra funktioner"
-    h2: "Här är en genomgång"
-    signUpLink: "Registrera dig"
+    h1: "Allt du behöver som aktivist"
+    signUpLink: "Registrera dig och kom igång"
     f1:
-        title: "Funktion 1"
+        title: "Bli aktiv i din organisation"
         desc: |
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
-            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+            Om din organisation använder Zetkin behöver du bara ansluta dig.
+            Sedan kan du anmäla dig till aktioner, delta i rundringningar
+            och mer.
     f2:
-        title: "Funktion 2"
+        title: "Få överblick"
         desc: |
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
-            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+            På "Min sida" håller du koll på kampanjer du kan delta i, vilka
+            aktioner du är inbokad på, och om du har fått några uppdrag.
     f3:
-        title: "Funktion 3"
+        title: "Engagera dig på stan"
         desc: |
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
-            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+            Anmäl dig snabbt och enkelt till aktioner ute på stan. Sedan är
+            det bara att dyka upp.
     f4:
-        title: "Funktion 4"
+        title: "Delta i rundringningar"
         desc: |
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            tellus et urna feugiat ultricies at non nisl. Aliquam iaculis
-            mi vel finibus. Maecenas at odio rhoncus, congue purus ac.
+            Hjälp till i din organisations kontaktarbete. Ring var du än
+            befinner dig med Zetkins smarta ringverktyg.
 
 foundation:
-    h1: "Zetkin görs av Zetkin Foundation"
-    h2: "Zetkin Foundation är inte som andra företag"
+    h1: "Utvecklat av aktivister"
+    h2: "Ett annorlunda företag, för ett annorlunda samhälle"
     paragraph: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non
-        tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis
-        mi vel finibus. Maecenas at odio rhoncus, congue purus ac, consequat
-        diam.
-    infoLink: "Läs mer om Zetkin Foundation"
+        Zetkin utvecklas av Zetkin Foundation – ett företag vars syfte inte
+        är att göra vinst, utan att bidra till radikal samhällsförändring i
+        socialistisk, feministisk, antirasistisk och hållbar riktning. Det
+        gör Zetkin till något alldeles speciellt.
+    infoLink:
+        text: "Läs mer om Zetkin Foundation"
+        href: "http://zetkin.org/sv/foundation"
 
 connect:
     h1: "Zetkin för din organisation"
     h2: "Vill du börja använda Zetkin i din organisation?"
-    applyLink: "Ansök om tillgång"
+    applyLink:
+        text: "Ansök om tillgång"
+        href: "http://zetkin.org/sv/anslut"
     paragraph: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non
-        tellus et urna feugiat ultricies at non nisl. Aliquam iaculis quis
-        mi vel finibus. Maecenas at odio rhoncus, congue purus ac, consequat
-        diam.
+        Om din organisation jobbar mot samma mål som Zetkin Foundation vill
+        vi gärna hjälpa er utveckla er aktivism.

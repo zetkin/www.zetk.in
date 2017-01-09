@@ -1,0 +1,42 @@
+.Footer {
+    clear: both;
+    margin: 3em auto;
+    padding: 1em;
+    max-width: 500px;
+    text-align: center;
+    color: $c-ui-dark;
+    font-size: 0.8em;
+    line-height: 1.1em;
+
+    img {
+        width: 100px;
+        height: auto;
+        opacity: 0.3;
+    }
+
+    p {
+        margin: 2em 0;
+    }
+
+    a {
+        color: $c-ui-dark;
+        font-size: inherit;
+
+        &:hover {
+            color: $c-ui-darker;
+        }
+    }
+
+    .Footer-links {
+        a {
+            display: inline-block;
+            padding: 0 1em;
+            border-left: 1px solid $c-ui-dark;
+            line-height: 1em;
+
+            &:first-child {
+                border-width: 0;
+            }
+        }
+    }
+}

@@ -9,24 +9,29 @@
     .ZetkinIntro-highlights {
         list-style: none;
         padding: 0;
-        margin: 3em auto 0;
+        margin: 2em auto 0;
         max-width: 40em;
+        color: $c-ui-darker;
     }
 
-    .ZetkinIntro-highlight{
+    .ZetkinIntro-highlight {
         display: inline-block;
         width: 33%;
         margin: 1em auto;
         text-align: center;
-    }
 
-    .ZetkinIntro-highlightIcon{
-        display: inline-block;
-        width: 50%;
-        height: auto;
-        margin: 0 0 1em 0;
-    }
+        &:nth-child(1):before {
+            @include icon($fa-var-lock);
+        }
 
+        &:nth-child(2):before {
+            @include icon($fa-var-users);
+        }
+
+        &:nth-child(3):before {
+            @include icon($fa-var-check-circle);
+        }
+    }
 
     @media only screen and (min-width: $large-width) {
         & > p{
