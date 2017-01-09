@@ -19,4 +19,27 @@ export default createReducer(initialState, {
         return state
             .set('data', immutable.fromJS(action.payload));
     },
+    
+    [types.CHANGE_PASSWORD + '_PENDING']: (state, action) => {
+        return state
+            .set('passwordPending', true);
+    },
+    
+    [types.CHANGE_PASSWORD + '_FULFILLED']: (state, action) => {
+        return state
+            .set('passwordChanged', Date.now())
+            .set('passwordPending', false);
+    },
+    
+    [types.CHANGE_PASSWORD + '_REJECTED']: (state, action) => {
+        return state
+            .set('passwordPending', false)
+            .set('passwordError', true);
+    },
+    
+    [types.RESET_PASSWORD_CHANGED]: (state, action) => {
+        return state
+            .set('passwordChanged', false)
+            .set('passwordError', false);
+    },
 });

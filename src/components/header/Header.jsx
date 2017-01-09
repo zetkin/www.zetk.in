@@ -5,7 +5,7 @@ import React from 'react';
 import Button from '../../common/misc/Button';
 import Logo from './Logo';
 import UserContinueButton from './UserContinueButton';
-import UserMenu from './UserMenu';
+import UserMenu from '../../common/misc/userMenu/UserMenu';
 
 
 @connect(state => ({ user: state.get('user') }))

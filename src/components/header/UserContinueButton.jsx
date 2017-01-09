@@ -3,7 +3,7 @@ import React from 'react';
 import ImPropTypes from 'react-immutable-proptypes';
 
 import Button from '../../common/misc/Button';
-import UserMenu from './UserMenu';
+import UserMenu from '../../common/misc/userMenu/UserMenu';
 
 
 export default class UserContinueButton extends React.Component {

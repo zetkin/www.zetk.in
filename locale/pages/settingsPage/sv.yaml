@@ -1,0 +1,3 @@
+password:
+    error: "Fel lösen"
+    success: "Lösenordet ändrades"

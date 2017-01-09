@@ -5,7 +5,8 @@ import App from './App';
 import {
     CampaignPage,
     DashboardPage,
-    LandingPage
+    LandingPage,
+    SettingsPage,
 } from './pages';
 
 export default (
@@ -15,6 +16,8 @@ export default (
             component={ LandingPage } showSignUp={ true }/>
         <Route path="/dashboard"
             component={ DashboardPage }/>
+        <Route path="/settings"
+            component={ SettingsPage }/>
         <Route path="/o/:orgId/campaigns/:campaignId"
             component={ CampaignPage }/>
     </Route>

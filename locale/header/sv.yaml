@@ -3,3 +3,4 @@ user:
     continue: "Fortsätt till dashboard"
     wrongUser: "Är detta inte du?"
     logout: "Logga ut"
+    settings: "Inställningar"
