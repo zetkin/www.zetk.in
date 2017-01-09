@@ -11,22 +11,13 @@ export default class ZetkinIntro extends React.Component {
                 <Msg className="ZetkinIntro-text" tagName="p" id="pages.landing.zetkin.paragraph"/>
                 <ul className="ZetkinIntro-highlights">
                     <li className="ZetkinIntro-highlight">
-                        <img src="/static/img/logo-red.png"
-                        className="ZetkinIntro-highlightIcon"
-                        alt="Zetkin"/>
-                        <Msg tagName="h4" id="pages.landing.zetkin.usp1"/>
+                        <Msg id="pages.landing.zetkin.usp1"/>
                     </li>
                     <li className="ZetkinIntro-highlight">
-                        <img src="/static/img/logo-red.png"
-                        className="ZetkinIntro-highlightIcon"
-                        alt="Zetkin"/>
-                        <Msg tagName="h4" id="pages.landing.zetkin.usp2"/>
+                        <Msg id="pages.landing.zetkin.usp2"/>
                     </li>
                     <li className="ZetkinIntro-highlight">
-                        <img src="/static/img/logo-red.png"
-                        className="ZetkinIntro-highlightIcon"
-                        alt="Zetkin"/>
-                        <Msg tagName="h4" id="pages.landing.zetkin.usp3"/>
+                        <Msg id="pages.landing.zetkin.usp3"/>
                     </li>
                 </ul>
             </section>
