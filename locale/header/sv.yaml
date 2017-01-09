@@ -1,6 +1,6 @@
 login: "Logga in"
 user:
-    continue: "Fortsätt till dashboard"
+    continue: "Gå till Min sida"
     wrongUser: "Är detta inte du?"
     logout: "Logga ut"
     settings: "Inställningar"
