@@ -50,7 +50,7 @@ export default (messages) => {
 }
 
 function initStore(req, res, next) {
-    let initialState = immutable.Map({
+    let initialState = immutable.fromJS({
         intl: {
             locale: req.intl.locale,
             messages: req.intl.messages,

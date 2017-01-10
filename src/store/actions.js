@@ -38,10 +38,6 @@ const initialState = immutable.fromJS({
 });
 
 export default createReducer(initialState, {
-    '@@INIT': (state, action) => {
-        return immutable.fromJS(state);
-    },
-
     [types.RETRIEVE_USER_ACTIONS + '_PENDING']: (state, action) => {
         return state
             .setIn(['userActionList', 'error'], null)
