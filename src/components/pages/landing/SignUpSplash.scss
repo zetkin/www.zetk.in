@@ -118,4 +118,27 @@
         }
     }
 
+    .SignUpSplash-authenticated {
+        .SignUpSplash-avatar {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1em;
+            border-radius: 20em;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        p {
+            color: white;
+        }
+
+        a {
+            @include gradient-button;
+            margin: 0.5em 1em;
+        }
+    }
 }

@@ -9,6 +9,7 @@ import FormattedLink from '../../../common/misc/FormattedLink';
 
 const mapStateToProps = state => ({
     register: state.get('register'),
+    user: state.get('user'),
 });
 
 @connect(mapStateToProps)
@@ -32,6 +33,36 @@ export default class SignUpSplash extends React.Component {
                         values={ values }/>
                     <Msg tagName="h2" id="pages.landing.splash.done.h2"
                         values={ values }/>
+                </div>
+            );
+        }
+        else if (this.props.showForm && this.props.user.get('data')) {
+            let domain = process.env.ZETKIN_DOMAIN;
+            let userData = this.props.user.get('data');
+            let firstName = userData.get('first_name');
+            let lastName = userData.get('last_name');
+            let userId = this.props.user.getIn(['data', 'id']);
+            let avatarDomain = '//api.' + domain;
+            let logoutUrl = '//www.' + domain + '/logout';
+            let avatarSrc = avatarDomain + '/v1/users/' + userId + '/avatar';
+            let avatarStyle = {backgroundImage: 'url("' + avatarSrc + '")'}
+
+            // Trying to register while already logged in
+            content = (
+                <div className="SignUpSplash-authenticated">
+                    <div className="SignUpSplash-avatar"
+                        style={ avatarStyle }/>
+                    <Msg tagName="h1"
+                        id="pages.landing.splash.authenticated.h1"
+                        values={{ firstName, lastName }}/>
+                    <Msg tagName="p"
+                        id="pages.landing.splash.authenticated.p"/>
+                    <FormattedLink href="/"
+                        className="SignUpSplash-cancelLink"
+                        msgId="pages.landing.splash.authenticated.cancelLink"/>
+                    <FormattedLink href={ logoutUrl }
+                        className="SignUpSplash-logoutLink"
+                        msgId="pages.landing.splash.authenticated.logoutLink"/>
                 </div>
             );
         }
