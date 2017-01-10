@@ -7,6 +7,7 @@ import {
     DashboardPage,
     LandingPage,
     SettingsPage,
+    VerifyEmailPage,
 } from './pages';
 
 export default (
@@ -14,6 +15,8 @@ export default (
         <IndexRoute component={ LandingPage }/>
         <Route path="/register"
             component={ LandingPage } showSignUp={ true }/>
+        <Route path="/verify"
+            component={ VerifyEmailPage }/>
         <Route path="/dashboard"
             component={ DashboardPage }/>
         <Route path="/settings"

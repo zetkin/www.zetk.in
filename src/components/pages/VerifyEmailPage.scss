@@ -1,0 +1,17 @@
+.VerifyEmailPage {
+    text-align: center;
+
+    textarea {
+        font-size: 2em;
+        font-size: 1vmax;
+        max-width: 400px;
+        width: 80%;
+        height: 4em;
+    }
+
+    input[type=submit] {
+        @include gradient-button;
+        display: block;
+        margin: 1em auto;
+    }
+}
