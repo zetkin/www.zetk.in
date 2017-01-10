@@ -50,7 +50,7 @@ export default (messages) => {
 }
 
 function initStore(req, res, next) {
-    let initialState = immutable.Map({
+    let initialState = immutable.fromJS({
         intl: {
             locale: req.intl.locale,
             messages: req.intl.messages,
@@ -60,10 +60,17 @@ function initStore(req, res, next) {
     req.store = configureStore(initialState, req.z);
 
     req.z.resource('users', 'me').get()
-        .then(res => {
-            console.log('Retrieved user data', res);
-            req.store.dispatch(setUserData(res.data.data));
-            next();
+        .then(apiRes => {
+            console.log('Retrieved user data', apiRes);
+            req.store.dispatch(setUserData(apiRes.data.data));
+
+            if (apiRes.data.data.is_verified || req.path == '/verify') {
+                next();
+            }
+            else {
+                // Redirect unverified users
+                res.redirect('/verify');
+            }
         })
         .catch(err => {
             console.log('Could not retrieve user', err);

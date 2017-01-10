@@ -12,10 +12,6 @@ const initialState = immutable.fromJS({
 });
 
 export default createReducer(initialState, {
-    '@@INIT': (state, action) => {
-        return immutable.fromJS(state);
-    },
-
     [types.REGISTER + '_PENDING']: (state, action) => {
         return state
             .set('data', immutable.fromJS(action.meta))

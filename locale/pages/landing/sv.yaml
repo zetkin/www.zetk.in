@@ -23,6 +23,13 @@ splash:
         h1: "Tack och välkommen, { firstName }!"
         h2: "Kolla din inbox för att bekräfta din e-postadress"
 
+    authenticated:
+        h1: "Inloggad som {firstName} {lastName}"
+        p: |
+            Du kan inte skapa ett nytt användarkonto när du redan är inloggad.
+        cancelLink: "Avbryt"
+        logoutLink: "Logga ut"
+
 zetkin:
     h1: "Gör engagemang enkelt"
     h2: "En plattform för att organisera aktivism"
