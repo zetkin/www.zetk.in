@@ -1,9 +1,11 @@
 import auth from 'express-zetkin-auth';
+import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import url from 'url';
 import { match, RouterContext } from 'react-router';
 
 import App from '../components/App';
@@ -40,6 +42,7 @@ export default function initApp(messages) {
         { fallthrough: false }));
 
     app.use(cookieParser());
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(auth.initialize(authOpts));
     app.get('/', auth.callback(authOpts));
     app.get('/logout', auth.logout(authOpts));
@@ -51,6 +54,54 @@ export default function initApp(messages) {
     app.get('/dashboard', auth.validate(authOpts));
 
     app.use(preloader(messages));
+
+    app.get('/verify', auth.validate(authOpts), function(req, res, next) {
+        var query = url.parse(req.url, true).query;
+
+        if ('code' in query) {
+            let data = {
+                verification_code: query.code
+            };
+
+            req.z.resource('users', 'me', 'verification_code').post(data)
+                .then(function() {
+                    res.redirect('/dashboard');
+                })
+                .catch(function(err) {
+                    next();
+                });
+        }
+        else {
+            req.z.resource('/users/me').get()
+                .then(function(result) {
+                    var user = result.data.data;
+                    if (user.is_verified) {
+                        res.redirect('/dashboard');
+                    }
+                    else {
+                        next();
+                    }
+                })
+                .catch(function() {
+                    next();
+                });
+        }
+    });
+
+    app.post('/verify', function(req, res, next) {
+        let data = {
+            verification_code: req.body.code,
+        };
+
+        req.z.resource('users', 'me', 'verification_code').post(data)
+            .then(function() {
+                res.redirect('/welcome');
+            })
+            .catch(function(err) {
+                console.log('VERI ERR', err);
+                next();
+            });
+    });
 
     app.use(function(req, res, next) {
         renderReactPage(App, req, res);
