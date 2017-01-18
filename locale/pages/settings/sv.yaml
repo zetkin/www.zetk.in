@@ -1,0 +1,8 @@
+h: "Inställningar"
+password:
+    h: "Ändra lösenord"
+    error: "Fel lösen"
+    success: "Lösenordet ändrades"
+    oldPassword: "Nuvarande lösenord"
+    newPassword: "Nytt lösenord"
+    submitButton: "Byt lösenord"

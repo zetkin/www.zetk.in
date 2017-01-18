@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage as Msg, injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 // import { FormattedMessage as Msg } from 'react-intl';
 
@@ -12,6 +13,7 @@ const mapStateToProps = state => ({
 });
 
 @connect(mapStateToProps)
+@injectIntl
 export default class DashboardPage extends React.Component {
     constructor(props) {
         super(props);
@@ -30,37 +32,50 @@ export default class DashboardPage extends React.Component {
 
         if (passwordChanged) {
             if (passwordError) {
-                msg = <p className="SettingsPage-msg-error" id="pages.settingsPage.password.error">Wrong password</p>
+                msg = <p className="SettingsPage-msg-error" id="pages.settings.password.error">Wrong password</p>
             }
             else {
-                msg = <p className="SettingsPage-msg-success" id="pages.settingsPage.password.success">Password changed</p>
+                msg = <p className="SettingsPage-msg-success" id="pages.settings.password.success">Password changed</p>
                 setTimeout( () => {
                     this.props.dispatch(resetPasswordChanged());
                 }, 10000);
             }
         }
 
+        let submitLabel = this.props.intl.formatMessage(
+            { id: 'pages.settings.password.submitButton' });
+
+        let submitEnabled = (this.state.oldPassword.length
+            && this.state.newPassword.length >= 6
+            && !passwordPending);
+
         return (
             <div className="SettingsPage">
-                <h1>Settings</h1>
-                <h2>Change password</h2>
+                <Msg tagName="h1" id="pages.settings.h"/>
+                <Msg tagName="h2" id="pages.settings.password.h"/>
                 { msg }
                 <form onSubmit={ this.onSubmitPassword.bind(this) }>
                     <ul>
                         <li>
-                            <label htmlFor="old_pwd">Old password</label>
+                            <label htmlFor="old_pwd">
+                                <Msg id="pages.settings.password.oldPassword"/>
+                            </label>
                             <input type="password" id="old_pwd"
                                 onChange={ this.onChangeOldPwd.bind(this) }
                                 value={ this.state.oldPassword }/>
                         </li>
                         <li>
-                            <label htmlFor="new_pwd">New password</label>
+                            <label htmlFor="new_pwd">
+                                <Msg id="pages.settings.password.newPassword"/>
+                            </label>
                             <input type="password" id="new_pwd"
                                 onChange={ this.onChangeNewPwd.bind(this) }
                                 value={ this.state.newPassword }/>
                         </li>
                     </ul>
-                    <input type="submit" value="Submit" disabled={passwordPending}/>
+                    <input type="submit"
+                        value={ submitLabel }
+                        disabled={ !submitEnabled }/>
                 </form>
             </div>
         );

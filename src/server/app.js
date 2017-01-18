@@ -55,6 +55,78 @@ export default function initApp(messages) {
 
     app.use(preloader(messages));
 
+    // TODO: Better way of handling 404s
+    app.use('/o/:org_id/campaigns/:campaign_id', (req, res, next) => {
+        let orgId = req.params.org_id;
+        let campaignId = req.params.campaign_id;
+        let state = req.store.getState();
+
+        if (state.getIn(['orgs', 'orgList', 'items', orgId])
+            && state.getIn(['campaigns', 'campaignList', 'items', campaignId])) {
+            next();
+        }
+        else {
+            res.status(404);
+            next();
+        }
+    });
+
+    app.use((req, res, next) => {
+        const JOIN_QUERY_PARAM = 'join';
+        const JOIN_COOKIE_NAME = 'orgsToJoin';
+        const JOIN_COOKIE_EXP = 24 * 60 * 60 * 1000;
+
+        let query = url.parse(req.url, true).query;
+        let state = req.store.getState();
+        let orgs = [];
+
+        if (JOIN_QUERY_PARAM in query) {
+            orgs.push(query[JOIN_QUERY_PARAM]);
+        }
+
+        let cookieOrgsJson = req.cookies[JOIN_COOKIE_NAME];
+
+        try {
+            let cookieOrgs = JSON.parse(cookieOrgsJson);
+            cookieOrgs.forEach(orgId => {
+                if (orgs.indexOf(orgId) < 0) {
+                    orgs.push(orgId);
+                }
+            });
+        }
+        catch (err) {}
+
+        if (orgs.length && state.getIn(['user', 'data', 'is_verified'])) {
+            // Signed in and verified, so submit join requests to any org in
+            // which the user is not already a member and clear the cookie.
+            let promises = orgs
+                .filter(orgId =>
+                    !state.getIn(['orgs', 'orgList', 'items', orgId]))
+                .map(orgId =>
+                    req.z.resource('orgs', orgId, 'join_requests').post());
+
+            res.clearCookie(JOIN_COOKIE_NAME);
+
+            Promise.all(promises)
+                .then(result => {
+                    res.redirect(req.path);
+                })
+                .catch(err => {
+                    next();
+                });
+        }
+        else {
+            let orgsJson = JSON.stringify(orgs);
+            let cookieOpts = {
+                maxAge: JOIN_COOKIE_EXP,
+            };
+
+            res.cookie(JOIN_COOKIE_NAME, orgsJson, cookieOpts);
+
+            next();
+        }
+    });
+
     app.get('/verify', auth.validate(authOpts), function(req, res, next) {
         var query = url.parse(req.url, true).query;
 
@@ -116,6 +188,10 @@ function renderReactPage(Component, req, res) {
             let html = ReactDOMServer.renderToString(
                 React.createElement(IntlReduxProvider, { store: req.store },
                     React.createElement(RouterContext, props)));
+
+            if (props.routes.find(r => r.id === '404')) {
+                res.status(404);
+            }
 
             res.send(html);
         });

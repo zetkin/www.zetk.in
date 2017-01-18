@@ -1,0 +1,27 @@
+.SettingsPage {
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    ul {
+        padding: 0;
+    }
+
+    li {
+        list-style-type: none;
+        margin: 0;
+    }
+
+    label {
+        display: block;
+        margin: 1em 0 0;
+    }
+
+    input[type=password] {
+        margin: 0.2em 0;
+        width: 100%;
+        max-width: 400px;
+        padding: 0.2em;
+        font-size: 1.2em;
+    }
+}

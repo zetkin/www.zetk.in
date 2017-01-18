@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
 
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
@@ -17,9 +18,11 @@ import {
 
 const mapStateToProps = (state, props) => {
     let c = campaign(state, props.params.campaignId);
+    let o = c? organization(state, c.get('org_id')) : null;
+
     return {
         campaign: c,
-        organization: organization(state, c.get('org_id')),
+        organization: o,
         actionList: campaignActionList(state, props.params.campaignId),
         responseList: state.getIn(['actions', 'responseList']),
         userActionList: state.getIn(['actions', 'userActionList']),
@@ -49,8 +52,16 @@ export default class CampaignPage extends React.Component {
 
     render() {
         let campaign = this.props.campaign;
-        let campaignInfo = <LoadingIndicator />;
-        if (campaign) {
+        let campaignInfo;
+        let form = null;
+
+        if (campaign && campaign.get('isPending')) {
+            campaignInfo = <LoadingIndicator />;
+        }
+        else if (!campaign || campaign.get('error')) {
+            campaignInfo = <Msg id="pages.campaign.notFound.h"/>;
+        }
+        else if (campaign) {
             campaignInfo = [
                 <h2 key="title">{ campaign.get('title') }</h2>,
                 <span key="org" className="CampaignPage-infoOrg">
@@ -60,13 +71,8 @@ export default class CampaignPage extends React.Component {
                     { campaign.get('info_text') }
                 </p>
             ];
-        }
 
-        return (
-            <div className="CampaignPage">
-                <div className="CampaignPage-info">
-                    { campaignInfo }
-                </div>
+            form = (
                 <CampaignForm
                     redirPath={ this.props.location.pathname }
                     // TODO: Don't use full action list
@@ -74,6 +80,15 @@ export default class CampaignPage extends React.Component {
                     responseList={ this.props.responseList }
                     userActionList={ this.props.userActionList }
                     onResponse={ this.onResponse.bind(this) }/>
+            );
+        }
+
+        return (
+            <div className="CampaignPage">
+                <div className="CampaignPage-info">
+                    { campaignInfo }
+                </div>
+                { form }
             </div>
         );
     }

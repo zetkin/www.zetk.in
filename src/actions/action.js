@@ -26,12 +26,15 @@ export function retrieveAllActions() {
 
 export function retrieveCampaignActions(orgId, campaignId) {
     return ({ dispatch, z }) => {
+        let today = new Date().format('{yyyy}-{MM}-{dd}');
+
         dispatch({
             type: types.RETRIEVE_CAMPAIGN_ACTIONS,
             meta: { orgId, campaignId },
             payload: {
                 promise: z.resource('orgs', orgId,
-                    'campaigns', campaignId, 'actions').get()
+                    'campaigns', campaignId, 'actions')
+                        .get(null, null, [[ 'start_time', '>', today ]])
             }
         });
     };
