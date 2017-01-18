@@ -25,17 +25,9 @@ export default class Dashboard extends React.Component {
     };
 
     componentDidMount() {
-        if (!this.props.userActionList.get('items')) {
-            this.props.dispatch(retrieveUserActions());
-        }
-
-        if (!this.props.campaignList.get('items')) {
-            this.props.dispatch(retrieveAllCampaigns());
-        }
-
-        if (!this.props.assignmentList.get('items')) {
-            this.props.dispatch(retrieveUserAssignments());
-        }
+        this.props.dispatch(retrieveUserActions());
+        this.props.dispatch(retrieveAllCampaigns());
+        this.props.dispatch(retrieveUserAssignments());
     }
 
     render() {
