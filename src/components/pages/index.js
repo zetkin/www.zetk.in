@@ -3,3 +3,4 @@ export DashboardPage from './DashboardPage';
 export SettingsPage from './SettingsPage';
 export LandingPage from './landing/LandingPage';
 export VerifyEmailPage from './VerifyEmailPage';
+export NotFoundPage from './NotFoundPage';

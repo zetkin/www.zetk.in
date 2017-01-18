@@ -173,6 +173,10 @@ function renderReactPage(Component, req, res) {
                 React.createElement(IntlReduxProvider, { store: req.store },
                     React.createElement(RouterContext, props)));
 
+            if (props.routes.find(r => r.id === '404')) {
+                res.status(404);
+            }
+
             res.send(html);
         });
     }
