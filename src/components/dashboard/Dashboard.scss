@@ -32,7 +32,7 @@
     .Dashboard {
         & > div {
             float: right;
-            @include col(6, 12);
+            @include col(3, 12);
         }
         .Dashboard-events {
             float:left;
