@@ -6,7 +6,7 @@ import * as types from '../actions';
 
 // Selector for a single campaign
 export const campaign = (state, id) =>
-    state.getIn(['campaigns', 'campaignList', 'items', id]);
+    state.getIn(['campaigns', 'campaignList', 'items', id.toString()]);
 
 
 const initialState = immutable.fromJS({
@@ -46,12 +46,43 @@ export default createReducer(initialState, {
                 immutable.fromJS(campaigns));
     },
 
-    [types.RETRIEVE_CAMPAIGN + '_FULFILLED']: (state, action) => {
-        let campaign = action.payload.data.data;
-        campaign.org_id = action.meta.orgId;
+    [types.RETRIEVE_CAMPAIGN + '_PENDING']: (state, action) => {
+        let campaign = {
+            id: action.meta.campaignId.toString(),
+            org_id: action.meta.orgId.toString(),
+            isPending: true,
+        };
+
         return state
             .updateIn(['campaignList', 'items'], items => items?
-                items.set(campaign.id, campaign) :
+                items.set(campaign.id, immutable.fromJS(campaign)) :
+                immutable.fromJS({ [campaign.id]: campaign }));
+    },
+
+    [types.RETRIEVE_CAMPAIGN + '_REJECTED']: (state, action) => {
+        let campaign = {
+            id: action.meta.campaignId.toString(),
+            org_id: action.meta.orgId.toString(),
+            error: action.payload.data,
+            isPending: false,
+        };
+
+        return state
+            .updateIn(['campaignList', 'items'], items => items?
+                items.set(campaign.id, immutable.fromJS(campaign)) :
+                immutable.fromJS({ [campaign.id]: campaign }));
+    },
+
+    [types.RETRIEVE_CAMPAIGN + '_FULFILLED']: (state, action) => {
+        let campaign = action.payload.data.data;
+        campaign.id = campaign.id.toString();
+        campaign.org_id = action.meta.orgId;
+        campaign.isPending = false;
+        campaign.error = null;
+
+        return state
+            .updateIn(['campaignList', 'items'], items => items?
+                items.set(campaign.id, immutable.fromJS(campaign)) :
                 immutable.fromJS({ [campaign.id]: campaign }));
     },
 });

@@ -55,6 +55,22 @@ export default function initApp(messages) {
 
     app.use(preloader(messages));
 
+    // TODO: Better way of handling 404s
+    app.use('/o/:org_id/campaigns/:campaign_id', (req, res, next) => {
+        let orgId = req.params.org_id;
+        let campaignId = req.params.campaign_id;
+        let state = req.store.getState();
+
+        if (state.getIn(['orgs', 'orgList', 'items', orgId])
+            && state.getIn(['campaigns', 'campaignList', 'items', campaignId])) {
+            next();
+        }
+        else {
+            res.status(404);
+            next();
+        }
+    });
+
     app.use((req, res, next) => {
         const JOIN_QUERY_PARAM = 'join';
         const JOIN_COOKIE_NAME = 'orgsToJoin';
