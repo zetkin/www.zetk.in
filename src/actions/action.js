@@ -42,10 +42,13 @@ export function retrieveCampaignActions(orgId, campaignId) {
 
 export function retrieveUserActions() {
     return ({ dispatch, z }) => {
+        let today = new Date().format('{yyyy}-{MM}-{dd}');
+
         dispatch({
             type: types.RETRIEVE_USER_ACTIONS,
             payload: {
-                promise: z.resource('users', 'me', 'actions').get()
+                promise: z.resource('users', 'me', 'actions')
+                    .get(null, null, [[ 'start_time', '>', today ]])
             }
         });
     };
