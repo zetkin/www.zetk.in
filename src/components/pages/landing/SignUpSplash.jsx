@@ -93,7 +93,8 @@ export default class SignUpSplash extends React.Component {
                     <input name="fn" placeholder={ msg('firstName') }/>
                     <input name="ln" placeholder={ msg('lastName') }/>
                     <input name="email" placeholder={ msg('email') }/>
-                    <input name="password" placeholder={ msg('password') }/>
+                    <input type="password" name="password"
+                        placeholder={ msg('password') }/>
                     <input type="submit" value={ msg('submitButton') }/>
                 </form>
             );
