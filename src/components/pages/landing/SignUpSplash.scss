@@ -11,6 +11,7 @@
         justify-content: flex-end;
         height: 600px;
         height: 60vh;
+        min-height: 440px;
         background-color: rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s;
         padding: 5vmax 0;
@@ -87,10 +88,12 @@
             max-width: 100%;
             margin: 1em 0;
             border: 0;
-            font-size: 1.2em;
-            border-bottom: 2px solid $c-ui-bg;
+            font-size: 1.0em;
+            border-bottom: 1px solid $c-ui-bg;
+            border-radius: 0;
             background-color: transparent;
             color: $c-text-contrast;
+            padding: 0.5em;
         }
 
         input:focus {
