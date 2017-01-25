@@ -74,7 +74,7 @@
         }
         .ZetkinFeatures-feature:nth-child(odd) {
             float: left;
-            clear: initial;
+            clear: inherit;
         }
 
         .ZetkinFeatures-feature:nth-child(even) {
