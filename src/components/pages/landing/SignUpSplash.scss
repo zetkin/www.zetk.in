@@ -20,6 +20,10 @@
         @media only screen and (orientation: portrait) {
             // height: 60vmax;
         }
+
+        @include target-ie-6-7-8 {
+            padding-top: 12em;
+        }
     }
 
     h1 {
@@ -71,6 +75,10 @@
         .SignUpSplash-content {
             justify-content: center;
             background-color: rgba(0, 0, 0, 0.5);
+
+            @include target-ie-6-7-8 {
+                padding-top: 2em;
+            }
         }
 
         .SignUpSplash-imageCaption {
@@ -80,6 +88,15 @@
         form {
             margin: 0 1em;
             padding: 0;
+        }
+
+        label {
+            color: $c-text-contrast;
+            display: none;
+            @include target-ie-6-7-8 {
+                display: block;
+                text-align: left;
+            }
         }
 
         input {
@@ -95,6 +112,10 @@
             background-color: transparent;
             color: $c-text-contrast;
             padding: 0.5em;
+
+            @include target-ie-6-7-8 {
+                margin: 0 0 1em;
+            }
         }
 
         input:focus {
@@ -107,7 +128,7 @@
             width: auto;
         }
 
-        @media only screen and (min-width: $small-width) {
+        @include medium-screen {
             form {
                 width: 80%;
                 margin: auto;
@@ -118,6 +139,13 @@
                 display: inline-block;
                 width: 48%;
                 margin: 1em 1%;
+            }
+        }
+
+        @include target-ie-6-7-8 {
+            form {
+                width: 40%;
+                margin: auto;
             }
         }
     }
