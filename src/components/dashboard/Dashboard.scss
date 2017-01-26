@@ -41,7 +41,7 @@
     }
 }
 
-@include large-screen {
+@include large-screen, target-ie-6-7-8 {
     .Dashboard {
         justify-content: center;
         & > div {
