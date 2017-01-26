@@ -1,4 +1,5 @@
 login: "Logga in"
+organize: "Organize"
 user:
     continue: "Gå till Min sida"
     wrongUser: "Är detta inte du?"
