@@ -82,6 +82,7 @@ gulp.task('bundleJs', [ 'js' ], function(cb) {
 gulp.task('buildSass', [ 'cleanSass' ], function() {
     return gulp.src([
             'src/scss/_mixins.scss',
+            'src/common/scss/_mixins.scss',
             'src/scss/_variables.scss',
             'src/scss/font-awesome/zetkin-font-awesome.scss',
             'src/scss/_global.scss',
