@@ -193,6 +193,9 @@ function renderReactPage(Component, req, res) {
                 res.status(404);
             }
 
+            // Prepend a doctype for HTML5 and to force standards mode in legacy
+            // versions of Internet Explorer (e.g. 8).
+            html = '<!DOCTYPE html>' + html;
             res.send(html);
         });
     }

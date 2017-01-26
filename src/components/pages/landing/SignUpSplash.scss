@@ -11,12 +11,18 @@
         justify-content: flex-end;
         height: 600px;
         height: 60vh;
+        min-height: 440px;
         background-color: rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s;
+        padding: 5vw 0;
         padding: 5vmax 0;
 
         @media only screen and (orientation: portrait) {
             // height: 60vmax;
+        }
+
+        @include target-ie-6-7-8 {
+            padding-top: 12em;
         }
     }
 
@@ -69,6 +75,10 @@
         .SignUpSplash-content {
             justify-content: center;
             background-color: rgba(0, 0, 0, 0.5);
+
+            @include target-ie-6-7-8 {
+                padding-top: 2em;
+            }
         }
 
         .SignUpSplash-imageCaption {
@@ -80,6 +90,15 @@
             padding: 0;
         }
 
+        label {
+            color: $c-text-contrast;
+            display: none;
+            @include target-ie-6-7-8 {
+                display: block;
+                text-align: left;
+            }
+        }
+
         input {
             outline: none;
             display: block;
@@ -87,10 +106,16 @@
             max-width: 100%;
             margin: 1em 0;
             border: 0;
-            font-size: 1.2em;
-            border-bottom: 2px solid $c-ui-bg;
+            font-size: 1.0em;
+            border-bottom: 1px solid $c-ui-bg;
+            border-radius: 0;
             background-color: transparent;
             color: $c-text-contrast;
+            padding: 0.5em;
+
+            @include target-ie-6-7-8 {
+                margin: 0 0 1em;
+            }
         }
 
         input:focus {
@@ -103,7 +128,7 @@
             width: auto;
         }
 
-        @media only screen and (min-width: $small-width) {
+        @include medium-screen {
             form {
                 width: 80%;
                 margin: auto;
@@ -114,6 +139,13 @@
                 display: inline-block;
                 width: 48%;
                 margin: 1em 1%;
+            }
+        }
+
+        @include target-ie-6-7-8 {
+            form {
+                width: 40%;
+                margin: auto;
             }
         }
     }

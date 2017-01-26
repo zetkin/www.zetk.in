@@ -7,7 +7,7 @@ import FormattedLink from '../../../common/misc/FormattedLink';
 export default class ZetkinFeatures extends React.Component {
     render() {
         return (
-            <section className="ZetkinFeatures">
+            <div className="ZetkinFeatures">
                 <Msg id="pages.landing.features.h1" tagName="h2"/>
                 <ul className="ZetkinFeatures-features">
                     <li className="ZetkinFeatures-feature">
@@ -42,7 +42,7 @@ export default class ZetkinFeatures extends React.Component {
                 <FormattedLink href="/register"
                     msgId="pages.landing.features.signUpLink"
                     onClick={ this.onSignUpLinkClick.bind(this) }/>
-            </section>
+            </div>
         );
     }
 

@@ -36,3 +36,12 @@ a {
 p {
     line-height: 1.7em;
 }
+
+input {
+    font-family: franklin-gothic-urw, sans-serif;
+    -webkit-appearance: none;
+}
+
+a > img{
+    border: 0;
+}
