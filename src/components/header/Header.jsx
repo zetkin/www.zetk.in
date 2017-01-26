@@ -41,10 +41,10 @@ export default class Header extends React.Component {
         }
 
         return (
-            <header className="Header">
+            <div className="Header">
                 <Logo/>
                 { userWidget }
-            </header>
+            </div>
         );
     }
 }

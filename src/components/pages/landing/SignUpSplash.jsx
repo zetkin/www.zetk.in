@@ -120,14 +120,14 @@ export default class SignUpSplash extends React.Component {
         });
 
         return (
-            <section className={ classes }>
+            <div className={ classes }>
                 <div className="SignUpSplash-content">
                     { content }
                 </div>
-                <footer key="caption" className="SignUpSplash-imageCaption">
+                <div key="caption" className="SignUpSplash-imageCaption">
                     <Msg tagName="p" id="pages.landing.splash.caption"/>
-                </footer>
-            </section>
+                </div>
+            </div>
         );
     }
 

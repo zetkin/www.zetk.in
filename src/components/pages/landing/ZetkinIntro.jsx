@@ -5,7 +5,7 @@ import { FormattedMessage as Msg } from 'react-intl';
 export default class ZetkinIntro extends React.Component {
     render() {
         return (
-            <section className="ZetkinIntro">
+            <div className="ZetkinIntro">
                 <Msg tagName="h2" id="pages.landing.zetkin.h1"/>
                 <Msg tagName="h3" id="pages.landing.zetkin.h2"/>
                 <Msg className="ZetkinIntro-text" tagName="p" id="pages.landing.zetkin.paragraph"/>
@@ -20,7 +20,7 @@ export default class ZetkinIntro extends React.Component {
                         <Msg id="pages.landing.zetkin.usp3"/>
                     </li>
                 </ul>
-            </section>
+            </div>
         );
     }
 }

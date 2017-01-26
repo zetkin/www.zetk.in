@@ -14,7 +14,7 @@ export default class Footer extends React.Component {
             .formatMessage({ id: 'footer.links.manualLink.href' });
 
         return (
-            <footer className="Footer">
+            <div className="Footer">
                 <Msg tagName="p" id="footer.summary"/>
                 <p>
                     <a href={ zfHref }>
@@ -30,7 +30,7 @@ export default class Footer extends React.Component {
                     <FormattedLink href={ manualHref }
                         msgId="footer.links.manualLink.text"/>
                 </p>
-            </footer>
+            </div>
         );
     }
 }
