@@ -11,6 +11,7 @@ import UserMenu from '../../common/misc/userMenu/UserMenu';
 const mapStateToProps = state => ({
     user: state.get('user'),
     orgs: state.get('orgs'),
+    assignments: state.get('callAssignments'),
 });
 
 @connect(mapStateToProps)
@@ -25,6 +26,7 @@ export default class Header extends React.Component {
 
         let userWidget;
         let organizeLink;
+        let callLink;
 
         let userData = this.props.user.get('data');
         let isAuthenticated = !!userData;
@@ -39,17 +41,27 @@ export default class Header extends React.Component {
                 <UserMenu user={ userData }/>
             );
 
-            let membershipList = this.props.orgs.get('membershipList');
+            let callAssignments = this.props.assignments.getIn(['assignmentList', 'items']);
 
-            let isOfficial = membershipList.get('items')
-                .filter(item => item.get('role') != null);
+            if (callAssignments.size > 0) {
+                let callUrl = '//call.' + process.env.ZETKIN_DOMAIN + '/';
+
+                callLink = (
+                    <Button href={  callUrl } labelMsg="header.call"
+                            className="Header-navLink linkCall"/>
+                );
+            }
+
+            let membership = this.props.orgs.getIn(['membershipList', 'items']);
+
+            let isOfficial = membership.filter(item => item.get('role') != null);
 
             if (isOfficial.size > 0) {
                 let organizeUrl = '//organize.' + process.env.ZETKIN_DOMAIN + '/';
 
                 organizeLink = (
                     <Button href={ organizeUrl } labelMsg="header.organize"
-                        className="Header-navLink"/>
+                        className="Header-navLink linkOrganize"/>
                 );
             }
         }
@@ -65,6 +77,7 @@ export default class Header extends React.Component {
                 <Logo/>
                 <div className="Header-nav">
                     { userWidget }
+                    { callLink }
                     { organizeLink }
                 </div>
             </div>

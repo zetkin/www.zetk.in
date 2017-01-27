@@ -29,6 +29,13 @@
     .Header-navLink {
         float: right;
         margin: 0.5em;
-        @include icon-button($fa-var-sitemap);
+
+        &.linkOrganize {
+            @include icon-button($fa-var-sitemap);
+        }
+
+        &.linkCall {
+            @include icon-button($fa-var-phone);
+        }
     }
 }
