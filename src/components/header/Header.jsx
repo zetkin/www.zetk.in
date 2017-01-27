@@ -43,7 +43,7 @@ export default class Header extends React.Component {
 
             let callAssignments = this.props.assignments.getIn(['assignmentList', 'items']);
 
-            if (callAssignments.size > 0) {
+            if (callAssignments && callAssignments.size > 0) {
                 let callUrl = '//call.' + process.env.ZETKIN_DOMAIN + '/';
 
                 callLink = (

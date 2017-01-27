@@ -1,6 +1,6 @@
 login: "Logga in"
 call: "Ringuppdrag"
-organize: "Organize"
+organize: "Organisera"
 user:
     continue: "Gå till Min sida"
     wrongUser: "Är detta inte du?"
