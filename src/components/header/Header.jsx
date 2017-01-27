@@ -54,9 +54,9 @@ export default class Header extends React.Component {
 
             let membership = this.props.orgs.getIn(['membershipList', 'items']);
 
-            let isOfficial = membership.filter(item => item.get('role') != null);
+            let isOfficial = !!membership.find(item => item.get('role') != null);
 
-            if (isOfficial.size > 0) {
+            if (isOfficial) {
                 let organizeUrl = '//organize.' + process.env.ZETKIN_DOMAIN + '/';
 
                 organizeLink = (
