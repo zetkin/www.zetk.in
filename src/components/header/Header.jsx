@@ -52,7 +52,7 @@ export default class Header extends React.Component {
                 );
             }
 
-            let membership = this.props.orgs.getIn(['membershipList', 'items']);
+            let memberships = this.props.orgs.getIn(['membershipList', 'items']);
 
             let isOfficial = !!membership.find(item => item.get('role') != null);
 
