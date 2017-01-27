@@ -24,3 +24,18 @@
     @include gradient-button;
     float: right;
 }
+
+.Header-nav {
+    .Header-navLink {
+        float: right;
+        margin: 0.5em;
+
+        &.linkOrganize {
+            @include icon-button($fa-var-sitemap);
+        }
+
+        &.linkCall {
+            @include icon-button($fa-var-phone);
+        }
+    }
+}

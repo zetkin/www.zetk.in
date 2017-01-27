@@ -8,7 +8,13 @@ import UserContinueButton from './UserContinueButton';
 import UserMenu from '../../common/misc/userMenu/UserMenu';
 
 
-@connect(state => ({ user: state.get('user') }))
+const mapStateToProps = state => ({
+    user: state.get('user'),
+    orgs: state.get('orgs'),
+    assignments: state.get('callAssignments'),
+});
+
+@connect(mapStateToProps)
 export default class Header extends React.Component {
     static propTypes = {
         showContinueButton: React.PropTypes.bool,
@@ -19,6 +25,8 @@ export default class Header extends React.Component {
             + '/login?redirPath=/dashboard&appId=' + process.env.ZETKIN_APP_ID;
 
         let userWidget;
+        let organizeLink;
+        let callLink;
 
         let userData = this.props.user.get('data');
         let isAuthenticated = !!userData;
@@ -32,6 +40,30 @@ export default class Header extends React.Component {
             userWidget = (
                 <UserMenu user={ userData }/>
             );
+
+            let callAssignments = this.props.assignments.getIn(['assignmentList', 'items']);
+
+            if (callAssignments && callAssignments.size > 0) {
+                let callUrl = '//call.' + process.env.ZETKIN_DOMAIN + '/';
+
+                callLink = (
+                    <Button href={  callUrl } labelMsg="header.call"
+                            className="Header-navLink linkCall"/>
+                );
+            }
+
+            let memberships = this.props.orgs.getIn(['membershipList', 'items']);
+
+            let isOfficial = !!memberships.find(item => item.get('role') != null);
+
+            if (isOfficial) {
+                let organizeUrl = '//organize.' + process.env.ZETKIN_DOMAIN + '/';
+
+                organizeLink = (
+                    <Button href={ organizeUrl } labelMsg="header.organize"
+                        className="Header-navLink linkOrganize"/>
+                );
+            }
         }
         else {
             userWidget = (
@@ -43,7 +75,11 @@ export default class Header extends React.Component {
         return (
             <div className="Header">
                 <Logo/>
-                { userWidget }
+                <div className="Header-nav">
+                    { userWidget }
+                    { callLink }
+                    { organizeLink }
+                </div>
             </div>
         );
     }

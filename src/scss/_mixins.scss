@@ -224,18 +224,6 @@
         animation: fa-spin 1s infinite steps(24);
 }
 
-@mixin icon-button($fa-character) {
-    padding: .35em 1em .25em;
-    text-align: center;
-    display: inline-block;
-    overflow: hidden;
-    &::before{
-        @include icon($fa-character);
-        display: inline;
-        margin-right: .5em;
-    }
-}
-
 @mixin icon-button-only() {
     width: 3em;
     color: transparent;
