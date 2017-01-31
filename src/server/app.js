@@ -32,7 +32,13 @@ export default function initApp(messages) {
         // Webpack dev server running on localhost.
         // TODO: Configure dev server using environment variables?
         app.get('/static/main.js', function(req, res) {
-            res.redirect(303, 'http://localhost:81/static/main.js');
+            let wpMainJs = url.format({
+                hostname: req.host,
+                port: process.env.WEBPACK_PORT || 81,
+                pathname: '/static/main.js',
+            });
+
+            res.redirect(303, wpMainJs);
         });
     }
 
