@@ -20,13 +20,8 @@ const mapStateToProps = state => ({
 @connect(mapStateToProps)
 export default class DashboardPage extends React.Component {
     componentDidMount() {
-        if (!this.props.actionList.get('items')) {
-            this.props.dispatch(retrieveAllActions());
-        }
-
-        if (!this.props.responseList.get('items')) {
-            this.props.dispatch(retrieveUserResponses());
-        }
+        this.props.dispatch(retrieveAllActions());
+        this.props.dispatch(retrieveUserResponses());
     }
 
     render() {
