@@ -90,13 +90,13 @@ export default class SignUpSplash extends React.Component {
                     onSubmit={ this.onSubmit.bind(this) }>
                     <Msg tagName="h1" id="pages.landing.splash.form.h1"/>
                     { errorMessage }
-                    <label for="fn">{ msg('firstName') }</label>
+                    <label htmlFor="fn">{ msg('firstName') }</label>
                     <input name="fn" placeholder={ msg('firstName') }/>
-                    <label for="ln">{ msg('lastName') }</label>
+                    <label htmlFor="ln">{ msg('lastName') }</label>
                     <input name="ln" placeholder={ msg('lastName') }/>
-                    <label for="email">{ msg('email') }</label>
+                    <label htmlFor="email">{ msg('email') }</label>
                     <input name="email" placeholder={ msg('email') }/>
-                    <label for="password">{ msg('password') }</label>
+                    <label htmlFor="password">{ msg('password') }</label>
                     <input type="password" name="password"
                         placeholder={ msg('password') }/>
                     <input type="submit" value={ msg('submitButton') }/>

@@ -11,28 +11,28 @@ export default class ZetkinFeatures extends React.Component {
                 <Msg id="pages.landing.features.h1" tagName="h2"/>
                 <ul className="ZetkinFeatures-features">
                     <li className="ZetkinFeatures-feature">
-                        <img src="/static/img/home/features/yourorg.png"
+                        <img src="/static/images/home/features/yourorg.png"
                             className="ZetkinFeatures-featureIcon"
                             alt="Zetkin"/>
                         <Msg id="pages.landing.features.f1.title" tagName="h4"/>
                         <Msg id="pages.landing.features.f1.desc" tagName="p"/>
                     </li>
                     <li className="ZetkinFeatures-feature">
-                        <img src="/static/img/home/features/mypage.png"
+                        <img src="/static/images/home/features/mypage.png"
                             className="ZetkinFeatures-featureIcon"
                             alt="Zetkin"/>
                         <Msg id="pages.landing.features.f2.title" tagName="h4"/>
                         <Msg id="pages.landing.features.f2.desc" tagName="p"/>
                     </li>
                     <li className="ZetkinFeatures-feature">
-                        <img src="/static/img/home/features/inthestreets.png"
+                        <img src="/static/images/home/features/inthestreets.png"
                             className="ZetkinFeatures-featureIcon"
                             alt="Zetkin"/>
                         <Msg id="pages.landing.features.f3.title" tagName="h4"/>
                         <Msg id="pages.landing.features.f3.desc" tagName="p"/>
                     </li>
                     <li className="ZetkinFeatures-feature">
-                        <img src="/static/img/home/features/phonebanking.png"
+                        <img src="/static/images/home/features/phonebanking.png"
                             className="ZetkinFeatures-featureIcon"
                             alt="Zetkin"/>
                         <Msg id="pages.landing.features.f4.title" tagName="h4"/>
