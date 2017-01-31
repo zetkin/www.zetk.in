@@ -32,7 +32,7 @@ export default function initApp(messages) {
         // Webpack dev server running on localhost.
         // TODO: Configure dev server using environment variables?
         app.get('/static/main.js', function(req, res) {
-            res.redirect(303, 'http://localhost:8081/static/main.js');
+            res.redirect(303, 'http://localhost:81/static/main.js');
         });
     }
 

@@ -20,7 +20,7 @@ export default class Footer extends React.Component {
                     <a href={ zfHref }>
                         <img className="Footer-logo"
                             alt="Zetkin Foundation"
-                            src="/static/img/zf-logo-black.png"
+                            src="/static/images/zf-logo-black.png"
                             />
                     </a>
                 </p>
