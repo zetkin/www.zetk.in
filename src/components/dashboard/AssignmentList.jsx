@@ -24,7 +24,8 @@ export default class AssignmentList extends React.Component {
             // TODO: Proper error message
             return <span>ERROR!</span>;
         }
-        else if (assignmentList.get('items')) {
+        else if (assignmentList.get('items')
+                && assignmentList.get('items').size > 0) {
             let moreLink;
             let maxVisible = this.state.maxVisible;
             let assignments = assignmentList.get('items');
@@ -53,7 +54,11 @@ export default class AssignmentList extends React.Component {
             );
         }
         else {
-            return null;
+            return (
+                <div className="AssignmentList">
+                    <Msg tagName="i" id="dashboard.assignments.none"/>
+                </div>
+            );
         }
     }
 

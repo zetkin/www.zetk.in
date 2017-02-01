@@ -25,6 +25,10 @@
                 margin: 0.5em 0;
             }
         }
+
+        i {
+            color: lighten($c-text, 30);
+        }
     }
 }
 

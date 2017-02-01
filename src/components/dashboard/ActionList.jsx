@@ -24,7 +24,8 @@ export default class ActionList extends React.Component {
             // TODO: Proper error message
             return <span>ERROR!</span>;
         }
-        else if (actionList.get('items')) {
+        else if (actionList.get('items')
+                && actionList.get('items').size > 0) {
             let moreLink;
             let maxVisible = this.state.maxVisible;
             let actions = actionList.get('items');
@@ -53,7 +54,11 @@ export default class ActionList extends React.Component {
             );
         }
         else {
-            return null;
+            return (
+                <div className="ActionList">
+                    <Msg tagName="i" id="dashboard.events.none"/>
+                </div>
+            );
         }
     }
 

@@ -55,7 +55,11 @@ export default class CampaignList extends React.Component {
             );
         }
         else {
-            return null;
+            return (
+                <div className="CampaignList">
+                    <Msg tagName="i" id="dashboard.events.none"/>
+                </div>
+            );
         }
     }
 
