@@ -1,5 +1,5 @@
 *.swp
 node_modules
-dist
+build
 npm-debug.log
 .DS_Store
