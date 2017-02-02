@@ -94,30 +94,24 @@ gulp.task('default', [ 'clean' ], function(cb) {
 
 gulp.task('watch', function() {
     var watch = require('gulp-watch');
-    var watchOptions = {
-        read: false,
-        useFsEvents: true,
-        interval: 1000,
-        binaryInterval: 2000,
-    };
 
-    watch('src/**/*.@(js|jsx)', { read: false }, function() {
+    watch('src/**/*.@(js|jsx)', function() {
         return runSequence('js');
     });
 
-    watch('src/**/*.scss', { read: false }, function() {
+    watch('src/**/*.scss', function() {
         return runSequence('buildSass');
     });
 
-    watch('static/images/**/*', { read: false }, function() {
+    watch('static/images/**/*', function() {
         return runSequence('minifyImages');
     });
 
-    watch('static/fonts/**/*', { read: false }, function() {
+    watch('static/fonts/**/*', function() {
         return runSequence('copyFonts');
     });
 
-    watch('locale/**/*', { read: false }, function() {
+    watch('locale/**/*', function() {
         return runSequence('copyMessages');
     });
 });
