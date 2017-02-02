@@ -34,33 +34,22 @@
 
 @include medium-screen {
     .Dashboard {
-        & > div {
-            float: right;
-            @include col(3, 12);
-        }
-        .Dashboard-events {
-            float:left;
-            padding-left: 3em;
-        }
-    }
-}
-
-@include large-screen, target-ie-6-7-8 {
-    .Dashboard {
         justify-content: center;
+
         & > div {
             float: left;
-            @include col(3, 12);
+            @include col(4, 12);
         }
 
         .Dashboard-campaigns {
             padding-left: 2em;
         }
+    }
+}
 
-        .Dashboard-events {
-            padding-left: 0.5em;
-            margin-left: 6em;
-            @include col(4, 12)
-        }
+@include target-ie-6-7-8 {
+    & > div {
+        float: left;
+        @include col(3, 12);
     }
 }

@@ -41,7 +41,7 @@
         font-size: 0.8em;
     }
 
-    @include medium-screen, target-ie-6-7-8  {
+    @mixin medium {
         .ZetkinFeatures-features {
             max-width: 80em;
 
@@ -67,7 +67,15 @@
         }
     }
 
-    @include large-screen, target-ie-6-7-8 {
+    @include medium-screen {
+        @include medium;
+    }
+
+    @include target-ie-6-7-8 {
+        @include medium;
+    }
+
+    @mixin large {
         .ZetkinFeatures-feature {
             width: 25%;
             float: left;
@@ -80,5 +88,13 @@
         .ZetkinFeatures-feature:nth-child(even) {
             float: left;
         }
+    }
+
+    @include large-screen {
+        @include large;
+    }
+
+    @include target-ie-6-7-8 {
+        @include large;
     }
 }
