@@ -174,7 +174,7 @@ export default function initApp(messages) {
 
         req.z.resource('users', 'me', 'verification_code').post(data)
             .then(function() {
-                res.redirect('/welcome');
+                res.redirect('/dashboard');
             })
             .catch(function(err) {
                 console.log('VERI ERR', err);
