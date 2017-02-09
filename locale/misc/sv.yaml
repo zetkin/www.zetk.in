@@ -1,4 +1,4 @@
 welcome:
-    header: "Välkommen till Zetkin!"
-    notConnected: "Du är för tillfället inte kopplad till någon ansluten organization."
-    getLink: "Vänligen kontakta din medlemsansvarige eller kolla om din organisations hemsida har en anslutningslänk."
+    header: "Välkommen till Min sida"
+    notConnected: "Du är inte ansluten till någon organisation."
+    getLink: "Kontakta din organisation eller se om du hittar en anslutningslänk på deras hemsida."
