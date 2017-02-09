@@ -15,9 +15,9 @@ export default class Welcome extends React.Component {
         if (!membershipList.get('items').size > 0) {
             return (
                 <div className="Welcome">
-                    <h1>Welcome to Zetkin!</h1>
-                    <p>You are not yet connected to any affiliated organization.</p>
-                    <p>Please contact your membership official or check you organization's website for a join link.</p>
+                    <Msg tagName="h1" id="misc.welcome.header" />
+                    <Msg tagName="p" id="misc.welcome.notConnected" />
+                    <Msg tagName="p" id="misc.welcome.getLink" />
                 </div>
             );
         }
