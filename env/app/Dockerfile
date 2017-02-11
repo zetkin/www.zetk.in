@@ -34,6 +34,8 @@ RUN npm install
 
 ## Install the app itself
 
+ENV NODE_ICU_DATA node_modules/full-icu
+
 COPY . ./
 RUN npm install --unsafe-perm
 

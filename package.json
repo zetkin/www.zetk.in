@@ -33,6 +33,7 @@
     "express": "^4.14.0",
     "express-zetkin-auth": "git://github.com/zetkin/express-zetkin-auth.git",
     "flat": "^2.0.1",
+    "full-icu": "^1.0.3",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
