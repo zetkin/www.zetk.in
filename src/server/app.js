@@ -14,6 +14,7 @@ import { loadLocaleHandler } from './locale';
 import formEndpoints from './forms';
 import preloader from './preloader';
 import routes from '../components/routes';
+import { setPasswordResetToken } from '../actions/password';
 
 
 const authOpts = {
@@ -60,7 +61,31 @@ export default function initApp(messages) {
 
     app.use(preloader(messages));
 
+    // For some routes, require user to be anonymous
+    app.get(['/lost-password', '/reset-password'], (req, res, next) => {
+        let state = req.store.getState();
+
+        if (state.getIn(['user', 'data'])) {
+            res.redirect('/dashboard');
+        }
+        else {
+            next();
+        }
+    });
+
+    app.use('/reset-password', (req, res, next) => {
+        if ('token' in req.query) {
+            req.store.dispatch(setPasswordResetToken(req.query.token));
+            next();
+        }
+        else {
+            res.redirect('/lost-password');
+        }
+    });
+
     app.post('/forms/actionResponse', auth.validate(authOpts), formEndpoints.actionResponse);
+    app.post('/lost-password', formEndpoints.lostPassword);
+    app.post('/reset-password', formEndpoints.resetPassword);
     app.post('/register', formEndpoints.register);
 
     // TODO: Better way of handling 404s

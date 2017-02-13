@@ -8,6 +8,7 @@ import actions from './actions';
 import callAssignments from './callAssignments';
 import campaigns from './campaigns';
 import orgs from './orgs';
+import password from './password';
 import register from './register';
 import user from './user';
 
@@ -18,6 +19,7 @@ const appReducer = combineReducers({
     callAssignments,
     campaigns,
     orgs,
+    password,
     register,
     user,
 });
