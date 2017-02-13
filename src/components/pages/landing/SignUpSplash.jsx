@@ -83,6 +83,13 @@ export default class SignUpSplash extends React.Component {
                         </div>
                     );
                 }
+                else if (error.httpStatus == 400) {
+                    errorMessage = (
+                        <div className="SignUpSplash-error">
+                            <Msg id="pages.landing.splash.form.error.invalid"/>
+                        </div>
+                    );
+                }
             }
 
             content = (

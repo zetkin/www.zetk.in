@@ -18,6 +18,7 @@ splash:
         submitButton: "Registrera"
         error:
             exists: "E-postadressen { email } är redan registrerad."
+            invalid: "Registeringen misslyckades. Vänligen kontrollera att alla fält är korrekt ifyllda."
 
     done:
         h1: "Tack och välkommen, { firstName }!"
