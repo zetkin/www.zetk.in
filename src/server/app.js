@@ -52,8 +52,6 @@ export default function initApp(messages) {
     app.get('/', auth.callback(authOpts));
     app.get('/logout', auth.logout(authOpts));
 
-    app.post('/forms/actionResponse', auth.validate(authOpts), formEndpoints.actionResponse);
-
     app.get('/l10n', loadLocaleHandler());
 
     // Require authentication for some routes
@@ -61,6 +59,9 @@ export default function initApp(messages) {
     app.get('/settings', auth.validate(authOpts));
 
     app.use(preloader(messages));
+
+    app.post('/forms/actionResponse', auth.validate(authOpts), formEndpoints.actionResponse);
+    app.post('/register', formEndpoints.register);
 
     // TODO: Better way of handling 404s
     app.use('/o/:org_id/campaigns/:campaign_id', (req, res, next) => {
