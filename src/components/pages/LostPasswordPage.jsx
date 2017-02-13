@@ -58,6 +58,7 @@ export default class LostPasswordPage extends React.Component {
                     <Msg tagName="p" id="pages.lostPassword.after.p"
                         values={{ email: this.props.email }}/>
                     <Button labelMsg="pages.lostPassword.after.retryButton"
+                        href="/lost-password"
                         onClick={ this.onClickRetry.bind(this) }/>
                 </div>
             );
@@ -70,8 +71,9 @@ export default class LostPasswordPage extends React.Component {
                 <div>
                     <Msg tagName="p" id="pages.lostPassword.before.p"/>
                     { errorMessage }
-                    <form onSubmit={ this.onSubmit.bind(this) }>
-                        <input type="email" value={ this.state.email }
+                    <form method="post" onSubmit={ this.onSubmit.bind(this) }>
+                        <input type="email" name="email"
+                            value={ this.state.email }
                             onChange={ this.onChangeEmail.bind(this) }/>
 
                         <input type="submit" value={ submitLabel }/>
@@ -100,7 +102,8 @@ export default class LostPasswordPage extends React.Component {
         this.props.dispatch(sendPasswordResetToken(this.state.email));
     }
 
-    onClickRetry() {
+    onClickRetry(ev) {
+        ev.preventDefault();
         this.props.dispatch(clearLostPasswordState());
     }
 }

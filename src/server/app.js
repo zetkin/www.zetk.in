@@ -73,7 +73,7 @@ export default function initApp(messages) {
         }
     });
 
-    app.get('/reset-password', (req, res, next) => {
+    app.use('/reset-password', (req, res, next) => {
         if ('token' in req.query) {
             req.store.dispatch(setPasswordResetToken(req.query.token));
             next();
@@ -84,6 +84,7 @@ export default function initApp(messages) {
     });
 
     app.post('/forms/actionResponse', auth.validate(authOpts), formEndpoints.actionResponse);
+    app.post('/lost-password', formEndpoints.lostPassword);
     app.post('/register', formEndpoints.register);
 
     // TODO: Better way of handling 404s
