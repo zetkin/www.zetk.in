@@ -85,6 +85,7 @@ export default function initApp(messages) {
 
     app.post('/forms/actionResponse', auth.validate(authOpts), formEndpoints.actionResponse);
     app.post('/lost-password', formEndpoints.lostPassword);
+    app.post('/reset-password', formEndpoints.resetPassword);
     app.post('/register', formEndpoints.register);
 
     // TODO: Better way of handling 404s

@@ -45,9 +45,14 @@ export default class ResetPasswordPage extends React.Component {
             content = [
                 <Msg key="p" tagName="p"
                     id="pages.resetPassword.before.p"/>,
-                <form key="form" onSubmit={ this.onSubmit.bind(this) }>
-                    <input type="password" value={ this.state.password }
+                <form key="form" method="post"
+                    onSubmit={ this.onSubmit.bind(this) }>
+                    <input type="password" name="password"
+                        value={ this.state.password }
                         onChange={ this.onChangePassword.bind(this) }/>
+
+                    <input type="hidden" name="token"
+                        value={ this.props.token }/>
 
                     <input type="submit" value={ submitLabel }/>
                 </form>
