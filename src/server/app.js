@@ -105,8 +105,8 @@ export default function initApp(messages) {
     });
 
     app.use((req, res, next) => {
-        const JOIN_QUERY_PARAM = 'join';
-        const JOIN_COOKIE_NAME = 'orgsToJoin';
+        const JOIN_QUERY_PARAM = 'connect';
+        const JOIN_COOKIE_NAME = 'orgsToConnect';
         const JOIN_COOKIE_EXP = 24 * 60 * 60 * 1000;
 
         let query = url.parse(req.url, true).query;
