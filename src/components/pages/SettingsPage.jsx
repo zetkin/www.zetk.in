@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import {
     changePassword,
     resetPasswordChanged,
-} from '../../actions/user';
+} from '../../actions/password';
 
 const mapStateToProps = state => ({
     userStore: state.get('user'),
