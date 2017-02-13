@@ -35,7 +35,7 @@ export default class AssignmentList extends React.Component {
                 assignments = assignments.slice(0, maxVisible);
 
                 moreLink = (
-                    <FormattedLink msgId="dashboard.events.more"
+                    <FormattedLink msgId="dashboard.more"
                         msgValues={{ numExtra }}
                         onClick={ this.onClickMore.bind(this) }/>
                 );

@@ -4,10 +4,11 @@ campaigns:
 
 events:
     h: "Dina bokningar"
-    more: "Visa +{ numExtra } ytterligare"
     none: "Du är inte bokad på något än"
 
 assignments:
     h: "Dina uppdrag"
     startCalling: "Börja ringa"
     none: "Du har inget uppdrag"
+
+more: "Visa +{ numExtra } ytterligare"

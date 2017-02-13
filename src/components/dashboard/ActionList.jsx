@@ -35,7 +35,7 @@ export default class ActionList extends React.Component {
                 actions = actions.slice(0, maxVisible);
 
                 moreLink = (
-                    <Link msgId="dashboard.events.more"
+                    <Link msgId="dashboard.more"
                         msgValues={{ numExtra }}
                         onClick={ this.onClickMore.bind(this) }/>
                 );

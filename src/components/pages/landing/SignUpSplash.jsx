@@ -77,9 +77,17 @@ export default class SignUpSplash extends React.Component {
                     let values = store.get('data').toJS();
 
                     errorMessage = (
-                        <Msg className="SignUpSplash-error"
-                            id="pages.landing.splash.form.error.exists"
+                        <div className="SignUpSplash-error">
+                            <Msg id="pages.landing.splash.form.error.exists"
                             values={ values }/>
+                        </div>
+                    );
+                }
+                else if (error.httpStatus == 400) {
+                    errorMessage = (
+                        <div className="SignUpSplash-error">
+                            <Msg id="pages.landing.splash.form.error.invalid"/>
+                        </div>
                     );
                 }
             }

@@ -1,0 +1,4 @@
+welcome:
+    header: "Välkommen till Min sida"
+    notConnected: "Du är inte ansluten till någon organisation."
+    getLink: "Kontakta din organisation eller se om du hittar en anslutningslänk på deras hemsida."

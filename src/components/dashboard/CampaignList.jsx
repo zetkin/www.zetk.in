@@ -26,7 +26,8 @@ export default class CampaignList extends React.Component {
             // TODO: Proper error message
             return <span>ERROR!</span>;
         }
-        else if (campaignList.get('items')) {
+        else if (campaignList.get('items')
+                && campaignList.get('items').size > 0) {
             let moreLink;
             let maxVisible = this.state.maxVisible;
             let campaigns = campaignList.get('items');
@@ -36,7 +37,7 @@ export default class CampaignList extends React.Component {
                 campaigns = campaigns.slice(0, maxVisible);
 
                 moreLink = (
-                    <FormattedLink msgId="dashboard.events.more"
+                    <FormattedLink msgId="dashboard.more"
                         msgValues={{ numExtra }}
                         onClick={ this.onClickMore.bind(this) }/>
                 );
@@ -57,7 +58,7 @@ export default class CampaignList extends React.Component {
         else {
             return (
                 <div className="CampaignList">
-                    <Msg tagName="i" id="dashboard.events.none"/>
+                    <Msg tagName="i" id="dashboard.campaigns.none"/>
                 </div>
             );
         }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import CampaignForm from '../../common/campaignForm/CampaignForm';
 import Dashboard from '../dashboard/Dashboard';
+import Welcome from '../misc/Welcome';
 import {
     retrieveAllActions,
     updateActionResponse,
@@ -27,6 +28,7 @@ export default class DashboardPage extends React.Component {
     render() {
         return (
             <div className="DashboardPage">
+                <Welcome/>
                 <Dashboard/>
                 <CampaignForm
                     redirPath={ this.props.location.pathname }
