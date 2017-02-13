@@ -9,7 +9,7 @@ import {
 } from '../../actions/password';
 
 const mapStateToProps = state => ({
-    userStore: state.get('user'),
+    passwordStore: state.get('password'),
 });
 
 @connect(mapStateToProps)
@@ -25,9 +25,9 @@ export default class DashboardPage extends React.Component {
     }
 
     render() {
-        const passwordPending = this.props.userStore.get('passwordPending');
-        const passwordChanged = this.props.userStore.get('passwordChanged');
-        const passwordError = this.props.userStore.get('passwordError');
+        const passwordPending = this.props.passwordStore.get('isChangePending');
+        const passwordChanged = this.props.passwordStore.get('changed');
+        const passwordError = this.props.passwordStore.get('changeError');
         let msg = null;
 
         if (passwordChanged) {
@@ -94,7 +94,8 @@ export default class DashboardPage extends React.Component {
         this.setState({
             newPassword: ev.target.value
         });
-        if (this.props.userStore.get('passwordChanged')) {
+
+        if (this.props.passwordStore.get('changed')) {
             this.props.dispatch(resetPasswordChanged());
         }
     }
@@ -103,7 +104,8 @@ export default class DashboardPage extends React.Component {
         this.setState({
             oldPassword: ev.target.value
         });
-        if (this.props.userStore.get('passwordChanged')) {
+
+        if (this.props.passwordStore.get('changed')) {
             this.props.dispatch(resetPasswordChanged());
         }
     }
