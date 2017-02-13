@@ -52,7 +52,7 @@ export default function initApp(messages) {
     app.get('/', auth.callback(authOpts));
     app.get('/logout', auth.logout(authOpts));
 
-    app.use('/forms', auth.validate(authOpts), formEndpoints);
+    app.post('/forms/actionResponse', auth.validate(authOpts), formEndpoints.actionResponse);
 
     app.get('/l10n', loadLocaleHandler());
 
