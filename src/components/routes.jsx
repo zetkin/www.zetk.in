@@ -6,7 +6,9 @@ import {
     CampaignPage,
     DashboardPage,
     LandingPage,
+    LostPasswordPage,
     NotFoundPage,
+    ResetPasswordPage,
     SettingsPage,
     VerifyEmailPage,
 } from './pages';
@@ -18,6 +20,10 @@ export default (
             component={ LandingPage } showSignUp={ true }/>
         <Route path="/verify"
             component={ VerifyEmailPage }/>
+        <Route path="/lost-password"
+            component={ LostPasswordPage }/>
+        <Route path="/reset-password"
+            component={ ResetPasswordPage }/>
         <Route path="/dashboard"
             component={ DashboardPage }/>
         <Route path="/settings"
