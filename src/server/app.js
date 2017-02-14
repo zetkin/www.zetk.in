@@ -58,6 +58,7 @@ export default function initApp(messages) {
     // Require authentication for some routes
     app.get('/dashboard', auth.validate(authOpts));
     app.get('/settings', auth.validate(authOpts));
+    app.get('/o/:org_id/campaigns/:campaign_id', auth.validate(authOpts));
 
     app.use(preloader(messages));
 
