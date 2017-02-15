@@ -5,4 +5,5 @@ export LandingPage from './landing/LandingPage';
 export LostPasswordPage from './LostPasswordPage';
 export VerifyEmailPage from './VerifyEmailPage';
 export ResetPasswordPage from './ResetPasswordPage';
+export SurveyPage from './SurveyPage';
 export NotFoundPage from './NotFoundPage';

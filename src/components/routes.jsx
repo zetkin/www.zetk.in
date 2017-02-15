@@ -10,6 +10,7 @@ import {
     NotFoundPage,
     ResetPasswordPage,
     SettingsPage,
+    SurveyPage,
     VerifyEmailPage,
 } from './pages';
 
@@ -30,6 +31,8 @@ export default (
             component={ SettingsPage }/>
         <Route path="/o/:orgId/campaigns/:campaignId"
             component={ CampaignPage }/>
+        <Route path="/o/:orgId/surveys/:surveyId"
+            component={ SurveyPage }/>
         <Route id="404" path="*"
             component={ NotFoundPage }/>
     </Route>
