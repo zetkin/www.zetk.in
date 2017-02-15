@@ -3,6 +3,7 @@ import { FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
 
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
+import SurveyForm from '../surveyForm/SurveyForm';
 import { survey } from '../../store/surveys';
 import { organization } from '../../store/orgs';
 import { retrieveSurvey } from '../../actions/survey';
@@ -51,7 +52,9 @@ export default class SurveyPage extends React.Component {
                 </p>
             ];
 
-            form = null;
+            form = (
+                <SurveyForm survey={ survey }/>
+            );
         }
 
         return (
