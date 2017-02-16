@@ -20,7 +20,7 @@ export default class TextWidget extends React.Component {
         }
         else {
             var widget = (
-                <input name={ name + '.text' }/>
+                <input type="text" name={ name + '.text' }/>
             );
         }
 

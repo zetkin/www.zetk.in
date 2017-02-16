@@ -18,7 +18,8 @@ export default class SurveyQuestion extends React.Component {
         let desc = null;
         if (question.get('description')) {
             desc = (
-                <p>{ question.get('description') }</p>
+                <p className="SurveyQuestion-description">
+                    { question.get('description') }</p>
             );
         }
 
@@ -36,9 +37,14 @@ export default class SurveyQuestion extends React.Component {
 
         return (
             <div className="SurveyQuestion">
-                <h2>{ question.get('question') }</h2>
+                <h3 className="SurveyQuestion-question">
+                    { question.get('question') }</h3>
+
                 { desc }
-                { responseWidget }
+
+                <div className="SurveyQuestion-response">
+                    { responseWidget }
+                </div>
             </div>
         );
     }
