@@ -51,6 +51,10 @@ export default (messages) => {
         retrieveSurvey(req.params.orgId, req.params.surveyId),
     ]));
 
+    preloader.get('/o/:orgId/surveys/:surveyId/submitted', waitForActions(req => [
+        retrieveSurvey(req.params.orgId, req.params.surveyId),
+    ]));
+
     return preloader;
 }
 

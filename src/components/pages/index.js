@@ -6,4 +6,5 @@ export LostPasswordPage from './LostPasswordPage';
 export VerifyEmailPage from './VerifyEmailPage';
 export ResetPasswordPage from './ResetPasswordPage';
 export SurveyPage from './SurveyPage';
+export SurveySubmittedPage from './SurveySubmittedPage';
 export NotFoundPage from './NotFoundPage';
