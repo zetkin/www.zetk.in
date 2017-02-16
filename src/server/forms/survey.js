@@ -21,7 +21,12 @@ export default (req, res, next) => {
         }
 
         if (type == 'options') {
-            responses[q_id].options = form[name].map(o => parseInt(o));
+            if (Array.isArray(form[name])) {
+                responses[q_id].options = form[name].map(o => parseInt(o));
+            }
+            else {
+                responses[q_id].options = [ parseInt(form[name]) ];
+            }
         }
         else if (type == 'text') {
             responses[q_id].response = form[name];
