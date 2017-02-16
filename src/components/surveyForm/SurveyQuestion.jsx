@@ -27,7 +27,8 @@ export default class SurveyQuestion extends React.Component {
 
                 return (
                     <li key={ id }>
-                        <input type="checkbox" name={ name } value={ id }
+                        <input type="checkbox" value={ id }
+                            name={ name + '.options' }
                             id={ 'option-' + id }
                             />
                         <label htmlFor={ 'option-' + id }>
@@ -46,12 +47,12 @@ export default class SurveyQuestion extends React.Component {
         else if (question.get('response_type') == 'text') {
             if (question.getIn(['response_config', 'multiline'])) {
                 responseWidget = (
-                    <textarea name={ name }/>
+                    <textarea name={ name + '.text' }/>
                 );
             }
             else {
                 responseWidget = (
-                    <input name={ name }/>
+                    <input name={ name + '.text' }/>
                 );
             }
         }

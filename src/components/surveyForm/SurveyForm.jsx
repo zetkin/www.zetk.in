@@ -1,9 +1,11 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 
 import PropTypes from '../../utils/PropTypes';
 import SurveyElement from './SurveyElement';
 
 
+@injectIntl
 export default class SurveyForm extends React.Component {
     static propTypes = {
         survey: PropTypes.map.isRequired,
@@ -18,10 +20,15 @@ export default class SurveyForm extends React.Component {
                 />
         ));
 
+        let submitLabel = this.props.intl.formatMessage(
+            { id: 'suveyForm.submit' })
+
         return (
             <div className="SurveyForm">
-                <form>
+                <form method="post">
                     { elements }
+
+                    <input type="submit" value={ submitLabel }/>
                 </form>
             </div>
         );
