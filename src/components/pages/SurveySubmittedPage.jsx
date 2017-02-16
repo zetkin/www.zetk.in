@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
 
+import SimplePageBase from './SimplePageBase';
 import Button from '../../common/misc/Button';
 import { survey } from '../../store/surveys';
 import { organization } from '../../store/orgs';
@@ -19,7 +20,7 @@ const mapStateToProps = (state, props) => {
 }
 
 @connect(mapStateToProps)
-export default class SurveyPage extends React.Component {
+export default class SurveyPage extends SimplePageBase {
     componentDidMount() {
         let orgId = this.props.params.orgId;
         let surveyId = this.props.params.surveyId;
@@ -29,7 +30,7 @@ export default class SurveyPage extends React.Component {
         }
     }
 
-    render() {
+    renderContent() {
         let survey = this.props.survey;
         let values = {
             survey: survey.get('title'),

@@ -94,6 +94,7 @@ if (NODE_ENV === 'production') {
             minimize: true
         }),
         new webpack.optimize.UglifyJsPlugin({
+            mangle: false,
             sourceMap: true,
         }),
     ];
