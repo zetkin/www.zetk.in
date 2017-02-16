@@ -5,17 +5,14 @@ import { connect } from 'react-redux';
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
 import SurveyForm from '../surveyForm/SurveyForm';
 import { survey } from '../../store/surveys';
-import { organization } from '../../store/orgs';
 import { retrieveSurvey } from '../../actions/survey';
 
 
 const mapStateToProps = (state, props) => {
     let s = survey(state, props.params.surveyId);
-    let o = s? organization(state, s.get('organization_id')) : null;
 
     return {
         survey: s,
-        organization: o,
     };
 }
 
@@ -45,7 +42,7 @@ export default class SurveyPage extends React.Component {
             surveyInfo = [
                 <h2 key="title">{ survey.get('title') }</h2>,
                 <span key="org" className="SurveyPage-infoOrg">
-                    { this.props.organization.get('title') }
+                    { survey.getIn(['organization', 'title']) }
                 </span>,
                 <p key="infoText">
                     { survey.get('info_text') }

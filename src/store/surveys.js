@@ -20,7 +20,6 @@ export default createReducer(initialState, {
     [types.RETRIEVE_SURVEY + '_PENDING']: (state, action) => {
         let survey = {
             id: action.meta.id.toString(),
-            organization_id: action.meta.orgId.toString(),
             isPending: true,
         };
 
@@ -33,7 +32,6 @@ export default createReducer(initialState, {
     [types.RETRIEVE_SURVEY + '_REJECTED']: (state, action) => {
         let survey = {
             id: action.meta.id.toString(),
-            organization_id: action.meta.orgId.toString(),
             error: action.payload,
             isPending: false,
         };
