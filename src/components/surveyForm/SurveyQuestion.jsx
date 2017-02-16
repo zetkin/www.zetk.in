@@ -1,6 +1,8 @@
 import React from 'react';
 
 import PropTypes from '../../utils/PropTypes';
+import TextWidget from './widgets/TextWidget';
+import OptionsWidget from './widgets/OptionsWidget';
 
 
 export default class SurveyQuestion extends React.Component {
@@ -22,39 +24,14 @@ export default class SurveyQuestion extends React.Component {
 
         let responseWidget = null;
         if (question.get('response_type') == 'options') {
-            let optionItems = question.get('options').map(option => {
-                let id = option.get('id');
-
-                return (
-                    <li key={ id }>
-                        <input type="checkbox" value={ id }
-                            name={ name + '.options' }
-                            id={ 'option-' + id }
-                            />
-                        <label htmlFor={ 'option-' + id }>
-                            { option.get('text') }
-                        </label>
-                    </li>
-                );
-            });
-
             responseWidget = (
-                <ul className="SurveyQuestion-options">
-                    { optionItems }
-                </ul>
+                <OptionsWidget name={ name } question={ question }/>
             );
         }
         else if (question.get('response_type') == 'text') {
-            if (question.getIn(['response_config', 'multiline'])) {
-                responseWidget = (
-                    <textarea name={ name + '.text' }/>
-                );
-            }
-            else {
-                responseWidget = (
-                    <input name={ name + '.text' }/>
-                );
-            }
+            responseWidget = (
+                <TextWidget name={ name } question={ question }/>
+            );
         }
 
         return (
