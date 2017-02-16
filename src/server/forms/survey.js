@@ -2,10 +2,12 @@ export default (req, res, next) => {
     let form = req.body;
     let orgId = req.params.orgId;
     let surveyId = req.params.surveyId;
+    let state = req.store.getState();
 
-    let data = {
-        signature: 'user',
-    };
+    let signature = null;
+    if (state.getIn(['user', 'data'])) {
+        signature = 'user';
+    }
 
     let responses = {};
 
@@ -33,7 +35,10 @@ export default (req, res, next) => {
         }
     }
 
-    data.responses = Object.keys(responses).map(q => responses[q]);
+    let data = {
+        signature,
+        responses: Object.keys(responses).map(q => responses[q]),
+    }
 
     req.z.resource('orgs', orgId, 'surveys', surveyId, 'submissions')
         .post(data)

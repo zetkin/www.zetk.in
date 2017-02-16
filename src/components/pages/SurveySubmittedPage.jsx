@@ -11,11 +11,9 @@ import { retrieveSurvey } from '../../actions/survey';
 
 const mapStateToProps = (state, props) => {
     let s = survey(state, props.params.surveyId);
-    let o = s? organization(state, s.get('organization_id')) : null;
 
     return {
         survey: s,
-        organization: o,
     };
 }
 
