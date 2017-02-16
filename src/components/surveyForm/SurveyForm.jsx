@@ -21,7 +21,7 @@ export default class SurveyForm extends React.Component {
         ));
 
         let submitLabel = this.props.intl.formatMessage(
-            { id: 'suveyForm.submit' })
+            { id: 'surveyForm.submitButton' })
 
         return (
             <div className="SurveyForm">
