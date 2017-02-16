@@ -12,13 +12,14 @@ export default class OptionsWidget extends React.Component {
     render() {
         let name = this.props.name;
         let question = this.props.question;
+        let type = question.getIn(['response_config', 'widget_type']) || 'radio';
 
         let optionItems = question.get('options').map(option => {
             let id = option.get('id');
 
             return (
                 <li key={ id }>
-                    <input type="checkbox" value={ id }
+                    <input type={ type } value={ id }
                         name={ name + '.options' }
                         id={ 'option-' + id }
                         />
