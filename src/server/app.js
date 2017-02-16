@@ -84,6 +84,7 @@ export default function initApp(messages) {
         }
     });
 
+    app.post('/o/:orgId/surveys/:surveyId', formEndpoints.survey);
     app.post('/forms/actionResponse', auth.validate(authOpts), formEndpoints.actionResponse);
     app.post('/lost-password', formEndpoints.lostPassword);
     app.post('/reset-password', formEndpoints.resetPassword);
