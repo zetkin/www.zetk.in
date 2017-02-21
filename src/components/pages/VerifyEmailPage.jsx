@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage as Msg, injectIntl } from 'react-intl';
 
+import SimplePageBase from './SimplePageBase';
+
 
 const mapStateToProps = state => ({
     user: state.get('user'),
@@ -9,12 +11,12 @@ const mapStateToProps = state => ({
 
 @connect(mapStateToProps)
 @injectIntl
-export default class VerifyEmailPage extends React.Component {
+export default class VerifyEmailPage extends SimplePageBase {
     constructor(props) {
         super(props);
     }
 
-    render() {
+    renderContent() {
         let formatMsg = this.props.intl.formatMessage;
         let buttonLabel = formatMsg({ id: 'pages.verify.submitButton' });
 

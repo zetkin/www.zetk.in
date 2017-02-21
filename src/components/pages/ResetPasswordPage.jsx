@@ -2,6 +2,7 @@ import React from 'react';
 import { injectIntl, FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
 
+import SimplePageBase from './SimplePageBase';
 import Button from '../../common/misc/Button';
 import { resetPassword } from '../../actions/password';
 
@@ -14,7 +15,7 @@ const mapStateToProps = state => ({
 
 @injectIntl
 @connect(mapStateToProps)
-export default class ResetPasswordPage extends React.Component {
+export default class ResetPasswordPage extends SimplePageBase {
     constructor(props) {
         super(props);
 
@@ -23,7 +24,7 @@ export default class ResetPasswordPage extends React.Component {
         };
     }
 
-    render() {
+    renderContent() {
         let content;
 
         if (this.props.reset) {

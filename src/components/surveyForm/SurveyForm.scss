@@ -1,0 +1,15 @@
+.SurveyForm {
+    background: darken(white, 1.5);
+    padding: 1em 0;
+
+    form {
+        width: 95%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    input[type=submit] {
+        margin: 4em auto 1em;
+        @include button();
+    }
+}

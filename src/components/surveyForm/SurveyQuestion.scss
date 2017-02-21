@@ -1,0 +1,21 @@
+.SurveyQuestion {
+    .SurveyQuestion-question {
+        margin: 1em 0 0.1em;
+    }
+
+    .SurveyQuestion-description {
+        margin: 0 0 0.5em;
+    }
+
+    .SurveyQuestion-response {
+        margin: 0.8em 0 0;
+    }
+
+    input[type=checkbox] {
+        -webkit-appearance: checkbox;
+    }
+
+    input[type=radio] {
+        -webkit-appearance: radio;
+    }
+}

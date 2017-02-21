@@ -1,0 +1,14 @@
+.OptionsWidget {
+    ul {
+        padding: 0;
+    }
+
+    li {
+        list-style-type: none;
+        margin: 0.5em 0;
+
+        label {
+            margin: 0 1em;
+        }
+    }
+}

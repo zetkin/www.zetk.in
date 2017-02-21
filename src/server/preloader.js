@@ -8,6 +8,7 @@ import { retrieveAllCampaigns } from '../actions/campaign';
 import { retrieveUserAssignments } from '../actions/callAssignment';
 import { retrieveUserMemberships } from '../actions/org';
 import { retrieveCampaign } from '../actions/campaign';
+import { retrieveSurvey } from '../actions/survey';
 import {
     retrieveAllActions,
     retrieveCampaignActions,
@@ -44,6 +45,14 @@ export default (messages) => {
         retrieveCampaignActions(req.params.orgId, req.params.campaignId),
         retrieveUserActions(),
         retrieveUserResponses(),
+    ]));
+
+    preloader.get('/o/:orgId/surveys/:surveyId', waitForActions(req => [
+        retrieveSurvey(req.params.orgId, req.params.surveyId),
+    ]));
+
+    preloader.get('/o/:orgId/surveys/:surveyId/submitted', waitForActions(req => [
+        retrieveSurvey(req.params.orgId, req.params.surveyId),
     ]));
 
     return preloader;

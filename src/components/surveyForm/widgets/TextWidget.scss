@@ -1,0 +1,14 @@
+.TextWidget {
+    textarea, input[type=text] {
+        font-size: 1.0em;
+        line-height: 1.5em;
+        width: 100%;
+        padding: 0.1em 0.4em;
+
+        border: 1px solid $c-ui-dark;
+    }
+
+    textarea {
+        min-height: 5em;
+    }
+}

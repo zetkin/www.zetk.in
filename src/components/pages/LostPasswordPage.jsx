@@ -2,6 +2,7 @@ import React from 'react';
 import { injectIntl, FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
 
+import SimplePageBase from './SimplePageBase';
 import Button from '../../common/misc/Button';
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
 import {
@@ -19,7 +20,7 @@ const mapStateToProps = state => ({
 
 @injectIntl
 @connect(mapStateToProps)
-export default class LostPasswordPage extends React.Component {
+export default class LostPasswordPage extends SimplePageBase {
     constructor(props) {
         super(props);
 
@@ -28,7 +29,7 @@ export default class LostPasswordPage extends React.Component {
         }
     }
 
-    render() {
+    renderContent() {
         let content, errorMessage = null;
         let error = this.props.error;
 

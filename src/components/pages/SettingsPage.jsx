@@ -3,6 +3,9 @@ import { FormattedMessage as Msg, injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 // import { FormattedMessage as Msg } from 'react-intl';
 
+import SimplePageBase from './SimplePageBase';
+
+
 import {
     changePassword,
     resetPasswordChanged,
@@ -14,7 +17,7 @@ const mapStateToProps = state => ({
 
 @connect(mapStateToProps)
 @injectIntl
-export default class DashboardPage extends React.Component {
+export default class DashboardPage extends SimplePageBase {
     constructor(props) {
         super(props);
 
@@ -24,7 +27,7 @@ export default class DashboardPage extends React.Component {
         };
     }
 
-    render() {
+    renderContent() {
         const passwordPending = this.props.passwordStore.get('isChangePending');
         const passwordChanged = this.props.passwordStore.get('changed');
         const passwordError = this.props.passwordStore.get('changeError');
