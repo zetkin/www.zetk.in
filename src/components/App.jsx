@@ -1,13 +1,26 @@
-import { connect } from 'react-redux';
 import React from 'react';
+import { connect } from 'react-redux';
+import { injectIntl } from 'react-intl';
 
 import Footer from './Footer';
 import GoogleAnalytics from './misc/GoogleAnalytics';
 import Header from './header/Header';
 
 
+@injectIntl
 @connect(state => ({ fullState: state }))
 export default class App extends React.Component {
+    componentDidMount() {
+        if (location.hostname.indexOf('dev.zetkin.org') >= 0) {
+            let msg = this.props.intl.formatMessage(
+                { id: 'misc.environmentWarning.message' });
+
+            if (confirm(msg)) {
+                location = '//www.zetk.in' + location.pathname;
+            }
+        }
+    }
+
     render() {
         let path = this.props.location.pathname;
         let stateJson = JSON.stringify(this.props.fullState);
