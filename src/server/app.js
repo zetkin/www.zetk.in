@@ -6,6 +6,7 @@ import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import url from 'url';
+import querystring from 'querystring';
 import { match, RouterContext } from 'react-router';
 
 import App from '../components/App';
@@ -158,7 +159,14 @@ export default function initApp(messages) {
 
             res.cookie(JOIN_COOKIE_NAME, orgsJson, cookieOpts);
 
-            next();
+            if (orgs.length && JOIN_QUERY_PARAM in query) {
+                delete query[JOIN_QUERY_PARAM];
+                let qs = querystring.stringify(query);
+                res.redirect(qs.length? req.path + '?' + qs : req.path);
+            }
+            else {
+                next();
+            }
         }
     });
 
