@@ -1,39 +1,57 @@
 import cx from 'classnames';
 import React from 'react';
 import { FormattedMessage as Msg, injectIntl } from 'react-intl';
+import { connect } from 'react-redux';
 
 import FormattedLink from '../../common/misc/FormattedLink';
+import { setHelpSeen, setHelpDismissed } from '../../actions/help';
 
+
+const mapStateToProps = state => ({
+    seen: state.getIn(['help', 'seen']),
+    dismissed: state.getIn(['help', 'dismissed']),
+});
 
 @injectIntl
+@connect(mapStateToProps)
 export default class HelpBubble extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             expanded: false,
+            dismissing: false,
         };
     }
 
     componentDidMount() {
-        // Open after half a second
-        setTimeout(() => {
-            this.setState({
-                expanded: true,
-            });
-        }, 500);
+        if (!this.props.seen) {
+            // Open after half a second
+            setTimeout(() => {
+                this.setState({
+                    expanded: true,
+                });
+            }, 500);
 
-        // Close again after eight more seconds
-        setTimeout(() => {
-            this.setState({
-                expanded: false,
-            });
-        }, 8500);
+            // Close again after eight more seconds
+            setTimeout(() => {
+                this.setState({
+                    expanded: false,
+                });
+
+                this.props.dispatch(setHelpSeen());
+            }, 8500);
+        }
     }
 
     render() {
+        if (this.props.dismissed) {
+            return null;
+        }
+
         let classes = cx('HelpBubble', {
-            expanded: this.state.expanded,
+            dismissing: this.state.dismissing,
+            expanded: !this.state.dismissing && this.state.expanded,
         });
 
         let p = this.props.intl.formatMessage({ id: 'misc.helpBubble.p' });
@@ -61,6 +79,14 @@ export default class HelpBubble extends React.Component {
     }
 
     onCloseClick() {
-        // TODO: Close and store in cookie
+        // A very simple dismiss animation is implemented
+        // in CSS using the .dismissing class.
+        this.setState({
+            dismissing: true,
+        });
+
+        setTimeout(() => {
+            this.props.dispatch(setHelpDismissed());
+        }, 200);
     }
 }

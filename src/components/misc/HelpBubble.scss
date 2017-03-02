@@ -67,6 +67,11 @@
         }
     }
 
+    &.dismissing {
+        transition: all 0.2s;
+        opacity: 0;
+    }
+
     @include medium-screen {
         bottom: 1em;
         left: 1em;
@@ -121,6 +126,21 @@
             .HelpBubble-content {
                 opacity: 1;
                 transition: opacity 0.1s 0.2s;
+            }
+        }
+
+        &.dismissing {
+            width: 0;
+            height: 0;
+            opacity: 0;
+
+            &:before {
+                display: none;
+            }
+
+            .HelpBubble-content {
+                opacity: 0;
+                transition: opacity 0.1s;
             }
         }
     }

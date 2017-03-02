@@ -7,6 +7,7 @@ import promiseMiddleware from 'redux-promise-middleware';
 import actions from './actions';
 import callAssignments from './callAssignments';
 import campaigns from './campaigns';
+import help from './help';
 import orgs from './orgs';
 import password from './password';
 import register from './register';
@@ -19,6 +20,7 @@ const appReducer = combineReducers({
     actions,
     callAssignments,
     campaigns,
+    help,
     orgs,
     password,
     register,
