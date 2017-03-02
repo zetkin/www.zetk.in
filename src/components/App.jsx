@@ -4,6 +4,7 @@ import React from 'react';
 import Footer from './Footer';
 import GoogleAnalytics from './misc/GoogleAnalytics';
 import Header from './header/Header';
+import HelpBubble from './misc/HelpBubble';
 
 
 @connect(state => ({ fullState: state }))
@@ -31,6 +32,7 @@ export default class App extends React.Component {
                     <div className="App-content">
                         { this.props.children }
                     </div>
+                    <HelpBubble />
                     <Footer />
                     <script type="text/json"
                         id="App-initialState"
