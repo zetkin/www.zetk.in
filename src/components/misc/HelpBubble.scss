@@ -1,0 +1,147 @@
+.HelpBubble {
+    position: fixed;
+    bottom: 1em;
+    left: 5%;
+    width: 90%;
+    border-radius: 0.5em;
+    padding: 1em;
+    z-index: 9999;
+
+    box-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.2);
+    background: linear-gradient(
+        $c-brand-comp-light,
+        $c-brand-comp-dark);
+
+    .HelpBubble-content {
+        color: white;
+
+        p {
+            font-size: 0.7em;
+            margin: 0.2em 0 1em;
+        }
+
+        a {
+            color: white;
+        }
+
+        .HelpBubble-buttons {
+            a {
+                display: block;
+                float: right;
+
+                padding: 0.5em 1em 0.5em 0.5em;
+                margin: 0 0 0 1em;
+                border-radius: 1em;
+                border: 1px solid white;
+
+                color: white;
+                font-size: 0.7em;
+                text-decoration: none;
+
+                cursor: pointer;
+
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: rgba(255,255,255,0.1);
+                }
+
+                &.HelpBubble-closeButton {
+                    padding-left: 0.5em;
+                    &:before {
+                        @include icon($fa-var-close);
+                        height: auto;
+                        line-height: 1em;
+                    }
+                }
+
+                &.HelpBubble-docsButton {
+                    padding-left: 0.5em;
+                    &:before {
+                        @include icon($fa-var-external-link);
+                        height: auto;
+                        line-height: 1em;
+                    }
+                }
+            }
+        }
+    }
+
+    &.dismissing {
+        transition: all 0.2s;
+        opacity: 0;
+    }
+
+    @include medium-screen {
+        bottom: 1em;
+        left: 1em;
+        width: 3em;
+        height: 3em;
+        border-radius: 2em;
+        font-size: 1.1em;
+
+        transition: border-radius 0.2s, width 0.2s, height 0.2s;
+
+        &:before {
+            @include fa-icon;
+
+            display: block;
+            position: absolute;
+            bottom: 0.5em;
+            left: 0.5em;
+            width: 1em;
+
+            content: $fa-var-info;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.5em;
+            text-align: center;
+            line-height: 1em;
+
+            opacity: 1;
+            transition: opacity 0.4s 0.4s;
+        }
+
+        .HelpBubble-content {
+            opacity: 0;
+            transition: opacity 0.05s;
+        }
+
+        .HelpBubble-buttons {
+            position: absolute;
+            left: 1em;
+            bottom: 1em;
+            right: 1em;
+        }
+
+        &.expanded, &:hover {
+            width: 20em;
+            height: 10em;
+            border-radius: 0.5em;
+
+            &:before {
+                opacity: 0;
+                transition: opacity 0.1s;
+            }
+
+            .HelpBubble-content {
+                opacity: 1;
+                transition: opacity 0.1s 0.2s;
+            }
+        }
+
+        &.dismissing {
+            width: 0;
+            height: 0;
+            opacity: 0;
+
+            &:before {
+                display: none;
+            }
+
+            .HelpBubble-content {
+                opacity: 0;
+                transition: opacity 0.1s;
+            }
+        }
+    }
+}

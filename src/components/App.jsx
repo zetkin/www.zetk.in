@@ -5,6 +5,7 @@ import { injectIntl } from 'react-intl';
 import Footer from './Footer';
 import GoogleAnalytics from './misc/GoogleAnalytics';
 import Header from './header/Header';
+import HelpBubble from './misc/HelpBubble';
 
 
 @injectIntl
@@ -44,6 +45,7 @@ export default class App extends React.Component {
                     <div className="App-content">
                         { this.props.children }
                     </div>
+                    <HelpBubble />
                     <Footer />
                     <script type="text/json"
                         id="App-initialState"
