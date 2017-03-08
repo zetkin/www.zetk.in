@@ -1,5 +1,6 @@
 export const REGISTER = 'REGISTER';
 
+export const SET_INTL_DATA = 'SET_INTL_DATA';
 export const SET_USER_DATA = 'SET_USER_DATA';
 export const SET_HELP_SEEN = 'SET_HELP_SEEN';
 export const SET_HELP_DISMISSED = 'SET_HELP_DISMISSED';
