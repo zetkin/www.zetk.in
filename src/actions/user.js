@@ -7,3 +7,12 @@ export function setUserData(data) {
         payload: data,
     };
 }
+
+export function updateUserLang(lang) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.UPDATE_USER_LANG,
+            payload: z.resource('users', 'me').patch({ lang }),
+        });
+    };
+}

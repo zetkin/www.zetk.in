@@ -14,4 +14,7 @@ export default createReducer(initialState, {
         return state
             .set('data', immutable.fromJS(action.payload));
     },
+    [types.UPDATE_USER_LANG + '_FULFILLED']: (state, action) => {
+        location.reload();
+    },
 });
