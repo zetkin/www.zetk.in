@@ -21,12 +21,15 @@ export function getMessageSubset(messages, scope, locale) {
 
 export function createLocalizeHandler(messages) {
     return scope => (req, res, next) => {
+        let state = req.store.getState();
         let negotiator = new Negotiator(req);
 
-        let locale = negotiator.language(['en', 'sv']) || 'en';
+        let browserLocale = negotiator.language(['en', 'sv']) || 'en';
+        let locale = state.getIn(['user', 'data', 'lang']) || browserLocale;
 
         req.store.dispatch(setIntlData({
             locale,
+            browserLocale,
             messages: getMessageSubset(messages, scope, locale)
         }));
 
