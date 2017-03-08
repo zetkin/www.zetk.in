@@ -1,39 +1,81 @@
-splash:
-    h1: "Delta i kampen för rättvisa"
-    h2: "Kom igång med ditt engagemang genom Zetkin"
-    signUpLink: "Skapa användarkonto"
+connect:
+    applyLink:
+        href: 'http://zetkin.org/sv/anslut'
+        text: Ansök om tillgång
+    h1: Zetkin för din organisation
+    h2: Vill du börja använda Zetkin i din organisation?
+    paragraph: |
+        Om din organisation jobbar mot samma mål som Zetkin Foundation vill
+        vi gärna hjälpa er utveckla er aktivism.
+features:
+    f1:
+        desc: |
+            Om din organisation använder Zetkin behöver du bara ansluta dig.
+            Sedan kan du anmäla dig till aktioner, delta i rundringningar
+            och mer.
+        title: Bli aktiv i din organisation
+    f2:
+        desc: |
+            På "Min sida" håller du koll på kampanjer du kan delta i, vilka
+            aktioner du är inbokad på, och om du har fått några uppdrag.
+        title: Få överblick
+    f3:
+        desc: |
+            Anmäl dig snabbt och enkelt till aktioner ute på stan. Sedan är
+            det bara att dyka upp.
+        title: Engagera dig på stan
+    f4:
+        desc: |
+            Hjälp till i din organisations kontaktarbete. Ring var du än
+            befinner dig med Zetkins smarta ringverktyg.
+        title: Delta i rundringningar
+    h1: Allt du behöver som aktivist
+    signUpLink: Registrera dig och kom igång
+foundation:
+    h1: Utvecklat av aktivister
+    h2: 'Ett annorlunda företag, för ett annorlunda samhälle'
     infoLink:
-        text: "Läs mer om Zetkin"
-        href: "http://zetkin.org/sv"
+        href: 'http://zetkin.org/sv/foundation'
+        text: Läs mer om Zetkin Foundation
+    paragraph: |
+        Zetkin utvecklas av Zetkin Foundation – ett företag vars syfte inte
+        är att göra vinst, utan att bidra till radikal samhällsförändring i
+        socialistisk, feministisk, antirasistisk och hållbar riktning. Det
+        gör Zetkin till något alldeles speciellt.
+splash:
+    authenticated:
+        cancelLink: Avbryt
+        h1: 'Inloggad som {firstName} {lastName}'
+        logoutLink: Logga ut
+        p: |
+            Du kan inte skapa ett nytt användarkonto när du redan är inloggad.
     caption: |
         Gatufesten "Vår stad" organiserades med Zetkin av Vänsterpartiet i Malmö
         i maj 2014.
-
-    form:
-        h1: "Registrera dig"
-        firstName: "Förnamn"
-        lastName: "Efternamn"
-        email: "E-postadress"
-        password: "Lösenord"
-        submitButton: "Registrera"
-        error:
-            exists: "E-postadressen { email } är redan registrerad."
-            invalid: "Registeringen misslyckades. Vänligen kontrollera att alla fält är korrekt ifyllda."
-
     done:
-        h1: "Tack och välkommen, { firstName }!"
-        h2: "Kolla din inbox för att bekräfta din e-postadress"
-
-    authenticated:
-        h1: "Inloggad som {firstName} {lastName}"
-        p: |
-            Du kan inte skapa ett nytt användarkonto när du redan är inloggad.
-        cancelLink: "Avbryt"
-        logoutLink: "Logga ut"
-
+        h1: 'Tack och välkommen, { firstName }!'
+        h2: Kolla din inbox för att bekräfta din e-postadress
+    form:
+        email: E-postadress
+        error:
+            exists: 'E-postadressen { email } är redan registrerad.'
+            invalid: >-
+                Registeringen misslyckades. Vänligen kontrollera att alla fält
+                är korrekt ifyllda.
+        firstName: Förnamn
+        h1: Registrera dig
+        lastName: Efternamn
+        password: Lösenord
+        submitButton: Registrera
+    h1: Delta i kampen för rättvisa
+    h2: Kom igång med ditt engagemang genom Zetkin
+    infoLink:
+        href: 'http://zetkin.org/sv'
+        text: Läs mer om Zetkin
+    signUpLink: Skapa användarkonto
 zetkin:
-    h1: "Gör engagemang enkelt"
-    h2: "En plattform för att organisera aktivism"
+    h1: Gör engagemang enkelt
+    h2: En plattform för att organisera aktivism
     paragraph: |
         Zetkin är en webbaserad plattform för att underlätta engagemang. Det
         används av organisationer och enskilda aktivister som deltar i
@@ -42,53 +84,6 @@ zetkin:
         Vem som helst kan skapa ett användarkonto i Zetkin. Som användare i
         Zetkin kan du delta i arbete och arrangemang som organiseras av de
         organisationer du är ansluten till.
-    usp1: "Tryggt och säkert"
-    usp2: "Aktivisten i fokus"
-    usp3: "Beprövat"
-
-features:
-    h1: "Allt du behöver som aktivist"
-    signUpLink: "Registrera dig och kom igång"
-    f1:
-        title: "Bli aktiv i din organisation"
-        desc: |
-            Om din organisation använder Zetkin behöver du bara ansluta dig.
-            Sedan kan du anmäla dig till aktioner, delta i rundringningar
-            och mer.
-    f2:
-        title: "Få överblick"
-        desc: |
-            På "Min sida" håller du koll på kampanjer du kan delta i, vilka
-            aktioner du är inbokad på, och om du har fått några uppdrag.
-    f3:
-        title: "Engagera dig på stan"
-        desc: |
-            Anmäl dig snabbt och enkelt till aktioner ute på stan. Sedan är
-            det bara att dyka upp.
-    f4:
-        title: "Delta i rundringningar"
-        desc: |
-            Hjälp till i din organisations kontaktarbete. Ring var du än
-            befinner dig med Zetkins smarta ringverktyg.
-
-foundation:
-    h1: "Utvecklat av aktivister"
-    h2: "Ett annorlunda företag, för ett annorlunda samhälle"
-    paragraph: |
-        Zetkin utvecklas av Zetkin Foundation – ett företag vars syfte inte
-        är att göra vinst, utan att bidra till radikal samhällsförändring i
-        socialistisk, feministisk, antirasistisk och hållbar riktning. Det
-        gör Zetkin till något alldeles speciellt.
-    infoLink:
-        text: "Läs mer om Zetkin Foundation"
-        href: "http://zetkin.org/sv/foundation"
-
-connect:
-    h1: "Zetkin för din organisation"
-    h2: "Vill du börja använda Zetkin i din organisation?"
-    applyLink:
-        text: "Ansök om tillgång"
-        href: "http://zetkin.org/sv/anslut"
-    paragraph: |
-        Om din organisation jobbar mot samma mål som Zetkin Foundation vill
-        vi gärna hjälpa er utveckla er aktivism.
+    usp1: Tryggt och säkert
+    usp2: Aktivisten i fokus
+    usp3: Beprövat

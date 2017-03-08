@@ -1,15 +1,13 @@
-h: "Glömt lösenord?"
+after:
+    p: |
+        Ett meddelande med instruktioner har skickats till { email }.
+    retryButton: Skicka på nytt
 before:
     p: |
         Vet du inte vad du har för lösenord till Zetkin? Ange din e-postadress
         så skickar vi ut en länk där du kan välja ett nytt lösenord.
-    submitButton: "Skicka länk"
-
-after:
-    p: |
-        Ett meddelande med instruktioner har skickats till { email }.
-    retryButton: "Skicka på nytt"
-
+    submitButton: Skicka länk
 errors:
-    undefined: "Ett okänt fel inträffade. Kontrollera e-postadressen och försök igen."
-    unknownUser: "Någon användare med den e-postadressen existerar inte."
+    undefined: Ett okänt fel inträffade. Kontrollera e-postadressen och försök igen.
+    unknownUser: Någon användare med den e-postadressen existerar inte.
+h: Glömt lösenord?

@@ -1,8 +1,8 @@
-login: "Logga in"
-call: "Ringuppdrag"
-organize: "Organisera"
+call: Ringuppdrag
+login: Logga in
+organize: Organisera
 user:
-    continue: "Gå till Min sida"
-    wrongUser: "Är detta inte du?"
-    logout: "Logga ut"
-    settings: "Inställningar"
+    continue: Gå till Min sida
+    logout: Logga ut
+    settings: Inställningar
+    wrongUser: Är detta inte du?

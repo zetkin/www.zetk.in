@@ -1,14 +1,11 @@
-campaigns:
-    h: "Pågående kampanjer"
-    none: "Det finns inga pågående kampanjer"
-
-events:
-    h: "Dina bokningar"
-    none: "Du är inte bokad på något än"
-
 assignments:
-    h: "Dina uppdrag"
-    startCalling: "Börja ringa"
-    none: "Du har inget uppdrag"
-
-more: "Visa +{ numExtra } ytterligare"
+    h: Dina uppdrag
+    none: Du har inget uppdrag
+    startCalling: Börja ringa
+campaigns:
+    h: Pågående kampanjer
+    none: Det finns inga pågående kampanjer
+events:
+    h: Dina bokningar
+    none: Du är inte bokad på något än
+more: 'Visa +{ numExtra } ytterligare'
