@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import SimplePageBase from './SimplePageBase';
 
+import { updateUserLang } from '../../actions/user';
 
 import {
     changePassword,
@@ -12,12 +13,14 @@ import {
 } from '../../actions/password';
 
 const mapStateToProps = state => ({
+    user: state.get('user'),
+    browserLocale: state.getIn(['intl', 'browserLocale']),
     passwordStore: state.get('password'),
 });
 
 @connect(mapStateToProps)
 @injectIntl
-export default class DashboardPage extends SimplePageBase {
+export default class SettingsPage extends SimplePageBase {
     constructor(props) {
         super(props);
 
@@ -52,9 +55,27 @@ export default class DashboardPage extends SimplePageBase {
             && this.state.newPassword.length >= 6
             && !passwordPending);
 
+        let lang = this.props.user.getIn(['data', 'lang']) || 'auto';
+        let langOptions = [ 'auto', 'sv', 'en' ];
+
         return (
             <div className="SettingsPage">
                 <Msg tagName="h1" id="pages.settings.h"/>
+                <Msg tagName="h2" id="pages.settings.language.h"/>
+                <Msg tagName="p" id="pages.settings.language.p"/>
+                <select value={ lang }
+                    onChange={ this.onLangChange.bind(this) }>
+                { langOptions.map(val => {
+                    let label = this.props.intl.formatMessage(
+                        { id: 'pages.settings.language.options.' + val },
+                        { locale: this.props.browserLocale });
+
+                    return (
+                        <option key={ val } value={ val }>
+                            { label }</option>
+                    );
+                })}
+                </select>
                 <Msg tagName="h2" id="pages.settings.password.h"/>
                 { msg }
                 <form onSubmit={ this.onSubmitPassword.bind(this) }>
@@ -82,6 +103,15 @@ export default class DashboardPage extends SimplePageBase {
                 </form>
             </div>
         );
+    }
+
+    onLangChange(ev) {
+        let lang = ev.target.value;
+        if (lang == 'auto') {
+            lang = null;
+        }
+
+        this.props.dispatch(updateUserLang(lang));
     }
 
     onSubmitPassword(ev) {
