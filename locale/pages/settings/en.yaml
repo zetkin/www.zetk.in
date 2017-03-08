@@ -1,0 +1,8 @@
+h: Settings
+password:
+    error: Wrong password
+    h: Change password
+    newPassword: New password
+    oldPassword: Current password
+    submitButton: Change password
+    success: Your password was changed

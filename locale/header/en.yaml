@@ -1,0 +1,8 @@
+call: Call
+login: Log in
+organize: Organize
+user:
+    continue: Go to My Page
+    logout: Sign out
+    settings: Settings
+    wrongUser: Is this not you?
