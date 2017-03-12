@@ -21,12 +21,10 @@ export default (messages) => {
     const preloader = express();
     const localizeHandler = createLocalizeHandler(messages);
 
+    preloader.use(initStore);
+
     // TODO: Change scope depending on URL
     preloader.use(localizeHandler());
-
-    // TODO: Rearrange so that this can be on top
-    //       Right now it relies on the intl data from localizeHandler()
-    preloader.use(initStore);
 
     preloader.get('*', waitForActions(req => [
         retrieveUserMemberships(),
@@ -61,8 +59,8 @@ export default (messages) => {
 function initStore(req, res, next) {
     let initialState = immutable.fromJS({
         intl: {
-            locale: req.intl.locale,
-            messages: req.intl.messages,
+            locale: 'en',
+            messages: {},
         },
     });
 

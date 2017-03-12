@@ -1,0 +1,11 @@
+assignments:
+    h: Your assignments
+    none: You have no assignments
+    startCalling: Start calling
+campaigns:
+    h: On-going campaigns
+    none: There are no on-going campaigns
+events:
+    h: Your bookings
+    none: You are not booked on anything yet
+more: 'Show +{ numExtra } more'

@@ -1,13 +1,13 @@
 import { compose, applyMiddleware, createStore } from 'redux';
 import { combineReducers } from 'redux-immutable';
 import immutable from 'immutable';
-import { intlReducer } from 'react-intl-redux';
 import promiseMiddleware from 'redux-promise-middleware';
 
 import actions from './actions';
 import callAssignments from './callAssignments';
 import campaigns from './campaigns';
 import help from './help';
+import intl from './intl';
 import orgs from './orgs';
 import password from './password';
 import register from './register';
@@ -16,11 +16,11 @@ import user from './user';
 
 
 const appReducer = combineReducers({
-    intl: intlReducer,
     actions,
     callAssignments,
     campaigns,
     help,
+    intl,
     orgs,
     password,
     register,

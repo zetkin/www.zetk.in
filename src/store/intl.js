@@ -5,16 +5,14 @@ import * as types from '../actions';
 
 
 const initialState = immutable.fromJS({
-    data: null,
+    locale: 'en',
+    messages: {},
 });
 
 
 export default createReducer(initialState, {
-    [types.SET_USER_DATA]: (state, action) => {
+    [types.SET_INTL_DATA]: (state, action) => {
         return state
-            .set('data', immutable.fromJS(action.payload));
-    },
-    [types.UPDATE_USER_LANG + '_FULFILLED']: (state, action) => {
-        location.reload();
+            .merge(immutable.fromJS(action.payload.data));
     },
 });

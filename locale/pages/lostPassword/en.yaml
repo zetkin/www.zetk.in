@@ -1,0 +1,14 @@
+after:
+    p: 'A message with instructions has been sent to { email }.'
+    retryButton: Send again
+before:
+    p: >-
+        Have you forgotten your password for Zetkin? Give us your e-mail address
+        and we will send out a link where you can pick a new password.
+    submitButton: Send link
+errors:
+    undefined: >-
+        An unknown error occurred. Please make sure your e-mail is correct and
+        try again.
+    unknownUser: No user exists with that e-mail address.
+h: Did you forget your password?

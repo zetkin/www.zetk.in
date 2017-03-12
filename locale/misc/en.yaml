@@ -1,0 +1,20 @@
+environmentWarning:
+    message: >-
+        This is a development version of Zetkin. You probably want to use the
+        live Zetkin at www.zetk.in. Do you want to navigate there?
+helpBubble:
+    closeButton: I understand
+    docsButton:
+        href: 'http://manual.zetkin.org/en'
+        text: Read more in the manual
+    h: Welcome to new Zetkin
+    p: >-
+        Zetkin is completely new. If you need help or find something that seems
+        wrong, contact your organization or Zetkin Foundation at <a
+        href="mailto:info@zetkin.org">info@zetkin.org</a>.
+welcome:
+    getLink: >-
+        Contact your organization or see if you can find a connection link on
+        their website.
+    header: Welcome to My Page
+    notConnected: You are not connected to any organizations

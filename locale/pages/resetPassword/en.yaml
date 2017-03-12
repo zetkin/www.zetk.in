@@ -1,0 +1,7 @@
+after:
+    loginButton: Log in
+    p: Your password was updated. You can log in using your new password.
+before:
+    p: Set a new password that you wish to use going forward.
+    submitButton: Save password
+h: Reset password

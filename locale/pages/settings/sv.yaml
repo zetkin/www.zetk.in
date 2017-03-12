@@ -1,8 +1,16 @@
-h: "Inställningar"
+h: Inställningar
+language:
+    h: Språk
+    p: Välj vilket språk du vill använda Zetkin på (när du är inloggad).
+    options:
+        auto: |
+            Automatiskt ({ locale, select, sv {svenska} en {engelska} })
+        en: Engelska
+        sv: Svenska
 password:
-    h: "Ändra lösenord"
-    error: "Fel lösen"
-    success: "Lösenordet ändrades"
-    oldPassword: "Nuvarande lösenord"
-    newPassword: "Nytt lösenord"
-    submitButton: "Byt lösenord"
+    error: Fel lösen
+    h: Ändra lösenord
+    newPassword: Nytt lösenord
+    oldPassword: Nuvarande lösenord
+    submitButton: Byt lösenord
+    success: Lösenordet ändrades

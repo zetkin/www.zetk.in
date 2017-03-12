@@ -1,0 +1,16 @@
+h: Settings
+language:
+    h: Language
+    p: Select which language you want to use Zetkin in (when signed in).
+    options:
+        auto: |
+            Automatic ({ locale, select, sv {Swedish} en {English} })
+        en: English
+        sv: Swedish
+password:
+    error: Wrong password
+    h: Change password
+    newPassword: New password
+    oldPassword: Current password
+    submitButton: Change password
+    success: Your password was changed

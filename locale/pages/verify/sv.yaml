@@ -1,8 +1,8 @@
-h1: "Bekräfta din e-postadress"
+h1: Bekräfta din e-postadress
 p0: |
     Innan du kan fortsätta och använda Zetkin måste du bekräfta din
     e-postadress.
 p1: |
     Vi har skickat ett e-postmeddelande med en verifikationslänk och en
     speciell kod. Klicka på länken, eller klistra in koden i fältet nedan.
-submitButton: "Bekräfta min e-postadress"
+submitButton: Bekräfta min e-postadress

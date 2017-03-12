@@ -1,7 +1,7 @@
-h: "Återställ lösenord"
-before:
-    p: "Fyll i det lösenord du vill använda i fortsättningen."
-    submitButton: "Spara lösenord"
 after:
-    p: "Ditt lösenord uppdaterades. Nu kan du logga in med ditt nya lösenord."
-    loginButton: "Logga in"
+    loginButton: Logga in
+    p: Ditt lösenord uppdaterades. Nu kan du logga in med ditt nya lösenord.
+before:
+    p: Fyll i det lösenord du vill använda i fortsättningen.
+    submitButton: Spara lösenord
+h: Återställ lösenord
