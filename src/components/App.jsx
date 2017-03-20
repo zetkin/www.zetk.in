@@ -12,7 +12,8 @@ import HelpBubble from './misc/HelpBubble';
 @connect(state => ({ fullState: state }))
 export default class App extends React.Component {
     componentDidMount() {
-        if (location.hostname.indexOf('dev.zetkin.org') >= 0) {
+        if (location.hostname.indexOf('dev.zetkin.org') >= 0
+            && process.env.NODE_ENV == 'production') {
             let msg = this.props.intl.formatMessage(
                 { id: 'misc.environmentWarning.message' });
 
