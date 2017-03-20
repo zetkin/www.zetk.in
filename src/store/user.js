@@ -16,5 +16,7 @@ export default createReducer(initialState, {
     },
     [types.UPDATE_USER_LANG + '_FULFILLED']: (state, action) => {
         location.reload();
+
+        return state;
     },
 });
