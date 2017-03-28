@@ -12,5 +12,26 @@ calendar:
         tuesday: T
         wednesday: O
 filter:
+    activities:
+        h: |-
+            {count, plural,
+                =0 {Filtrer efter aktivitet}
+                =1 {Filtrerer efter 1 aktivitet}
+                other {Filtrerer efter # aktiviteter}
+            }
+    campaigns:
+        h: |-
+            {count, plural,
+                =0 {Filtrer efter kampange}
+                =1 {Filtrerer efter 1 kampange}
+                other {Filtrerer efter # kampanger}
+            }
     h: Filtrer aktioner
+    locations:
+        h: |-
+            {count, plural,
+                =0 {Filtrer efter sted}
+                =1 {Filtrerer efter 1 sted}
+                other {Filtrerer efter # steder}
+            }
 submitLabel: Gem mine tilmeldinger
