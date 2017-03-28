@@ -1,0 +1,87 @@
+connect:
+    applyLink:
+        href: 'http://zetkin.org/sv/anslut'
+        text: Ansøg om adgang
+    h1: Zetkin for din organisation
+    h2: Vil du anvende Zetkin i din organisation?
+    paragraph: >-
+        Såfremt din organisation arbejder imod de samme mål som Zetkin
+        Foundation, vil vi gerne hjælpe med at forbedre jeres aktivisme.
+features:
+    f1:
+        desc: >-
+            Hvis din organisation anvender Zetkin skal du blot tilslutte dig. Så
+            kan du tilmelde dig til aktiviteter, deltage i rundringninger og
+            andet.
+        title: Bliv aktiv i din organisation
+    f2:
+        desc: >-
+            På "Min Side" holder du styr på kampagner du kan deltage i, se
+            hvilke aktiviteter du er booket til og se om du har fået nogle
+            opgaver.
+        title: Få et overblik
+    f3:
+        desc: >-
+            Tilmeld dig hurtigt og let til aktiviteter i byen. Derefter er det
+            blot at dukke op
+        title: Engager dig på gaderne
+    f4:
+        desc: >-
+            Hjælp din organisation med at aktivere medlemmer, ring ud uanset
+            hvor du befinder dig.
+        title: Deltag i telefon
+    h1: Alt du behøver som aktivist
+    signUpLink: Registrer dig og kom i gang
+foundation:
+    h1: Udviklet af aktivister
+    h2: 'Et anderledes firma, for et anderledes samfund'
+    infoLink:
+        href: 'http://zetkin.org/en/foundation'
+        text: Læs mere om Zetkin Foundation
+    paragraph: >-
+        Zetkin udviklet af Zetkin Foundation - et selskab, hvis formål ikke er
+        at gøre profit, men at bidrage til radikal social forandring i
+        socialistisk, feministisk, anti-racistisk og bæredygtig retning. Det gør
+        Zetkin til noget særligt.
+splash:
+    authenticated:
+        cancelLink: Annuller
+        h1: Logget ind som
+        logoutLink: log ud
+        p: Du kan ikke oprette en ny brugerkonto når du allerede er logget ind.
+    caption: >-
+        Gadefesten "Vår stad" blev arrangeret af Vänsterpartiet i Malmø med
+        Zetkin i maj 2014
+    done:
+        h1: Tak og velkommen
+        h2: Tjek din indbakke for at bekræfte din e-mail adresse
+    form:
+        email: E-mail adresse
+        error:
+            exists: 'E-mail adressen { email } er allerede registrered'
+            invalid: >-
+                Registreringen mislykkedes. Kontroller venligst at alle felter
+                er korrekt udfyldte.
+        firstName: Fornavn
+        h1: Registrer dig
+        lastName: Efternavn
+        password: Adgangskode
+        submitButton: Registrer
+    h1: Deltag i kampen for retfærdighed
+    h2: 'Involver dig nu, med Zetkin'
+    infoLink:
+        href: 'http://zetkin.org/en'
+        text: Læs mere om Zetkin
+    signUpLink: Opret bruger
+zetkin:
+    h1: Gør engagement enkelt
+    h2: En platform for at organisere aktivisme
+    paragraph: >-
+        "Zetkin er en webbaseret platform for at lette engagement. Det bliver
+        brugt af organisationer og individuelle aktiviteter som deltager i
+        organisationers arbejde. Alle kan oprette en brugerkonto i Zetkin. Som
+        brugere Zetkin, kan du deltage i arbejde og events arrangeret af
+        organisationer, du er forbundet til. "
+    usp1: Trygt og sikkert
+    usp2: Aktivisten i fokus
+    usp3: Gennemprøvet

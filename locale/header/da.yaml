@@ -1,0 +1,8 @@
+call: Kald
+login: Log ind
+organize: Organiser
+user:
+    continue: Gå til min side
+    logout: Log ud
+    settings: Indstillinger
+    wrongUser: Er dette ikke dig?

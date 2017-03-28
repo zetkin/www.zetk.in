@@ -1,0 +1,16 @@
+action:
+    booked: booket
+    multiLocationLabel: booket
+    yesLabel: ja
+calendar:
+    weekDays:
+        friday: F
+        monday: M
+        saturday: L
+        sunday: S
+        thursday: T
+        tuesday: T
+        wednesday: O
+filter:
+    h: Filtrer aktioner
+submitLabel: Gem mine tilmeldinger

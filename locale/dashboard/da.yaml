@@ -1,0 +1,11 @@
+assignments:
+    h: Dine opgaver
+    none: Du har ingen opgaver
+    startCalling: Start dine kald
+campaigns:
+    h: Igangværende kampagner
+    none: Der er ingen aktive kampagner
+events:
+    h: dine bookinger
+    none: Du er ikke booket til noget endnu
+more: 'Vis yderligere +{ numExtra }'
