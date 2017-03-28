@@ -15,9 +15,9 @@ filter:
     activities:
         h: |-
             {count, plural,
-                =0 {Filtrer efter aktivitet}
-                =1 {Filtrerer efter 1 aktivitet}
-                other {Filtrerer efter # aktiviteter}
+                =0 {Filtrer efter handling}
+                =1 {Filtrerer efter 1 handling}
+                other {Filtrerer efter # handlinger}
             }
     campaigns:
         h: |-
