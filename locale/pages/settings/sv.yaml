@@ -3,7 +3,8 @@ language:
     h: Språk
     options:
         auto: |
-            Automatiskt ({ locale, select, sv {svenska} en {engelska} })
+            Automatiskt ({ locale, select, sv {svenska} en {engelska} da {dansk} })
+        da: Danska
         en: Engelska
         sv: Svenska
     p: Välj vilket språk du vill använda Zetkin på (när du är inloggad).

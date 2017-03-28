@@ -2,7 +2,8 @@ h: Indstillinger
 language:
     h: Sprog
     options:
-        auto: Automatisk
+        auto: Automatisk ({ locale, select, sv {svensk} en {engelsk} da {dansk} })
+        da: Dansk
         en: Engelsk
         sv: Svensk
     p: Vælg det sprog du vil anvende når du er logget ind på Zetkin
