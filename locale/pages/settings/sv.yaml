@@ -1,12 +1,12 @@
 h: Inställningar
 language:
     h: Språk
-    p: Välj vilket språk du vill använda Zetkin på (när du är inloggad).
     options:
         auto: |
             Automatiskt ({ locale, select, sv {svenska} en {engelska} })
         en: Engelska
         sv: Svenska
+    p: Välj vilket språk du vill använda Zetkin på (när du är inloggad).
 password:
     error: Fel lösen
     h: Ändra lösenord
