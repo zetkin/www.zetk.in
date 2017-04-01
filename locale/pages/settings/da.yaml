@@ -1,0 +1,16 @@
+h: Indstillinger
+language:
+    h: Sprog
+    options:
+        auto: Automatisk ({ locale, select, sv {svensk} en {engelsk} da {dansk} })
+        da: Dansk
+        en: Engelsk
+        sv: Svensk
+    p: Vælg det sprog du vil anvende når du er logget ind på Zetkin
+password:
+    error: Forkert adgangskode
+    h: Skift adgangskode
+    newPassword: Ny adgangskode
+    oldPassword: Nuværende adgangskode
+    submitButton: Skift adgangskode
+    success: Adgangskoden er ændret

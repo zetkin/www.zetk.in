@@ -1,0 +1,9 @@
+after:
+    loginButton: Log ind
+    p: >-
+        Din adgangskode er opdateret. Du kan nu logge ind med din nye
+        adgangskode
+before:
+    p: Indsæt din nye adgangskode som du vil bruge i fremtiden.
+    submitButton: Gem adgangskode
+h: Nulstil adgangskode
