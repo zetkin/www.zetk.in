@@ -8,7 +8,7 @@ action:
             =5 {På fem platser}
             other {På # platser}
         }
-    yesLabel: Ja
+    yesLabel: Anmäl
 calendar:
     weekDays:
         friday: F

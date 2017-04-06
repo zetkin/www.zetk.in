@@ -8,7 +8,7 @@ action:
             =5 {In five locations}
             other {In # locations}
         }
-    yesLabel: 'Yes'
+    yesLabel: 'Sign up'
 calendar:
     weekDays:
         friday: F
