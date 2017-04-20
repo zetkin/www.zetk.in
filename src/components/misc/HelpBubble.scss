@@ -49,7 +49,7 @@
                 &.HelpBubble-closeButton {
                     padding-left: 0.5em;
                     &:before {
-                        @include icon($fa-var-close);
+                        @include icon($fa-var-check);
                         height: auto;
                         line-height: 1em;
                     }
