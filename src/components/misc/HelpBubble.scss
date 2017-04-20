@@ -111,6 +111,8 @@
             left: 1em;
             bottom: 1em;
             right: 1em;
+            opacity: 0;
+            transition: opacity 0.05s;
         }
 
         &.expanded, &:hover {
@@ -124,6 +126,11 @@
             }
 
             .HelpBubble-content {
+                opacity: 1;
+                transition: opacity 0.1s 0.2s;
+            }
+
+            .HelpBubble-buttons {
                 opacity: 1;
                 transition: opacity 0.1s 0.2s;
             }
