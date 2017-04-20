@@ -8,6 +8,7 @@
     z-index: 9999;
 
     box-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.2);
+    background: $c-brand-comp-light; // Fallback
     background: linear-gradient(
         $c-brand-comp-light,
         $c-brand-comp-dark);
