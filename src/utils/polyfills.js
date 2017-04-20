@@ -1,4 +1,5 @@
 require('array.prototype.find');
+require('babel-polyfill');
 
 require('intl');
 require('intl/locale-data/jsonp/en.js');
