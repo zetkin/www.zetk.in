@@ -3,7 +3,7 @@ import { FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
 
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
-import SurveyForm from '../surveyForm/SurveyForm';
+import SurveyForm from '../../common/surveyForm/SurveyForm';
 import { survey } from '../../store/surveys';
 import { retrieveSurvey } from '../../actions/survey';
 
