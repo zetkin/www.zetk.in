@@ -8,6 +8,7 @@
     z-index: 9999;
 
     box-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.2);
+    background: $c-brand-comp-light; // Fallback
     background: linear-gradient(
         $c-brand-comp-light,
         $c-brand-comp-dark);
@@ -49,7 +50,7 @@
                 &.HelpBubble-closeButton {
                     padding-left: 0.5em;
                     &:before {
-                        @include icon($fa-var-close);
+                        @include icon($fa-var-check);
                         height: auto;
                         line-height: 1em;
                     }
@@ -111,6 +112,8 @@
             left: 1em;
             bottom: 1em;
             right: 1em;
+            opacity: 0;
+            transition: opacity 0.05s;
         }
 
         &.expanded, &:hover {
@@ -124,6 +127,11 @@
             }
 
             .HelpBubble-content {
+                opacity: 1;
+                transition: opacity 0.1s 0.2s;
+            }
+
+            .HelpBubble-buttons {
                 opacity: 1;
                 transition: opacity 0.1s 0.2s;
             }
