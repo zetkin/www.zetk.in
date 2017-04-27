@@ -1,1 +1,24 @@
+signature:
+    h: Choose how to sign
+    options:
+        anon:
+            desc: |-
+                The survey will be submitted anonymously. Unless you have
+                included personal information in the responses, the organization
+                will not be able to trace the responses to you.
+            label: Submit anonymously
+        email:
+            desc: |-
+                Sign using the name and e-mail address of the respondent, i.e.
+                yourself or if you are submitting responses on behalf of someone
+                else.
+            emailLabel: E-mail address
+            firstNameLabel: First name
+            label: Sign with name and e-mail
+            lastNameLabel: Last name
+        user:
+            desc: |-
+                Signing the survey as yourself while authenticated will connect
+                it to you, which is of great help to the organization.
+            label: Sign as { firstName } { lastName }
 submitButton: Submit survey
