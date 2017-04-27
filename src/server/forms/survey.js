@@ -5,13 +5,24 @@ export default (req, res, next) => {
     let state = req.store.getState();
 
     let signature = null;
-    if (state.getIn(['user', 'data'])) {
+    if (form.sig == 'user' && state.getIn(['user', 'data'])) {
         signature = 'user';
+    }
+    else if (form.sig == 'email') {
+        signature = {
+            first_name: form['sig.first_name'],
+            last_name: form['sig.last_name'],
+            email: form['sig.email'],
+        };
     }
 
     let responses = {};
 
     for (let name in form) {
+        if (name.indexOf('sig') == 0) {
+            continue;
+        }
+
         let fields = name.split('.');
         let q_id = fields[0];
         let type = fields[1];
