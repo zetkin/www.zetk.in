@@ -1,1 +1,24 @@
+signature:
+    h: Välj hur du vill signera
+    options:
+        anon:
+            desc: |-
+                Enkäten kommer skickas in anonymt. Förutsatt att du inte
+                avslöjat något i dina svar kommer organisationen inte kunna
+                spåra enkätsvaren till dig.
+            label: Skicka in anonymt
+        email:
+            desc: |-
+                Signera med namn och e-postadress till den som svarat, d.v.s.
+                dig själv eller om du skickar in enkäten åt någon annan.
+            emailLabel: E-postadress
+            firstNameLabel: Förnamn
+            label: Signera med namn och e-post
+            lastNameLabel: Efternamn
+        user:
+            desc: |-
+                När du är inloggad och signerar enkätsvaren som dig själv
+                kopplas de till din användare, vilket är av stor hjälp för den
+                organisation som ska bearbeta enkäten.
+            label: Signera som { firstName } { lastName }
 submitButton: Skicka in enkätsvar
