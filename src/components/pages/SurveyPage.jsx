@@ -10,9 +10,18 @@ import { retrieveSurvey } from '../../actions/survey';
 
 const mapStateToProps = (state, props) => {
     let s = survey(state, props.params.surveyId);
+    let isConnected = false;
+
+    if (s) {
+        let orgId = s.getIn(['organization', 'id']).toString();
+        isConnected = !!state.getIn(
+            ['orgs', 'membershipList', 'items', orgId]);
+    }
 
     return {
+        isConnected,
         survey: s,
+        user: state.getIn(['user', 'data']),
     };
 }
 
@@ -49,8 +58,19 @@ export default class SurveyPage extends React.Component {
                 </p>
             ];
 
+            let sigOptions = ['email'];
+            if (survey.get('allow_anonymous')) {
+                sigOptions.push('anon');
+            }
+            if (this.props.isConnected) {
+                sigOptions.unshift('user');
+            }
+
             form = (
-                <SurveyForm survey={ survey }/>
+                <SurveyForm survey={ survey }
+                    user={ this.props.user }
+                    signatureOptions={ sigOptions }
+                    />
             );
         }
 
