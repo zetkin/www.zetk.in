@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import path from 'path';
+import Raven from 'raven';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import url from 'url';
@@ -17,6 +18,17 @@ import preloader from './preloader';
 import routes from '../components/routes';
 import { setPasswordResetToken } from '../actions/password';
 import { setHelpSeen, setHelpDismissed } from '../actions/help';
+
+
+const ravenDSN = 'https://d48671b1bdba4daf93a64a3f9cdbda06:131d591b48f94242b3d0dea5ace3dfa8@sentry.io/158972';
+const ravenConfig = {
+    environment: process.env.NODE_ENV,
+    tags: {
+        domain: process.env.ZETKIN_DOMAIN,
+    },
+};
+
+Raven.config(ravenDSN, ravenConfig).install();
 
 
 const authOpts = {
