@@ -272,6 +272,8 @@ function renderReactPage(Component, req, res) {
         });
     }
     catch (err) {
+        Raven.captureException(err);
+
         throw err; // TODO: Better error handling
     }
 }
