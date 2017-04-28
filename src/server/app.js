@@ -42,6 +42,8 @@ const authOpts = {
 export default function initApp(messages) {
     const app = express();
 
+    app.use(Raven.requestHandler());
+
     if (process.env.NODE_ENV !== 'production') {
         // When not in production, redirect requests for the main JS file to the
         // Webpack dev server running on localhost.
@@ -242,6 +244,8 @@ export default function initApp(messages) {
                 next();
             });
     });
+
+    app.use(Raven.errorHandler());
 
     app.use(function(req, res, next) {
         renderReactPage(App, req, res);
