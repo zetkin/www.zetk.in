@@ -13,9 +13,11 @@ const mapStateToProps = (state, props) => {
     let isConnected = false;
 
     if (s) {
-        let orgId = s.getIn(['organization', 'id']).toString();
-        isConnected = !!state.getIn(
-            ['orgs', 'membershipList', 'items', orgId]);
+        let orgId = s.getIn(['organization', 'id']);
+        if (orgId) {
+            isConnected = !!state.getIn(
+                ['orgs', 'membershipList', 'items', orgId.toString() ]);
+        }
     }
 
     return {
