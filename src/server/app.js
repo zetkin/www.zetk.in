@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import path from 'path';
+import Raven from 'raven';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import url from 'url';
@@ -19,6 +20,20 @@ import { setPasswordResetToken } from '../actions/password';
 import { setHelpSeen, setHelpDismissed } from '../actions/help';
 
 
+const SENTRY_DSN = process.env.SENTRY_DSN;
+
+if (SENTRY_DSN) {
+    const ravenConfig = {
+        environment: process.env.NODE_ENV,
+        tags: {
+            domain: process.env.ZETKIN_DOMAIN,
+        },
+    };
+
+    Raven.config(SENTRY_DSN, ravenConfig).install();
+}
+
+
 const authOpts = {
     loginUrl: process.env.ZETKIN_LOGIN_URL,
     app: {
@@ -29,6 +44,10 @@ const authOpts = {
 
 export default function initApp(messages) {
     const app = express();
+
+    if (SENTRY_DSN) {
+        app.use(Raven.requestHandler());
+    }
 
     if (process.env.NODE_ENV !== 'production') {
         // When not in production, redirect requests for the main JS file to the
@@ -231,6 +250,10 @@ export default function initApp(messages) {
             });
     });
 
+    if (SENTRY_DSN) {
+        app.use(Raven.errorHandler());
+    }
+
     app.use(function(req, res, next) {
         renderReactPage(App, req, res);
     });
@@ -256,6 +279,10 @@ function renderReactPage(Component, req, res) {
         });
     }
     catch (err) {
+        if (SENTRY_DSN) {
+            Raven.captureException(err);
+        }
+
         throw err; // TODO: Better error handling
     }
 }
