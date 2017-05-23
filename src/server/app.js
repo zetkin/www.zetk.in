@@ -19,11 +19,14 @@ import routes from '../components/routes';
 import { setPasswordResetToken } from '../actions/password';
 import { setHelpSeen, setHelpDismissed } from '../actions/help';
 
+const packageJson = require('../../../package.json');
+
 
 const SENTRY_DSN = process.env.SENTRY_DSN;
 
 if (SENTRY_DSN) {
     const ravenConfig = {
+        release: packageJson.version,
         environment: process.env.NODE_ENV,
         tags: {
             domain: process.env.ZETKIN_DOMAIN,
