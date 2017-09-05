@@ -56,7 +56,7 @@ export default class SettingsPage extends SimplePageBase {
             && !passwordPending);
 
         let lang = this.props.user.getIn(['data', 'lang']) || 'auto';
-        let langOptions = [ 'auto', 'sv', 'en', ];
+        let langOptions = [ 'auto', 'sv', 'en', 'da' ];
 
         return (
             <div className="SettingsPage">
