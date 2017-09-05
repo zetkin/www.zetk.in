@@ -2,7 +2,7 @@ h: Indstillinger
 language:
     h: Sprog
     options:
-        auto: Automatisk ({ locale, select, sv {svensk} en {engelsk} da {dansk} })
+        auto: 'Automatisk ({ locale, select, sv {svensk} en {engelsk} da {dansk} })'
         da: Dansk
         en: Engelsk
         sv: Svensk

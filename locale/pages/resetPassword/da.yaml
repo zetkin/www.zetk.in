@@ -4,6 +4,6 @@ after:
         Din adgangskode er opdateret. Du kan nu logge ind med din nye
         adgangskode
 before:
-    p: Indsæt din nye adgangskode som du vil bruge i fremtiden.
+    p: Indsæt den nye adgangskode som du vil bruge fremadrettet.
     submitButton: Gem adgangskode
 h: Nulstil adgangskode
