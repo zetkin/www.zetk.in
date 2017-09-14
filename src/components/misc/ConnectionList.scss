@@ -1,0 +1,20 @@
+.ConnectionList {
+    border: 1px solid #eee;
+    border-radius: 1em;
+    padding: 1em;
+
+    .ConnectionList-list {
+        @include list-unstyled;
+    }
+
+    .ConnectionList-item {
+        h3 {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}
