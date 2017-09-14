@@ -1,0 +1,5 @@
+deleteButton: Disconnect
+roles:
+    admin: You are an administrator
+    none: You do not have an official role
+    organizer: You are an organizer
