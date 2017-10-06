@@ -4,6 +4,7 @@ export SettingsPage from './SettingsPage';
 export LandingPage from './landing/LandingPage';
 export LostPasswordPage from './LostPasswordPage';
 export VerifyEmailPage from './VerifyEmailPage';
+export OrgPage from './OrgPage';
 export ResetPasswordPage from './ResetPasswordPage';
 export SurveyPage from './SurveyPage';
 export SurveySubmittedPage from './SurveySubmittedPage';

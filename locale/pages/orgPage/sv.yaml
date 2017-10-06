@@ -1,0 +1,4 @@
+connect:
+    alreadyConnected: Du är ansluten
+    connectLink: Anslut till {org}
+    login: Logga in för att ansluta

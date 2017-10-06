@@ -1,0 +1,4 @@
+connect:
+    alreadyConnected: You are connected
+    connectLink: Connect to {org}
+    login: Log in to connect
