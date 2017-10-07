@@ -60,12 +60,21 @@ export default class OrgPage extends SimplePageBase {
                 );
             }
 
-            return (
-                <div>
-                    <h1>{ org.get('title') }</h1>
-                    { connectLink }
-                </div>
-            );
+            const avatarDomain = '//api.' + process.env.ZETKIN_DOMAIN;
+            const avatarSrc = avatarDomain + '/v1/orgs/' + org.get('id') + '/avatar';
+
+            return [
+                <div key="header" className="OrgPage-header">
+                    <img key="avatar"
+                        className="OrgPage-avatar"
+                        src={ avatarSrc } title={ org.get('title') }
+                        />
+                    <div className="OrgPage-info">
+                        <h1>{ org.get('title') }</h1>
+                        { connectLink }
+                    </div>
+                </div>,
+            ];
         }
         else {
             return null;
