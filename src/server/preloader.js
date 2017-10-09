@@ -6,9 +6,12 @@ import { createLocalizeHandler } from './locale';
 import { setUserData } from '../actions/user';
 import { retrieveAllCampaigns } from '../actions/campaign';
 import { retrieveUserAssignments } from '../actions/callAssignment';
-import { retrieveUserMemberships } from '../actions/org';
 import { retrieveCampaign } from '../actions/campaign';
 import { retrieveSurvey } from '../actions/survey';
+import {
+    retrieveOrganization,
+    retrieveUserMemberships,
+} from '../actions/org';
 import {
     retrieveAllActions,
     retrieveCampaignActions,
@@ -36,6 +39,10 @@ export default (messages) => {
         retrieveUserActions(),
         retrieveUserAssignments(),
         retrieveUserResponses(),
+    ]));
+
+    preloader.get('/o/:orgId', waitForActions(req => [
+        retrieveOrganization(req.params.orgId),
     ]));
 
     preloader.get('/o/:orgId/campaigns/:campaignId', waitForActions(req => [

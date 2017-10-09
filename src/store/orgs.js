@@ -20,6 +20,18 @@ const initialState = immutable.fromJS({
 });
 
 export default createReducer(initialState, {
+    [types.RETRIEVE_ORGANIZATION + '_FULFILLED']: (state, action) => {
+        let org = action.payload.data.data;
+        org.id = org.id.toString();
+
+        return state
+            .setIn(['orgList', 'error'], null)
+            .setIn(['orgList', 'isPending'], false)
+            .updateIn(['orgList', 'items'], items => items?
+                items.set(org.id, immutable.fromJS(org)) :
+                immutable.fromJS({ [org.id]: org }));
+    },
+
     [types.RETRIEVE_USER_MEMBERSHIPS + '_PENDING']: (state, action) => {
         return state
             .setIn(['orgList', 'error'], null)

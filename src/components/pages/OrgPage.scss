@@ -1,0 +1,31 @@
+.OrgPage {
+    .OrgPage-header {
+        text-align: center;
+    }
+
+    .OrgPage-avatar {
+        width: 8em;
+        height: auto;
+    }
+
+    .OrgPage-info {
+        a {
+            @include button($c-brand-main);
+        }
+    }
+
+    @include medium-screen {
+        .OrgPage-header {
+            text-align: left;
+        }
+
+        .OrgPage-info {
+            float: left;
+            margin-left: 2em;
+        }
+
+        .OrgPage-avatar {
+            float: left;
+        }
+    }
+}
