@@ -29,10 +29,19 @@
             font-size: 0.8em;
         }
 
-        .Button {
+        a {
             position: absolute;
             top: 1em;
             right: 1em;
+            font-size: 0.8em;
+            cursor: pointer;
+
+            &:hover {
+                &:before {
+                    @include icon($fa-var-unlink);
+                    font-size: 0.8em;
+                }
+            }
         }
     }
 }

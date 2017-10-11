@@ -1,9 +1,9 @@
 import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
+import FormattedLink from '../../common/misc/FormattedLink';
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
 import OrgAvatar from '../misc/OrgAvatar';
-import Button from '../../common/misc/Button';
 
 
 export default class ConnectionList extends React.Component {
@@ -27,8 +27,8 @@ export default class ConnectionList extends React.Component {
                             <p className="ConnectionList-itemRole">
                                 <Msg id={ roleMsg }/>
                             </p>
-                            <Button labelMsg="misc.connectionList.deleteButton"
-                                onClick={ this.onDeleteButtonClick.bind(this, org) }
+                            <FormattedLink msgId="misc.connectionList.deleteLink"
+                                onClick={ this.onDeleteLinkClick.bind(this, org) }
                                 />
                         </li>
                     );
@@ -44,7 +44,7 @@ export default class ConnectionList extends React.Component {
         );
     }
 
-    onDeleteButtonClick(org) {
+    onDeleteLinkClick(org) {
         if (this.props.onDisconnect) {
             this.props.onDisconnect(org);
         }
