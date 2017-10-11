@@ -62,6 +62,14 @@ export default createReducer(initialState, {
                 immutable.fromJS(memberships));
     },
 
+    [types.DELETE_USER_MEMBERSHIP + '_FULFILLED']: (state, action) => {
+        let orgId = action.meta.orgId;
+
+        return state
+            .updateIn(['membershipList', 'items'], items => items
+                .filter(item => item.getIn(['organization', 'id']) != orgId));
+    },
+
     [types.RETRIEVE_ALL_ACTIONS + '_FULFILLED']: (state, action) => {
         let orgs = {};
         action.payload.forEach(res =>

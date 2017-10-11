@@ -22,3 +22,15 @@ export function retrieveUserMemberships() {
         });
     };
 }
+
+export function deleteUserMembership(orgId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.DELETE_USER_MEMBERSHIP,
+            meta: { orgId },
+            payload: {
+                promise: z.resource('users', 'me', 'memberships', orgId).del(),
+            }
+        });
+    }
+}
