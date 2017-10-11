@@ -27,7 +27,9 @@ export default class ConnectionList extends React.Component {
                             <p className="ConnectionList-itemRole">
                                 <Msg id={ roleMsg }/>
                             </p>
-                            <Button labelMsg="misc.connectionList.deleteButton"/>
+                            <Button labelMsg="misc.connectionList.deleteButton"
+                                onClick={ this.onDeleteButtonClick.bind(this, org) }
+                                />
                         </li>
                     );
                 })}
@@ -40,5 +42,11 @@ export default class ConnectionList extends React.Component {
                 { content }
             </div>
         );
+    }
+
+    onDeleteButtonClick(org) {
+        if (this.props.onDisconnect) {
+            this.props.onDisconnect(org);
+        }
     }
 }

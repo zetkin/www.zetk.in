@@ -6,6 +6,7 @@ import ConnectionList from '../misc/ConnectionList';
 import SimplePageBase from './SimplePageBase';
 
 import { updateUserLang } from '../../actions/user';
+import { deleteUserMembership } from '../../actions/org';
 
 import {
     changePassword,
@@ -81,7 +82,9 @@ export default class SettingsPage extends SimplePageBase {
                 <Msg tagName="h2" id="pages.settings.connections.h"/>
                 <Msg tagName="p" id="pages.settings.connections.intro"/>
                 <ConnectionList
-                    connectionList={ this.props.connectionList }/>
+                    connectionList={ this.props.connectionList }
+                    onDisconnect={ this.onConnectionListDisconnect.bind(this) }
+                    />
 
                 <Msg tagName="h2" id="pages.settings.password.h"/>
                 { msg }
@@ -110,6 +113,10 @@ export default class SettingsPage extends SimplePageBase {
                 </form>
             </div>
         );
+    }
+
+    onConnectionListDisconnect(org) {
+        this.props.dispatch(deleteUserMembership(org.get('id')));
     }
 
     onLangChange(ev) {
