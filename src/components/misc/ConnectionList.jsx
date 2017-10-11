@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
+import OrgAvatar from '../misc/OrgAvatar';
 import Button from '../../common/misc/Button';
 
 
@@ -15,12 +16,14 @@ export default class ConnectionList extends React.Component {
         else {
             content = (
                 <ul className="ConnectionList-list">
-                { this.props.connectionList.get('items').map(i => {
+                { this.props.connectionList.get('items').toList().map(i => {
                     let roleMsg = 'misc.connectionList.roles.' + (i.get('role') || 'none');
+                    let org = i.get('organization');
 
                     return (
-                        <li key={ i.get('id') } className="ConnectionList-item">
-                            <h3>{ i.getIn(['organization', 'title']) }</h3>
+                        <li key={ org.get('id') } className="ConnectionList-item">
+                            <OrgAvatar orgId={ org.get('id') }/>
+                            <h3>{ org.get('title') }</h3>
                             <p className="ConnectionList-itemRole">
                                 <Msg id={ roleMsg }/>
                             </p>
