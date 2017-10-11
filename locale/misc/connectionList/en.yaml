@@ -1,4 +1,5 @@
 deleteLink: Disconnect
+empty: You are not connected to any organizations.
 roles:
     admin: You are an administrator
     none: You do not have an official role

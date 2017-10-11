@@ -14,9 +14,11 @@ export default class ConnectionList extends React.Component {
             content = <LoadingIndicator />;
         }
         else {
-            content = (
-                <ul className="ConnectionList-list">
-                { this.props.connectionList.get('items').toList().map(i => {
+            let list = this.props.connectionList;
+            let items;
+
+            if (list.get('items').size) {
+                items = list.get('items').toList().map(i => {
                     let roleMsg = 'misc.connectionList.roles.' + (i.get('role') || 'none');
                     let org = i.get('organization');
 
@@ -32,7 +34,19 @@ export default class ConnectionList extends React.Component {
                                 />
                         </li>
                     );
-                })}
+                });
+            }
+            else {
+                items = (
+                    <div className="ConnectionList-empty">
+                        <Msg id="misc.connectionList.empty"/>
+                    </div>
+                );
+            }
+
+            content = (
+                <ul className="ConnectionList-list">
+                    { items }
                 </ul>
             );
         }
