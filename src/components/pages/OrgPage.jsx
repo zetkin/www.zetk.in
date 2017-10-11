@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
 
+import OrgAvatar from '../misc/OrgAvatar';
 import FormattedLink from '../../common/misc/FormattedLink';
 import SimplePageBase from './SimplePageBase';
 
@@ -65,15 +66,9 @@ export default class OrgPage extends SimplePageBase {
                 );
             }
 
-            const avatarDomain = '//api.' + process.env.ZETKIN_DOMAIN;
-            const avatarSrc = avatarDomain + '/v1/orgs/' + org.get('id') + '/avatar';
-
             return [
                 <div key="header" className="OrgPage-header">
-                    <img key="avatar"
-                        className="OrgPage-avatar"
-                        src={ avatarSrc } title={ org.get('title') }
-                        />
+                    <OrgAvatar orgId={ org.get('id') }/>
                     <div className="OrgPage-info">
                         <h1>{ org.get('title') }</h1>
                         { connectLink }
