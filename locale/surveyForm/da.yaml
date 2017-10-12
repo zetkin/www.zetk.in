@@ -1,1 +1,28 @@
+signature:
+    h: Vælg hvordan du vil underskrive
+    options:
+        anon:
+            desc: >-
+                Spørgeskemaet bliver sendt ind anonymt. Forudsat at du ikke har
+                afsløret sdig selv i dine besvarelser, vil organisationen ikke
+                at kunne knytte besvarelserne til dig.
+            label: Send in anonymt
+        email:
+            desc: >-
+                Skriv under med navn og e-mailadresse tilhørende den der har
+                besvaret, dvs. dig selv, eller den du evt. sender besvarelsen
+                for.
+            emailLabel: E-mailadresse
+            firstNameLabel: Fornavn
+            label: >-
+                Skriv under med navn og e-mailadresse tilhørende den der har
+                besvaret, dvs. dig selv, eller den du evt. sender besvarelsen
+                for.
+            lastNameLabel: Efternavn
+        user:
+            desc: >-
+                Når du er logget ind og underskriver spørgeskemabesvarelserne
+                som dig selv, bliver de koblet til din bruger, hvilket er til
+                stor hjælp for den organisation der skal behandle besvarelsen.
+            label: 'Skriv under som { firstName } { lastName }'
 submitButton: Indsend svar på spørgeskemaet

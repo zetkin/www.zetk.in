@@ -1,0 +1,4 @@
+connect:
+    alreadyConnected: Du er tilsluttet.
+    connectLink: 'Tilslut til {org}'
+    login: Log ind for at tilslutte
