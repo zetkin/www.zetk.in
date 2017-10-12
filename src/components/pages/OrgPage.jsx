@@ -12,7 +12,7 @@ const mapStateToProps = (state, props) => {
     let orgItem = state.getIn(['orgs', 'orgList', 'items', orgId]);
 
     if (!orgItem) {
-        orgList = state.getIn(['orgs', 'orgList', 'items']);
+        let orgList = state.getIn(['orgs', 'orgList', 'items']);
         if (orgList) {
             orgItem = orgList.find(org => org.get('slug') == orgId);
         }
