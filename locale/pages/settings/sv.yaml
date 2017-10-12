@@ -1,3 +1,9 @@
+connections:
+    h: Organisationsanslutningar
+    intro: >-
+        Detta är de organisationer du är ansluten till. Du kan koppla från en
+        organisation här. Om du vill ansluta till en ny organisation måste du
+        kontakta dem för en organisationslänk.
 h: Inställningar
 language:
     h: Språk

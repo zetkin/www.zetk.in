@@ -1,9 +1,12 @@
 connections:
     h: Organization connections
-    intro: |
-        These are the organizations that you are connected to. You can disconnect
+    intro: >-
+        These are the organizations that you are connected to. You can
+        disconnect
+
         here. If you want to connect to a new organization you must contact them
-        for a connection link.
+
+        for an organization link.
 h: Settings
 language:
     h: Language

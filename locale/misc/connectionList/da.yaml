@@ -1,0 +1,6 @@
+deleteLink: Frakobl
+empty: Du er ikke tilsluttet nogen organisation.
+roles:
+    admin: Du er administrator
+    none: Du har ingen tovholderfunktion
+    organizer: Du er ansvarlig
