@@ -1,11 +1,12 @@
 import React from 'react';
 import { FormattedMessage as Msg, injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
-// import { FormattedMessage as Msg } from 'react-intl';
 
+import ConnectionList from '../misc/ConnectionList';
 import SimplePageBase from './SimplePageBase';
 
 import { updateUserLang } from '../../actions/user';
+import { deleteUserMembership } from '../../actions/org';
 
 import {
     changePassword,
@@ -16,6 +17,7 @@ const mapStateToProps = state => ({
     user: state.get('user'),
     browserLocale: state.getIn(['intl', 'browserLocale']),
     passwordStore: state.get('password'),
+    connectionList: state.getIn(['orgs', 'membershipList']),
 });
 
 @connect(mapStateToProps)
@@ -76,6 +78,14 @@ export default class SettingsPage extends SimplePageBase {
                     );
                 })}
                 </select>
+
+                <Msg tagName="h2" id="pages.settings.connections.h"/>
+                <Msg tagName="p" id="pages.settings.connections.intro"/>
+                <ConnectionList
+                    connectionList={ this.props.connectionList }
+                    onDisconnect={ this.onConnectionListDisconnect.bind(this) }
+                    />
+
                 <Msg tagName="h2" id="pages.settings.password.h"/>
                 { msg }
                 <form onSubmit={ this.onSubmitPassword.bind(this) }>
@@ -103,6 +113,10 @@ export default class SettingsPage extends SimplePageBase {
                 </form>
             </div>
         );
+    }
+
+    onConnectionListDisconnect(org) {
+        this.props.dispatch(deleteUserMembership(org.get('id')));
     }
 
     onLangChange(ev) {

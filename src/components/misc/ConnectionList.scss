@@ -1,0 +1,53 @@
+.ConnectionList {
+    border: 1px solid #eee;
+    border-radius: 1em;
+    padding: 1em 1em 0.3em;
+
+    .ConnectionList-empty {
+        text-align: center;
+        margin: 1em 0 1.5em;
+        color: $c-ui-dark;
+    }
+
+    .ConnectionList-list {
+        @include list-unstyled;
+    }
+
+    .ConnectionList-item {
+        margin: 0 0 1.5em;
+        position: relative;
+        clear: both;
+
+        .OrgAvatar {
+            width: 4em;
+            float: left;
+            margin: 0 0.5em 0 0;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin: 0;
+            padding-top: 0.5em;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.8em;
+        }
+
+        a {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            font-size: 0.8em;
+            cursor: pointer;
+
+            &:hover {
+                &:before {
+                    @include icon($fa-var-unlink);
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}

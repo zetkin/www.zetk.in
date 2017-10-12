@@ -1,0 +1,6 @@
+deleteLink: Koppla från
+empty: Du är inte ansluten till några organisationer.
+roles:
+    admin: Du är administratör
+    none: Du har ingen funktionärsroll
+    organizer: Du är organisatör

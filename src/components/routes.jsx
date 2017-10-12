@@ -8,6 +8,7 @@ import {
     LandingPage,
     LostPasswordPage,
     NotFoundPage,
+    OrgPage,
     ResetPasswordPage,
     SettingsPage,
     SurveyPage,
@@ -30,6 +31,8 @@ export default (
             component={ DashboardPage }/>
         <Route path="/settings"
             component={ SettingsPage }/>
+        <Route path="/o/:orgId"
+            component={ OrgPage }/>
         <Route path="/o/:orgId/campaigns/:campaignId"
             component={ CampaignPage }/>
         <Route path="/o/:orgId/surveys/:surveyId/submitted"

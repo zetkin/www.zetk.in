@@ -1,6 +1,17 @@
 import * as types from '.';
 
 
+export function retrieveOrganization(slugOrId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.RETRIEVE_ORGANIZATION,
+            payload: {
+                promise: z.resource('orgs', slugOrId).get(),
+            },
+        });
+    };
+}
+
 export function retrieveUserMemberships() {
     return ({ dispatch, z }) => {
         dispatch({
@@ -10,4 +21,16 @@ export function retrieveUserMemberships() {
             }
         });
     };
+}
+
+export function deleteUserMembership(orgId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.DELETE_USER_MEMBERSHIP,
+            meta: { orgId },
+            payload: {
+                promise: z.resource('users', 'me', 'memberships', orgId).del(),
+            }
+        });
+    }
 }
