@@ -21,6 +21,8 @@ export default (
         <IndexRoute component={ LandingPage }/>
         <Route path="/register"
             component={ LandingPage } showSignUp={ true }/>
+        <Route path="/verify/:code"
+            component={ VerifyEmailPage }/>
         <Route path="/verify"
             component={ VerifyEmailPage }/>
         <Route path="/lost-password"

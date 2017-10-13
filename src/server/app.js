@@ -216,37 +216,37 @@ export default function initApp(messages) {
         }
     });
 
-    app.get('/verify', auth.validate(authOpts), function(req, res, next) {
-        var query = url.parse(req.url, true).query;
+    app.get('/verify/:code', auth.validate(authOpts), function(req, res, next) {
+        req.z.resource('/users/me').get()
+            .then(function(result) {
+                let query = url.parse(req.url, true).query;
+                let user = result.data.data;
 
-        if ('code' in query) {
-            let data = {
-                verification_code: query.code
-            };
-
-            req.z.resource('users', 'me', 'verification_code').post(data)
-                .then(function() {
+                if (user.is_verified) {
                     res.redirect('/dashboard');
-                })
-                .catch(function(err) {
+                }
+                else if ('code' in req.params || 'code' in query) {
+                    let code = req.params.code || query.code;
+                    let data = {
+                        verification_code: code,
+                    };
+
+                    req.z.resource('users', 'me', 'verification_code').post(data)
+                        .then(function() {
+                            res.redirect('/dashboard');
+                        })
+                        .catch(function(err) {
+                            console.log(err);
+                            next();
+                        });
+                }
+                else {
                     next();
-                });
-        }
-        else {
-            req.z.resource('/users/me').get()
-                .then(function(result) {
-                    var user = result.data.data;
-                    if (user.is_verified) {
-                        res.redirect('/dashboard');
-                    }
-                    else {
-                        next();
-                    }
-                })
-                .catch(function() {
-                    next();
-                });
-        }
+                }
+            })
+            .catch(function() {
+                next();
+            });
     });
 
     app.post('/verify', function(req, res, next) {
