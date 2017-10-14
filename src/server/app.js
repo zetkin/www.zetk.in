@@ -219,14 +219,13 @@ export default function initApp(messages) {
     app.get('/verify/:code', auth.validate(authOpts), function(req, res, next) {
         req.z.resource('/users/me').get()
             .then(function(result) {
-                let query = url.parse(req.url, true).query;
                 let user = result.data.data;
 
                 if (user.is_verified) {
                     res.redirect('/dashboard');
                 }
-                else if ('code' in req.params || 'code' in query) {
-                    let code = req.params.code || query.code;
+                else if ('code' in req.params) {
+                    let code = req.params.code;
                     let data = {
                         verification_code: code,
                     };
@@ -247,6 +246,16 @@ export default function initApp(messages) {
             .catch(function() {
                 next();
             });
+    });
+
+    app.get('/verify', (req, res, next) => {
+        let query = url.parse(req.url, true).query;
+        if ('code' in query) {
+            res.redirect('/verify/' + query.code);
+        }
+        else {
+            next();
+        }
     });
 
     app.post('/verify', function(req, res, next) {
