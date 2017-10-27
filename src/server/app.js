@@ -216,36 +216,45 @@ export default function initApp(messages) {
         }
     });
 
-    app.get('/verify', auth.validate(authOpts), function(req, res, next) {
-        var query = url.parse(req.url, true).query;
+    app.get('/verify/:code', auth.validate(authOpts), function(req, res, next) {
+        req.z.resource('/users/me').get()
+            .then(function(result) {
+                let user = result.data.data;
 
-        if ('code' in query) {
-            let data = {
-                verification_code: query.code
-            };
-
-            req.z.resource('users', 'me', 'verification_code').post(data)
-                .then(function() {
+                if (user.is_verified) {
                     res.redirect('/dashboard');
-                })
-                .catch(function(err) {
+                }
+                else if ('code' in req.params) {
+                    let code = req.params.code;
+                    let data = {
+                        verification_code: code,
+                    };
+
+                    req.z.resource('users', 'me', 'verification_code').post(data)
+                        .then(function() {
+                            res.redirect('/dashboard');
+                        })
+                        .catch(function(err) {
+                            console.log(err);
+                            next();
+                        });
+                }
+                else {
                     next();
-                });
+                }
+            })
+            .catch(function() {
+                next();
+            });
+    });
+
+    app.get('/verify', (req, res, next) => {
+        let query = url.parse(req.url, true).query;
+        if ('code' in query) {
+            res.redirect('/verify/' + query.code);
         }
         else {
-            req.z.resource('/users/me').get()
-                .then(function(result) {
-                    var user = result.data.data;
-                    if (user.is_verified) {
-                        res.redirect('/dashboard');
-                    }
-                    else {
-                        next();
-                    }
-                })
-                .catch(function() {
-                    next();
-                });
+            next();
         }
     });
 

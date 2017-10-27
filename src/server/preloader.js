@@ -78,7 +78,7 @@ function initStore(req, res, next) {
             console.log('Retrieved user data', apiRes);
             req.store.dispatch(setUserData(apiRes.data.data));
 
-            if (apiRes.data.data.is_verified || req.path == '/verify') {
+            if (apiRes.data.data.is_verified || req.path.substr(0, 7) == '/verify') {
                 next();
             }
             else {
