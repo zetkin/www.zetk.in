@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
     actionList: state.getIn(['actions', 'actionList']),
     responseList: state.getIn(['actions', 'responseList']),
     userActionList: state.getIn(['actions', 'userActionList']),
+    hasMemberships: !!state.getIn(['orgs', 'membershipList', 'items']).size,
 });
 
 
@@ -26,16 +27,28 @@ export default class DashboardPage extends React.Component {
     }
 
     render() {
-        return (
-            <div className="DashboardPage">
-                <Welcome/>
-                <Dashboard/>
-                <CampaignForm
+        let content;
+
+        if (this.props.hasMemberships) {
+            content = [
+                <Dashboard key="dashboard"/>,
+                <CampaignForm key="campaignForm"
                     redirPath={ this.props.location.pathname }
                     actionList={ this.props.actionList }
                     responseList={ this.props.responseList }
                     userActionList={ this.props.userActionList }
-                    onResponse={ this.onResponse.bind(this) }/>
+                    onResponse={ this.onResponse.bind(this) }/>,
+            ];
+        }
+        else {
+            content = (
+                <Welcome/>
+            );
+        }
+
+        return (
+            <div className="DashboardPage">
+                { content }
             </div>
         );
     }

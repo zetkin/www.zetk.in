@@ -5,4 +5,17 @@
     h1 {
         color: $c-brand-main;
     }
+
+    img {
+        margin: 2em 0 0;
+        max-width: 800px;
+        width: 100%;
+        height: auto;
+    }
+
+    @include medium-screen {
+        img {
+            width: 60%;
+        }
+    }
 }
