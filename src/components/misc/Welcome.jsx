@@ -18,6 +18,7 @@ export default class Welcome extends React.Component {
                     <Msg tagName="h1" id="misc.welcome.header" />
                     <Msg tagName="p" id="misc.welcome.notConnected" />
                     <Msg tagName="p" id="misc.welcome.getLink" />
+                    <img src="/static/images/no-connections.png" alt="" title=""/>
                 </div>
             );
         }
