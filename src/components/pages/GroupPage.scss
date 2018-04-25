@@ -50,6 +50,39 @@
     }
 }
 
+.GroupPage-memberFilter {
+    position: relative;
+    box-shadow: 0 0 0.5em rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    max-width: 20em;
+    margin: 0 auto 2em;
+    width: 90%;
+
+    &:before {
+        position: relative;
+        display: block;
+        padding: 0.2em;
+        z-index: 1;
+        @include icon($fa-var-search);
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+
+        display: inline-block;
+        width: 100%;
+        outline: 0;
+        border-width: 0;
+        padding: 0.4em 0.4em 0.4em 1.7em;
+        font-size: 1.2em;
+    }
+}
+
 @include medium-screen {
     .GroupPage-info, .GroupPage-members {
         width: 600px;

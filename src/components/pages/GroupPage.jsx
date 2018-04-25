@@ -24,6 +24,14 @@ const mapStateToProps = (state, props) => {
 
 @connect(mapStateToProps)
 export default class GroupPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            memberFilter: '',
+        };
+    }
+
     componentDidMount() {
         let orgId = this.props.params.orgId;
         let groupId = this.props.params.groupId;
@@ -63,7 +71,33 @@ export default class GroupPage extends React.Component {
             memberContent = <LoadingIndicator/>;
         }
         else if (memberList && memberList.get('items')) {
-            let memberListItems = memberList.get('items').toList().map(item => {
+            let items = memberList.get('items').toList();
+
+            if (this.state.memberFilter) {
+                const filter = this.state.memberFilter.toLowerCase();
+
+                items = items.filter(item => {
+                    const name = item.get('first_name') + ' ' + item.get('last_name');
+
+                    if (name.toLowerCase().indexOf(filter) >= 0) {
+                        return true;
+                    }
+
+                    if (item.get('email').toLowerCase().indexOf(filter) >= 0) {
+                        return true;
+                    }
+
+                    const phone = item.get('phone').replace(/\D/, '');
+
+                    if (phone.indexOf(filter) >= 0) {
+                        return true;
+                    }
+
+                    return false;
+                });
+            }
+
+            let memberListItems = items.toList().map(item => {
                 const name = item.get('first_name') + ' ' + item.get('last_name');
 
                 return (
@@ -98,9 +132,21 @@ export default class GroupPage extends React.Component {
                 </div>
                 <div className="GroupPage-members">
                     <Msg tagName="h3" id="pages.group.members.h"/>
+                    <div className="GroupPage-memberFilter">
+                        <input
+                            value={ this.state.memberFilter }
+                            onChange={ this.onFilterChange.bind(this) }
+                            />
+                    </div>
                     { memberContent }
                 </div>
             </div>
         );
+    }
+
+    onFilterChange(ev) {
+        this.setState({
+            memberFilter: ev.target.value,
+        });
     }
 }
