@@ -1,0 +1,19 @@
+.GroupPage-info {
+    margin: 0 1em;
+    padding-bottom: 2em;
+
+    h2 {
+        margin-bottom: 0.5em;
+    }
+
+    .GroupPage-infoOrg {
+        color: lighten($c-text, 30);
+    }
+}
+
+@include medium-screen {
+    .GroupPage-info {
+        width: 600px;
+        margin: 0 auto;
+    }
+}

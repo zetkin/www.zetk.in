@@ -1,5 +1,6 @@
 export CampaignPage from './CampaignPage';
 export DashboardPage from './DashboardPage';
+export GroupPage from './GroupPage';
 export SettingsPage from './SettingsPage';
 export LandingPage from './landing/LandingPage';
 export LostPasswordPage from './LostPasswordPage';
