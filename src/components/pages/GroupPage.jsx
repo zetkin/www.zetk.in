@@ -7,6 +7,7 @@ import { group } from '../../store/groups';
 import { organization } from '../../store/orgs';
 import {
     retrieveGroup,
+    retrieveGroupMembers,
 } from '../../actions/group';
 
 

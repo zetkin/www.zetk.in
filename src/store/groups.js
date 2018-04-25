@@ -4,7 +4,13 @@ import immutable from 'immutable';
 import * as types from '../actions';
 
 
+// Selector for a single group
+export const group = (state, id) =>
+    state.getIn(['groups', 'groupList', 'items', id.toString()]);
+
+
 const initialState = immutable.fromJS({
+    membersByGroup: {},
     groupList: {
         isPending: false,
         error: null,
@@ -51,5 +57,30 @@ export default createReducer(initialState, {
             .updateIn(['groupList', 'items'], items => items?
                 items.set(group.id, immutable.fromJS(group)) :
                 immutable.fromJS({ [group.id]: group }));
+    },
+
+    [types.RETRIEVE_GROUP_MEMBERS + '_PENDING']: (state, action) => {
+        return state
+            .mergeIn(['membersByGroup', action.meta.groupId.toString()], immutable.fromJS({
+                error: null,
+                isPending: true,
+            }));
+    },
+
+    [types.RETRIEVE_GROUP_MEMBERS + '_ERROR']: (state, action) => {
+        return state
+            .mergeIn(['membersByGroup', action.meta.groupId.toString()], immutable.fromJS({
+                error: action.payload.data,
+                isPending: false,
+            }));
+    },
+
+    [types.RETRIEVE_GROUP_MEMBERS + '_FULFILLED']: (state, action) => {
+        return state
+            .mergeIn(['membersByGroup', action.meta.groupId.toString()], immutable.fromJS({
+                items: action.payload.data.data,
+                isPending: false,
+                error: null,
+            }));
     },
 });

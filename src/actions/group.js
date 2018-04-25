@@ -13,3 +13,16 @@ export function retrieveGroup(orgId, groupId) {
         });
     };
 }
+
+export function retrieveGroupMembers(orgId, groupId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.RETRIEVE_GROUP_MEMBERS,
+            meta: { orgId, groupId },
+            payload: {
+                promise: z.resource('orgs', orgId,
+                    'groups', groupId, 'members').get()
+            }
+        });
+    };
+}
