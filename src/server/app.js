@@ -83,6 +83,7 @@ export default function initApp(messages) {
     app.get('/dashboard', auth.validate(authOpts));
     app.get('/settings', auth.validate(authOpts));
     app.get('/o/:org_id/campaigns/:campaign_id', auth.validate(authOpts));
+    app.get('/o/:orgId/groups/:groupId', auth.validate(authOpts));
 
     app.use(preloader(messages));
 
