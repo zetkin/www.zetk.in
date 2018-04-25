@@ -45,6 +45,7 @@ export default class GroupPage extends React.Component {
     render() {
         let group = this.props.group;
         let groupInfo;
+        let memberContent = null;
 
         if (group && group.get('isPending')) {
             groupInfo = <LoadingIndicator />;
@@ -62,67 +63,75 @@ export default class GroupPage extends React.Component {
                     { group.get('description') }
                 </p>,
             ];
-        }
 
-        const memberList = this.props.memberList;
-        let memberContent = null;
+            const memberList = this.props.memberList;
 
-        if (memberList && memberList.get('isPending')) {
-            memberContent = <LoadingIndicator/>;
-        }
-        else if (memberList && memberList.get('items')) {
-            let items = memberList.get('items').toList();
+            if (memberList && memberList.get('isPending')) {
+                memberContent = <LoadingIndicator/>;
+            }
+            else if (memberList && memberList.get('items')) {
+                let items = memberList.get('items').toList();
 
-            if (this.state.memberFilter) {
-                const filter = this.state.memberFilter.toLowerCase();
+                if (this.state.memberFilter) {
+                    const filter = this.state.memberFilter.toLowerCase();
 
-                items = items.filter(item => {
+                    items = items.filter(item => {
+                        const name = item.get('first_name') + ' ' + item.get('last_name');
+
+                        if (name.toLowerCase().indexOf(filter) >= 0) {
+                            return true;
+                        }
+
+                        if (item.get('email').toLowerCase().indexOf(filter) >= 0) {
+                            return true;
+                        }
+
+                        const phone = item.get('phone').replace(/\D/, '');
+
+                        if (phone.indexOf(filter) >= 0) {
+                            return true;
+                        }
+
+                        return false;
+                    });
+                }
+
+                let memberListItems = items.toList().map(item => {
                     const name = item.get('first_name') + ' ' + item.get('last_name');
 
-                    if (name.toLowerCase().indexOf(filter) >= 0) {
-                        return true;
-                    }
-
-                    if (item.get('email').toLowerCase().indexOf(filter) >= 0) {
-                        return true;
-                    }
-
-                    const phone = item.get('phone').replace(/\D/, '');
-
-                    if (phone.indexOf(filter) >= 0) {
-                        return true;
-                    }
-
-                    return false;
+                    return (
+                        <li key={ item.get('id') } className="GroupPage-memberListItem">
+                            <span>{ name }</span>
+                            <span>{ item.get('email') }</span>
+                            <span>{ item.get('phone') }</span>
+                        </li>
+                    );
                 });
-            }
 
-            let memberListItems = items.toList().map(item => {
-                const name = item.get('first_name') + ' ' + item.get('last_name');
-
-                return (
-                    <li key={ item.get('id') } className="GroupPage-memberListItem">
-                        <span>{ name }</span>
-                        <span>{ item.get('email') }</span>
-                        <span>{ item.get('phone') }</span>
-                    </li>
+                memberContent = (
+                    <div className="GroupPage-members">
+                        <Msg tagName="h3" id="pages.group.members.h"/>
+                        <div className="GroupPage-memberFilter">
+                            <input
+                                value={ this.state.memberFilter }
+                                onChange={ this.onFilterChange.bind(this) }
+                                />
+                        </div>
+                        <div className="GroupPage-memberList">
+                            <div className="GroupPage-memberListHeader">
+                                <Msg id="pages.group.members.list.name"/>
+                                <Msg id="pages.group.members.list.email"/>
+                                <Msg id="pages.group.members.list.phone"/>
+                            </div>
+                            <div className="GroupPage-memberListContent">
+                                <ul>
+                                    { memberListItems }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 );
-            });
-
-            memberContent = (
-                <div className="GroupPage-memberList">
-                    <div className="GroupPage-memberListHeader">
-                        <Msg id="pages.group.members.list.name"/>
-                        <Msg id="pages.group.members.list.email"/>
-                        <Msg id="pages.group.members.list.phone"/>
-                    </div>
-                    <div className="GroupPage-memberListContent">
-                        <ul>
-                            { memberListItems }
-                        </ul>
-                    </div>
-                </div>
-            );
+            }
         }
 
         return (
@@ -130,16 +139,7 @@ export default class GroupPage extends React.Component {
                 <div className="GroupPage-info">
                     { groupInfo }
                 </div>
-                <div className="GroupPage-members">
-                    <Msg tagName="h3" id="pages.group.members.h"/>
-                    <div className="GroupPage-memberFilter">
-                        <input
-                            value={ this.state.memberFilter }
-                            onChange={ this.onFilterChange.bind(this) }
-                            />
-                    </div>
-                    { memberContent }
-                </div>
+                { memberContent }
             </div>
         );
     }
