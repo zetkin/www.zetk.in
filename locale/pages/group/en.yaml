@@ -1,2 +1,8 @@
+members:
+    h: Members
+    list:
+        name: Name
+        email: E-mail
+        phone: Phone
 notFound:
     h: The group could not be found

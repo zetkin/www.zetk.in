@@ -18,6 +18,7 @@ const mapStateToProps = (state, props) => {
     return {
         group: g,
         organization: o,
+        memberList: state.getIn(['groups', 'membersByGroup', props.params.groupId.toString()]),
     };
 }
 
@@ -29,6 +30,7 @@ export default class GroupPage extends React.Component {
 
         if (!this.props.group) {
             this.props.dispatch(retrieveGroup(orgId, groupId));
+            this.props.dispatch(retrieveGroupMembers(orgId, groupId));
         }
     }
 
@@ -50,14 +52,53 @@ export default class GroupPage extends React.Component {
                 </span>,
                 <p key="infoText">
                     { group.get('description') }
-                </p>
+                </p>,
             ];
+        }
+
+        const memberList = this.props.memberList;
+        let memberContent = null;
+
+        if (memberList && memberList.get('isPending')) {
+            memberContent = <LoadingIndicator/>;
+        }
+        else if (memberList && memberList.get('items')) {
+            let memberListItems = memberList.get('items').toList().map(item => {
+                const name = item.get('first_name') + ' ' + item.get('last_name');
+
+                return (
+                    <li key={ item.get('id') } className="GroupPage-memberListItem">
+                        <span>{ name }</span>
+                        <span>{ item.get('email') }</span>
+                        <span>{ item.get('phone') }</span>
+                    </li>
+                );
+            });
+
+            memberContent = (
+                <div className="GroupPage-memberList">
+                    <div className="GroupPage-memberListHeader">
+                        <Msg id="pages.group.members.list.name"/>
+                        <Msg id="pages.group.members.list.email"/>
+                        <Msg id="pages.group.members.list.phone"/>
+                    </div>
+                    <div className="GroupPage-memberListContent">
+                        <ul>
+                            { memberListItems }
+                        </ul>
+                    </div>
+                </div>
+            );
         }
 
         return (
             <div className="GroupPage">
                 <div className="GroupPage-info">
                     { groupInfo }
+                </div>
+                <div className="GroupPage-members">
+                    <Msg tagName="h3" id="pages.group.members.h"/>
+                    { memberContent }
                 </div>
             </div>
         );
