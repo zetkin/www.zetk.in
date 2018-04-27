@@ -5,6 +5,9 @@ links:
     manualLink:
         href: 'http://manual.zetkin.org/en'
         text: The Zetkin Manual
+    privacyLink:
+        href: 'http://zetkin.org/privacy'
+        text: The Zetkin Privacy Policy
 summary: >-
     Zetkin is a platform for organizing activism. Zetkin is developed by Zetkin
     Foundation, with a mission to work for radical change in society in a

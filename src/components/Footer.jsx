@@ -13,6 +13,9 @@ export default class Footer extends React.Component {
         let manualHref = this.props.intl
             .formatMessage({ id: 'footer.links.manualLink.href' });
 
+        let privacyHref = this.props.intl
+            .formatMessage({ id: 'footer.links.privacyLink.href' });
+
         return (
             <div className="Footer">
                 <Msg tagName="p" id="footer.summary"/>
@@ -29,6 +32,8 @@ export default class Footer extends React.Component {
                         msgId="footer.links.foundationLink.text"/>
                     <FormattedLink href={ manualHref }
                         msgId="footer.links.manualLink.text"/>
+                    <FormattedLink href={ manualHref }
+                        msgId="footer.links.privacyLink.text"/>
                 </p>
             </div>
         );
