@@ -9,15 +9,11 @@ signature:
             label: Send in anonymt
         email:
             desc: >-
-                Skriv under med navn og e-mailadresse tilhørende den der har
-                besvaret, dvs. dig selv, eller den du evt. sender besvarelsen
-                for.
+                Skriv under med navn og e-mailadresse.
             emailLabel: E-mailadresse
             firstNameLabel: Fornavn
             label: >-
-                Skriv under med navn og e-mailadresse tilhørende den der har
-                besvaret, dvs. dig selv, eller den du evt. sender besvarelsen
-                for.
+                Skriv under med navn og e-mailadresse.
             lastNameLabel: Efternavn
         user:
             desc: >-
