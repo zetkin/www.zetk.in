@@ -17,6 +17,7 @@ import formEndpoints from './forms';
 import preloader from './preloader';
 import routes from '../components/routes';
 import { setPasswordResetToken } from '../actions/password';
+import { organization } from '../store/orgs';
 
 const packageJson = require('../../../package.json');
 
@@ -85,6 +86,23 @@ export default function initApp(messages) {
     app.get('/o/:orgId/groups/:groupId', auth.validate(authOpts));
 
     app.use(preloader(messages));
+
+    // Prefer slug over ID for org pages
+    app.get('/o/:orgId', (req, res, next) => {
+        let org = organization(req.store.getState(), req.params.orgId);
+        if (org) {
+            let slug = org.get('slug');
+            if (slug && slug != req.params.orgId) {
+                res.redirect('/o/' + slug);
+            }
+            else {
+                next();
+            }
+        }
+        else {
+            next();
+        }
+    });
 
     // For some routes, require user to be anonymous
     app.get(['/lost-password', '/reset-password'], (req, res, next) => {
