@@ -60,7 +60,9 @@ export default class OrgContent extends React.Component {
                 </div>
                 );
                 content.push(
-                    <div className="OrgContent-column" key="signup"><OrgSignUp/></div>
+                    <div className="OrgContent-column" key="signup">
+                        <OrgSignUp orgItem={ orgItem }/>
+                    </div>
                 );
         }
         return (
