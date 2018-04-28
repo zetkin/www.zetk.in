@@ -7,6 +7,12 @@ connect:
         You are not yet a part of { org }.
         To help them change the world, connect with
         them and start participating.
+connected:
+    h: You are connected!
+    p: |-
+        You can find on-going campaigns and assignments organized by { org }
+        on "My page".
+    dashboardButton: Go to My Page
 signup:
     email: E-mail address
     error:
