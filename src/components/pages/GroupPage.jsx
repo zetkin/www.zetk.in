@@ -99,10 +99,16 @@ export default class GroupPage extends React.Component {
                 let memberListItems = items.toList().map(item => {
                     const name = item.get('first_name') + ' ' + item.get('last_name');
 
+                    let email = item.get('email');
+                    if (email) {
+                        const emailHref = 'mailto:' + email;
+                        email = <a href={ emailHref }>{ email }</a>;
+                    }
+
                     return (
                         <li key={ item.get('id') } className="GroupPage-memberListItem">
                             <span>{ name }</span>
-                            <span>{ item.get('email') }</span>
+                            <span>{ email }</span>
                             <span>{ item.get('phone') }</span>
                         </li>
                     );
