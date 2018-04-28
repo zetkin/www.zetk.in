@@ -98,6 +98,14 @@ export default class GroupPage extends React.Component {
                     });
                 }
 
+                items = items.sort((i0, i1) => {
+                    const n0 = i0.get('first_name') + ' ' + i0.get('last_name');
+                    const n1 = i1.get('first_name') + ' ' + i1.get('last_name');
+                    if (n0 < n1) { return -1; }
+                    if (n0 > n1) { return 1; }
+                    return 0;
+                });
+
                 let memberListItems = items.toList().map(item => {
                     const name = item.get('first_name') + ' ' + item.get('last_name');
                     const isManager = item.get('role') == 'manager';
