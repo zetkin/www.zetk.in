@@ -4,7 +4,8 @@ import immutable from 'immutable';
 import * as types from '../actions';
 
 export const organization = (state, id) =>
-    state.getIn(['orgs', 'orgList', 'items', id.toString()]);
+    state.getIn(['orgs', 'orgList', 'items', id.toString()]) ||
+    state.getIn(['orgs', 'orgList', 'items']).find(o => o.get('slug') == id.toString());
 
 const initialState = immutable.fromJS({
     orgList: {

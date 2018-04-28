@@ -5,6 +5,7 @@ import { injectIntl } from 'react-intl';
 import Footer from './Footer';
 import GoogleAnalytics from './misc/GoogleAnalytics';
 import Header from './header/Header';
+import { organization } from '../store/orgs';
 
 
 @injectIntl
@@ -27,6 +28,14 @@ export default class App extends React.Component {
         let stateJson = JSON.stringify(this.props.fullState);
         let showContinueButton = (path == '/' || path == '/register');
 
+        let title = 'Zetkin';
+
+        if (this.props.params.orgId) {
+            let org = organization(this.props.fullState, this.props.params.orgId);
+
+            title = org.get('title') + ' | ' + title;
+        }
+
         return (
             <html>
                 <head>
@@ -34,7 +43,7 @@ export default class App extends React.Component {
                         content="width=device-width, initial-scale=1"/>
                     <script src="https://use.typekit.net/tqq3ylv.js"></script>
                     <script>{"try{Typekit.load({ async: true })}catch(e){}"}</script>
-                    <title>Zetkin</title>
+                    <title>{ title }</title>
                     <script src="/static/main.js"></script>
                     <link rel="stylesheet" href="/static/css/style.css"/>
                     <link rel="icon" type="image/png"
