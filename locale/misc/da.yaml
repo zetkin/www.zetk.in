@@ -2,16 +2,6 @@ environmentWarning:
     message: >-
         Dette er en udviklingsversion af Zetkin. Du vil sikkert gerne bruge det
         rigtige Zetkin på www.zetk.in. Vil du gå derhen nu?
-helpBubble:
-    closeButton: Jeg forstår
-    docsButton:
-        href: 'http://manual.zetkin.org/sv'
-        text: Læs mere i manualen
-    h: Velkommen til det nye Zetkin
-    p: >-
-        Zetkin er helt nyt. Hvis du har brug for hjælp eller bemærker at noget
-        ikke fungerer korrekt, skal du kontakte din organisation eller sende
-        mail til Zetkin Foundation
 welcome:
     getLink: >-
         Kontakt din organisation eller for at se om du kan finde et link på

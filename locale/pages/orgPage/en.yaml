@@ -7,6 +7,12 @@ connect:
         You are not yet a part of { org }.
         To help them change the world, connect with
         them and start participating.
+connected:
+    h: You are connected!
+    p: |-
+        You can find on-going campaigns and assignments organized by { org }
+        on "My page".
+    dashboardButton: Go to My Page
 signup:
     email: E-mail address
     error:
@@ -15,19 +21,19 @@ signup:
             Registration failed. Please make sure all fields are filled out
             correctly.
     firstName: First name
-    h1: Sign up
+    h1: Sign up and connect
     lastName: Last name
     password: Password
-    submitButton: Sign up
+    submitButton: Sign up and connect
     done:
         title: 'Welcome, { firstName }!'
         subtitle: Check your inbox to verify your e-mail address
 zetkin:
-    title: Sign up for Zetkin
+    title: Get organized
     description: >-
-        { org } uses Zetkin to organize it's activists.
-        Sign up and participate in work and events organized
+        { org } uses Zetkin, a platform for organizing activism.
+        Sign up and participate in the work and events organized
         by the organizations you connect to.
     infoLink:
-        href: 'http://zetkin.org/en/foundation'
-        text: Learn about Zetkin Foundation
+        href: 'http://www.zetkin.org/'
+        text: Learn more about Zetkin

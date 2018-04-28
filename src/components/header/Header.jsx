@@ -17,12 +17,17 @@ const mapStateToProps = state => ({
 @connect(mapStateToProps)
 export default class Header extends React.Component {
     static propTypes = {
+        currentPath: React.PropTypes.string.isRequired,
         showContinueButton: React.PropTypes.bool,
     };
 
     render() {
-        let loginUrl = '//login.' + process.env.ZETKIN_DOMAIN
-            + '/login?redirPath=/dashboard&appId=' + process.env.ZETKIN_APP_ID;
+        const redirPath = (this.props.currentPath == '/')?
+            '/dashboard' : this.props.currentPath;
+
+        const loginUrl = '//login.' + process.env.ZETKIN_DOMAIN
+            + '/login?redirPath=' + redirPath
+            + '&appId=' + process.env.ZETKIN_APP_ID;
 
         let userWidget;
         let organizeLink;

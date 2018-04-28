@@ -32,7 +32,7 @@ export default class Footer extends React.Component {
                         msgId="footer.links.foundationLink.text"/>
                     <FormattedLink href={ manualHref }
                         msgId="footer.links.manualLink.text"/>
-                    <FormattedLink href={ manualHref }
+                    <FormattedLink href={ privacyHref }
                         msgId="footer.links.privacyLink.text"/>
                 </p>
             </div>

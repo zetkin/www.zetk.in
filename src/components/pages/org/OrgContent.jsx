@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedMessage as Msg, injectIntl } from 'react-intl';
 
+import Button from '../../../common/misc/Button';
 import FormattedLink from '../../../common/misc/FormattedLink';
 import OrgSignUp from './OrgSignUp';
 import ConnectLink from './ConnectLink';
@@ -11,7 +12,20 @@ export default class OrgContent extends React.Component {
         const {isAuthenticated, isMember, orgItem, user} = this.props
         let content =[];
         if (isMember) {
-            content = null;
+            content.push(
+                <div className="OrgContent-column" key="connected">
+                    <Msg tagName="h2" id="pages.orgPage.connected.h"
+                        />
+                    <Msg tagName="p" id="pages.orgPage.connected.p"
+                        values={{ org: orgItem.get('title') }}
+                        />
+                    <Button
+                        className="OrgContent-dashboardButton"
+                        labelMsg="pages.orgPage.connected.dashboardButton"
+                        href="/dashboard"
+                        />
+                </div>
+            );
         }
         else if (isAuthenticated) {
             content.push(
@@ -46,7 +60,9 @@ export default class OrgContent extends React.Component {
                 </div>
                 );
                 content.push(
-                    <div className="OrgContent-column" key="signup"><OrgSignUp/></div>
+                    <div className="OrgContent-column" key="signup">
+                        <OrgSignUp orgItem={ orgItem }/>
+                    </div>
                 );
         }
         return (

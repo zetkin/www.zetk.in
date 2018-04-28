@@ -5,6 +5,10 @@
     .OrgContent-column {
         margin: 0 1.25em;
     }
+
+    .OrgContent-dashboardButton {
+        @include button();
+    }
     
     @include medium-screen {
         display: flex;
