@@ -1,6 +1,7 @@
 import React from 'react';
-import { FormattedMessage as Msg } from 'react-intl';
+import { injectIntl, FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
 import { group } from '../../store/groups';
@@ -23,6 +24,7 @@ const mapStateToProps = (state, props) => {
 }
 
 @connect(mapStateToProps)
+@injectIntl
 export default class GroupPage extends React.Component {
     constructor(props) {
         super(props);
@@ -98,6 +100,7 @@ export default class GroupPage extends React.Component {
 
                 let memberListItems = items.toList().map(item => {
                     const name = item.get('first_name') + ' ' + item.get('last_name');
+                    const isManager = item.get('role') == 'manager';
 
                     let email = item.get('email');
                     if (email) {
@@ -105,8 +108,20 @@ export default class GroupPage extends React.Component {
                         email = <a href={ emailHref }>{ email }</a>;
                     }
 
+                    const classes = cx('GroupPage-memberListItem', {
+                        manager: isManager,
+                    });
+
+                    let roleLabel = null;
+                    if (isManager) {
+                        roleLabel = this.props.intl.formatMessage(
+                            { id: 'pages.group.members.list.managerLabel' },
+                            { name: item.get('first_name') });
+                    }
+
                     return (
-                        <li key={ item.get('id') } className="GroupPage-memberListItem">
+                        <li key={ item.get('id') } className={ classes }>
+                            <span title={ roleLabel }></span>
                             <span>{ name }</span>
                             <span>{ email }</span>
                             <span>{ item.get('phone') }</span>
@@ -125,6 +140,7 @@ export default class GroupPage extends React.Component {
                         </div>
                         <div className="GroupPage-memberList">
                             <div className="GroupPage-memberListHeader">
+                                <span></span>
                                 <Msg id="pages.group.members.list.name"/>
                                 <Msg id="pages.group.members.list.email"/>
                                 <Msg id="pages.group.members.list.phone"/>

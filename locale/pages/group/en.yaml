@@ -1,8 +1,9 @@
 members:
     h: Members
     list:
-        name: Name
         email: E-mail
+        managerLabel: '{name} is a group manager'
+        name: Name
         phone: Phone
 notFound:
     h: The group could not be found

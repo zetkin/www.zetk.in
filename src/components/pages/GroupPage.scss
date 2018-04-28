@@ -40,23 +40,37 @@
         span {
             display: inline-block;
             overflow: hidden;
-            text-overflow: ellipsis;
 
             &:nth-child(1) {
-                width: 34%;
+                width: 5%;
                 margin-right: 1%;
             }
             &:nth-child(2) {
-                width: 49%;
+                width: 28%;
                 margin-right: 1%;
+                text-overflow: ellipsis;
             }
             &:nth-child(3) {
+                width: 49%;
+                margin-right: 1%;
+                text-overflow: ellipsis;
+            }
+            &:nth-child(4) {
                 width: 15%;
+                text-overflow: ellipsis;
             }
 
             a {
                 color: inherit;
             }
+        }
+    }
+
+    .GroupPage-memberListItem.manager {
+        span:nth-child(1):after {
+            @include icon($fa-var-star);
+            color: $c-brand-comp-light;
+            height: 1em;
         }
     }
 }
