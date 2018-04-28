@@ -17,7 +17,6 @@ import formEndpoints from './forms';
 import preloader from './preloader';
 import routes from '../components/routes';
 import { setPasswordResetToken } from '../actions/password';
-import { setHelpSeen, setHelpDismissed } from '../actions/help';
 
 const packageJson = require('../../../package.json');
 
@@ -86,18 +85,6 @@ export default function initApp(messages) {
     app.get('/o/:orgId/groups/:groupId', auth.validate(authOpts));
 
     app.use(preloader(messages));
-
-    // For all routes, figure out whether to show help based on cookies
-    app.use('*', (req, res, next) => {
-        if ('wwwHelpSeen' in req.cookies) {
-            req.store.dispatch(setHelpSeen());
-        }
-        if ('wwwHelpDismissed' in req.cookies) {
-            req.store.dispatch(setHelpDismissed());
-        }
-
-        next();
-    });
 
     // For some routes, require user to be anonymous
     app.get(['/lost-password', '/reset-password'], (req, res, next) => {
