@@ -1,0 +1,7 @@
+.ConnectLink {
+  @include button($c-text-contrast);
+  color: $c-brand-main;
+}
+.ConnectLink-connected {
+  line-height: 3;
+}

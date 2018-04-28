@@ -2,3 +2,32 @@ connect:
     alreadyConnected: You are connected
     connectLink: Connect to {org}
     login: Log in to connect
+    title: Hi { name }
+    description: >-
+        You are not yet a part of { org }.
+        To help them change the world, connect with
+        them and start participating.
+signup:
+    email: E-mail address
+    error:
+        exists: 'The e-mail address { email } is already registered'
+        invalid: >-
+            Registration failed. Please make sure all fields are filled out
+            correctly.
+    firstName: First name
+    h1: Sign up
+    lastName: Last name
+    password: Password
+    submitButton: Sign up
+    done:
+        title: 'Welcome, { firstName }!'
+        subtitle: Check your inbox to verify your e-mail address
+zetkin:
+    title: Sign up for Zetkin
+    description: >-
+        { org } uses Zetkin to organize it's activists.
+        Sign up and participate in work and events organized
+        by the organizations you connect to.
+    infoLink:
+        href: 'http://zetkin.org/en/foundation'
+        text: Learn about Zetkin Foundation

@@ -1,0 +1,52 @@
+.OrgPage {
+    .OrgPage-header {
+        position: relative;
+        background: linear-gradient(to right, $c-brand-main-orange, $c-brand-main-pink);
+        min-height: 20em;
+    }
+    .OrgPage-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(/static/images/cover.jpg) center center no-repeat;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .OrgPage-headerContainer{
+        background-color: rgba(0, 0, 0, 0.5);
+        max-width: 80em;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+    .OrgPage-bar{
+        text-align: center;
+        margin: 0 1.25em;
+        padding: 0.5em 0;
+        color: $c-text-contrast;
+    }
+    
+    @include large-screen {
+        .OrgPage-header {
+        }
+        .OrgPage-image {
+            height: calc(100% - 4em);
+        }
+        .OrgPage-headerContainer{
+            min-height: 20em;
+            background-color: transparent;
+            position: relative;
+        }
+        .OrgPage-bar{
+            text-align: right;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: calc(((100% / 3) * 2) - 2.5em);
+        }
+        
+    }
+}

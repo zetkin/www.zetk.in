@@ -1,0 +1,36 @@
+.OrgCard {
+    text-align: center;
+    color: $c-text-contrast;
+    padding: 2em;
+    
+    .OrgAvatar {
+        width: 8em;
+        margin: 0 auto;
+        background-color: $c-text-contrast;
+        border: 0.5em solid $c-text-contrast;
+        border-radius: 50%;
+        max-width: 100%;
+        overflow: hidden;
+        img {
+            display: block;
+        }
+    }
+    h1 {
+        color: inherit;
+        font-size: 1.8em;
+    }
+    
+    @include large-screen {
+        @include card;
+        position: absolute;
+        width: calc((100% / 3) - 2.5em);
+        margin: 0 1.25em;
+        padding: 1.25em;
+        top: 2.5em;
+
+        .OrgAvatar {
+            width: 12em;
+            border: none;
+        }
+    }
+}
