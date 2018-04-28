@@ -41,7 +41,9 @@ export default class App extends React.Component {
                         href="/static/images/favicon.png"/>
                 </head>
                 <body>
-                    <Header showContinueButton={ showContinueButton }/>
+                    <Header
+                        currentPath={ this.props.location.pathname }
+                        showContinueButton={ showContinueButton }/>
                     <div className="App-content">
                         { this.props.children }
                     </div>
