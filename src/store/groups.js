@@ -36,7 +36,7 @@ export default createReducer(initialState, {
         let group = {
             id: action.meta.groupId.toString(),
             org_id: action.meta.orgId.toString(),
-            error: action.payload.data,
+            error: action.payload,
             isPending: false,
         };
 
@@ -70,7 +70,7 @@ export default createReducer(initialState, {
     [types.RETRIEVE_GROUP_MEMBERS + '_ERROR']: (state, action) => {
         return state
             .mergeIn(['membersByGroup', action.meta.groupId.toString()], immutable.fromJS({
-                error: action.payload.data,
+                error: action.payload,
                 isPending: false,
             }));
     },
