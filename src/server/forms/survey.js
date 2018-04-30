@@ -22,6 +22,9 @@ export default (req, res, next) => {
         if (name.indexOf('sig') == 0) {
             continue;
         }
+        else if (name.indexOf('privacy') == 0) {
+            continue;
+        }
 
         let fields = name.split('.');
         let q_id = fields[0];

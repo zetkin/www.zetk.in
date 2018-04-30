@@ -62,6 +62,7 @@ export default (messages) => {
     ]));
 
     preloader.get('/o/:orgId/surveys/:surveyId', waitForActions(req => [
+        retrieveOrganization(req.params.orgId),
         retrieveSurvey(req.params.orgId, req.params.surveyId),
     ]));
 
