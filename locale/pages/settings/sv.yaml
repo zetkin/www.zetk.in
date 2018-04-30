@@ -8,8 +8,9 @@ h: Inställningar
 language:
     h: Språk
     options:
-        auto: |
-            Automatiskt ({ locale, select, sv {svenska} en {engelska} da {dansk} })
+        auto: >
+            Automatiskt ({ locale, select, sv {svenska} en {engelska} da {dansk}
+            })
         da: Danska
         en: Engelska
         sv: Svenska

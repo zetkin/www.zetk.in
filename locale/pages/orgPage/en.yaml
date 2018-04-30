@@ -1,19 +1,21 @@
 connect:
     alreadyConnected: You are connected
-    connectLink: Connect to {org}
-    login: Log in to connect
-    title: Hi { name }
+    connectLink: 'Connect to {org}'
     description: >-
-        You are not yet a part of { org }.
-        To help them change the world, connect with
-        them and start participating.
+        You are not yet a part of { org }. To help them change the world,
+        connect with them and start participating.
+    login: Log in to connect
+    title: 'Hi { name }'
 connected:
+    dashboardButton: Go to My Page
     h: You are connected!
     p: |-
         You can find on-going campaigns and assignments organized by { org }
         on "My page".
-    dashboardButton: Go to My Page
 signup:
+    done:
+        subtitle: Check your inbox to verify your e-mail address
+        title: 'Welcome, { firstName }!'
     email: E-mail address
     error:
         exists: 'The e-mail address { email } is already registered'
@@ -25,15 +27,12 @@ signup:
     lastName: Last name
     password: Password
     submitButton: Sign up and connect
-    done:
-        title: 'Welcome, { firstName }!'
-        subtitle: Check your inbox to verify your e-mail address
 zetkin:
-    title: Get organized
     description: >-
-        { org } uses Zetkin, a platform for organizing activism.
-        Sign up and participate in the work and events organized
-        by the organizations you connect to.
+        { org } uses Zetkin, a platform for organizing activism. Sign up and
+        participate in the work and events organized by the organizations you
+        connect to.
     infoLink:
-        href: 'http://www.zetkin.org/'
+        href: 'http://www.zetkin.org/en'
         text: Learn more about Zetkin
+    title: Get organized
