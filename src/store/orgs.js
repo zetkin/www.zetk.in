@@ -3,9 +3,13 @@ import immutable from 'immutable';
 
 import * as types from '../actions';
 
-export const organization = (state, id) =>
-    state.getIn(['orgs', 'orgList', 'items', id.toString()]) ||
-    state.getIn(['orgs', 'orgList', 'items']).find(o => o.get('slug') == id.toString());
+export const organization = (state, id) => {
+    let items = state.getIn(['orgs', 'orgList', 'items']);
+    if (items) {
+        return items.get(id.toString()) || items.find(o => o.get('slug') == id.toString());
+    }
+    else return null;
+}
 
 const initialState = immutable.fromJS({
     orgList: {

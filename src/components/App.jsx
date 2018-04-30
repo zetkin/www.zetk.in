@@ -32,8 +32,9 @@ export default class App extends React.Component {
 
         if (this.props.params.orgId) {
             let org = organization(this.props.fullState, this.props.params.orgId);
-
-            title = org.get('title') + ' | ' + title;
+            if (org) {
+                title = org.get('title') + ' | ' + title;
+            }
         }
 
         return (
