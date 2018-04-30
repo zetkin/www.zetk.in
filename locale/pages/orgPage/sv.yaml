@@ -1,4 +1,35 @@
 connect:
     alreadyConnected: Du är ansluten
-    connectLink: Anslut till {org}
+    connectLink: 'Anslut till {org}'
+    description: '{org} vill förändra världen. Om du vill bidra, anslut och börja delta.'
     login: Logga in för att ansluta
+    title: 'Hej {name}'
+connected:
+    dashboardButton: Gå till Min sida
+    h: Du är ansluten!
+    p: >-
+        Du hittar pågående kampanjer och uppdrag organiserade av {org} på "Min
+        sida"
+signup:
+    done:
+        subtitle: Kolla din inbox för att bekräfta din e-postadress
+        title: 'Välkommen, {firstName}!'
+    email: E-postadress
+    error:
+        exists: 'E-postadressen { email } är redan registrerad.'
+        invalid: >-
+            Registreringen misslyckades. Kontrollera att alla fält är korrekt
+            ifyllda.
+    firstName: Förnamn
+    h1: Registrera dig och anslut
+    lastName: Efternamn
+    password: Lösenord
+    submitButton: Registrera och anslut
+zetkin:
+    description: >-
+        {org} använder Zetkin, en plattform för att organisera aktivism.
+        Registrera dig och anslut till organisationer du vill arbeta med.
+    infoLink:
+        href: 'http://www.zetkin.org/sv'
+        text: Läs mer om Zetkin
+    title: Organisera dig

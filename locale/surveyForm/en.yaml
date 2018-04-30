@@ -6,8 +6,8 @@ privacy:
         and processed in Zetkin by {org} in order to organize activism and in
         accordance with the Zetkin privacy policy.
     policyLink:
-        label: Read the full Zetkin Privacy Policy
-        href: http://zetkin.org/privacy
+        href: 'http://zetkin.org/privacy'
+        label: Click to read the full Zetkin Privacy Policy
 signature:
     h: Choose how to sign
     options:
@@ -30,5 +30,5 @@ signature:
             desc: |-
                 Signing the survey as yourself while authenticated will connect
                 it to you, which is of great help to the organization.
-            label: Sign as { firstName } { lastName }
+            label: 'Sign as { firstName } { lastName }'
 submitButton: Submit survey

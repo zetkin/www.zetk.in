@@ -11,8 +11,9 @@ h: Settings
 language:
     h: Language
     options:
-        auto: |
-            Automatic ({ locale, select, sv {Swedish} en {English} da {Danish} })
+        auto: >
+            Automatic ({ locale, select, sv {Swedish} en {English} da {Danish}
+            })
         da: Danish
         en: English
         sv: Swedish
