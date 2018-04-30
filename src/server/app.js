@@ -17,7 +17,7 @@ import formEndpoints from './forms';
 import preloader from './preloader';
 import routes from '../components/routes';
 import { setPasswordResetToken } from '../actions/password';
-import { setHelpSeen, setHelpDismissed } from '../actions/help';
+import { organization } from '../store/orgs';
 
 const packageJson = require('../../../package.json');
 
@@ -83,19 +83,25 @@ export default function initApp(messages) {
     app.get('/dashboard', auth.validate(authOpts));
     app.get('/settings', auth.validate(authOpts));
     app.get('/o/:org_id/campaigns/:campaign_id', auth.validate(authOpts));
+    app.get('/o/:orgId/groups/:groupId', auth.validate(authOpts));
 
     app.use(preloader(messages));
 
-    // For all routes, figure out whether to show help based on cookies
-    app.use('*', (req, res, next) => {
-        if ('wwwHelpSeen' in req.cookies) {
-            req.store.dispatch(setHelpSeen());
+    // Prefer slug over ID for org pages
+    app.get('/o/:orgId', (req, res, next) => {
+        let org = organization(req.store.getState(), req.params.orgId);
+        if (org) {
+            let slug = org.get('slug');
+            if (slug && slug != req.params.orgId) {
+                res.redirect('/o/' + slug);
+            }
+            else {
+                next();
+            }
         }
-        if ('wwwHelpDismissed' in req.cookies) {
-            req.store.dispatch(setHelpDismissed());
+        else {
+            next();
         }
-
-        next();
     });
 
     // For some routes, require user to be anonymous

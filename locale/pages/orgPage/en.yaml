@@ -1,4 +1,38 @@
 connect:
     alreadyConnected: You are connected
-    connectLink: Connect to {org}
+    connectLink: 'Connect to {org}'
+    description: >-
+        You are not yet a part of { org }. To help them change the world,
+        connect with them and start participating.
     login: Log in to connect
+    title: 'Hi { name }'
+connected:
+    dashboardButton: Go to My Page
+    h: You are connected!
+    p: |-
+        You can find on-going campaigns and assignments organized by { org }
+        on "My page".
+signup:
+    done:
+        subtitle: Check your inbox to verify your e-mail address
+        title: 'Welcome, { firstName }!'
+    email: E-mail address
+    error:
+        exists: 'The e-mail address { email } is already registered'
+        invalid: >-
+            Registration failed. Please make sure all fields are filled out
+            correctly.
+    firstName: First name
+    h1: Sign up and connect
+    lastName: Last name
+    password: Password
+    submitButton: Sign up and connect
+zetkin:
+    description: >-
+        { org } uses Zetkin, a platform for organizing activism. Sign up and
+        participate in the work and events organized by the organizations you
+        connect to.
+    infoLink:
+        href: 'http://www.zetkin.org/en'
+        text: Learn more about Zetkin
+    title: Get organized

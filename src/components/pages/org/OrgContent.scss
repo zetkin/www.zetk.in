@@ -1,0 +1,32 @@
+.OrgContent {
+    max-width: 80em;
+    margin: 0 auto;
+
+    .OrgContent-column {
+        margin: 0 1.25em;
+    }
+
+    .OrgContent-dashboardButton {
+        @include button();
+    }
+    
+    @include medium-screen {
+        display: flex;
+        .OrgContent-column {
+            flex: 1 0 0;
+        }
+    }
+    
+    @include large-screen {
+        justify-content: flex-start;
+        .OrgContent-column {
+            max-width: calc((100% / 3) - 2.5em);
+        }
+        .OrgContent-column:first-child {
+            margin-left: calc((100% / 3) + 1.25em);
+        }
+    }
+}
+.OrgContent-cta {
+    text-align: center;
+}

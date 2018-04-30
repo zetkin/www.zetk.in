@@ -6,8 +6,10 @@ error:
         Foundation at info@zetkin.org if the issue persists.
 info:
     h1: Verify your e-mail address
-    p0: Before you can continue using Zetkin you have to verify your e-mail address.
+    p0: >-
+        Before you can continue using Zetkin you have to verify your e-mail
+        address.
     p1: >-
-        We have sent a message to your e-mail containing a verification link. Click
-        the link to verify your e-mail address. Be sure to check your spam folder
-        if you cannot find the e-mail.
+        We have sent a message to your e-mail containing a verification link.
+        Click the link to verify your e-mail address. Be sure to check your spam
+        folder if you cannot find the e-mail.

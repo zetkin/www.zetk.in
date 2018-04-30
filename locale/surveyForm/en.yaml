@@ -1,3 +1,13 @@
+privacy:
+    h: Accept the terms
+    label: I accept the terms outlined below
+    p: |-
+        When you submit this survey, the information you provide will be stored
+        and processed in Zetkin by {org} in order to organize activism and in
+        accordance with the Zetkin privacy policy.
+    policyLink:
+        href: 'http://zetkin.org/privacy'
+        label: Click to read the full Zetkin Privacy Policy
 signature:
     h: Choose how to sign
     options:
@@ -20,5 +30,5 @@ signature:
             desc: |-
                 Signing the survey as yourself while authenticated will connect
                 it to you, which is of great help to the organization.
-            label: Sign as { firstName } { lastName }
+            label: 'Sign as { firstName } { lastName }'
 submitButton: Submit survey

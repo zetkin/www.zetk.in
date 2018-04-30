@@ -9,6 +9,10 @@ import { retrieveUserAssignments } from '../actions/callAssignment';
 import { retrieveCampaign } from '../actions/campaign';
 import { retrieveSurvey } from '../actions/survey';
 import {
+    retrieveGroup,
+    retrieveGroupMembers,
+} from '../actions/group';
+import {
     retrieveOrganization,
     retrieveUserMemberships,
 } from '../actions/org';
@@ -52,7 +56,13 @@ export default (messages) => {
         retrieveUserResponses(),
     ]));
 
+    preloader.get('/o/:orgId/groups/:groupId', waitForActions(req => [
+        retrieveGroup(req.params.orgId, req.params.groupId),
+        retrieveGroupMembers(req.params.orgId, req.params.groupId),
+    ]));
+
     preloader.get('/o/:orgId/surveys/:surveyId', waitForActions(req => [
+        retrieveOrganization(req.params.orgId),
         retrieveSurvey(req.params.orgId, req.params.surveyId),
     ]));
 

@@ -1,6 +1,5 @@
 action:
     booked: booket
-    multiLocationLabel: booket
     yesLabel: ja
 calendar:
     weekDays:

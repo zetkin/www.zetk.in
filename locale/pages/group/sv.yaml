@@ -1,0 +1,9 @@
+members:
+    h: Medlemmar
+    list:
+        email: E-post
+        managerLabel: '{name} är gruppansvarig'
+        name: Namn
+        phone: Telefon
+notFound:
+    h: Gruppen hittades inte

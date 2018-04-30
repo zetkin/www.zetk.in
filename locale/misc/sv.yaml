@@ -2,16 +2,6 @@ environmentWarning:
     message: >-
         Detta är en utvecklingsversion av Zetkin. Du vill antagligen använda
         verkliga Zetkin på www.zetk.in. Vill du navigera dit nu?
-helpBubble:
-    closeButton: Jag förstår
-    docsButton:
-        href: 'http://manual.zetkin.org/sv'
-        text: Läs mer i manualen
-    h: Välkommen till nya Zetkin
-    p: >-
-        Zetkin är helt nytt. Om du behöver hjälp eller upptäcker något som är
-        fel, kontakta din organisation eller maila Zetkin Foundation på <a
-        href="mailto:info@zetkin.org">info@zetkin.org</a>.
 welcome:
     getLink: >-
         Kontakta din organisation eller se om du hittar en anslutningslänk på

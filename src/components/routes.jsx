@@ -5,6 +5,7 @@ import App from './App';
 import {
     CampaignPage,
     DashboardPage,
+    GroupPage,
     LandingPage,
     LostPasswordPage,
     NotFoundPage,
@@ -37,6 +38,8 @@ export default (
             component={ OrgPage }/>
         <Route path="/o/:orgId/campaigns/:campaignId"
             component={ CampaignPage }/>
+        <Route path="/o/:orgId/groups/:groupId"
+            component={ GroupPage }/>
         <Route path="/o/:orgId/surveys/:surveyId/submitted"
             component={ SurveySubmittedPage }/>
         <Route path="/o/:orgId/surveys/:surveyId"
