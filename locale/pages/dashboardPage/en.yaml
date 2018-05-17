@@ -1,0 +1,6 @@
+greeting:
+    title: Hello {name}!
+    p: >-
+        There is currently {count} ongoing campaigns for you to engage in. Are
+        you able to participate in any of them?
+    buttonLabel: To sign up

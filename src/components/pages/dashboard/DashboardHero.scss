@@ -1,0 +1,27 @@
+.DashboardHero {
+    height: 600px;
+    background-color: $c-brand-main-pink;
+    background: linear-gradient(
+        to bottom right,
+        lighten($c-brand-main-pink,20),
+        lighten($c-brand-main-orange,20)
+    );
+
+    .DashboardHero-greeting {
+        @include col(4,12);
+        @include col-offset(1,12);
+        padding-top: 100px;
+
+        &, h1 {
+            color: $c-text-contrast;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .Button {
+            @include button();
+        }
+    }
+}

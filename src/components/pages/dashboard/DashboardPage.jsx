@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import CampaignForm from '../../common/campaignForm/CampaignForm';
-import Dashboard from '../dashboard/Dashboard';
-import Welcome from '../misc/Welcome';
+import CampaignForm from '../../../common/campaignForm/CampaignForm';
+import DashboardHero from './DashboardHero';
+import Dashboard from '../../dashboard/Dashboard';
+import Welcome from '../../misc/Welcome';
 import {
     retrieveAllActions,
     updateActionResponse,
     retrieveUserResponses,
-} from '../../actions/action';
+} from '../../../actions/action';
 
 
 const mapStateToProps = state => ({
@@ -31,6 +32,7 @@ export default class DashboardPage extends React.Component {
 
         if (this.props.hasMemberships) {
             content = [
+                <DashboardHero key="hero"/>,
                 <Dashboard key="dashboard"/>,
                 <CampaignForm key="campaignForm"
                     redirPath={ this.props.location.pathname }
