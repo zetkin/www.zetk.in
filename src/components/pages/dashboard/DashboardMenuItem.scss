@@ -1,0 +1,89 @@
+.DashboardMenuItem {
+    @include col(3,12);
+    height: 80px;
+    list-style: none;
+    margin: 0;
+    transition: all 0.2s ease-out;
+
+    &:hover, &.selected {
+        background-color: darken(white,5);
+        cursor: pointer;
+    }
+
+    &.disabled {
+        opacity: 0.8;
+
+        &:hover {
+            background-color: inherit;
+            cursor: default;
+        }
+    }
+
+    .DashboardMenuItem-icon {
+        position: relative;
+        display: inline-block;
+        font-size: 1.3em;
+        width: 25%;
+        height: 100%;
+        float: left;
+        color: $c-brand-main;
+
+        &:before {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            text-align: center;
+            line-height: 80px;
+            font-size: 1em;
+            font-family: 'FontAwesome';
+        }
+    }
+
+    .DashboardMenuItem-info {
+        position: relative;
+        display: inline-block;
+        width: 75%;
+        height: 100%;
+        float: left;
+    }
+
+    .DashboardMenuItem-infoTitle {
+        position: absolute;
+        display: inline-block;
+        font-size: 1.0em;
+        line-height: 100%;
+        top: 25%;
+        right: 0;
+        width: 100%;
+    }
+
+    .DashboardMenuItem-infoSub {
+        position: absolute;
+        display: inline-block;
+        font-size: 0.7em;
+        right: 0;
+        bottom: 25%;
+        width: 100%;
+        color: lighten($c-text, 15);
+    }
+
+
+    &.campaigning {
+        .DashboardMenuItem-icon:before {
+            content: $fa-var-users;
+        }
+    }
+    &.groups {
+        .DashboardMenuItem-icon:before {
+            content: $fa-var-users;
+        }
+    }
+    &.calls {
+        .DashboardMenuItem-icon:before {
+            content: $fa-var-phone;
+        }
+    }
+}

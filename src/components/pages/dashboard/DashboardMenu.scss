@@ -1,0 +1,13 @@
+.DashboardMenu {
+    @include col(9,12);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+
+    .DashboardMenu-items {
+        width: 100%;
+        padding: 2em;
+        margin: 0;
+    }
+}

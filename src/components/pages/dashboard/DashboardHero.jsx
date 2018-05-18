@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage as Msg } from 'react-intl';
 
-import Button from '../../../common/misc/Button'
+import Button from '../../../common/misc/Button';
 import PropTypes from '../../../utils/PropTypes';
+
+import DashboardMenu from './DashboardMenu';
 
 const mapStateToProps = state => ({
     user: state.get('user'),
@@ -35,6 +37,7 @@ export default class DashboardHero extends React.Component {
         return (
             <div className="DashboardHero">
                 { greeting }
+                <DashboardMenu key="DashboardMenu"/>
             </div>
         );
     }

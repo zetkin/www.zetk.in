@@ -4,3 +4,15 @@ greeting:
         There is currently {count} ongoing campaigns for you to engage in. Are
         you able to participate in any of them?
     buttonLabel: To sign up
+menu:
+    campaigning:
+        title: Campaigning
+        sub: Sign up here
+    groups:
+        title: Group manager
+        sub: You are manager for {count} groups
+        none: You have no groups to manage
+    calls:
+        title: Call assignments
+        sub: You have {count} assignments
+        none: You have no assignments
