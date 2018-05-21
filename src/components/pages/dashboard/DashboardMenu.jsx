@@ -44,7 +44,7 @@ export default class DashboardMenu extends React.Component {
 
         orgsSub = this.props.intl.formatMessage(
             { id: 'pages.dashboardPage.menu.orgs.sub' },
-            { count: orgs.size });
+            { count: (orgs? orgs.size : 0) });
 
         let surveys = this.props.surveyList.get('items');
         let surveysSub;
@@ -64,13 +64,15 @@ export default class DashboardMenu extends React.Component {
                 <DashboardMenuItem name="surveys"
                     title= {'pages.dashboardPage.menu.surveys.title'}
                     sub= { surveysSub }
-                    disabled= { (!surveys? true : false) }
+                    disabled= { ((!surveys
+                        || surveys.size == 0)? true : false) }
                     selected={ selectedSection == 'surveys' }
                 />
                 <DashboardMenuItem name="calls"
                     title= {'pages.dashboardPage.menu.calls.title'}
                     sub= { callsSub }
-                    disabled= { (!callAssignments.size? true : false) }
+                    disabled= { ((!callAssignments
+                        || callAssignments.size == 0)? true : false) }
                     selected={ selectedSection == 'callAssignments' }
                 />
                 <DashboardMenuItem name="orgs"
