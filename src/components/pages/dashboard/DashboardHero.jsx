@@ -19,7 +19,14 @@ export default class DashboardHero extends React.Component {
         let userData = this.props.user.get('data');
         let firstName = userData.get('first_name');
         let campaigns = this.props.campaignList.get('items');
-        let campaignCount = campaigns.size;
+        let campaignCount;
+
+        if(campaigns && campaigns.size > 0 ) {
+            campaignCount = campaigns.size;
+        }
+        else {
+            campaignCount= 0;
+        }
 
         let greeting = (
             <div className="DashboardHero-greeting">
