@@ -6,7 +6,7 @@ greeting:
     buttonLabel: To sign up
 menu:
     campaign:
-        title: Campaigning
+        title: Campaign
         sub: Sign up here
     groups:
         title: Group manager
@@ -36,3 +36,23 @@ menu:
                 =1 {You have {count} survey}
                 other {You have # surveys}
             }
+section:
+    organizations:
+        title: My organizations
+        desc: |
+            A nice text that describes what one can do on this particullar site
+            .
+        connectedOrgs:
+            title: Connected organizations
+            desc: |
+                {count, plural,
+                    =0 {You are not connected to an organization yet}
+                    =1 {You are connected to {count} organization}
+                    other {You are connected to # organizations}
+                }
+        findOrgs:
+            title: Find your organization
+            desc: Add you organization to your Zetkin account.
+            buttonLabel: Search organization
+    campaign:
+        title: Campaign

@@ -5,6 +5,9 @@ import CampaignForm from '../../../common/campaignForm/CampaignForm';
 import DashboardHero from './DashboardHero';
 import Dashboard from '../../dashboard/Dashboard';
 import Welcome from '../../misc/Welcome';
+
+import OrgSectionPage from './sections/OrgSectionPage';
+import CampaignSectionPage from './sections/CampaignSectionPage';
 import {
     retrieveAllActions,
     updateActionResponse,
@@ -16,7 +19,7 @@ const mapStateToProps = state => ({
     actionList: state.getIn(['actions', 'actionList']),
     responseList: state.getIn(['actions', 'responseList']),
     userActionList: state.getIn(['actions', 'userActionList']),
-    hasMemberships: !!state.getIn(['orgs', 'membershipList', 'items']).size,
+    hasMemberships: !!state.getIn(['orgs', 'membershipList', 'items']).size, // error when logged out
 });
 
 
@@ -32,18 +35,11 @@ export default class DashboardPage extends React.Component {
         let section;
 
         if (this.props.params.section == 'campaign' || !this.props.params.section) {
-            section = [
-                <Dashboard key="dashboard"/>,
-                <CampaignForm key="campaignForm"
-                    redirPath={ this.props.location.pathname }
-                    actionList={ this.props.actionList }
-                    responseList={ this.props.responseList }
-                    userActionList={ this.props.userActionList }
-                    onResponse={ this.onResponse.bind(this) }/>
-            ];
+            section = <CampaignSectionPage
+                redirPath={ this.props.location.pathname } />;
         }
         else if (this.props.params.section == 'organizations') {
-            section = <h1>ORGS</h1>;
+            section = <OrgSectionPage />;
         }
 
         if (this.props.hasMemberships) {
@@ -67,9 +63,5 @@ export default class DashboardPage extends React.Component {
                 { content }
             </div>
         );
-    }
-
-    onResponse(action, checked) {
-        this.props.dispatch(updateActionResponse(action, checked));
     }
 }

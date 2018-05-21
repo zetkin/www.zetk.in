@@ -15,7 +15,7 @@ h1, h2, h3, h4 {
     font-family: 'azo-sans-web' sans-serif;
     font-style: normal;
     font-weight: 400;
-    color: darken($c-text, 5);
+    color: $c-text;
 }
 
 h1 {
