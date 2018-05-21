@@ -10,6 +10,8 @@ const mapStateToProps = state => ({
     user: state.get('user'),
     campaignList: state.getIn(['campaigns', 'campaignList']),
     callAssignmentList: state.getIn(['callAssignments', 'assignmentList']),
+    orgList: state.getIn(['orgs', 'membershipList']),
+    surveyList: state.getIn(['surveys', 'surveyList']),
 });
 
 @connect(mapStateToProps)
@@ -25,42 +27,57 @@ export default class DashboardMenu extends React.Component {
     }
 
     render() {
-        let selectedSection = this.state.selectedSection;
+        let selectedSection = this.props.selectedSection;
 
         let campaigningSub = this.props.intl.formatMessage(
-            { id: 'pages.dashboardPage.menu.campaigning.sub' });
+            { id: 'pages.dashboardPage.menu.campaign.sub' });
 
         let callAssignments = this.props.callAssignmentList.get('items');
         let callsSub;
-        let callsDisabled = false;
 
-        if (callAssignments.size > 0) {
-            callsSub = this.props.intl.formatMessage(
-                { id: 'pages.dashboardPage.menu.calls.sub' },
-                { count: callAssignments.size });
-        }
-        else {
-            callsDisabled = true;
-            callsSub = this.props.intl.formatMessage(
-                { id: 'pages.dashboardPage.menu.calls.none' });
-        }
+        callsSub = this.props.intl.formatMessage(
+            { id: 'pages.dashboardPage.menu.calls.sub' },
+            { count: (callAssignments? callAssignments.size : 0) });
+
+        let orgs = this.props.orgList.get('items');
+        let orgsSub;
+
+        orgsSub = this.props.intl.formatMessage(
+            { id: 'pages.dashboardPage.menu.orgs.sub' },
+            { count: orgs.size });
+
+        let surveys = this.props.surveyList.get('items');
+        let surveysSub;
+
+        surveysSub = this.props.intl.formatMessage(
+            { id: 'pages.dashboardPage.menu.surveys.sub' },
+            { count: (surveys? surveys.size : 0) });
 
         let items = (
             <ul className="DashboardMenu-items">
-                <DashboardMenuItem name="campaigning"
-                    title= {'pages.dashboardPage.menu.campaigning.title'}
+                <DashboardMenuItem name="campaign"
+                    title= {'pages.dashboardPage.menu.campaign.title'}
                     sub= { campaigningSub }
-                    selected={ selectedSection == 'campaigning' }
-                    onSelection={
-                        this.onSelection.bind(this, 'campaigning') }
+                    selected={ selectedSection == 'campaign' }
+                    to='/dashboard/campaign'
+                />
+                <DashboardMenuItem name="surveys"
+                    title= {'pages.dashboardPage.menu.surveys.title'}
+                    sub= { surveysSub }
+                    disabled= { (!surveys? true : false) }
+                    selected={ selectedSection == 'surveys' }
                 />
                 <DashboardMenuItem name="calls"
                     title= {'pages.dashboardPage.menu.calls.title'}
                     sub= { callsSub }
-                    disabled= { callsDisabled }
+                    disabled= { (!callAssignments.size? true : false) }
                     selected={ selectedSection == 'callAssignments' }
-                    onSelection={
-                        this.onSelection.bind(this, 'callAssignments') }
+                />
+                <DashboardMenuItem name="orgs"
+                    title= {'pages.dashboardPage.menu.orgs.title'}
+                    sub= { orgsSub }
+                    selected={ selectedSection == 'organizations' }
+                    to='/dashboard/organizations'
                 />
             </ul>
         );
@@ -68,14 +85,7 @@ export default class DashboardMenu extends React.Component {
         return (
             <div className="DashboardMenu">
                 { items }
-                { selectedSection }
             </div>
         );
-    }
-
-    onSelection(section) {
-        this.setState({
-            selectedSection: section,
-        });
     }
 }

@@ -5,7 +5,7 @@ greeting:
         you able to participate in any of them?
     buttonLabel: To sign up
 menu:
-    campaigning:
+    campaign:
         title: Campaigning
         sub: Sign up here
     groups:
@@ -14,5 +14,25 @@ menu:
         none: You have no groups to manage
     calls:
         title: Call assignments
-        sub: You have {count} assignments
-        none: You have no assignments
+        sub: |
+            {count, plural,
+                =0 {You have no assignments}
+                =1 {You have {count} assignment}
+                other {You have # assignments}
+            }
+    orgs:
+        title: Organizations
+        sub: |
+            {count, plural,
+                =0 {Not connected to an organization}
+                =1 {Connected to {count} organization}
+                other {Connected to # organizations}
+            }
+    surveys:
+        title: Surveys
+        sub: |
+            {count, plural,
+                =0 {You have no ongoing surveys}
+                =1 {You have {count} survey}
+                other {You have # surveys}
+            }

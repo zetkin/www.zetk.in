@@ -37,7 +37,7 @@ export default (messages) => {
         retrieveUserMemberships(),
     ]));
 
-    preloader.get('/dashboard', waitForActions(req => [
+    preloader.get('/dashboard/*', waitForActions(req => [
         retrieveAllCampaigns(),
         retrieveAllActions(),
         retrieveUserActions(),

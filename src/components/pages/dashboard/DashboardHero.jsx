@@ -37,7 +37,9 @@ export default class DashboardHero extends React.Component {
         return (
             <div className="DashboardHero">
                 { greeting }
-                <DashboardMenu key="DashboardMenu"/>
+                <DashboardMenu key="DashboardMenu"
+                    selectedSection={ this.props.selectedSection }
+                    />
             </div>
         );
     }

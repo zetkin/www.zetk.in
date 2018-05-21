@@ -32,6 +32,8 @@ export default (
             component={ ResetPasswordPage }/>
         <Route path="/dashboard"
             component={ DashboardPage }/>
+        <Route path="/dashboard/:section"
+            component={ DashboardPage }/>
         <Route path="/settings"
             component={ SettingsPage }/>
         <Route path="/o/:orgId"

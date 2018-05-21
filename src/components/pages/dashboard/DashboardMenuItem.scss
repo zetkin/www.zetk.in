@@ -1,9 +1,14 @@
 .DashboardMenuItem {
     @include col(3,12);
+    min-width: 245px;
     height: 80px;
     list-style: none;
     margin: 0;
     transition: all 0.2s ease-out;
+
+    a {
+        color: inherit;
+    }
 
     &:hover, &.selected {
         background-color: darken(white,5);
@@ -71,9 +76,9 @@
     }
 
 
-    &.campaigning {
+    &.campaign {
         .DashboardMenuItem-icon:before {
-            content: $fa-var-users;
+            content: $fa-var-flag;
         }
     }
     &.groups {
@@ -84,6 +89,16 @@
     &.calls {
         .DashboardMenuItem-icon:before {
             content: $fa-var-phone;
+        }
+    }
+    &.orgs {
+        .DashboardMenuItem-icon:before {
+            content: $fa-var-certificate;
+        }
+    }
+    &.surveys {
+        .DashboardMenuItem-icon:before {
+            content: $fa-var-clipboard;
         }
     }
 }

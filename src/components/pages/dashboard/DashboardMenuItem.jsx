@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage as Msg } from 'react-intl';
+import { Link } from 'react-router';
 
 import PropTypes from '../../../utils/PropTypes';
 import cx from 'classnames';
@@ -29,24 +30,20 @@ export default class DashboardMenuItem extends React.Component {
         });
 
         return (
-            <li className={ classes }
-                onClick={ this.onClick.bind(this) }>
-                <div className="DashboardMenuItem-icon"></div>
-                <div className="DashboardMenuItem-info">
-                    <span className="DashboardMenuItem-infoTitle">
-                        <Msg id={ this.props.title }/>
-                    </span>
-                    <span className="DashboardMenuItem-infoSub">
-                        { this.props.sub }
-                    </span>
-                </div>
+            <li className={ classes } >
+                <Link onClick={ this.props.className }
+                    to={ this.props.to }>
+                    <div className="DashboardMenuItem-icon"></div>
+                    <div className="DashboardMenuItem-info">
+                        <span className="DashboardMenuItem-infoTitle">
+                            <Msg id={ this.props.title }/>
+                        </span>
+                        <span className="DashboardMenuItem-infoSub">
+                            { this.props.sub }
+                        </span>
+                    </div>
+                </Link>
             </li>
         );
-    }
-
-    onClick(ev) {
-        if (this.props.onSelection) {
-            this.props.onSelection(!this.props.selected);
-        }
     }
 }

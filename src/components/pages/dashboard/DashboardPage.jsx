@@ -29,17 +29,31 @@ export default class DashboardPage extends React.Component {
 
     render() {
         let content;
+        let section;
 
-        if (this.props.hasMemberships) {
-            content = [
-                <DashboardHero key="hero"/>,
+        if (this.props.params.section == 'campaign' || !this.props.params.section) {
+            section = [
                 <Dashboard key="dashboard"/>,
                 <CampaignForm key="campaignForm"
                     redirPath={ this.props.location.pathname }
                     actionList={ this.props.actionList }
                     responseList={ this.props.responseList }
                     userActionList={ this.props.userActionList }
-                    onResponse={ this.onResponse.bind(this) }/>,
+                    onResponse={ this.onResponse.bind(this) }/>
+            ];
+        }
+        else if (this.props.params.section == 'organizations') {
+            section = <h1>ORGS</h1>;
+        }
+
+        if (this.props.hasMemberships) {
+            content = [
+                <DashboardHero key="hero"
+                    selectedSection={ this.props.params.section }
+                    />,
+                <section key="section">
+                    { section }
+                </section>,
             ];
         }
         else {
