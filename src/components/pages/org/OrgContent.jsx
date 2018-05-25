@@ -2,9 +2,9 @@ import React from 'react';
 import { FormattedMessage as Msg, injectIntl } from 'react-intl';
 
 import Button from '../../../common/misc/Button';
-import FormattedLink from '../../../common/misc/FormattedLink';
-import OrgSignUp from './OrgSignUp';
 import ConnectLink from './ConnectLink';
+import FormattedLink from '../../../common/misc/FormattedLink';
+import SignUpForm from '../../misc/SignUpForm';
 
 @injectIntl
 export default class OrgContent extends React.Component {
@@ -61,7 +61,7 @@ export default class OrgContent extends React.Component {
                 );
                 content.push(
                     <div className="OrgContent-column" key="signup">
-                        <OrgSignUp orgItem={ orgItem }/>
+                        <SignUpForm orgId={ orgItem.get('id') }/>
                     </div>
                 );
         }
