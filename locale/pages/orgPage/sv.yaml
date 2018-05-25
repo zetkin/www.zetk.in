@@ -10,21 +10,6 @@ connected:
     p: >-
         Du hittar pågående kampanjer och uppdrag organiserade av {org} på "Min
         sida"
-signup:
-    done:
-        subtitle: Kolla din inbox för att bekräfta din e-postadress
-        title: 'Välkommen, {firstName}!'
-    email: E-postadress
-    error:
-        exists: 'E-postadressen { email } är redan registrerad.'
-        invalid: >-
-            Registreringen misslyckades. Kontrollera att alla fält är korrekt
-            ifyllda.
-    firstName: Förnamn
-    h1: Registrera dig och anslut
-    lastName: Efternamn
-    password: Lösenord
-    submitButton: Registrera och anslut
 zetkin:
     description: >-
         {org} använder Zetkin, en plattform för att organisera aktivism.

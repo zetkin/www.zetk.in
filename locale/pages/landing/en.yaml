@@ -50,21 +50,6 @@ splash:
     caption: >-
         The "Our city" street festival was organized with Zetkin by
         Vänsterpartiet in Malmö in May 2014.
-    done:
-        h1: 'Welcome, { firstName }!'
-        h2: Check your inbox to verify your e-mail address
-    form:
-        email: E-mail address
-        error:
-            exists: 'The e-mail address { email } is already registered'
-            invalid: >-
-                Registration failed. Please make sure all fields are filled out
-                correctly.
-        firstName: First name
-        h1: Sign up
-        lastName: Last name
-        password: Password
-        submitButton: Sign up
     h1: Participate in the struggle for justice
     h2: Kickstart your involvement with Zetkin
     infoLink:

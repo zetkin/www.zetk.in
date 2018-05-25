@@ -12,21 +12,6 @@ connected:
     p: |-
         You can find on-going campaigns and assignments organized by { org }
         on "My page".
-signup:
-    done:
-        subtitle: Check your inbox to verify your e-mail address
-        title: 'Welcome, { firstName }!'
-    email: E-mail address
-    error:
-        exists: 'The e-mail address { email } is already registered'
-        invalid: >-
-            Registration failed. Please make sure all fields are filled out
-            correctly.
-    firstName: First name
-    h1: Sign up and connect
-    lastName: Last name
-    password: Password
-    submitButton: Sign up and connect
 zetkin:
     description: >-
         { org } uses Zetkin, a platform for organizing activism. Sign up and
