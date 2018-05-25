@@ -20,7 +20,9 @@ signup:
     password: Password
     privacyCheck: I agree to the terms in the Zetkin privacy policy.
     privacyLink: Read our privazy policy.
-    submitButton: Sign up and connect
+    submitButton: Sign up
+    submitButtonOrg: Sign up and connect
+    title: Sign up
 welcome:
     getLink: >-
         Contact your organization or see if you can find a connection link on

@@ -20,7 +20,9 @@ signup:
     password: Lösenord
     privacyCheck: Jag godkänner Zetkins integritetspolicy.
     privacyLink: Lär vår integritetspolicy.
-    submitButton: Registrera och anslut
+    submitButton: Registrera
+    submitButtonOrg: Registrera och anslut
+    title: Registrera
 welcome:
     getLink: >-
         Kontakta din organisation eller se om du hittar en anslutningslänk på

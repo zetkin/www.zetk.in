@@ -1,7 +1,5 @@
 .SignUpForm {
-    input:focus {
-        border-color: $c-brand-comp-light;
-    }
+    @include checkbox-wrapper;
 }
 .SignUpForm-hiddenLabel {
     color: inherit;
@@ -12,6 +10,7 @@
     }
 }
 .SignUpForm-textInput {
+    color: inherit;
     outline: none;
     display: block;
     width: 100%;
@@ -31,15 +30,15 @@
         border-color: $c-brand-comp-light;
     }
 }
-.SignUpForm-checkboxLabel{
-    color: inherit;
-    margin-left: 1.5em;
-    display: block;
-}
-.SignUpForm-checkbox {
-  float: left;
-  margin-top: 0.5em;
-}
+// .SignUpForm-checkboxLabel{
+//     color: inherit;
+//     margin-left: 1.5em;
+//     display: block;
+// }
+// .SignUpForm-checkbox {
+//   float: left;
+//   margin-top: 0.5em;
+// }
 .SignUpForm-privacyLink {
     display: block;
     margin: 0.5em 0;

@@ -46,8 +46,8 @@ export default class SignUpForm extends React.Component {
 
         return(
             <div className="SignUpForm-done">
-                <h2 className="SignUpForm-doneTitle">{ msg('done.title', values) }</h2>
-                <p className="SignUpForm-doneSubtitle">{ msg('done.subtitle') }</p>
+                <h2 className="SignUpForm-title">{ msg('done.title', values) }</h2>
+                <p className="SignUpForm-subtitle">{ msg('done.subtitle') }</p>
             </div>
         );
     }
@@ -56,10 +56,11 @@ export default class SignUpForm extends React.Component {
         const { privacyChecked } = this.state;
         const error = register.get('error');
         let errorEl;
+        const buttonLabel = this.props.orgId ? msg('submitButtonOrg') : msg('submitButton');
         let submitButton = (
             <input className="SignUpForm-submitButton"
                 type="submit"
-                value={ msg('submitButton') }
+                value={ buttonLabel }
                 disabled={!privacyChecked}/>
         );
 
@@ -88,6 +89,7 @@ export default class SignUpForm extends React.Component {
             <form method="post"
                 className="SignUpForm"
                 onSubmit={ this.onSubmit.bind(this) }>
+                <h2 className="SignUpForm-title">{ msg('title') }</h2>
                 { errorEl }
                 <label className="SignUpForm-hiddenLabel" htmlFor="fn">{ msg('firstName') }</label>
                 <input className="SignUpForm-textInput" name="fn" placeholder={ msg('firstName') }/>
@@ -107,8 +109,10 @@ export default class SignUpForm extends React.Component {
                 <input className="SignUpForm-checkbox"
                     name="privacy"
                     type="checkbox"
+                    id="privacy"
                     name="privacy"
-                    checked={privacyChecked} onChange={this.togglePrivacyCheck.bind(this)}/>
+                    checked={privacyChecked}
+                    onChange={this.togglePrivacyCheck.bind(this)}/>
                 <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ msg('privacyCheck') }</label>
                 <a className="SignUpForm-privacyLink" href="http://zetkin.org/privacy">{ msg('privacyLink') }</a>
 
