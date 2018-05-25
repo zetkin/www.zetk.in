@@ -22,9 +22,23 @@
     }
 
     .SectionPage-desc {
+        @include col(12,12);
+
+        @include medium-screen {
+            @include col(7,12);
+        }
+
+        @include large-screen {
+            @include col(3,12);
+        }
+
         p {
             font-size: 1.1em;
         }
+    }
+
+    .Button {
+        @include button();
     }
 
     h3 {

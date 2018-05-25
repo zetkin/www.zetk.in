@@ -7,6 +7,7 @@ import Dashboard from '../../dashboard/Dashboard';
 import Welcome from '../../misc/Welcome';
 
 import OrgSectionPage from './sections/OrgSectionPage';
+import CallSectionPage from './sections/CallSectionPage';
 import CampaignSectionPage from './sections/CampaignSectionPage';
 import {
     retrieveAllActions,
@@ -37,6 +38,9 @@ export default class DashboardPage extends React.Component {
         if (this.props.params.section == 'campaign' || !this.props.params.section) {
             section = <CampaignSectionPage
                 redirPath={ this.props.location.pathname } />;
+        }
+        else if (this.props.params.section == 'call') {
+            section = <CallSectionPage />;
         }
         else if (this.props.params.section == 'organizations') {
             section = <OrgSectionPage />;

@@ -40,8 +40,8 @@ section:
     organizations:
         title: My organizations
         desc: |
-            A nice text that describes what one can do on this particullar site
-            .
+            A nice text that describes what one can do on this particullar
+            site.
         connectedOrgs:
             title: Connected organizations
             desc: |
@@ -56,3 +56,23 @@ section:
             buttonLabel: Search organization
     campaign:
         title: Campaign
+        desc: |
+            A nice text that describes what one can do on this particullar
+            site.
+        bookings:
+            title: Your upcoming events
+        campaigns:
+            title: Ongoing campaigns
+    call:
+        title: My call assignments
+        desc: |
+            A nice text that describes what one can do on this particullar
+            site.
+        assignments:
+            title: Ongoing assignments
+            desc: |
+                {count, plural,
+                    =0 {You have no assignments yet}
+                    =1 {You have {count} ongoing assignment}
+                    other {You have # ongoing assignments}
+                }

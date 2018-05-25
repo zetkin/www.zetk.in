@@ -1,10 +1,10 @@
-.CampaignSectionPage {
+.CallSectionPage {
     &.SectionPage .SectionPage-title h1:before {
-        @include icon($fa-var-flag);
+        @include icon($fa-var-phone);
+        color: $c-brand-main;
     }
 
-    .CampaignSectionPage-bookings,
-    .CampaignSectionPage-campaigns {
+    .CallSectionPage-assignments {
         @include col(12,12);
 
         @include medium-screen {
@@ -15,14 +15,18 @@
             @include col(3,12);
             @include col-offset(1,12);
         }
+    }
 
-        ul {
-            padding: 0;
+    ul {
+        padding: 0;
 
-            li {
-                list-style: none;
-                padding: 0.3em 0;
-            }
+        li {
+            list-style: none;
+            padding: 0.3em 0;
         }
+    }
+
+    .Button {
+        @include button();
     }
 }

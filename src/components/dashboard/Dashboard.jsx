@@ -37,17 +37,13 @@ export default class Dashboard extends React.Component {
 
         return (
             <div className="Dashboard">
-                <div className="Dashboard-campaigns">
-                    <Msg tagName="h2" id="dashboard.campaigns.h"/>
-                    <CampaignList campaignList={ campaignList }/>
-                </div>
                 <div className="Dashboard-events">
                     <Msg tagName="h2" id="dashboard.events.h"/>
                     <ActionList actionList={ actionList }/>
                 </div>
-                <div className="Dashboard-assignments">
-                    <Msg tagName="h2" id="dashboard.assignments.h"/>
-                    <AssignmentList assignmentList={ assignmentList }/>
+                <div className="Dashboard-campaigns">
+                    <Msg tagName="h2" id="dashboard.campaigns.h"/>
+                    <CampaignList campaignList={ campaignList }/>
                 </div>
             </div>
         );

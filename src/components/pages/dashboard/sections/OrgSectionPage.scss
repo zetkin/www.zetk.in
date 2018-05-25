@@ -4,18 +4,6 @@
         color: $c-brand-main;
     }
 
-    .SectionPage-desc {
-        @include col(12,12);
-
-        @include medium-screen {
-            @include col(7,12);
-        }
-
-        @include large-screen {
-            @include col(3,12);
-        }
-    }
-
     .OrgSectionPage-connected,
     .OrgSectionPage-find {
         @include col(12,12);

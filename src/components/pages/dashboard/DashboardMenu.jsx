@@ -73,7 +73,8 @@ export default class DashboardMenu extends React.Component {
                     sub= { callsSub }
                     disabled= { ((!callAssignments
                         || callAssignments.size == 0)? true : false) }
-                    selected={ selectedSection == 'callAssignments' }
+                    selected={ selectedSection == 'call' }
+                    to='/dashboard/call'
                 />
                 <DashboardMenuItem name="orgs"
                     title= {'pages.dashboardPage.menu.orgs.title'}

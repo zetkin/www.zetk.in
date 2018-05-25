@@ -9,46 +9,4 @@
         display: block;
         clear: both;
     }
-
-    & > div {
-        float: left;
-        @include col(12, 12);
-        padding-left: 3em;
-        h2 {
-            font-size: 1.3em;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            li {
-                margin: 0.5em 0;
-            }
-        }
-
-        i {
-            color: lighten($c-text, 30);
-        }
-    }
-}
-
-@include medium-screen {
-    .Dashboard {
-        justify-content: center;
-
-        & > div {
-            float: left;
-            @include col(4, 12);
-        }
-
-        .Dashboard-campaigns {
-            padding-left: 2em;
-        }
-    }
-}
-
-@include target-ie-6-7-8 {
-    & > div {
-        float: left;
-        @include col(3, 12);
-    }
 }
