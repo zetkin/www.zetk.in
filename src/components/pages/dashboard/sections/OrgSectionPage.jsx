@@ -5,6 +5,9 @@ import { FormattedMessage as Msg } from 'react-intl';
 import Button from '../../../../common/misc/Button';
 import SectionPage from './SectionPage';
 
+import ConnectionList from '../../../misc/ConnectionList';
+import { deleteUserMembership } from '../../../../actions/org';
+
 const mapStateToProps = state => ({
     orgList: state.getIn(['orgs', 'membershipList']),
     hasMemberships: !!state.getIn(['orgs', 'membershipList', 'items']).size,
@@ -30,6 +33,10 @@ export default class OrgSectionPage extends SectionPage {
                 <Msg tagName="p"
                     id="pages.dashboardPage.section.organizations.connectedOrgs.desc"
                     values={{ count: (orgs? orgs.size : 0) }} />
+                <ConnectionList
+                    connectionList={ this.props.orgList }
+                    onDisconnect={ this.onConnectionListDisconnect.bind(this) }
+                    />
             </div>,
             <div className="OrgSectionPage-find" key="find">
                 <Msg tagName="h3"
@@ -44,25 +51,11 @@ export default class OrgSectionPage extends SectionPage {
         ];
     }
 
-    // render() {
-    //     let content;
-
-    //     if (this.props.hasMemberships) {
-    //         content = [
-    //             <div className="DashboardOrgPage-title" key="section">
-    //                 <h1>My organizations</h1>
-    //             </div>
-    //         ];
-    //     }
-
-    //     return (
-    //         <div className="SectionOrgPage">
-    //             { content }
-    //         </div>
-    //     );
-    // }
-
     getSectionTitle(data) {
         return "pages.dashboardPage.section.organizations.title";
+    }
+
+    onConnectionListDisconnect(org) {
+        this.props.dispatch(deleteUserMembership(org.get('id')));
     }
 }

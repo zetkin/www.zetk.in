@@ -1,8 +1,4 @@
 .ConnectionList {
-    border: 1px solid #eee;
-    border-radius: 1em;
-    padding: 1em 1em 0.3em;
-
     .ConnectionList-empty {
         text-align: center;
         margin: 1em 0 1.5em;
@@ -14,20 +10,30 @@
     }
 
     .ConnectionList-item {
-        margin: 0 0 1.5em;
         position: relative;
         clear: both;
+        border-bottom: 1px solid #eee;
+
+        &:hover {
+            background-color: darken(white, 2);
+        }
 
         .OrgAvatar {
-            width: 4em;
+            width: 3em;
             float: left;
             margin: 0 0.5em 0 0;
+        }
+
+        .ConnectionList-orgLink {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            padding: 1em 0;
         }
 
         h3 {
             font-size: 1.2em;
             margin: 0;
-            padding-top: 0.5em;
         }
 
         p {
@@ -35,7 +41,7 @@
             font-size: 0.8em;
         }
 
-        a {
+        .ConnectionList-disconnect {
             position: absolute;
             top: 1em;
             right: 1em;

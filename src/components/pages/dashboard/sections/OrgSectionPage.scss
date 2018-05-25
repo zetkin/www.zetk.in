@@ -9,7 +9,6 @@
 
         @include medium-screen {
             @include col(7,12);
-            // @include col-offset(3,12);
         }
 
         @include large-screen {
