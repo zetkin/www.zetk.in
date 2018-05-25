@@ -2,6 +2,9 @@ environmentWarning:
     message: >-
         This is a development version of Zetkin. You probably want to use the
         live Zetkin at www.zetk.in. Do you want to navigate there?
+cookieNotice:
+    msg: We need cookies in order for our site to work.
+    privacyLink: Read our privacy policy.
 welcome:
     getLink: >-
         Contact your organization or see if you can find a connection link on
