@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 
+import CookieNotice from "../common/misc/CookieNotice";
 import Footer from './Footer';
 import GoogleAnalytics from './misc/GoogleAnalytics';
 import Header from './header/Header';
@@ -62,6 +63,7 @@ export default class App extends React.Component {
                         id="App-initialState"
                         dangerouslySetInnerHTML={{ __html: stateJson }}/>
                     <GoogleAnalytics/>
+                    <CookieNotice />
                 </body>
             </html>
         );

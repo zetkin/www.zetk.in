@@ -52,21 +52,6 @@ splash:
     caption: >-
         Gadefesten "Vår stad" blev arrangeret af Vänsterpartiet i Malmø med
         Zetkin i maj 2014
-    done:
-        h1: Tak og velkommen
-        h2: Tjek din indbakke for at bekræfte din e-mailadresse
-    form:
-        email: E-mailadresse
-        error:
-            exists: 'E-mailadressen { email } er allerede registrered'
-            invalid: >-
-                Registreringen mislykkedes. Kontroller venligst at alle felter
-                er korrekt udfyldte.
-        firstName: Fornavn
-        h1: Registrer dig
-        lastName: Efternavn
-        password: Adgangskode
-        submitButton: Registrer
     h1: Deltag i kampen for retfærdighed
     h2: 'Involver dig nu, ved hjælp af Zetkin'
     infoLink:

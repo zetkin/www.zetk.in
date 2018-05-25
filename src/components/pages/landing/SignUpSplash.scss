@@ -70,7 +70,11 @@
             }
         }
     }
-
+    .SignUpForm,
+    .SignUpForm-privacyLink,
+    .SignUpForm-subtitle {
+        color: $c-text-contrast;
+    }
     &.SignUpSplash-withForm  {
         .SignUpSplash-content {
             justify-content: center;
@@ -85,61 +89,22 @@
             opacity: 0.2;
         }
 
-        form {
+        .SignUpForm {
             margin: 0 1em;
             padding: 0;
         }
-
-        .SignUpSplash-error {
-            color:white;
-        }
-
-        label {
-            color: $c-text-contrast;
-            display: none;
-            @include target-ie-6-7-8 {
-                display: block;
-                text-align: left;
-            }
-        }
-
-        input {
-            outline: none;
-            display: block;
-            width: 100%;
-            max-width: 100%;
-            margin: 1em 0;
-            border: 0;
-            font-size: 1.0em;
-            border-bottom: 1px solid $c-ui-bg;
-            border-radius: 0;
-            background-color: transparent;
-            color: $c-text-contrast;
-            padding: 0.5em;
-
-            @include target-ie-6-7-8 {
-                margin: 0 0 1em;
-            }
-        }
-
-        input:focus {
-            border-color: $c-brand-comp-light;
-        }
-
-        input[type="submit"] {
-            @include gradient-button;
-            margin-top: 1em;
-            width: auto;
+        .SignUpForm-textInput {
+            border-color: $c-text-contrast;
         }
 
         @include medium-screen {
-            form {
+            .SignUpForm {
                 width: 80%;
                 margin: auto;
                 max-width: 800px;
             }
 
-            input {
+            .SignUpForm-textInput {
                 display: inline-block;
                 width: 48%;
                 margin: 1em 1%;
@@ -147,7 +112,7 @@
         }
 
         @include target-ie-6-7-8 {
-            form {
+            .SignUpForm-textInput {
                 width: 40%;
                 margin: auto;
             }

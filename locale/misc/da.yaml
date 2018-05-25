@@ -2,6 +2,21 @@ environmentWarning:
     message: >-
         Dette er en udviklingsversion af Zetkin. Du vil sikkert gerne bruge det
         rigtige Zetkin på www.zetk.in. Vil du gå derhen nu?
+signup:
+    done:
+        subtitle: Tjek din indbakke for at bekræfte din e-mailadresse
+        title: 'Velkommen, { firstName }!'
+    email: E-mailadresse
+    error:
+        exists: 'E-mailadressen { email } er allerede registrered'
+        invalid: >-
+            Registreringen mislykkedes. Kontroller venligst at alle felter
+            er korrekt udfyldte.
+    firstName: Fornavn
+    lastName: Efternavn
+    password: Adgangskode
+    submitButton: Registrer
+    title: Registrer dig
 welcome:
     getLink: >-
         Kontakt din organisation eller for at se om du kan finde et link på

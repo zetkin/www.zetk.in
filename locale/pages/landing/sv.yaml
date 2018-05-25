@@ -52,21 +52,6 @@ splash:
     caption: |
         Gatufesten "Vår stad" organiserades med Zetkin av Vänsterpartiet i Malmö
         i maj 2014.
-    done:
-        h1: 'Tack och välkommen, { firstName }!'
-        h2: Kolla din inbox för att bekräfta din e-postadress
-    form:
-        email: E-postadress
-        error:
-            exists: 'E-postadressen { email } är redan registrerad.'
-            invalid: >-
-                Registeringen misslyckades. Vänligen kontrollera att alla fält
-                är korrekt ifyllda.
-        firstName: Förnamn
-        h1: Registrera dig
-        lastName: Efternamn
-        password: Lösenord
-        submitButton: Registrera
     h1: Delta i kampen för rättvisa
     h2: Kom igång med ditt engagemang genom Zetkin
     infoLink:
