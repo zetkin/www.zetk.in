@@ -22,10 +22,6 @@ export default class OrgSectionPage extends SectionPage {
         let orgs = this.props.orgList.get('items');
 
         return [
-            <div className="SectionPage-desc" key="desc">
-                <Msg tagName="p"
-                    id="pages.dashboardPage.section.organizations.desc" />
-            </div>,
             <div className="OrgSectionPage-connected" key="connected">
                 <Msg tagName="h3"
                     id="pages.dashboardPage.section.organizations.connectedOrgs.title"
@@ -53,6 +49,11 @@ export default class OrgSectionPage extends SectionPage {
 
     getSectionTitle(data) {
         return "pages.dashboardPage.section.organizations.title";
+    }
+
+    getSectionDesc(data) {
+        return <Msg tagName="p"
+                    id="pages.dashboardPage.section.organizations.desc" />;
     }
 
     onConnectionListDisconnect(org) {

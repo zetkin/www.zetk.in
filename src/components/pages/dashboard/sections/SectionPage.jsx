@@ -19,6 +19,9 @@ export default class SectionPage extends React.Component {
             <div className={ classes }>
                 <div className="SectionPage-title">{ title }</div>
                 <div className="SectionPage-content">
+                    <div className="SectionPage-desc">
+                        { this.getSectionDesc(data) }
+                    </div>
                     { this.renderSectionContent(data) }
                 </div>
             </div>
@@ -27,6 +30,10 @@ export default class SectionPage extends React.Component {
 
     getSectionTitle(data) {
         throw "Must implement getSectionTitle()";
+    }
+
+    getSectionDesc(data) {
+        throw "Must implement getSectionDesc()";
     }
 
     renderSectionContent(data) {
