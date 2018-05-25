@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import CampaignForm from '../../../common/campaignForm/CampaignForm';
 import DashboardHero from './DashboardHero';
-import Dashboard from '../../dashboard/Dashboard';
 import Welcome from '../../misc/Welcome';
 
 import OrgSectionPage from './sections/OrgSectionPage';

@@ -61,6 +61,7 @@ export default class DashboardMenu extends React.Component {
                     selected={ selectedSection == 'campaign' }
                     to='/dashboard/campaign'
                 />
+                {/*
                 <DashboardMenuItem name="surveys"
                     title= {'pages.dashboardPage.menu.surveys.title'}
                     sub= { surveysSub }
@@ -68,6 +69,7 @@ export default class DashboardMenu extends React.Component {
                         || surveys.size == 0)? true : false) }
                     selected={ selectedSection == 'surveys' }
                 />
+                */}
                 <DashboardMenuItem name="calls"
                     title= {'pages.dashboardPage.menu.calls.title'}
                     sub= { callsSub }

@@ -7,8 +7,8 @@ import { retrieveUserActions } from '../../../../actions/action';
 
 import SectionPage from './SectionPage';
 
-import ActionList from '../../../dashboard/ActionList';
-import CampaignList from '../../../dashboard/CampaignList';
+import ActionList from './ActionList';
+import CampaignList from './CampaignList';
 import PropTypes from '../../../../utils/PropTypes';
 
 import CampaignForm from '../../../../common/campaignForm/CampaignForm';

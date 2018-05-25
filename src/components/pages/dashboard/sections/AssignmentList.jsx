@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
-import FormattedLink from '../../common/misc/FormattedLink';
-import LoadingIndicator from '../../common/misc/LoadingIndicator';
+import FormattedLink from '../../../../common/misc/FormattedLink';
+import LoadingIndicator from '../../../../common/misc/LoadingIndicator';
 
 
 export default class AssignmentList extends React.Component {

@@ -7,7 +7,7 @@ import { retrieveUserAssignments } from '../../../../actions/callAssignment';
 import Button from '../../../../common/misc/Button';
 import SectionPage from './SectionPage';
 
-import AssignmentList from '../../../dashboard/AssignmentList';
+import AssignmentList from './AssignmentList';
 import ConnectionList from '../../../misc/ConnectionList';
 
 const mapStateToProps = state => ({

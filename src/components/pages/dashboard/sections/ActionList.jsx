@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
-import Link from '../../common/misc/FormattedLink';
-import LoadingIndicator from '../../common/misc/LoadingIndicator';
+import Link from '../../../../common/misc/FormattedLink';
+import LoadingIndicator from '../../../../common/misc/LoadingIndicator';
 
 
 export default class ActionList extends React.Component {
