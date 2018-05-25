@@ -5,6 +5,22 @@ environmentWarning:
 cookieNotice:
     msg: Vi använder cookies för att vår hemsida ska fungera.
     privacyLink: Lär vår integritetspolicy.
+signup:
+    done:
+        subtitle: Kolla din inbox för att bekräfta din e-postadress
+        title: 'Välkommen, {firstName}!'
+    email: E-post
+    error:
+        exists: 'E-postadressen { email } är redan registrerad.'
+        invalid: >-
+            Registreringen misslyckades. Kontrollera att alla fält är korrekt
+            ifyllda.
+    firstName: Förnamn
+    lastName: Efternamn
+    password: Lösenord
+    privacyCheck: Jag godkänner Zetkins integritetspolicy.
+    privacyLink: Lär vår integritetspolicy.
+    submitButton: Registrera och anslut
 welcome:
     getLink: >-
         Kontakta din organisation eller se om du hittar en anslutningslänk på

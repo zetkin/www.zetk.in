@@ -5,6 +5,22 @@ environmentWarning:
 cookieNotice:
     msg: We need cookies in order for our site to work.
     privacyLink: Read our privacy policy.
+signup:
+    done:
+        subtitle: Check your inbox to verify your e-mail address
+        title: 'Welcome, { firstName }!'
+    email: Email
+    error:
+        exists: 'The e-mail address { email } is already registered'
+        invalid: >-
+            Registration failed. Please make sure all fields are filled out
+            correctly.
+    firstName: First Name
+    lastName: Last Name
+    password: Password
+    privacyCheck: I agree to the terms in the Zetkin privacy policy.
+    privacyLink: Read our privazy policy.
+    submitButton: Sign up and connect
 welcome:
     getLink: >-
         Contact your organization or see if you can find a connection link on
