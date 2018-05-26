@@ -46,12 +46,14 @@ export default class DashboardMenu extends React.Component {
             { id: 'pages.dashboardPage.menu.orgs.sub' },
             { count: (orgs? orgs.size : 0) });
 
+        /*
         let surveys = this.props.surveyList.get('items');
         let surveysSub;
 
         surveysSub = this.props.intl.formatMessage(
             { id: 'pages.dashboardPage.menu.surveys.sub' },
             { count: (surveys? surveys.size : 0) });
+            */
 
         let items = (
             <ul className="DashboardMenu-items">

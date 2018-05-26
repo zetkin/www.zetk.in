@@ -1,0 +1,65 @@
+greeting:
+    title: Hej {name}!
+    p: >-
+        Välkommen till din sida. Här hittar du pågående kampanjer, dina bokningar
+        och uppdrag, och kan anmäla dig till fler.
+    buttonLabel: Till anmälan
+menu:
+    campaign:
+        title: Kampanja
+        sub: Anmäl dig här
+    calls:
+        title: Ringuppdrag
+        sub: |
+            {count, plural,
+                =0 {Du har inga uppdrag}
+                =1 {Du har ett uppdrag}
+                other {Du har # uppdrag}
+            }
+    orgs:
+        title: Organisationer
+        sub: |
+            {count, plural,
+                =0 {Du är inte ansluten till någon}
+                =1 {Ansluten till en organisation}
+                other {Ansluten till # organisationer}
+            }
+section:
+    organizations:
+        title: Mina organisationer
+        desc: |
+            För att delta i din organisations arbete måste du vara ansluten.
+            Idag är du ansluten till dessa organisationer.
+        connectedOrgs:
+            title: Anslutna organisationer
+            desc: |
+                {count, plural,
+                    =0 {Du är inte ansluten till några organisationer ännu.}
+                    =1 {Du är ansluten till en organisation.}
+                    other {Du är ansluten till # organisationer.}
+                }
+        findOrgs:
+            title: Hitta din organisation
+            desc: Anslut en organisation till ditt Zetkin-konto
+            buttonLabel: Hitta organisationer
+    campaign:
+        title: Kampanja
+        desc: |
+            Din organisations olika aktiviteter arrangeras i form av kampanjer.
+            Hitta dina egna bokningar och anmäl dig till fler aktioner här.
+        bookings:
+            title: Dina bokningar
+        campaigns:
+            title: Pågående kampanjer
+    call:
+        title: Mina ringuppdrag
+        desc: |
+            När du får i uppgift att delta i rundringningar hittar du uppdragen här.
+        assignments:
+            title: Pågående uppdrag
+            desc: |
+                {count, plural,
+                    =0 {Du har inga uppdrag ännu.}
+                    =1 {Du har ett ringuppdrag.}
+                    other {Du har # pågående ringuppdrag.}
+                }

@@ -1,23 +1,19 @@
 greeting:
     title: Hello {name}!
     p: >-
-        There is currently {count} ongoing campaigns for you to engage in. Are
-        you able to participate in any of them?
-    buttonLabel: To sign up
+        Welcome to your page. This is where you find on-going campaigns, your
+        own bookings and assignments, and sign up to new ones.
+    buttonLabel: To sign-up
 menu:
     campaign:
         title: Campaign
         sub: Sign up here
-    groups:
-        title: Group manager
-        sub: You are manager for {count} groups
-        none: You have no groups to manage
     calls:
         title: Call assignments
         sub: |
             {count, plural,
                 =0 {You have no assignments}
-                =1 {You have {count} assignment}
+                =1 {You have one assignment}
                 other {You have # assignments}
             }
     orgs:
@@ -28,20 +24,12 @@ menu:
                 =1 {Connected to {count} organization}
                 other {Connected to # organizations}
             }
-    surveys:
-        title: Surveys
-        sub: |
-            {count, plural,
-                =0 {You have no ongoing surveys}
-                =1 {You have {count} survey}
-                other {You have # surveys}
-            }
 section:
     organizations:
         title: My organizations
         desc: |
-            A nice text that describes what one can do on this particullar
-            site.
+            In order to take part in your organization's work you have to be
+            connected. These are the organizations you are connected to today.
         connectedOrgs:
             title: Connected organizations
             desc: |
@@ -57,8 +45,8 @@ section:
     campaign:
         title: Campaign
         desc: |
-            A nice text that describes what one can do on this particullar
-            site.
+            Help your organization by taking part in the campaign actions
+            they organize. Find your bookings and sign up here.
         bookings:
             title: Your upcoming events
         campaigns:
@@ -66,8 +54,8 @@ section:
     call:
         title: My call assignments
         desc: |
-            A nice text that describes what one can do on this particullar
-            site.
+            When you are given assignments to take part in phonebanking, you
+            find them here.
         assignments:
             title: Ongoing assignments
             desc: |
