@@ -34,6 +34,7 @@ export default class OrgSectionPage extends SectionPage {
                     onDisconnect={ this.onConnectionListDisconnect.bind(this) }
                     />
             </div>,
+            /*
             <div className="OrgSectionPage-find" key="find">
                 <Msg tagName="h3"
                     id="pages.dashboardPage.section.organizations.findOrgs.title" />
@@ -44,6 +45,7 @@ export default class OrgSectionPage extends SectionPage {
                     href="/o/"
                     />
             </div>
+            */
         ];
     }
 
