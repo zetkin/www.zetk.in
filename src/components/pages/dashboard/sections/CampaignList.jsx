@@ -2,8 +2,8 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 import { Link } from 'react-router';
 
-import FormattedLink from '../../common/misc/FormattedLink';
-import LoadingIndicator from '../../common/misc/LoadingIndicator';
+import FormattedLink from '../../../../common/misc/FormattedLink';
+import LoadingIndicator from '../../../../common/misc/LoadingIndicator';
 
 
 

@@ -1,0 +1,49 @@
+.DashboardHero {
+    font-size: 0.9em;
+    position: relative;
+    background-color: $c-brand-main-pink;
+    background: linear-gradient(
+        to bottom right,
+        lighten($c-brand-main-pink,20),
+        lighten($c-brand-main-orange,20)
+    );
+
+    @include medium-screen {
+        font-size: 1em;
+    }
+    @include large-screen {
+        height: 600px;
+    }
+
+    .DashboardHero-greeting {
+        font-size: 0.9em;
+        @include col(10,12);
+        @include col-offset(1,12);
+        padding-top: 20px;
+
+        @include medium-screen {
+            font-size: 0.9em;
+            @include col(6,12);
+            padding-top: 50px;
+        }
+
+        @include large-screen {
+            font-size: 1em;
+            @include col(5,12);
+            @include col-offset(1,12);
+            padding-top: 100px;
+        }
+
+        &, h1 {
+            color: $c-text-contrast;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .Button {
+            @include button();
+        }
+    }
+}
