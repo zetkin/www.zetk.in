@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import CampaignForm from '../../../common/campaignForm/CampaignForm';
@@ -23,6 +24,7 @@ const mapStateToProps = state => ({
 });
 
 
+@withRouter
 @connect(mapStateToProps)
 export default class DashboardPage extends React.Component {
     componentDidMount() {
@@ -49,8 +51,9 @@ export default class DashboardPage extends React.Component {
             content = [
                 <DashboardHero key="hero"
                     selectedSection={ this.props.params.section }
+                    onClickSignUp={ this.onClickSignUp.bind(this) }
                     />,
-                <section key="section">
+                <section key="section" id="DashboardPage-section">
                     { section }
                 </section>,
             ];
@@ -66,5 +69,20 @@ export default class DashboardPage extends React.Component {
                 { content }
             </div>
         );
+    }
+
+    onClickSignUp(ev) {
+        ev.preventDefault();
+
+        this.props.router.push('/dashboard/campaign');
+
+        const target = document.getElementById('DashboardPage-section');
+        const rect = target.getBoundingClientRect();
+        const scrollTop = window.scrollY + rect.top;
+        const duration = 400;
+
+        const animatedScrollTo = require('animated-scrollto');
+        animatedScrollTo(document.body, scrollTop, duration);
+        animatedScrollTo(document.documentElement, scrollTop, duration);
     }
 }

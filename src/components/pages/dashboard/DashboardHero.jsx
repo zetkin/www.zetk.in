@@ -36,7 +36,8 @@ export default class DashboardHero extends React.Component {
                     values={{ count: campaignCount }}/>
                 <Button key="toSignUpButton"
                     labelMsg="pages.dashboardPage.greeting.buttonLabel"
-                    href="/assignments"
+                    href="/dashboard/campaign"
+                    onClick={ this.props.onClickSignUp }
                     />
             </div>
         );
