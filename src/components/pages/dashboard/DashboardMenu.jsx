@@ -27,7 +27,7 @@ export default class DashboardMenu extends React.Component {
     }
 
     render() {
-        let selectedSection = this.props.selectedSection;
+        let selectedSection = this.props.selectedSection || 'campaign';
 
         let campaigningSub = this.props.intl.formatMessage(
             { id: 'pages.dashboardPage.menu.campaign.sub' });
