@@ -3,8 +3,10 @@ environmentWarning:
         This is a development version of Zetkin. You probably want to use the
         live Zetkin at www.zetk.in. Do you want to navigate there?
 cookieNotice:
-    msg: We need cookies in order for our site to work.
-    privacyLink: Read our privacy policy.
+    msg: Zetkin uses cookies to enhance your experience and for this website to work.
+    privacyLink:
+        label: Read our privacy policy
+        href: http://zetkin.org/privacy
 signup:
     done:
         subtitle: Check your inbox to verify your e-mail address

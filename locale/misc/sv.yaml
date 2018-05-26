@@ -3,8 +3,10 @@ environmentWarning:
         Detta är en utvecklingsversion av Zetkin. Du vill antagligen använda
         verkliga Zetkin på www.zetk.in. Vill du navigera dit nu?
 cookieNotice:
-    msg: Vi använder cookies för att vår hemsida ska fungera.
-    privacyLink: Lär vår integritetspolicy.
+    msg: Zetkin använder cookies för att förbättra användarupplevelsen och för att vissa funktioner ska fungera.
+    privacyLink:
+        label: Läs vår integritetspolicy
+        href: http://zetkin.org/sv/sekretess
 signup:
     done:
         subtitle: Kolla din inbox för att bekräfta din e-postadress
