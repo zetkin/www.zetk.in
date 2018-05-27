@@ -92,8 +92,10 @@ export default class Welcome extends React.Component {
 
         return (
             <div className="Welcome">
-                <Msg tagName="h1" id="misc.welcome.header" />
-                <Msg key="p" tagName="p" id="misc.welcome.intro" />
+                <div className="Welcome-header">
+                    <Msg tagName="h1" id="misc.welcome.header.h" />
+                    <Msg key="p" tagName="p" id="misc.welcome.header.intro" />
+                </div>
                 <img className="Welcome-illustration"
                     src="/static/images/no-connections.png" alt="" title=""/>
                 { connectElement }

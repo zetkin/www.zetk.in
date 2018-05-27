@@ -54,21 +54,64 @@
 
     .Welcome-orgItem {
         list-style-type: none;
-        line-height: 1em;
         display: flex;
         align-items: center;
         cursor: pointer;
+
+        margin: 0 0 0.4em;
+        padding: 0.4em 0 0;
+        border-top: 1px solid #eee;
+
+        &:first-child {
+            border-top-width: 0;
+        }
 
         img {
             width: 2em;
             height: auto;
             margin: 0 1em 0 0;
         }
+
+        &:hover {
+            color: black;
+        }
     }
 
     @include medium-screen {
-        img {
+        max-width: 70em;
+        position: relative;
+        margin: 0 auto;
+        width: 90%;
+
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .Welcome-header {
+            margin: 0 0 2em;
+
+            p {
+                font-size: 1.1em;
+            }
+        }
+
+        .Welcome-illustration {
             width: 60%;
+            float: right;
+        }
+
+        .Welcome-connect {
+            float: left;
+
+            width: 35%;
+
+            text-align: left;
+
+            &.pending {
+                text-align: center;
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ recommendations:
             We couldn't guess a good organization for you, but reach out to your
             organization or see if you can find a link to their Zetkin page on their
             website.
-header: Welcome!
-intro:
-    To get the most of Zetkin you need an organization.
+header:
+    h: Welcome!
+    intro:
+        To get the most of Zetkin you need an organization.
