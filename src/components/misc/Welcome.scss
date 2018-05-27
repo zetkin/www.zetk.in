@@ -4,13 +4,66 @@
 
     h1 {
         color: $c-brand-main;
+        margin: 0.5em 0 0;
     }
 
-    img {
-        margin: 2em 0 0;
+    p {
+        font-size: 0.9em;
+    }
+
+    .Welcome-illustration {
+        margin: 0.5em 0 0;
         max-width: 800px;
-        width: 100%;
+        width: 90%;
         height: auto;
+    }
+
+    .Welcome-connect {
+        margin: 1em 0;
+
+        &.pending {
+            p {
+                margin: 0;
+                font-size: 0.8em;
+                font-style: italic;
+            }
+        }
+
+        &.withRecommendations {
+            p {
+                font-size: 0.8em;
+                font-style: italic;
+            }
+        }
+
+        &.noRecommendations {
+            h2 {
+                font-size: 1.4em;
+                margin: 0 0 0.3em;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    .Welcome-orgList {
+        @include list-unstyled;
+    }
+
+    .Welcome-orgItem {
+        list-style-type: none;
+        line-height: 1em;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+            width: 2em;
+            height: auto;
+            margin: 0 1em 0 0;
+        }
     }
 
     @include medium-screen {
