@@ -3,7 +3,6 @@
     text-align: center;
 
     h1 {
-        color: $c-brand-main;
         margin: 0.5em 0 0;
     }
 
@@ -20,6 +19,10 @@
 
     .Welcome-connect {
         margin: 1em 0;
+
+        h2 {
+            font-size: 1.3em;
+        }
 
         &.pending {
             p {
@@ -38,7 +41,6 @@
 
         &.noRecommendations {
             h2 {
-                font-size: 1.4em;
                 margin: 0 0 0.3em;
             }
 
@@ -53,17 +55,26 @@
     }
 
     .Welcome-orgItem {
+        position: relative;
         list-style-type: none;
         display: flex;
         align-items: center;
         cursor: pointer;
 
         margin: 0 0 0.4em;
-        padding: 0.4em 0 0;
+        padding: 0.4em 2em 0 0;
         border-top: 1px solid #eee;
 
         &:first-child {
             border-top-width: 0;
+        }
+
+        &:after {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -0.5em;
+            @include icon($fa-var-chevron-right);
         }
 
         img {
@@ -78,10 +89,20 @@
     }
 
     @include medium-screen {
-        max-width: 70em;
+        color: $c-text-contrast;
         position: relative;
-        margin: 0 auto;
-        width: 90%;
+        padding: 2em 10%;
+        background: linear-gradient(
+            to bottom right,
+            lighten($c-brand-main-pink,20),
+            lighten($c-brand-main-orange,20)
+        );
+
+        h1, h2, p {
+            font-family: azo-sans-web, sans-serif;
+            font-weight: normal;
+            color: inherit;
+        }
 
         &:after {
             content: "";
@@ -90,28 +111,63 @@
         }
 
         .Welcome-header {
-            margin: 0 0 2em;
+            float: left;
+            width: 41%;
+            margin: 0 2%;
+
+            h1 {
+                font-size: 2.6em;
+                margin: 1em 0 0;
+            }
 
             p {
+                margin: 0;
                 font-size: 1.1em;
             }
         }
 
         .Welcome-illustration {
-            width: 60%;
+            width: 50%;
             float: right;
         }
 
         .Welcome-connect {
             float: left;
-
-            width: 35%;
+            margin: 2em 0 0;
+            width: 45%;
 
             text-align: left;
 
-            &.pending {
-                text-align: center;
+            h2 {
+                font-size: 1.4em;
+                margin: 0;
             }
+
+            &.loading, &.withRecommendations, &.noRecommendations {
+                p {
+                    font-size: 0.9em;
+                }
+            }
+
+            .Welcome-orgItem {
+                border-color: rgba(white, 0.15);
+
+                &:hover {
+                    color: lighten($c-brand-main-pink, 40);
+                }
+            }
+        }
+    }
+
+    @include large-screen {
+        padding: 2em 13%;
+
+        .Welcome-header, .Welcome-connect {
+            width: 35%;
+        }
+
+        .Welcome-illustration {
+            width: 60%;
         }
     }
 }

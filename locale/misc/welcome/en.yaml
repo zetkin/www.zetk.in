@@ -1,9 +1,12 @@
 recommendations:
-    intro: |-
-        We found {count, plural, =1 {an organization} other {these organizations}}
-        that you might want to connect to:
+    list:
+        h: Suggested organizations
+        p: |-
+            We found {count, plural, =1 {an organization} other {these organizations}}
+            that you might want to connect to:
     loading:
-        Looking for organizations…
+        h: Suggested organizations
+        p: Looking for organizations…
     none:
         h: What now?
         p: >-

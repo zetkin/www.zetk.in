@@ -43,8 +43,9 @@ export default class Welcome extends React.Component {
             if (recList.get('isPending')) {
                 modClass = 'pending';
                 connectContent = [
+                    <Msg key="h" tagName="h2" id="misc.welcome.recommendations.loading.h" />,
+                    <Msg key="p" tagName="p" id="misc.welcome.recommendations.loading.p" />,
                     <LoadingIndicator key="loadingIndicator"/>,
-                    <Msg key="p" tagName="p" id="misc.welcome.recommendations.loading" />,
                 ];
             }
             else if (recList.get('items').size) {
@@ -67,8 +68,10 @@ export default class Welcome extends React.Component {
 
                 modClass = 'withRecommendations';
                 connectContent = [
-                    <Msg key="p0" tagName="p"
-                        id="misc.welcome.recommendations.intro"
+                    <Msg key="h" tagName="h2"
+                        id="misc.welcome.recommendations.list.h"/>,
+                    <Msg key="p" tagName="p"
+                        id="misc.welcome.recommendations.list.p"
                         values={{ count: orgItems.size }}/>,
                     <ul key="list" className="Welcome-orgList">
                         { orgItems }

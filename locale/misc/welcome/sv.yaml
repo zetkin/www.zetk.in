@@ -1,9 +1,12 @@
 recommendations:
-    intro: |-
-        Vi hittade {count, plural, =1 {en organisation} other {dessa organisationer}}
-        som du skulle kunna vara intresserad av.
+    list:
+        h: Förslag
+        p: |-
+            Vi hittade {count, plural, =1 {en organisation} other {dessa organisationer}}
+            som du skulle kunna vara intresserad av.
     loading:
-        Letar efter organisationer…
+        h: Förslag
+        p: Letar efter organisationer…
     none:
         h: Vad händer nu?
         p: >-
