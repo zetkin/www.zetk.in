@@ -17,6 +17,11 @@ const initialState = immutable.fromJS({
         error: null,
         items: null,
     },
+    recommendedOrgsList: {
+        isPending: true,
+        error: null,
+        itmes: null,
+    },
     membershipList: {
         isPending: false,
         error: null,
@@ -86,5 +91,32 @@ export default createReducer(initialState, {
             .updateIn(['orgList', 'items'], items => items?
                 items.merge(immutable.fromJS(orgs)) :
                 immutable.fromJS(orgs));
-    }
+    },
+
+    [types.RETRIEVE_RECOMMENDED_ORGANIZATIONS + '_PENDING']: (state, action) => {
+        return state
+            .setIn(['recommendedOrgsList', 'error'], null)
+            .setIn(['recommendedOrgsList', 'isPending'], true);
+    },
+
+    [types.RETRIEVE_RECOMMENDED_ORGANIZATIONS + '_REJECTED']: (state, action) => {
+        return state
+            .setIn(['recommendedOrgsList', 'error'], action.payload)
+            .setIn(['recommendedOrgsList', 'isPending'], false);
+    },
+
+    [types.RETRIEVE_RECOMMENDED_ORGANIZATIONS + '_FULFILLED']: (state, action) => {
+        let orgs = {};
+
+        action.payload.data.data.forEach(org => {
+            orgs[org.id] = org;
+        });
+
+        return state
+            .setIn(['recommendedOrgsList', 'error'], null)
+            .setIn(['recommendedOrgsList', 'isPending'], false)
+            .updateIn(['recommendedOrgsList', 'items'], items => items?
+                items.merge(immutable.fromJS(orgs)) :
+                immutable.fromJS(orgs));
+    },
 });

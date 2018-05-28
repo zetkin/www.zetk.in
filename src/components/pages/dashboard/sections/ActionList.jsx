@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 
-import Link from '../../common/misc/FormattedLink';
-import LoadingIndicator from '../../common/misc/LoadingIndicator';
+import Link from '../../../../common/misc/FormattedLink';
+import LoadingIndicator from '../../../../common/misc/LoadingIndicator';
 
 
 export default class ActionList extends React.Component {
@@ -28,14 +28,20 @@ export default class ActionList extends React.Component {
                 && actionList.get('items').size > 0) {
             let moreLink;
             let maxVisible = this.state.maxVisible;
-            let actions = actionList.get('items');
+            let actions = actionList
+                .get('items')
+                .sort((a0, a1) => {
+                    if (a0.get('start_time') > a1.get('start_time')) return 1;
+                    if (a0.get('start_time') < a1.get('start_time')) return -1;
+                    return 0;
+                });
 
             if (maxVisible && actions.size > maxVisible) {
                 let numExtra = actions.size - maxVisible;
                 actions = actions.slice(0, maxVisible);
 
                 moreLink = (
-                    <Link msgId="dashboard.more"
+                    <Link msgId="pages.dashboardPage.section.campaign.bookings.more"
                         msgValues={{ numExtra }}
                         onClick={ this.onClickMore.bind(this) }/>
                 );
@@ -56,7 +62,7 @@ export default class ActionList extends React.Component {
         else {
             return (
                 <div className="ActionList">
-                    <Msg tagName="i" id="dashboard.events.none"/>
+                    <Msg tagName="i" id="pages.dashboardPage.section.campaign.bookings.none"/>
                 </div>
             );
         }

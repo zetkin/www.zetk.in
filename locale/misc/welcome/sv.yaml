@@ -1,0 +1,19 @@
+recommendations:
+    list:
+        h: Förslag
+        p: |-
+            Vi hittade {count, plural, =1 {en organisation} other {dessa organisationer}}
+            som du skulle kunna vara intresserad av.
+    loading:
+        h: Förslag
+        p: Letar efter organisationer…
+    none:
+        h: Vad händer nu?
+        p: >-
+            Vi försökte gissa en organisation som du skulle kunna vara intresserad av,
+            men hittade ingen. Hör av dig till din organisation, eller kolla på deras
+            hemsida efter en länk till deras organisationssida i Zetkin.
+header:
+    h: Välkommen!
+    intro:
+        För att komma igång ordentligt med Zetkin behöver du en organisation.

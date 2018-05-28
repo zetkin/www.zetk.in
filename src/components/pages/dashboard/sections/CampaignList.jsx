@@ -2,8 +2,8 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 import { Link } from 'react-router';
 
-import FormattedLink from '../../common/misc/FormattedLink';
-import LoadingIndicator from '../../common/misc/LoadingIndicator';
+import FormattedLink from '../../../../common/misc/FormattedLink';
+import LoadingIndicator from '../../../../common/misc/LoadingIndicator';
 
 
 
@@ -37,7 +37,8 @@ export default class CampaignList extends React.Component {
                 campaigns = campaigns.slice(0, maxVisible);
 
                 moreLink = (
-                    <FormattedLink msgId="dashboard.more"
+                    <FormattedLink
+                        msgId="pages.dashboardPage.section.campaign.campaigns.more"
                         msgValues={{ numExtra }}
                         onClick={ this.onClickMore.bind(this) }/>
                 );
@@ -58,7 +59,7 @@ export default class CampaignList extends React.Component {
         else {
             return (
                 <div className="CampaignList">
-                    <Msg tagName="i" id="dashboard.campaigns.none"/>
+                    <Msg tagName="i" id="pages.dashboardPage.section.campaign.campaigns.none"/>
                 </div>
             );
         }

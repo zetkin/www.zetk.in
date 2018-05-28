@@ -296,6 +296,12 @@
     align-items: $alignment;
 }
 
+@mixin small-screen {
+  @media (min-width: #{$small-width}) {
+    @content;
+  }
+}
+
 @mixin medium-screen {
   @media (min-width: #{$medium-width}) {
     @content;

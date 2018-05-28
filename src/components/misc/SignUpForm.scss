@@ -1,0 +1,60 @@
+.SignUpForm {
+    @include checkbox-wrapper;
+}
+.SignUpForm-hiddenLabel {
+    color: inherit;
+    display: none;
+    @include target-ie-6-7-8 {
+        display: block;
+        text-align: left;
+    }
+}
+.SignUpForm-textInput {
+    color: inherit;
+    outline: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 1em 0;
+    border: 0;
+    font-size: 1.0em;
+    border-bottom: 1px solid $c-text;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0.5em;
+    
+    @include target-ie-6-7-8 {
+        margin: 0 0 1em;
+    }
+    &:focus {
+        border-color: $c-brand-comp-light;
+    }
+}
+// .SignUpForm-checkboxLabel{
+//     color: inherit;
+//     margin-left: 1.5em;
+//     display: block;
+// }
+// .SignUpForm-checkbox {
+//   float: left;
+//   margin-top: 0.5em;
+// }
+.SignUpForm-privacyLink {
+    display: block;
+    margin: 0.5em 0;
+}
+.SignUpForm-submitButton {
+    @include gradient-button;
+    margin: 1em auto;
+    display: block;
+
+    &:disabled {
+        background: $c-ui-dark;
+    }
+}
+.SignUpForm-error {
+    border: 1px solid $c-brand-delete;
+    border-radius: 0.5em;
+    margin: 1em 0;
+    padding: 0.5em;
+}

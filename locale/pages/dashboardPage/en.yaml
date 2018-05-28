@@ -1,0 +1,70 @@
+greeting:
+    title: Hello {name}!
+    p: >-
+        Welcome to your page. This is where you find ongoing campaigns, your
+        own bookings and assignments, and sign up to new ones.
+    buttonLabel: To sign-up
+menu:
+    campaign:
+        title: Campaign
+        sub: Sign up here
+    calls:
+        title: Call assignments
+        sub: |
+            {count, plural,
+                =0 {You have no assignments}
+                =1 {You have one assignment}
+                other {You have # assignments}
+            }
+    orgs:
+        title: Organizations
+        sub: |
+            {count, plural,
+                =0 {Not connected to an organization}
+                =1 {Connected to {count} organization}
+                other {Connected to # organizations}
+            }
+section:
+    organizations:
+        title: My organizations
+        desc: |
+            In order to take part in your organization's work you have to be
+            connected. These are the organizations you are connected to today.
+        connectedOrgs:
+            title: Connected organizations
+            desc: |
+                {count, plural,
+                    =0 {You are not connected to an organization yet}
+                    =1 {You are connected to {count} organization}
+                    other {You are connected to # organizations}
+                }
+        findOrgs:
+            title: Find your organization
+            desc: Add you organization to your Zetkin account.
+            buttonLabel: Search organization
+    campaign:
+        title: Campaign
+        desc: |
+            Help your organization by taking part in the campaign actions
+            they organize. Find your bookings and sign up here.
+        bookings:
+            more: Show all
+            none: You are not booked on anything yet
+            title: Your upcoming events
+        campaigns:
+            more: Show all
+            none: There are no ongoing campaigns
+            title: Ongoing campaigns
+    call:
+        title: My call assignments
+        desc: |
+            When you are given assignments to take part in phonebanking, you
+            find them here.
+        assignments:
+            title: Ongoing assignments
+            desc: |
+                {count, plural,
+                    =0 {You have no assignments yet}
+                    =1 {You have {count} ongoing assignment}
+                    other {You have # ongoing assignments}
+                }

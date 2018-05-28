@@ -1,0 +1,24 @@
+.OrgSectionPage {
+    &.SectionPage .SectionPage-title h1:before {
+        @include icon($fa-var-certificate);
+        color: $c-brand-main;
+    }
+
+    .OrgSectionPage-connected,
+    .OrgSectionPage-find {
+        @include col(12,12);
+
+        @include medium-screen {
+            @include col(6,12);
+        }
+
+        @include large-screen {
+            @include col(3,12);
+            @include col-offset(1,12);
+        }
+    }
+
+    .Button {
+        @include button();
+    }
+}

@@ -1,0 +1,29 @@
+.DashboardMenu {
+    @include col(12,12);
+    position: relative;
+    margin-top: 1em;
+
+    background-color: white;
+
+    @include large-screen {
+        @include col(9,12);
+        position: absolute;
+        margin-top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .DashboardMenu-items {
+        width: 100%;
+        margin: 0;
+        padding: 1em 0em;
+
+        @include medium-screen {
+            padding: 0em;
+        }
+
+        @include large-screen {
+            padding: 1em;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.SectionPage {
+    font-size: 0.8em;
+
+    @include medium-screen {
+        font-size: 0.9em;
+    }
+
+    .SectionPage-title {
+        @include col(12,12);
+
+        h1 {
+            margin: 0.5em 0;
+        }
+    }
+    .SectionPage-title h1:before {
+        @include icon($fa-var-flag);
+        color: $c-brand-main;
+    }
+
+    .SectionPage-content {
+        @include col(12,12);
+    }
+
+    .SectionPage-desc {
+        @include col(12,12);
+
+        @include medium-screen {
+            @include col(7,12);
+        }
+
+        @include large-screen {
+            @include col(3,12);
+        }
+
+        p {
+            font-size: 1.1em;
+        }
+    }
+
+    .Button {
+        @include button();
+    }
+
+    h3 {
+        margin: 0 0 0.2em 0;
+    }
+    p {
+        margin: 0.5em 0 1em;
+    }
+}

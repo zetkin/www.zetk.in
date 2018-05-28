@@ -2,9 +2,26 @@ environmentWarning:
     message: >-
         This is a development version of Zetkin. You probably want to use the
         live Zetkin at www.zetk.in. Do you want to navigate there?
-welcome:
-    getLink: >-
-        Contact your organization or see if you can find a connection link on
-        their website.
-    header: Welcome to My Page
-    notConnected: You are not connected to any organizations
+cookieNotice:
+    msg: Zetkin uses cookies to enhance your experience and for this website to work.
+    privacyLink:
+        label: Read our privacy policy
+        href: http://zetkin.org/privacy
+signup:
+    done:
+        subtitle: Check your inbox to verify your e-mail address
+        title: 'Welcome, { firstName }!'
+    email: Email
+    error:
+        exists: 'The e-mail address { email } is already registered'
+        invalid: >-
+            Registration failed. Please make sure all fields are filled out
+            correctly.
+    firstName: First Name
+    lastName: Last Name
+    password: Password
+    privacyCheck: I agree to the terms in the Zetkin privacy policy.
+    privacyLink: Read our privacy policy.
+    submitButton: Sign up
+    submitButtonOrg: Sign up and connect
+    title: Sign up

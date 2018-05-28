@@ -1,5 +1,5 @@
 export CampaignPage from './CampaignPage';
-export DashboardPage from './DashboardPage';
+export DashboardPage from './dashboard/DashboardPage';
 export GroupPage from './GroupPage';
 export SettingsPage from './SettingsPage';
 export LandingPage from './landing/LandingPage';
