@@ -48,8 +48,12 @@ section:
             Din organisations olika aktiviteter arrangeras i form av kampanjer.
             Hitta dina egna bokningar och anmäl dig till fler aktioner här.
         bookings:
+            more: Visa alla
+            none: Du är inte bokad på något ännu
             title: Dina bokningar
         campaigns:
+            more: Visa alla
+            none: Dina organisationer har inga kampanjer
             title: Pågående kampanjer
     call:
         title: Mina ringuppdrag
