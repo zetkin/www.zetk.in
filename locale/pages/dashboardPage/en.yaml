@@ -1,7 +1,7 @@
 greeting:
     title: Hello {name}!
     p: >-
-        Welcome to your page. This is where you find on-going campaigns, your
+        Welcome to your page. This is where you find ongoing campaigns, your
         own bookings and assignments, and sign up to new ones.
     buttonLabel: To sign-up
 menu:
@@ -48,8 +48,12 @@ section:
             Help your organization by taking part in the campaign actions
             they organize. Find your bookings and sign up here.
         bookings:
+            more: Show all
+            none: You are not booked on anything yet
             title: Your upcoming events
         campaigns:
+            more: Show all
+            none: There are no ongoing campaigns
             title: Ongoing campaigns
     call:
         title: My call assignments

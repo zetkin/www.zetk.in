@@ -55,9 +55,7 @@ export default class AssignmentList extends React.Component {
         }
         else {
             return (
-                <div className="AssignmentList">
-                    <Msg tagName="i" id="dashboard.assignments.none"/>
-                </div>
+                <div className="AssignmentList"/>
             );
         }
     }

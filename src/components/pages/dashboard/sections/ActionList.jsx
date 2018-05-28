@@ -41,7 +41,7 @@ export default class ActionList extends React.Component {
                 actions = actions.slice(0, maxVisible);
 
                 moreLink = (
-                    <Link msgId="dashboard.more"
+                    <Link msgId="pages.dashboardPage.section.campaign.bookings.more"
                         msgValues={{ numExtra }}
                         onClick={ this.onClickMore.bind(this) }/>
                 );
@@ -62,7 +62,7 @@ export default class ActionList extends React.Component {
         else {
             return (
                 <div className="ActionList">
-                    <Msg tagName="i" id="dashboard.events.none"/>
+                    <Msg tagName="i" id="pages.dashboardPage.section.campaign.bookings.none"/>
                 </div>
             );
         }

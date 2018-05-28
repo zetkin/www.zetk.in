@@ -34,3 +34,14 @@ export function deleteUserMembership(orgId) {
         });
     }
 }
+
+export function retrieveRecommendedOrganizations() {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.RETRIEVE_RECOMMENDED_ORGANIZATIONS,
+            payload: {
+                promise: z.resource('users', 'me', 'recommended_organizations').get()
+            },
+        });
+    };
+}

@@ -6,6 +6,7 @@ import OrgCard from './OrgCard';
 import FormattedLink from '../../../common/misc/FormattedLink';
 import OrgContent from './OrgContent';
 import ConnectLink from './ConnectLink';
+import { retrieveOrganization } from '../../../actions/org';
 
 
 const mapStateToProps = (state, props) => {
@@ -40,6 +41,12 @@ const mapStateToProps = (state, props) => {
 
 @connect(mapStateToProps)
 export default class OrgPage extends React.Component {
+    componentDidMount() {
+        if (!this.props.orgItem) {
+            this.props.dispatch(retrieveOrganization(this.props.params.orgId));
+        }
+    }
+
     render() {
         if (this.props.orgItem) {
             const {user, orgItem, isMember, isAuthenticated} = this.props;

@@ -3,18 +3,170 @@
     text-align: center;
 
     h1 {
-        color: $c-brand-main;
+        margin: 0.5em 0 0;
     }
 
-    img {
-        margin: 2em 0 0;
+    p {
+        font-size: 0.9em;
+    }
+
+    .Welcome-illustration {
+        margin: 0.5em 0 0;
         max-width: 800px;
-        width: 100%;
+        width: 90%;
         height: auto;
     }
 
-    @include medium-screen {
+    .Welcome-connect {
+        margin: 1em 0;
+
+        h2 {
+            font-size: 1.3em;
+        }
+
+        &.pending {
+            p {
+                margin: 0;
+                font-size: 0.8em;
+                font-style: italic;
+            }
+        }
+
+        &.withRecommendations {
+            p {
+                font-size: 0.8em;
+                font-style: italic;
+            }
+        }
+
+        &.noRecommendations {
+            h2 {
+                margin: 0 0 0.3em;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    .Welcome-orgList {
+        @include list-unstyled;
+    }
+
+    .Welcome-orgItem {
+        position: relative;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        margin: 0 0 0.4em;
+        padding: 0.4em 2em 0 0;
+        border-top: 1px solid #eee;
+
+        &:first-child {
+            border-top-width: 0;
+        }
+
+        &:after {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -0.5em;
+            @include icon($fa-var-chevron-right);
+        }
+
         img {
+            width: 2em;
+            height: auto;
+            margin: 0 1em 0 0;
+        }
+
+        &:hover {
+            color: black;
+        }
+    }
+
+    @include medium-screen {
+        color: $c-text-contrast;
+        position: relative;
+        padding: 2em 10%;
+        background: linear-gradient(
+            to bottom right,
+            lighten($c-brand-main-pink,20),
+            lighten($c-brand-main-orange,20)
+        );
+
+        h1, h2, p {
+            font-family: azo-sans-web, sans-serif;
+            font-weight: normal;
+            color: inherit;
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .Welcome-header {
+            float: left;
+            width: 41%;
+            margin: 0 2%;
+
+            h1 {
+                font-size: 2.6em;
+                margin: 1em 0 0;
+            }
+
+            p {
+                margin: 0;
+                font-size: 1.1em;
+            }
+        }
+
+        .Welcome-illustration {
+            width: 50%;
+            float: right;
+        }
+
+        .Welcome-connect {
+            float: left;
+            margin: 2em 0 0;
+            width: 45%;
+
+            text-align: left;
+
+            h2 {
+                font-size: 1.4em;
+                margin: 0;
+            }
+
+            &.loading, &.withRecommendations, &.noRecommendations {
+                p {
+                    font-size: 0.9em;
+                }
+            }
+
+            .Welcome-orgItem {
+                border-color: rgba(white, 0.15);
+
+                &:hover {
+                    color: lighten($c-brand-main-pink, 40);
+                }
+            }
+        }
+    }
+
+    @include large-screen {
+        padding: 2em 13%;
+
+        .Welcome-header, .Welcome-connect {
+            width: 35%;
+        }
+
+        .Welcome-illustration {
             width: 60%;
         }
     }

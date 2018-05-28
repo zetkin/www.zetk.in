@@ -25,9 +25,3 @@ signup:
     submitButton: Registrera
     submitButtonOrg: Registrera och anslut
     title: Registrera
-welcome:
-    getLink: >-
-        Kontakta din organisation eller se om du hittar en anslutningslänk på
-        deras hemsida.
-    header: Välkommen till Min sida
-    notConnected: Du är inte ansluten till någon organisation.
