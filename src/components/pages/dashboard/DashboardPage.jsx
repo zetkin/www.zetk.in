@@ -9,6 +9,7 @@ import Welcome from '../../misc/Welcome';
 import OrgSectionPage from './sections/OrgSectionPage';
 import CallSectionPage from './sections/CallSectionPage';
 import CampaignSectionPage from './sections/CampaignSectionPage';
+import { retrieveUserAssignments } from '../../../actions/callAssignment';
 import {
     retrieveAllActions,
     updateActionResponse,
@@ -30,6 +31,7 @@ export default class DashboardPage extends React.Component {
     componentDidMount() {
         this.props.dispatch(retrieveAllActions());
         this.props.dispatch(retrieveUserResponses());
+        this.props.dispatch(retrieveUserAssignments());
     }
 
     render() {
