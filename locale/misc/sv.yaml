@@ -21,7 +21,7 @@ signup:
     lastName: Efternamn
     password: Lösenord
     privacyCheck: Jag godkänner Zetkins integritetspolicy.
-    privacyLink: Lär vår integritetspolicy.
+    privacyLink: Läs vår integritetspolicy.
     submitButton: Registrera
     submitButtonOrg: Registrera och anslut
     title: Registrera
