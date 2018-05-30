@@ -38,10 +38,10 @@ if (SENTRY_DSN) {
 
 
 const authOpts = {
-    loginUrl: process.env.ZETKIN_LOGIN_URL,
+    zetkinDomain: process.env.ZETKIN_DOMAIN,
     app: {
         id: process.env.ZETKIN_APP_ID,
-        key: process.env.ZETKIN_APP_KEY,
+        secret: process.env.ZETKIN_APP_KEY,
     }
 };
 
@@ -74,7 +74,6 @@ export default function initApp(messages) {
     app.use(cookieParser());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(auth.initialize(authOpts));
-    app.get('/', auth.callback(authOpts));
     app.get('/logout', auth.logout(authOpts));
 
     app.get('/l10n', loadLocaleHandler());
