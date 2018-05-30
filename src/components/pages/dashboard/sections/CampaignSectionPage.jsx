@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { FormattedMessage as Msg } from 'react-intl';
 
 import { retrieveAllCampaigns } from '../../../../actions/campaign';
-import { retrieveUserActions } from '../../../../actions/action';
+import {
+    retrieveUserActions,
+    updateActionResponse,
+} from '../../../../actions/action';
 
 import SectionPage from './SectionPage';
 
