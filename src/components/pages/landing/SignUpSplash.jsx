@@ -28,7 +28,7 @@ export default class SignUpSplash extends React.Component {
             let userId = this.props.user.getIn(['data', 'id']);
             let avatarDomain = '//api.' + domain;
             let logoutUrl = '//www.' + domain + '/logout';
-            let avatarSrc = avatarDomain + '/v1/users/' + userId + '/avatar';
+            let avatarSrc = avatarDomain + '/users/' + userId + '/avatar';
             let avatarStyle = {backgroundImage: 'url("' + avatarSrc + '")'}
 
             // Trying to register while already logged in

@@ -25,9 +25,8 @@ export default class Header extends React.Component {
         const redirPath = (this.props.currentPath == '/')?
             '/dashboard' : this.props.currentPath;
 
-        const loginUrl = '//login.' + process.env.ZETKIN_DOMAIN
-            + '/login?redirPath=' + redirPath
-            + '&appId=' + process.env.ZETKIN_APP_ID;
+        const loginUrl = '//www.' + process.env.ZETKIN_DOMAIN
+            + '/dashboard';
 
         let userWidget;
         let organizeLink;
