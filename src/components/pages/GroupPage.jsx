@@ -37,7 +37,7 @@ export default class GroupPage extends React.Component {
     componentDidMount() {
         let orgId = this.props.params.orgId;
         let groupId = this.props.params.groupId;
-        
+
         if (!this.props.group) {
             this.props.dispatch(retrieveGroup(orgId, groupId));
             this.props.dispatch(retrieveGroupMembers(orgId, groupId));
