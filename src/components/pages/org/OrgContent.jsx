@@ -61,7 +61,7 @@ export default class OrgContent extends React.Component {
                 );
                 content.push(
                     <div className="OrgContent-column" key="signup">
-                        <SignUpForm orgId={ orgItem.get('id') }/>
+                        <SignUpForm orgItem={ orgItem }/>
                     </div>
                 );
         }

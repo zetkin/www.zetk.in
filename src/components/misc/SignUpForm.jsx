@@ -1,6 +1,7 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
+import ImPropTypes from 'react-immutable-proptypes';
 
 import { register } from '../../actions/register';
 
@@ -14,7 +15,7 @@ const mapStateToProps = state => ({
 @injectIntl
 export default class SignUpForm extends React.Component {
     static propTypes = {
-        orgId: React.PropTypes.number
+        orgItem: ImPropTypes.map
     };
 
     constructor() {
@@ -26,14 +27,14 @@ export default class SignUpForm extends React.Component {
     
     onSubmit(ev){
         ev.preventDefault();
-        console.log('submit');
+        let orgId = this.props.org ? this.props.org.get("id") : null;
 
         this.props.dispatch(register(
             ev.target.fn.value,
             ev.target.ln.value,
             ev.target.email.value,
             ev.target.password.value,
-            this.props.orgId,
+            orgId,
         ));
     }
 
@@ -53,10 +54,12 @@ export default class SignUpForm extends React.Component {
     }
 
     renderForm(intl, register, msg){
+        const { orgItem } = this.props;
         const { privacyChecked } = this.state;
         const error = register.get('error');
         let errorEl;
-        const buttonLabel = this.props.orgId ? msg('submitButtonOrg') : msg('submitButton');
+        const buttonLabel = orgItem ? msg('submitButtonOrg') : msg('submitButton');
+        const privacyLabel = orgItem  ? msg('privacyCheckOrg', {org: orgItem.get("title")}) : msg('privacyCheck');
         let submitButton = (
             <input className="SignUpForm-submitButton"
                 type="submit"
@@ -113,8 +116,8 @@ export default class SignUpForm extends React.Component {
                     name="privacy"
                     checked={privacyChecked}
                     onChange={this.togglePrivacyCheck.bind(this)}/>
-                <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ msg('privacyCheck') }</label>
-                <a className="SignUpForm-privacyLink" href="http://zetkin.org/privacy">{ msg('privacyLink') }</a>
+                <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ privacyLabel }</label>
+                <a className="SignUpForm-privacyLink" href={ msg('privacyLink.href') }>{ msg('privacyLink.title') }</a>
 
                 { submitButton }
             </form>
