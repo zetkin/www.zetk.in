@@ -37,7 +37,7 @@ export default class GroupPage extends React.Component {
     componentDidMount() {
         let orgId = this.props.params.orgId;
         let groupId = this.props.params.groupId;
-
+        
         if (!this.props.group) {
             this.props.dispatch(retrieveGroup(orgId, groupId));
             this.props.dispatch(retrieveGroupMembers(orgId, groupId));
@@ -130,9 +130,9 @@ export default class GroupPage extends React.Component {
                     return (
                         <li key={ item.get('id') } className={ classes }>
                             <span title={ roleLabel }></span>
-                            <span>{ name }</span>
-                            <span>{ email }</span>
-                            <span>{ item.get('phone') }</span>
+                            <span title={ name }>{ name }</span>
+                            <span title={ item.get('email') }>{ email }</span>
+                            <span title={ item.get('phone') }>{ item.get('phone') }</span>
                         </li>
                     );
                 });
