@@ -84,14 +84,16 @@ export default class GroupPage extends React.Component {
                             return true;
                         }
 
-                        if (item.get('email').toLowerCase().indexOf(filter) >= 0) {
+                        if (item.get('email') && item.get('email').toLowerCase().indexOf(filter) >= 0) {
                             return true;
                         }
 
-                        const phone = item.get('phone').replace(/\D/, '');
+                        if (item.get('phone')) {
+                            const phone = item.get('phone').replace(/\D/, '');
 
-                        if (phone.indexOf(filter) >= 0) {
-                            return true;
+                            if (phone.indexOf(filter) >= 0) {
+                                return true;
+                            }
                         }
 
                         return false;
@@ -130,9 +132,9 @@ export default class GroupPage extends React.Component {
                     return (
                         <li key={ item.get('id') } className={ classes }>
                             <span title={ roleLabel }></span>
-                            <span>{ name }</span>
-                            <span>{ email }</span>
-                            <span>{ item.get('phone') }</span>
+                            <span title={ name }>{ name }</span>
+                            <span title={ item.get('email') }>{ email }</span>
+                            <span title={ item.get('phone') }>{ item.get('phone') }</span>
                         </li>
                     );
                 });
