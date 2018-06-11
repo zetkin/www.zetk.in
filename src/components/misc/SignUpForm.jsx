@@ -27,7 +27,7 @@ export default class SignUpForm extends React.Component {
     
     onSubmit(ev){
         ev.preventDefault();
-        let orgId = this.props.org ? this.props.org.get("id") : null;
+        let orgId = this.props.orgItem ? this.props.orgItem.get("id") : null;
 
         this.props.dispatch(register(
             ev.target.fn.value,
