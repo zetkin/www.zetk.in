@@ -8,7 +8,10 @@ action:
             =5 {In five locations}
             other {In # locations}
         }
-    yesLabel: Sign up
+    button:
+        signUp: Sign up
+        undoSignUp: Undo Sign up
+    infoButton: Read more
 calendar:
     weekDays:
         friday: F
