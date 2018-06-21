@@ -58,13 +58,6 @@ section:
         tabs:
             planned: Planned actions
             signedUp: Your upcoming actions
-        message:
-            signedUp:
-                title: Your upcoming actions
-                p: |
-                    These are the actions you are expected to attend to.
-                    If are booked to one and need to cancel, you should
-                    contact your organization.
     call:
         title: My call assignments
         desc: |

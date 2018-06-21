@@ -12,6 +12,7 @@ action:
         signUp: Sign up
         undoSignUp: Undo Sign up
     infoButton: Read more
+    currentNeed: Require more participants
 calendar:
     weekDays:
         friday: F
@@ -22,6 +23,15 @@ calendar:
         tuesday: T
         wednesday: W
 filter:
+    showNeed:
+        p: |
+            There {count, plural,
+                =1 {is currently one action}
+                other  {are currently # actions}
+            } in need of more participants
+        button:
+            show: Show
+            hide: Show all again
     activities:
         h: |
             {count, plural,
@@ -45,3 +55,18 @@ filter:
                 other {Filtering by # locations}
             }
 submitLabel: Save responses and sign up
+message:
+    signedUp:
+        title: Your upcoming actions
+        p: |
+            These are the actions you are expected to attend to.
+            If are booked to one and need to cancel, you should
+            contact your organization.
+    showNeed:
+        title: Where more participants is needed
+        p: |
+            You are now only viewing the {count, plural,
+                =1 {one action}
+                other {# actions}
+            } where more participants are needed. If you don't find something
+            that works for you, you can still go back and join something else.

@@ -56,9 +56,13 @@ export default class CampaignSectionPage extends SectionPage {
         let scopedActionList = this.props.actionList;
         let message = null;
 
+        let showNeedFilter = true;
+
         if (selectedTab !== 'planned') {
             let userActionList = this.props.userActionList;
             let responseList = this.props.responseList;
+
+            showNeedFilter = false;
 
             scopedActionList = scopedActionList
                 .updateIn(['items'], items => items
@@ -71,11 +75,9 @@ export default class CampaignSectionPage extends SectionPage {
             message = (
             <div className="CampaignMessage">
                 <h2 className="CampaignMessage-title signed">
-                <Msg
-                id="pages.dashboardPage.section.campaign.message.signedUp.title"
+                <Msg id="campaignForm.message.signedUp.title"
                 /></h2>
-                <Msg tagName="p"
-                id="pages.dashboardPage.section.campaign.message.signedUp.p"
+                <Msg tagName="p" id="campaignForm.message.signedUp.p"
                 />
             </div>
             );
@@ -106,6 +108,7 @@ export default class CampaignSectionPage extends SectionPage {
                 responseList={ this.props.responseList }
                 userActionList={ this.props.userActionList }
                 onResponse={ this.onResponse.bind(this) }
+                needFilterEnabled={ showNeedFilter }
                 message={ message }/>
         ];
     }
