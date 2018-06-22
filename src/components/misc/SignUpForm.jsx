@@ -21,26 +21,14 @@ export default class SignUpForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            privacyChecked: false
+            privacyChecked: true
         }
     }
-    
-    onSubmit(ev){
-        ev.preventDefault();
-        let orgId = this.props.orgItem ? this.props.orgItem.get("id") : null;
 
-        this.props.dispatch(register(
-            ev.target.fn.value,
-            ev.target.ln.value,
-            ev.target.email.value,
-            ev.target.phone.value,
-            ev.target.password.value,
-            orgId,
-        ));
-    }
-
-    togglePrivacyCheck() {
-        this.setState({privacyChecked: !this.state.privacyChecked})
+    componentDidMount() {
+        this.setState({
+            privacyChecked: false,
+        });
     }
 
     renderComplete(intl, register, msg){
@@ -75,7 +63,10 @@ export default class SignUpForm extends React.Component {
         if (error) {
             let errorMessage
 
-            if (error.httpStatus == 409) {
+            if (error == 'privacy') {
+                errorMessage = msg('error.privacy');
+            }
+            else if (error.httpStatus == 409) {
                 const values = register.get('data').toJS();
                 errorMessage = msg('error.exists', values);
             }
@@ -118,8 +109,9 @@ export default class SignUpForm extends React.Component {
                     type="checkbox"
                     id="privacy"
                     name="privacy"
-                    checked={privacyChecked}
-                    onChange={this.togglePrivacyCheck.bind(this)}/>
+                    onChange={ this.onPrivacyChange.bind(this) }
+                    />
+
                 <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ privacyLabel }</label>
                 <a className="SignUpForm-privacyLink" href={ msg('privacyLink.href') }>{ msg('privacyLink.title') }</a>
 
@@ -137,5 +129,25 @@ export default class SignUpForm extends React.Component {
             return this.renderComplete(intl, register, msg);
         }
         return this.renderForm(intl, register, msg);
+    }
+
+    onPrivacyChange(ev) {
+        this.setState({
+            privacyChecked: ev.target.checked,
+        })
+    }
+
+    onSubmit(ev){
+        ev.preventDefault();
+        let orgId = this.props.orgItem ? this.props.orgItem.get("id") : null;
+
+        this.props.dispatch(register(
+            ev.target.fn.value,
+            ev.target.ln.value,
+            ev.target.email.value,
+            ev.target.phone.value,
+            ev.target.password.value,
+            orgId,
+        ));
     }
 }

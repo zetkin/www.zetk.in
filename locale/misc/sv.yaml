@@ -17,6 +17,8 @@ signup:
         invalid: >-
             Registreringen misslyckades. Kontrollera att alla fält är korrekt
             ifyllda.
+        privacy: >-
+            Du måste godkänna vår integritetspolicy för att registrera dig
     firstName: Förnamn
     lastName: Efternamn
     password: Lösenord

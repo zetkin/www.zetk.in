@@ -17,6 +17,8 @@ signup:
         invalid: >-
             Registration failed. Please make sure all fields are filled out
             correctly.
+        privacy: >-
+            You must approve our privacy policy to register
     firstName: First Name
     lastName: Last Name
     password: Password
