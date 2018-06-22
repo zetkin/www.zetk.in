@@ -9,6 +9,7 @@ export default (req, res, next) => {
         first_name: form.fn,
         last_name: form.ln,
         email: form.email,
+        phone: form.phone,
         password: form.password,
     };
 

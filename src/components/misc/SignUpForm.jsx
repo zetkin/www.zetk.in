@@ -33,6 +33,7 @@ export default class SignUpForm extends React.Component {
             ev.target.fn.value,
             ev.target.ln.value,
             ev.target.email.value,
+            ev.target.phone.value,
             ev.target.password.value,
             orgId,
         ));
@@ -102,6 +103,9 @@ export default class SignUpForm extends React.Component {
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="email">{ msg('email') }</label>
                 <input className="SignUpForm-textInput" name="email" placeholder={ msg('email') }/>
+
+                <label className="SignUpForm-hiddenLabel" htmlFor="phone">{ msg('phone') }</label>
+                <input className="SignUpForm-textInput" name="phone" placeholder={ msg('phone') }/>
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="password">{ msg('password') }</label>
                 <input className="SignUpForm-textInput"

@@ -20,6 +20,7 @@ signup:
     firstName: First Name
     lastName: Last Name
     password: Password
+    phone: Phone number
     privacyCheck: I approve that my information is processed in order to maintain a user acount for Zetkin.
     privacyCheckOrg: I approve that my information is processed in order to maintain a user acount for Zetkin and {org}.
     privacyLink:

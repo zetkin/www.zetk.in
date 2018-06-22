@@ -20,6 +20,7 @@ signup:
     firstName: Förnamn
     lastName: Efternamn
     password: Lösenord
+    phone: Telefonnummer
     privacyCheck: Jag kodkänner att mina personuppgifter används för att skapa ett konto på Zetkin.
     privacyCheckOrg: Jag kodkänner att mina personuppgifter används för att skapa ett konto på Zetkin och delas med {org}.
     privacyLink:
