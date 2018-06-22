@@ -18,11 +18,16 @@ export default class SignUpForm extends React.Component {
         orgItem: ImPropTypes.map
     };
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
         this.state = {
+            firstName: props.register.getIn(['errorMeta', 'firstName']) || '',
+            lastName: props.register.getIn(['errorMeta', 'lastName']) || '',
+            email: props.register.getIn(['errorMeta', 'email']) || '',
+            phone: props.register.getIn(['errorMeta', 'phone']) || '',
             privacyChecked: true
-        }
+        };
     }
 
     componentDidMount() {
@@ -66,11 +71,11 @@ export default class SignUpForm extends React.Component {
             if (error == 'privacy') {
                 errorMessage = msg('error.privacy');
             }
-            else if (error.httpStatus == 409) {
+            else if (error.get('httpStatus') == 409) {
                 const values = register.get('data').toJS();
                 errorMessage = msg('error.exists', values);
             }
-            else if (error.httpStatus == 400) {
+            else if (error.get('httpStatus') == 400) {
                 errorMessage = msg('error.invalid')
             }
 
@@ -80,6 +85,7 @@ export default class SignUpForm extends React.Component {
                 </div>
             );
         }
+
         return (
             <form method="post"
                 className="SignUpForm"
@@ -87,16 +93,24 @@ export default class SignUpForm extends React.Component {
                 <h2 className="SignUpForm-title">{ msg('title') }</h2>
                 { errorEl }
                 <label className="SignUpForm-hiddenLabel" htmlFor="fn">{ msg('firstName') }</label>
-                <input className="SignUpForm-textInput" name="fn" placeholder={ msg('firstName') }/>
+                <input className="SignUpForm-textInput" name="fn"
+                    defaultValue={ this.state.firstName }
+                    placeholder={ msg('firstName') }/>
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="ln">{ msg('lastName') }</label>
-                <input className="SignUpForm-textInput" name="ln" placeholder={ msg('lastName') }/>
+                <input className="SignUpForm-textInput" name="ln"
+                    defaultValue={ this.state.lastName }
+                    placeholder={ msg('lastName') }/>
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="email">{ msg('email') }</label>
-                <input className="SignUpForm-textInput" name="email" placeholder={ msg('email') }/>
+                <input className="SignUpForm-textInput" name="email"
+                    defaultValue={ this.state.email }
+                    placeholder={ msg('email') }/>
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="phone">{ msg('phone') }</label>
-                <input className="SignUpForm-textInput" name="phone" placeholder={ msg('phone') }/>
+                <input className="SignUpForm-textInput" name="phone"
+                    defaultValue={ this.state.phone }
+                    placeholder={ msg('phone') }/>
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="password">{ msg('password') }</label>
                 <input className="SignUpForm-textInput"
