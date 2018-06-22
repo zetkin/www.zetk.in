@@ -3,7 +3,7 @@ import * as types from '.';
 import cookies from 'browser-cookies';
 
 
-export function register(firstName, lastName, email, password, orgId) {
+export function register(firstName, lastName, email, phone, password, orgId) {
     if (orgId) {
         let orgsToConnect;
 
@@ -33,6 +33,7 @@ export function register(firstName, lastName, email, password, orgId) {
                     first_name: firstName,
                     last_name: lastName,
                     email: email,
+                    phone: phone,
                     password: password,
                 })
             }

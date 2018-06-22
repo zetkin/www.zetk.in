@@ -145,6 +145,7 @@ export default function initApp(messages) {
     app.post('/lost-password', formEndpoints.lostPassword);
     app.post('/reset-password', formEndpoints.resetPassword);
     app.post('/register', formEndpoints.register);
+    app.post('/o/:orgId', formEndpoints.register);
 
     // TODO: Better way of handling 404s
     app.use('/o/:org_id/campaigns/:campaign_id', (req, res, next) => {

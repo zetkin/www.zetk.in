@@ -45,7 +45,7 @@ export default (messages) => {
         retrieveUserResponses(),
     ]));
 
-    preloader.get('/o/:orgId', waitForActions(req => [
+    preloader.all('/o/:orgId', waitForActions(req => [
         retrieveOrganization(req.params.orgId),
     ]));
 

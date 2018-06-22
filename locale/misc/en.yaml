@@ -17,9 +17,12 @@ signup:
         invalid: >-
             Registration failed. Please make sure all fields are filled out
             correctly.
+        privacy: >-
+            You must approve our privacy policy to register
     firstName: First Name
     lastName: Last Name
     password: Password
+    phone: Phone number
     privacyCheck: I approve that my information is processed in order to maintain a user acount for Zetkin.
     privacyCheckOrg: I approve that my information is processed in order to maintain a user acount for Zetkin and {org}.
     privacyLink:
