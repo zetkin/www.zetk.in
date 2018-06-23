@@ -56,8 +56,8 @@ section:
             none: There are no ongoing campaigns
             title: Ongoing campaigns
         tabs:
-            planned: Planned actions
-            signedUp: Your upcoming actions
+            planned: All actions
+            signedUp: My actions
     call:
         title: My call assignments
         desc: |
