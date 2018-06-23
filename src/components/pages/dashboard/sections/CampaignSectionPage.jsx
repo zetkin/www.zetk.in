@@ -73,8 +73,8 @@ export default class CampaignSectionPage extends SectionPage {
                     }));
 
             message = (
-            <div className="CampaignMessage">
-                <h2 className="CampaignMessage-title signed">
+            <div className="CampaignForm-message">
+                <h2 className="CampaignForm-messageTitle signed">
                     <Msg id="campaignForm.message.yourActions.title"/>
                 </h2>
                 <Msg tagName="p" id="campaignForm.message.yourActions.p"
