@@ -47,14 +47,17 @@ section:
         desc: |
             Help your organization by taking part in the campaign actions
             they organize. Find your bookings and sign up here.
-        bookings:
-            more: Show all
-            none: You are not booked on anything yet
-            title: Your upcoming events
+        guide:
+            p: |
+                Do you want to find actions to sign up for or look up what
+                you are expected to do?
         campaigns:
             more: Show all
             none: There are no ongoing campaigns
             title: Ongoing campaigns
+        tabs:
+            planned: All actions
+            signedUp: My actions
     call:
         title: My call assignments
         desc: |
