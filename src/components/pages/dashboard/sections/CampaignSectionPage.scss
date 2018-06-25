@@ -3,17 +3,12 @@
         @include icon($fa-var-flag);
     }
 
-    .CampaignSectionPage-bookings,
+    .CampaignSectionPage-guide,
     .CampaignSectionPage-campaigns {
         @include col(12,12);
 
         @include medium-screen {
             @include col(6,12);
-        }
-
-        @include large-screen {
-            @include col(3,12);
-            @include col-offset(1,12);
         }
 
         ul {
@@ -22,6 +17,151 @@
             li {
                 list-style: none;
                 padding: 0.3em 0;
+            }
+        }
+    }
+
+    .CampaignSectionPage-guide {
+        font-size: 1.1em;
+        position: relative;
+        margin-top: 0.5em;
+        margin-bottom: 2em;
+        color: lighten($c-text, 20);
+
+        @include large-screen {
+            @include col(4,12);
+            @include col-offset(1,12);
+        }
+
+        &:before {
+            @include icon($fa-var-eye);
+            display: inline-block;
+            font-size: 2.5em;
+            width: 20%;
+            margin: 0;
+            color: $c-brand-main;
+            vertical-align: middle;
+
+            @include large-screen {
+
+            }
+        }
+
+        &:after {
+            @include icon($fa-var-caret-down);
+            position: absolute;
+            font-size: 2em;
+            left: 0;
+            right: 0;
+            bottom: -1.1em;
+            width: 100%;
+            color: darken(white, 20);
+        }
+
+        p {
+            display: inline-block;
+            width: 80%;
+            margin: 0;
+            padding-left: 0.5em;
+            vertical-align: middle;
+        }
+    }
+
+    .CampaignSectionPage-campaigns {
+        @include large-screen {
+            @include col(3,12);
+            @include col-offset(1,12);
+        }
+    }
+
+    .CampaignTabs {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid darken(white, 10);
+
+        ul {
+            padding: 0;
+            margin: 0;
+
+            li {
+                position: relative;
+                display: inline-block;
+                font-size: 0.9em;
+                list-style: none;
+                width: 49%;
+                margin: 0;
+                padding: 0.5em 0;
+                vertical-align: bottom;
+                border: 1px solid darken(white, 10);
+                border-bottom: none;
+                border-radius: 4px 4px 0 0;
+                background-color: darken(white, 5);
+                cursor: pointer;
+
+                &:first-child {
+                    margin-right: 1%;
+                }
+
+                @include large-screen {
+                    font-size: 1em;
+                    margin: 0 1em;
+                    padding: 1em 2em;
+                    width: auto;
+
+                    &:first-child {
+                        margin-right: inherit;
+                    }
+                }
+
+                &.CampaignTabs-planned {
+                    &:before {
+                        @include icon($fa-var-calendar);
+                    }
+                }
+
+                &.CampaignTabs-signed {
+                    &:before {
+                        @include icon($fa-var-calendar-check-o);
+                    }
+                }
+
+                &.CampaignTabs-planned:before,
+                &.CampaignTabs-signed:before {
+                    display: block;
+                    font-size: 1.5em;
+                    margin: auto;
+                    color: $c-brand-main;
+
+                    @include large-screen {
+                        display: inherit;
+                        margin: 0;
+                        margin-right: 0.2em;
+                    }
+                }
+
+                &:hover {
+                    background-color: darken(white, 4);
+                }
+
+                &.active {
+                    background-color: white;
+                    padding: 0.7em 0;
+
+                    @include large-screen {
+                        padding: 1.2em 2.2em;
+                    }
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        left: 0;
+                        right: 0;
+                        bottom: -1px;
+                        height: 2px;
+                        background-color: white;
+                    }
+                }
             }
         }
     }

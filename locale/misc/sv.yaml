@@ -17,11 +17,17 @@ signup:
         invalid: >-
             Registreringen misslyckades. Kontrollera att alla fält är korrekt
             ifyllda.
+        privacy: >-
+            Du måste godkänna vår integritetspolicy för att registrera dig
     firstName: Förnamn
     lastName: Efternamn
     password: Lösenord
-    privacyCheck: Jag godkänner Zetkins integritetspolicy.
-    privacyLink: Läs vår integritetspolicy.
+    phone: Telefonnummer
+    privacyCheck: Jag kodkänner att mina personuppgifter används för att skapa ett konto på Zetkin.
+    privacyCheckOrg: Jag kodkänner att mina personuppgifter används för att skapa ett konto på Zetkin och delas med {org}.
+    privacyLink:
+        href: http://www.zetkin.org/sv/sekretess
+        title: Läs vår integritetspolicy.
     submitButton: Registrera
     submitButtonOrg: Registrera och anslut
     title: Registrera

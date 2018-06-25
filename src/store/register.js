@@ -16,13 +16,15 @@ export default createReducer(initialState, {
         return state
             .set('data', immutable.fromJS(action.meta))
             .set('error', null)
+            .set('errorMeta', null)
             .set('isPending', true);
     },
 
     [types.REGISTER + '_REJECTED']: (state, action) => {
         return state
             .set('isPending', false)
-            .set('error', action.payload);
+            .set('errorMeta', immutable.fromJS(action.meta))
+            .set('error', immutable.fromJS(action.payload));
     },
 
     [types.REGISTER + '_FULFILLED']: (state, action) => {

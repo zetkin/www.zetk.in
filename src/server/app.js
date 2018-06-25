@@ -38,10 +38,13 @@ if (SENTRY_DSN) {
 
 
 const authOpts = {
-    loginUrl: process.env.ZETKIN_LOGIN_URL,
+    secret: process.env.TOKEN_SECRET,
+    ssl: (process.env.ZETKIN_USE_TLS == '1')
+        && (process.env.NODE_ENV == 'production'),
+    zetkinDomain: process.env.ZETKIN_DOMAIN,
     app: {
         id: process.env.ZETKIN_APP_ID,
-        key: process.env.ZETKIN_APP_KEY,
+        secret: process.env.ZETKIN_APP_KEY,
     }
 };
 
@@ -74,7 +77,6 @@ export default function initApp(messages) {
     app.use(cookieParser());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(auth.initialize(authOpts));
-    app.get('/', auth.callback(authOpts));
     app.get('/logout', auth.logout(authOpts));
 
     app.get('/l10n', loadLocaleHandler());
@@ -143,6 +145,7 @@ export default function initApp(messages) {
     app.post('/lost-password', formEndpoints.lostPassword);
     app.post('/reset-password', formEndpoints.resetPassword);
     app.post('/register', formEndpoints.register);
+    app.post('/o/:orgId', formEndpoints.register);
 
     // TODO: Better way of handling 404s
     app.use('/o/:org_id/campaigns/:campaign_id', (req, res, next) => {

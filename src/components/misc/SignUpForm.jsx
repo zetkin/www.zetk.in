@@ -1,6 +1,7 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
+import ImPropTypes from 'react-immutable-proptypes';
 
 import { register } from '../../actions/register';
 
@@ -14,31 +15,25 @@ const mapStateToProps = state => ({
 @injectIntl
 export default class SignUpForm extends React.Component {
     static propTypes = {
-        orgId: React.PropTypes.number
+        orgItem: ImPropTypes.map
     };
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
         this.state = {
-            privacyChecked: false
-        }
-    }
-    
-    onSubmit(ev){
-        ev.preventDefault();
-        console.log('submit');
-
-        this.props.dispatch(register(
-            ev.target.fn.value,
-            ev.target.ln.value,
-            ev.target.email.value,
-            ev.target.password.value,
-            this.props.orgId,
-        ));
+            firstName: props.register.getIn(['errorMeta', 'firstName']) || '',
+            lastName: props.register.getIn(['errorMeta', 'lastName']) || '',
+            email: props.register.getIn(['errorMeta', 'email']) || '',
+            phone: props.register.getIn(['errorMeta', 'phone']) || '',
+            privacyChecked: true
+        };
     }
 
-    togglePrivacyCheck() {
-        this.setState({privacyChecked: !this.state.privacyChecked})
+    componentDidMount() {
+        this.setState({
+            privacyChecked: false,
+        });
     }
 
     renderComplete(intl, register, msg){
@@ -53,10 +48,12 @@ export default class SignUpForm extends React.Component {
     }
 
     renderForm(intl, register, msg){
+        const { orgItem } = this.props;
         const { privacyChecked } = this.state;
         const error = register.get('error');
         let errorEl;
-        const buttonLabel = this.props.orgId ? msg('submitButtonOrg') : msg('submitButton');
+        const buttonLabel = orgItem ? msg('submitButtonOrg') : msg('submitButton');
+        const privacyLabel = orgItem  ? msg('privacyCheckOrg', {org: orgItem.get("title")}) : msg('privacyCheck');
         let submitButton = (
             <input className="SignUpForm-submitButton"
                 type="submit"
@@ -71,11 +68,14 @@ export default class SignUpForm extends React.Component {
         if (error) {
             let errorMessage
 
-            if (error.httpStatus == 409) {
+            if (error == 'privacy') {
+                errorMessage = msg('error.privacy');
+            }
+            else if (error.get('httpStatus') == 409) {
                 const values = register.get('data').toJS();
                 errorMessage = msg('error.exists', values);
             }
-            else if (error.httpStatus == 400) {
+            else if (error.get('httpStatus') == 400) {
                 errorMessage = msg('error.invalid')
             }
 
@@ -85,6 +85,7 @@ export default class SignUpForm extends React.Component {
                 </div>
             );
         }
+
         return (
             <form method="post"
                 className="SignUpForm"
@@ -92,13 +93,24 @@ export default class SignUpForm extends React.Component {
                 <h2 className="SignUpForm-title">{ msg('title') }</h2>
                 { errorEl }
                 <label className="SignUpForm-hiddenLabel" htmlFor="fn">{ msg('firstName') }</label>
-                <input className="SignUpForm-textInput" name="fn" placeholder={ msg('firstName') }/>
+                <input className="SignUpForm-textInput" name="fn"
+                    defaultValue={ this.state.firstName }
+                    placeholder={ msg('firstName') }/>
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="ln">{ msg('lastName') }</label>
-                <input className="SignUpForm-textInput" name="ln" placeholder={ msg('lastName') }/>
+                <input className="SignUpForm-textInput" name="ln"
+                    defaultValue={ this.state.lastName }
+                    placeholder={ msg('lastName') }/>
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="email">{ msg('email') }</label>
-                <input className="SignUpForm-textInput" name="email" placeholder={ msg('email') }/>
+                <input className="SignUpForm-textInput" name="email"
+                    defaultValue={ this.state.email }
+                    placeholder={ msg('email') }/>
+
+                <label className="SignUpForm-hiddenLabel" htmlFor="phone">{ msg('phone') }</label>
+                <input className="SignUpForm-textInput" name="phone"
+                    defaultValue={ this.state.phone }
+                    placeholder={ msg('phone') }/>
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="password">{ msg('password') }</label>
                 <input className="SignUpForm-textInput"
@@ -111,10 +123,11 @@ export default class SignUpForm extends React.Component {
                     type="checkbox"
                     id="privacy"
                     name="privacy"
-                    checked={privacyChecked}
-                    onChange={this.togglePrivacyCheck.bind(this)}/>
-                <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ msg('privacyCheck') }</label>
-                <a className="SignUpForm-privacyLink" href="http://zetkin.org/privacy">{ msg('privacyLink') }</a>
+                    onChange={ this.onPrivacyChange.bind(this) }
+                    />
+
+                <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ privacyLabel }</label>
+                <a className="SignUpForm-privacyLink" href={ msg('privacyLink.href') }>{ msg('privacyLink.title') }</a>
 
                 { submitButton }
             </form>
@@ -130,5 +143,25 @@ export default class SignUpForm extends React.Component {
             return this.renderComplete(intl, register, msg);
         }
         return this.renderForm(intl, register, msg);
+    }
+
+    onPrivacyChange(ev) {
+        this.setState({
+            privacyChecked: ev.target.checked,
+        })
+    }
+
+    onSubmit(ev){
+        ev.preventDefault();
+        let orgId = this.props.orgItem ? this.props.orgItem.get("id") : null;
+
+        this.props.dispatch(register(
+            ev.target.fn.value,
+            ev.target.ln.value,
+            ev.target.email.value,
+            ev.target.phone.value,
+            ev.target.password.value,
+            orgId,
+        ));
     }
 }

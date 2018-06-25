@@ -18,7 +18,7 @@
     }
 
     .SectionPage-content {
-        @include col(12,12);
+        @include col(12,12, $first:true, $last:true);
     }
 
     .SectionPage-desc {
@@ -34,6 +34,7 @@
 
         p {
             font-size: 1.1em;
+            color: lighten($c-text, 20);
         }
     }
 
