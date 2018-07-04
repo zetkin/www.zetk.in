@@ -6,6 +6,7 @@ docker run \
     -v $PWD/locale:/var/app/locale \
     -v $PWD/src:/var/app/src \
     --name www_zetk_in \
+    --env TOKEN_SECRET=012345678901234567890123 \
     --env ZETKIN_LOGIN_URL=http://login.dev.zetkin.org \
     --env ZETKIN_APP_ID=d8f492433d0740ef89c5bfbc8b162bb0 \
     --env ZETKIN_APP_KEY=MjQ2NGU2M2QtODdkZC00YjllLWE2MGMtNmQ0YzlhYjJmNTZh \
