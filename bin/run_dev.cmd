@@ -6,6 +6,7 @@ docker run ^
     -v %cd%/locale:/var/app/locale ^
     -v %cd%/src:/var/app/src ^
     --name organize_zetk_in ^
+    --env TOKEN_SECRET=012345678901234567890123 ^
     --env ZETKIN_LOGIN_URL=http://login.dev.zetkin.org ^
     --env ZETKIN_APP_ID=d8f492433d0740ef89c5bfbc8b162bb0 ^
     --env ZETKIN_APP_KEY=MjQ2NGU2M2QtODdkZC00YjllLWE2MGMtNmQ0YzlhYjJmNTZh ^
