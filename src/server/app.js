@@ -90,6 +90,55 @@ export default function initApp(messages) {
 
     app.use(preloader(messages));
 
+    app.get('*', (req, res, next) => {
+        if (req.query.actionSignup) {
+            const [ orgId, actionId, op ] = req.query.actionSignup.split('/');
+
+            if (orgId && actionId && op) {
+                let fragment = '';
+
+                req.z.resource('orgs', orgId, 'actions', actionId)
+                    .get()
+                    .then(result => {
+                        const actionData = result.data.data;
+                        fragment = (new Date(actionData.start_time)).format('{yyyy}-{MM}-{dd}');
+
+                        // Find user personId from list of memberships
+                        const membershipList = req.store.getState().getIn(['orgs', 'membershipList']);
+                        const membership = membershipList.get('items').find(val => (
+                            val.getIn(['organization', 'id']) == orgId));
+                        const personId = membership.getIn(['profile', 'id']);
+
+                        const resource = req.z.resource('orgs', orgId, 'actions', actionId,
+                            'responses', personId);
+
+                        return (op == 'signup')? resource.put() : resource.del();
+                    })
+                    .then(() => {
+                        res.redirect(307, url.format({
+                            protocol: req.protocol,
+                            host: req.get('host'),
+                            pathname: req.path,
+                            hash: fragment,
+                        }));
+                    })
+                    .catch(err => {
+                        res.redirect(307, url.format({
+                            protocol: req.protocol,
+                            host: req.get('host'),
+                            pathname: req.path,
+                        }));
+                    });
+            }
+            else {
+                next();
+            }
+        }
+        else {
+            next();
+        }
+    });
+
     // Prefer slug over ID for org pages
     app.get('/o/:orgId', (req, res, next) => {
         let org = organization(req.store.getState(), req.params.orgId);
