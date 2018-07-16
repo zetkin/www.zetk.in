@@ -29,6 +29,16 @@ export default class App extends React.Component {
         let stateJson = JSON.stringify(this.props.fullState);
         let showContinueButton = (path == '/' || path == '/register');
 
+        let header;
+
+        if (path != '/' && path != '/register') {
+            header = (
+                <Header
+                    currentPath={ this.props.location.pathname }
+                    showContinueButton={ showContinueButton }/>
+            );
+        }
+
         let title = 'Zetkin';
 
         if (this.props.params.orgId) {
@@ -54,9 +64,7 @@ export default class App extends React.Component {
                         href="/static/images/favicon.png"/>
                 </head>
                 <body>
-                    <Header
-                        currentPath={ this.props.location.pathname }
-                        showContinueButton={ showContinueButton }/>
+                    { header }
                     <div className="App-content">
                         { this.props.children }
                     </div>

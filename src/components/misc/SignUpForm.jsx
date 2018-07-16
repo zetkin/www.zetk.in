@@ -1,6 +1,7 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 import ImPropTypes from 'react-immutable-proptypes';
 
 import { register } from '../../actions/register';
@@ -33,6 +34,7 @@ export default class SignUpForm extends React.Component {
     componentDidMount() {
         this.setState({
             privacyChecked: false,
+            focused: false,
         });
     }
 
@@ -86,12 +88,25 @@ export default class SignUpForm extends React.Component {
             );
         }
 
+        let classes = cx('SignUpForm', {
+            'focused': this.state.focused,
+        });
+
         return (
             <form method="post"
-                className="SignUpForm"
-                onSubmit={ this.onSubmit.bind(this) }>
+                className={ classes }
+                onSubmit={ this.onSubmit.bind(this) }
+                onFocus={ this.onFocus.bind(this) }>
                 <h2 className="SignUpForm-title">{ msg('title') }</h2>
                 { errorEl }
+
+                <label className="SignUpForm-hiddenLabel" htmlFor="email">{ msg('email') }</label>
+                <input className="SignUpForm-textInput" name="email"
+                    defaultValue={ this.state.email }
+                    placeholder={ msg('email') }
+                    autoComplete="off"/>
+
+                <div className="SignUpForm-extraFields">
                 <label className="SignUpForm-hiddenLabel" htmlFor="fn">{ msg('firstName') }</label>
                 <input className="SignUpForm-textInput" name="fn"
                     defaultValue={ this.state.firstName }
@@ -101,11 +116,6 @@ export default class SignUpForm extends React.Component {
                 <input className="SignUpForm-textInput" name="ln"
                     defaultValue={ this.state.lastName }
                     placeholder={ msg('lastName') }/>
-
-                <label className="SignUpForm-hiddenLabel" htmlFor="email">{ msg('email') }</label>
-                <input className="SignUpForm-textInput" name="email"
-                    defaultValue={ this.state.email }
-                    placeholder={ msg('email') }/>
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="phone">{ msg('phone') }</label>
                 <input className="SignUpForm-textInput" name="phone"
@@ -128,7 +138,7 @@ export default class SignUpForm extends React.Component {
 
                 <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ privacyLabel }</label>
                 <a className="SignUpForm-privacyLink" href={ msg('privacyLink.href') }>{ msg('privacyLink.title') }</a>
-
+                </div>
                 { submitButton }
             </form>
         )
@@ -148,6 +158,12 @@ export default class SignUpForm extends React.Component {
     onPrivacyChange(ev) {
         this.setState({
             privacyChecked: ev.target.checked,
+        })
+    }
+
+    onFocus(ev) {
+        this.setState({
+            focused: !this.props.focused,
         })
     }
 
