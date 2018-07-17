@@ -128,8 +128,16 @@ function waitForActions(execActions) {
             }
         }
 
-        Promise.all(promises)
-            .then(() => next())
-            .catch(() => next());
+        let promise = Promise.resolve();
+        promises.forEach(p => {
+            promise = promise
+                .then(() => {
+                    return p
+                        .then(() => true)
+                        .catch(() => true);
+                });
+        });
+
+        promise.then(() => next());
     };
 }
