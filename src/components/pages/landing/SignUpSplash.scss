@@ -184,6 +184,8 @@
 
         .SignUpSplash-backgroundContent {
             min-height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.30) 0%,
+             rgba(0,0,0,0) 30%);
 
             @include medium-screen {
                 min-height: initial;
