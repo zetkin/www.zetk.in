@@ -120,6 +120,16 @@
             padding: 2em 1em;
             text-align: center;
         }
+
+        .LoadingIndicator {
+            flex: 1;
+            font-size: 2em;
+            padding: 2em 0;
+            margin: 0;
+            @include medium-screen {
+                margin: 2em 0;
+            }
+        }
     }
 
     .SignUpSplash-background {

@@ -56,16 +56,6 @@ export default class SignUpForm extends React.Component {
         let errorEl;
         const buttonLabel = orgItem ? msg('submitButtonOrg') : msg('submitButton');
         const privacyLabel = orgItem  ? msg('privacyCheckOrg', {org: orgItem.get("title")}) : msg('privacyCheck');
-        let submitButton = (
-            <input className="SignUpForm-submitButton"
-                type="submit"
-                value={ buttonLabel }
-                disabled={!privacyChecked}/>
-        );
-
-        if (register.get('isPending')) {
-            submitButton = <LoadingIndicator/>
-        }
 
         if (error) {
             let errorMessage
@@ -102,7 +92,11 @@ export default class SignUpForm extends React.Component {
             'focused': this.state.focused,
         });
 
-        return (
+        if (register.get('isPending')) {
+            return <LoadingIndicator/>;
+        }
+        else {
+            return (
             <form method="post"
                 className={ classes }
                 onSubmit={ this.onSubmit.bind(this) }
@@ -149,9 +143,14 @@ export default class SignUpForm extends React.Component {
                 <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ privacyLabel }</label>
                 <a className="SignUpForm-privacyLink" href={ msg('privacyLink.href') }>{ msg('privacyLink.title') }</a>
                 </div>
-                { submitButton }
+                <input className="SignUpForm-submitButton"
+                    type="submit"
+                    value={ buttonLabel }
+                    disabled={!privacyChecked}/>
             </form>
         )
+        }
+
     }
 
     render(){

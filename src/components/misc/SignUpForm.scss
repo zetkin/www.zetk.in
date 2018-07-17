@@ -128,6 +128,13 @@
     padding: 1em;
     margin-bottom: 1em;
     text-align: center;
+    margin-left: -1.1em;
+    margin-right: -1.1em;
+
+    @include medium-screen {
+        margin-left: -2.5em;
+        margin-right: -2.5em;
+    }
 }
 
 .SignUpForm-errorAction {
@@ -140,4 +147,8 @@
 .SignUpForm-hiddenLabel +
 .SignUpForm-textInput {
     margin-top: 0;
+}
+
+.LoadingIndicator {
+    margin: 1em 0;
 }
