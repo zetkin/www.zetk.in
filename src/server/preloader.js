@@ -50,6 +50,7 @@ export default (messages) => {
     ]));
 
     preloader.get('/o/:orgId/campaigns/:campaignId', waitForActions(req => [
+        retrieveOrganization(req.params.orgId),
         retrieveCampaign(req.params.orgId, req.params.campaignId),
         retrieveCampaignActions(req.params.orgId, req.params.campaignId),
         retrieveUserActions(),

@@ -1,3 +1,4 @@
+import immutable from 'immutable';
 import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
@@ -23,6 +24,7 @@ const mapStateToProps = (state, props) => {
     return {
         campaign: c,
         organization: o,
+        userData: state.getIn(['user', 'data']),
         actionList: campaignActionList(state, props.params.campaignId),
         responseList: state.getIn(['actions', 'responseList']),
         userActionList: state.getIn(['actions', 'userActionList']),
@@ -41,12 +43,14 @@ export default class CampaignPage extends React.Component {
             this.props.dispatch(retrieveCampaign(orgId, campaignId));
         }
 
-        if (!this.props.userActionList.get('items')) {
-            this.props.dispatch(retrieveUserActions());
-        }
+        if (this.props.userData) {
+            if (!this.props.userActionList.get('items')) {
+                this.props.dispatch(retrieveUserActions());
+            }
 
-        if (!this.props.responseList.get('items')) {
-            this.props.dispatch(retrieveUserResponses());
+            if (!this.props.responseList.get('items')) {
+                this.props.dispatch(retrieveUserResponses());
+            }
         }
     }
 
@@ -72,13 +76,19 @@ export default class CampaignPage extends React.Component {
                 </p>
             ];
 
+            const responseList = this.props.userData?
+                this.props.responseList : immutable.fromJS({ items: [] });
+
+            const userActionList = this.props.userData?
+                this.props.userActionList : immutable.fromJS({ items: [] });
+
             form = (
                 <CampaignForm
                     redirPath={ this.props.location.pathname }
                     // TODO: Don't use full action list
                     actionList={ this.props.actionList }
-                    responseList={ this.props.responseList }
-                    userActionList={ this.props.userActionList }
+                    responseList={ responseList }
+                    userActionList={ userActionList }
                     onResponse={ this.onResponse.bind(this) }/>
             );
         }
@@ -94,6 +104,11 @@ export default class CampaignPage extends React.Component {
     }
 
     onResponse(action, checked) {
-        this.props.dispatch(updateActionResponse(action, checked));
+        if (this.props.userData) {
+            this.props.dispatch(updateActionResponse(action, checked));
+        }
+        else {
+            // TODO: Show login interstitial
+        }
     }
 }
