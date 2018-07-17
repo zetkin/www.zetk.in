@@ -43,8 +43,10 @@ export default class SignUpForm extends React.Component {
 
         return(
             <div className="SignUpForm-done">
-                <h2 className="SignUpForm-title">{ msg('done.title', values) }</h2>
-                <p className="SignUpForm-subtitle">{ msg('done.subtitle') }</p>
+                <h2 className="SignUpForm-title">
+                    { msg('done.title', values) }</h2>
+                <p className="SignUpForm-subtitle">
+                    { msg('done.subtitle') }</p>
             </div>
         );
     }
@@ -54,8 +56,11 @@ export default class SignUpForm extends React.Component {
         const { privacyChecked } = this.state;
         const error = register.get('error');
         let errorEl;
-        const buttonLabel = orgItem ? msg('submitButtonOrg') : msg('submitButton');
-        const privacyLabel = orgItem  ? msg('privacyCheckOrg', {org: orgItem.get("title")}) : msg('privacyCheck');
+        const buttonLabel = orgItem ?
+            msg('submitButtonOrg') : msg('submitButton');
+        const privacyLabel = orgItem  ?
+            msg('privacyCheckOrg', {org: orgItem.get("title")}) :
+            msg('privacyCheck');
 
         if (error) {
             let errorMessage
@@ -104,29 +109,34 @@ export default class SignUpForm extends React.Component {
                 <h2 className="SignUpForm-title">{ msg('title') }</h2>
                 { errorEl }
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="email">{ msg('email') }</label>
+                <label className="SignUpForm-hiddenLabel" htmlFor="email">
+                    { msg('email') }</label>
                 <input className="SignUpForm-textInput" name="email"
                     defaultValue={ this.state.email }
                     placeholder={ msg('email') }
                     autoComplete="off"/>
 
                 <div className="SignUpForm-extraFields">
-                <label className="SignUpForm-hiddenLabel" htmlFor="fn">{ msg('firstName') }</label>
+                <label className="SignUpForm-hiddenLabel" htmlFor="fn">
+                    { msg('firstName') }</label>
                 <input className="SignUpForm-textInput" name="fn"
                     defaultValue={ this.state.firstName }
                     placeholder={ msg('firstName') }/>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="ln">{ msg('lastName') }</label>
+                <label className="SignUpForm-hiddenLabel" htmlFor="ln">
+                    { msg('lastName') }</label>
                 <input className="SignUpForm-textInput" name="ln"
                     defaultValue={ this.state.lastName }
                     placeholder={ msg('lastName') }/>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="phone">{ msg('phone') }</label>
+                <label className="SignUpForm-hiddenLabel" htmlFor="phone">
+                    { msg('phone') }</label>
                 <input className="SignUpForm-textInput" name="phone"
                     defaultValue={ this.state.phone }
                     placeholder={ msg('phone') }/>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="password">{ msg('password') }</label>
+                <label className="SignUpForm-hiddenLabel" htmlFor="password">
+                    { msg('password') }</label>
                 <input className="SignUpForm-textInput"
                     type="password"
                     name="password"
@@ -140,8 +150,11 @@ export default class SignUpForm extends React.Component {
                     onChange={ this.onPrivacyChange.bind(this) }
                     />
 
-                <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ privacyLabel }</label>
-                <a className="SignUpForm-privacyLink" href={ msg('privacyLink.href') }>{ msg('privacyLink.title') }</a>
+                <label className="SignUpForm-checkboxLabel" htmlFor="privacy">
+                    { privacyLabel }</label>
+                <a className="SignUpForm-privacyLink" href=
+                    { msg('privacyLink.href') }>
+                        { msg('privacyLink.title') }</a>
                 </div>
                 <input className="SignUpForm-submitButton"
                     type="submit"
