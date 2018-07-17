@@ -32,3 +32,4 @@ signup:
     submitButton: Sign up
     submitButtonOrg: Sign up and connect
     title: Sign up
+    info: To find actions to join, you first need an user account.

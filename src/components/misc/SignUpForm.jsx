@@ -107,6 +107,7 @@ export default class SignUpForm extends React.Component {
                 onSubmit={ this.onSubmit.bind(this) }
                 onFocus={ this.onFocus.bind(this) }>
                 <h2 className="SignUpForm-title">{ msg('title') }</h2>
+                <p className="SignUpForm-info">{ msg('info') }</p>
                 { errorEl }
 
                 <label className="SignUpForm-hiddenLabel" htmlFor="email">
