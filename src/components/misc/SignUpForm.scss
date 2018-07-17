@@ -127,6 +127,13 @@
     color: white;
     padding: 1em;
     margin-bottom: 1em;
+    text-align: center;
+}
+
+.SignUpForm-errorAction {
+    @include button($color:white, $transparent:true);
+    color: inherit;
+    margin-top: 1em;
 }
 
 .SignUpForm-error +

@@ -19,6 +19,7 @@ signup:
             correctly.
         privacy: >-
             You must approve our privacy policy to register
+        login: Log in instead
     firstName: First Name
     lastName: Last Name
     password: Password

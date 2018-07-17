@@ -69,6 +69,7 @@ export default class SignUpForm extends React.Component {
 
         if (error) {
             let errorMessage
+            let errorAction
 
             if (error == 'privacy') {
                 errorMessage = msg('error.privacy');
@@ -76,6 +77,12 @@ export default class SignUpForm extends React.Component {
             else if (error.get('httpStatus') == 409) {
                 const values = register.get('data').toJS();
                 errorMessage = msg('error.exists', values);
+                errorAction = (
+                    <a className="SignUpForm-errorAction"
+                        href="/dashboard">
+                        { msg('error.login') }
+                        </a>
+                    );
             }
             else if (error.get('httpStatus') == 400) {
                 errorMessage = msg('error.invalid')
@@ -83,7 +90,10 @@ export default class SignUpForm extends React.Component {
 
             errorEl = (
                 <div className="SignUpForm-error">
-                    { errorMessage }
+                    <div className="SignUpForm-errorMessage">
+                        { errorMessage }
+                    </div>
+                    { errorAction }
                 </div>
             );
         }
