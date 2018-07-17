@@ -160,3 +160,15 @@
 .LoadingIndicator {
     margin: 1em 0;
 }
+
+.SignUpForm-done
+.SignUpForm-subtitle {
+    margin-top: 0;
+
+    &:before {
+        @include icon($fa-var-envelope-o);
+        display: block;
+        margin: 0 auto;
+        font-size: 1.6em;
+    }
+}
