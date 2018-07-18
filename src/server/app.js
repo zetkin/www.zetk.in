@@ -16,6 +16,7 @@ import { loadLocaleHandler } from './locale';
 import formEndpoints from './forms';
 import preloader from './preloader';
 import routes from '../components/routes';
+import ops from './ops';
 import { setPasswordResetToken } from '../actions/password';
 import { organization } from '../store/orgs';
 
@@ -87,6 +88,7 @@ export default function initApp(messages) {
     app.get('/settings', auth.validate(authOpts));
     app.get('/o/:orgId/groups/:groupId', auth.validate(authOpts));
 
+    app.use('/ops', auth.validate(authOpts), ops);
     app.use(preloader(messages));
 
     app.get('*', (req, res, next) => {
