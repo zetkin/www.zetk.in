@@ -16,21 +16,22 @@ opsRouter.get('/:op/:paramString*?', (req, res, next) => {
 
         opFunc(req, opParams)
             .then(() => {
-                console.log('OP COMPLETE');
                 const redirUrl = req.query.onComplete || '/dashboard';
                 res.redirect(307, redirUrl);
             })
             .catch(err => {
-                console.log('OP ERR', err);
                 const redirUrl = req.query.onFailure || req.query.onComplete || '/dashboard';
                 res.redirect(307, redirUrl);
             });
+    }
+    else {
+        res.status(404).end();
     }
 });
 
 
 const OPS = {
-    'actionSignup': (req, params) => {
+    actionSignup: (req, params) => {
         const [ orgId, actionId, op ] = params;
 
         if (orgId && actionId && op) {
