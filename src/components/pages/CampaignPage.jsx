@@ -106,7 +106,9 @@ export default class CampaignPage extends React.Component {
                     actionList={ this.props.actionList }
                     responseList={ responseList }
                     userActionList={ userActionList }
-                    onResponse={ this.onResponse.bind(this) }/>
+                    needFilterEnabled={ true }
+                    onResponse={ this.onResponse.bind(this) }
+                    />
             );
         }
 
