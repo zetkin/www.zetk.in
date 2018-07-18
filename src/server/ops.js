@@ -67,6 +67,17 @@ const OPS = {
             return Promise.reject(false);
         }
     },
+
+    orgConnect: (req, params) => {
+        const [ orgId ] = params;
+
+        if (orgId) {
+            return req.z.resource('orgs', orgId, 'join_requests').post();
+        }
+        else {
+            return Promise.reject(false);
+        }
+    },
 };
 
 export default opsRouter;
