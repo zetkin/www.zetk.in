@@ -1,4 +1,11 @@
 interstitial:
+    connect:
+        button: Yes, connect
+        h: Connect to { org }?
+        p: |-
+            Before you can sign up to their actions, you must connect your account
+            to { org }. Doing so gives them access to basic information about you.
+            Do you want to connect to { org } and join their struggle for justice?
     intro:
         h: Great that you want to join!
         p: |-
@@ -6,7 +13,7 @@ interstitial:
     login:
         p: |-
             If you already have an account, you can log in and sign up right away.
-        button: Log in and sign up
+        button: Log in
     register:
         p: |-
             If this is your first time using Zetkin you need to create a new user

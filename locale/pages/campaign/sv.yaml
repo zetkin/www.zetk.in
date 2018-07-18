@@ -1,4 +1,11 @@
 interstitial:
+    connect:
+        button: Ja, anslut
+        h: Anslut till { org }?
+        p: |-
+            För att kunna delta i kampanjer som { org } genomför måste du ansluta
+            ditt användarkonto, vilket ger dem tillgång till dina kontaktuppgifter.
+            Vill du ansluta till { org } och gå med i deras kamp för rättvisa?
     intro:
         h: Kul att du vill hjälpa till!
         p: |-
@@ -6,7 +13,7 @@ interstitial:
     login:
         p: |-
             Om du redan har ett konto kan du logga in och anmäla dig direkt.
-        button: Logga in och anmäl
+        button: Logga in
     register:
         p: |-
             Om detta är första gången du använder Zetkin måste du skapa ett

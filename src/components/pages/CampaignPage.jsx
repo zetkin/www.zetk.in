@@ -22,10 +22,18 @@ const mapStateToProps = (state, props) => {
     let c = campaign(state, props.params.campaignId);
     let o = c? organization(state, c.get('org_id')) : null;
 
+    let isConnected = false;
+    const membershipListItems = state.getIn(['orgs', 'membershipList', 'items']);
+    if (o && membershipListItems) {
+        isConnected = !!membershipListItems.find(m =>
+            m.getIn(['organization', 'id']) == o.get('id'));
+    }
+
     return {
         campaign: c,
         organization: o,
-        userData: state.getIn(['user', 'data']),
+        isAuthenticated: !!state.getIn(['user', 'data']),
+        isConnected: isConnected,
         actionList: campaignActionList(state, props.params.campaignId),
         responseList: state.getIn(['actions', 'responseList']),
         userActionList: state.getIn(['actions', 'userActionList']),
@@ -52,7 +60,7 @@ export default class CampaignPage extends React.Component {
             this.props.dispatch(retrieveCampaign(orgId, campaignId));
         }
 
-        if (this.props.userData) {
+        if (this.props.isAuthenticated) {
             if (!this.props.userActionList.get('items')) {
                 this.props.dispatch(retrieveUserActions());
             }
@@ -85,10 +93,10 @@ export default class CampaignPage extends React.Component {
                 </p>
             ];
 
-            const responseList = this.props.userData?
+            const responseList = this.props.isAuthenticated?
                 this.props.responseList : immutable.fromJS({ items: [] });
 
-            const userActionList = this.props.userData?
+            const userActionList = this.props.isAuthenticated?
                 this.props.userActionList : immutable.fromJS({ items: [] });
 
             form = (
@@ -104,13 +112,26 @@ export default class CampaignPage extends React.Component {
 
         let interstitial = null;
         if (this.state.selectedActionId) {
-            interstitial = (
-                <SignUpInterstitial
-                    basePath={ this.props.location.pathname }
-                    orgId={ campaign.get('org_id') }
-                    actionId={ this.state.selectedActionId }
-                    />
-            );
+            if (this.props.isAuthenticated) {
+                interstitial = (
+                    <ConnectInterstitial
+                        basePath={ this.props.location.pathname }
+                        org={ this.props.organization }
+                        actionId={ this.state.selectedActionId }
+                        onClose={ this.onInterstitialClose.bind(this) }
+                        />
+                );
+            }
+            else {
+                interstitial = (
+                    <AuthInterstitial
+                        basePath={ this.props.location.pathname }
+                        orgId={ campaign.get('org_id') }
+                        actionId={ this.state.selectedActionId }
+                        onClose={ this.onInterstitialClose.bind(this) }
+                        />
+                );
+            }
         }
 
         return (
@@ -125,7 +146,7 @@ export default class CampaignPage extends React.Component {
     }
 
     onResponse(action, checked) {
-        if (this.props.userData) {
+        if (this.props.isAuthenticated && this.props.isConnected) {
             this.props.dispatch(updateActionResponse(action, checked));
         }
         else {
@@ -134,9 +155,44 @@ export default class CampaignPage extends React.Component {
             });
         }
     }
+
+    onInterstitialClose() {
+        this.setState({
+            selectedActionId: null,
+        });
+    }
 }
 
-const SignUpInterstitial = props => {
+const ConnectInterstitial = props => {
+    const signUpHref = '/ops/actionSignup/'
+        + props.org.get('id')
+        + ',' + props.actionId
+        + ',signup'
+        + '?onComplete=' + encodeURIComponent(props.basePath);
+
+    return (
+        <div className="CampaignPage-interstitial">
+            <div className="CampaignPage-interstitialContent">
+                <Msg tagName="h1"
+                    id="pages.campaign.interstitial.connect.h"
+                    values={{ org: props.org.get('title') }}
+                    />
+                <Msg tagName="p"
+                    id="pages.campaign.interstitial.connect.p"
+                    values={{ org: props.org.get('title') }}
+                    />
+                <Button labelMsg="pages.campaign.interstitial.connect.button"
+                    href={ signUpHref } forceRefresh={ true }
+                    />
+                <button className="CampaignPage-interstitialCloseButton"
+                    onClick={ props.onClose }
+                    />
+            </div>
+        </div>
+    );
+}
+
+const AuthInterstitial = props => {
     const signUpHref = '/ops/actionSignup/'
         + props.orgId
         + ',' + props.actionId
@@ -170,6 +226,9 @@ const SignUpInterstitial = props => {
                         href={ signUpHref } forceRefresh={ true }
                         />
                 </div>
+                <button className="CampaignPage-interstitialCloseButton"
+                    onClick={ props.onClose }
+                    />
             </div>
         </div>
     );
