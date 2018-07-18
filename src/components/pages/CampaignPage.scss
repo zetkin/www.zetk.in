@@ -11,9 +11,56 @@
     }
 }
 
+.CampaignPage-interstitial {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9990;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.CampaignPage-interstitialContent {
+    text-align: center;
+    background-color: white;
+    margin: 1em;
+    padding: 2em;
+
+    box-shadow: 0 0 1em rgba(0,0,0,0.08);
+
+    .Button {
+        @include button;
+    }
+}
+
 @include medium-screen {
     .CampaignPage-info {
         width: 600px;
         margin: 0 auto;
+    }
+
+    .CampaignPage-interstitialContent {
+        max-width: 60em;
+        margin: 4em auto 0 auto;
+
+        &:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+    }
+
+    .CampaignPage-interstitialRegister {
+        padding: 0 2em 0 0;
+        width: 50%;
+        float: left;
+        border-right: 1px solid #ddd;
+    }
+
+    .CampaignPage-interstitialLogin {
+        padding: 0 0 0 2em;
+        width: 50%;
+        float: right;
     }
 }

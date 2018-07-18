@@ -3,6 +3,7 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
 
+import Button from '../../common/misc/Button';
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
 import CampaignForm from '../../common/campaignForm/CampaignForm';
 import { campaign } from '../../store/campaigns';
@@ -33,6 +34,14 @@ const mapStateToProps = (state, props) => {
 
 @connect(mapStateToProps)
 export default class CampaignPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            selectedActionId: null,
+        };
+    }
+
     componentDidMount() {
         let orgId = this.props.params.orgId;
         let campaignId = this.props.params.campaignId;
@@ -93,11 +102,23 @@ export default class CampaignPage extends React.Component {
             );
         }
 
+        let interstitial = null;
+        if (this.state.selectedActionId) {
+            interstitial = (
+                <SignUpInterstitial
+                    basePath={ this.props.location.pathname }
+                    orgId={ campaign.get('org_id') }
+                    actionId={ this.state.selectedActionId }
+                    />
+            );
+        }
+
         return (
             <div className="CampaignPage">
                 <div className="CampaignPage-info">
                     { campaignInfo }
                 </div>
+                { interstitial }
                 { form }
             </div>
         );
@@ -108,7 +129,48 @@ export default class CampaignPage extends React.Component {
             this.props.dispatch(updateActionResponse(action, checked));
         }
         else {
-            // TODO: Show login interstitial
+            this.setState({
+                selectedActionId: action.get('id'),
+            });
         }
     }
 }
+
+const SignUpInterstitial = props => {
+    const signUpHref = '/ops/actionSignup/'
+        + props.orgId
+        + ',' + props.actionId
+        + ',signup'
+        + '?onComplete=' + encodeURIComponent(props.basePath);
+
+    return (
+        <div className="CampaignPage-interstitial">
+            <div className="CampaignPage-interstitialContent">
+                <div className="CampaignPage-interstitialIntro">
+                    <Msg tagName="h1"
+                        id="pages.campaign.interstitial.intro.h"
+                        />
+                    <Msg tagName="p"
+                        id="pages.campaign.interstitial.intro.p"
+                        />
+                </div>
+                <div className="CampaignPage-interstitialRegister">
+                    <Msg tagName="p"
+                        id="pages.campaign.interstitial.register.p"
+                        />
+                    <Button labelMsg="pages.campaign.interstitial.register.button"
+                        href="/register"
+                        />
+                </div>
+                <div className="CampaignPage-interstitialLogin">
+                    <Msg tagName="p"
+                        id="pages.campaign.interstitial.login.p"
+                        />
+                    <Button labelMsg="pages.campaign.interstitial.login.button"
+                        href={ signUpHref } forceRefresh={ true }
+                        />
+                </div>
+            </div>
+        </div>
+    );
+};

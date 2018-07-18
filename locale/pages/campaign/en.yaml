@@ -1,2 +1,16 @@
+interstitial:
+    intro:
+        h: Great that you want to join!
+        p: |-
+            You need a Zetkin user account to be able to sign up.
+    login:
+        p: |-
+            If you already have an account, you can log in and sign up right away.
+        button: Log in and sign up
+    register:
+        p: |-
+            If this is your first time using Zetkin you need to create a new user
+            account.
+        button: Create account
 notFound:
     h: The campaign could not be found
