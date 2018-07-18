@@ -57,6 +57,12 @@ export default createReducer(initialState, {
                 immutable.fromJS(actions));
     },
 
+    [types.RETRIEVE_USER_ACTIONS + '_REJECTED']: (state, action) => {
+        return state
+            .setIn(['userActionList', 'error'], action.payload)
+            .setIn(['userActionList', 'isPending'], false);
+    },
+
     [types.RETRIEVE_ALL_ACTIONS + '_PENDING']: (state, action) => {
         return state
             .setIn(['actionList', 'error'], null)
@@ -121,6 +127,12 @@ export default createReducer(initialState, {
             .updateIn(['responseList', 'items'], items => items?
                 items.merge(immutable.fromJS(responses)) :
                 immutable.fromJS(responses));
+    },
+
+    [types.RETRIEVE_USER_RESPONSES + '_REJECTED']: (state, action) => {
+        return state
+            .setIn(['responseList', 'error'], action.payload)
+            .setIn(['responseList', 'isPending'], false);
     },
 
     [types.UPDATE_ACTION_RESPONSE + '_FULFILLED']: (state, action) => {

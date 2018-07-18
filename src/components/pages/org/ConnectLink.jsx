@@ -28,9 +28,9 @@ export default class ConnectLink extends React.Component {
                 );
             }
             else {
-                let loginUrl = '//login.' + process.env.ZETKIN_DOMAIN
-                    + '/login?redirPath=/o/' + orgItem.get('id')
-                    + '&appId=' + process.env.ZETKIN_APP_ID;
+                const loginUrl = '/ops/orgConnect/'
+                    + orgItem.get('id')
+                    + '?onComplete=' + '/o/' + orgItem.get('id');
 
                 connectLink = (
                     <FormattedLink msgId="pages.orgPage.connect.login"
