@@ -45,18 +45,10 @@ foundation:
         Zetkin til noget særligt.
 splash:
     authenticated:
-        cancelLink: Annuller
-        h1: Logget ind som
-        logoutLink: Log ud
-        p: Du kan ikke oprette en ny brugerkonto når du allerede er logget ind.
     caption: >-
         Gadefesten "Vår stad" blev arrangeret af Vänsterpartiet i Malmø med
         Zetkin i maj 2014
     h1: Deltag i kampen for retfærdighed
-    h2: 'Involver dig nu, ved hjælp af Zetkin'
-    infoLink:
-        href: 'http://zetkin.org/en'
-        text: Læs mere om Zetkin
     signUpLink: Opret bruger
 zetkin:
     h1: Gør engagement enkelt

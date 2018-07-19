@@ -1,156 +1,281 @@
 .SignUpSplash {
-    font-size: 1.1667em;
-    position: relative;
-    background: url(/static/images/cover.jpg) center center no-repeat;
-    background-size: cover;
+    display:flex;
+    flex-direction: column;
+
+    @include large-screen {
+        align-items: stretch;
+        display: flex;
+        flex: 1 1 0%;
+        flex-direction: row;
+        margin: 0px;
+        padding: 0px;
+        position: relative;
+        min-height: 600px;
+        min-width: 0px;
+        justify-content: center;
+    }
 
     .SignUpSplash-content {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        min-height: 60vh;
-        background-color: rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s;
-        padding: 5vw 0;
-        padding: 5vmax 0;
+        flex: 1;
+        order: 2;
+        overflow: hidden;
 
-        @media only screen and (orientation: portrait) {
-            // height: 60vmax;
+        @include large-screen {
+            position: relative;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: auto;
+            order: 1;
+            align-items: stretch;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 445px;
+            min-height: 100vh;
+            max-width: 100%;
+            min-width: 445px;
+            margin: 0px;
+            padding: 40px 40px 0px;
+            background: white;
         }
 
-        @include target-ie-6-7-8 {
-            padding-top: 12em;
-        }
-    }
+        .SignUpSplash-contentLogo {
+            display: none;
 
-    h1 {
-        margin: 0 0 0.25em;
-        font-size: 5.5vmin;
-        color: $c-text-contrast;
-        text-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    h2 {
-        font-size: 4vmin;
-        margin: 0 0 1em;
-        color: $c-text-contrast;
-        text-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-
-    .SignUpSplash-actions {
-        a {
-            @include gradient-button;
-            margin: 0.5em 1em;
-        }
-    }
-
-    .SignUpSplash-imageCaption {
-        display: none;
-    }
-
-    @include medium-screen {
-        .signUpSplash-imageCaption {
-            display: block;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            padding: 1em 1em 0.5em;
-            background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
-            transition: opacity 0.2s;
-
-            p {
-                font-size: 0.8em;
-                margin: 0;
-                color: white;
-            }
-        }
-    }
-    .SignUpForm,
-    .SignUpForm-privacyLink,
-    .SignUpForm-subtitle {
-        color: $c-text-contrast;
-    }
-    &.SignUpSplash-withForm  {
-        .SignUpSplash-content {
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.5);
-
-            @include target-ie-6-7-8 {
-                padding-top: 2em;
+            @include large-screen {
+                display: block;
+                margin: 2em auto;
+                width: 100%;
+                height: 145px;
+                background: url(/static/images/z-logo.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
             }
         }
 
-        .SignUpSplash-imageCaption {
-            opacity: 0.2;
-        }
+        .SignUpSplash-authenticated {
+            flex: 1;
+            margin-top: 2em;
 
-        .SignUpForm {
-            margin: 0 1em;
-            padding: 0;
-        }
-        .SignUpForm-textInput {
-            border-color: $c-text-contrast;
-        }
-
-        @include medium-screen {
-            .SignUpForm {
-                width: 80%;
-                margin: auto;
-                max-width: 800px;
+            h2 {
+                font-size: 1.5em;
+                text-align: center;
             }
 
-            .SignUpForm-textInput {
-                display: inline-block;
-                width: 48%;
-                margin: 1em 1%;
+            .UserContinueButton {
+                text-align: center;
+                float: none;
+
+                .UserMenu {
+                    float:none;
+                    display: block;
+                    .UserMenu-user {
+                        max-width: 100%;
+                    }
+                }
+
+                .UserContinueButton-button {
+                    margin: 1em 0;
+                }
             }
-        }
 
-        @include target-ie-6-7-8 {
-            .SignUpForm-textInput {
-                width: 40%;
-                margin: auto;
-            }
-        }
-    }
-
-    .SignUpSplash-authenticated {
-        margin: 0 1em;
-
-        .SignUpSplash-avatar {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1em;
-            border-radius: 20em;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        p {
-            color: white;
-            font-size: 0.8em;
-        }
-
-        a {
-            @include gradient-button;
-            margin: 0.5em 1em;
-        }
-
-        @include medium-screen {
             .SignUpSplash-avatar {
-                width: 150px;
-                height: 150px;
+                width: 100px;
+                height: 100px;
+                margin: 0 auto 1em;
+                border-radius: 20em;
+                background-size: contain;
+                background-repeat: no-repeat;
             }
 
             h1 {
-                font-size: 2em;
+                font-size: 1.5em;
+                text-align: center;
             }
 
-            p {
-                font-size: 1em;
+            .SignUpSplash-logoutLink {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .SignUpForm {
+            flex: 1;
+            padding: 2em 1em;
+
+            @include medium-screen {
+                max-width: 645px;
+                margin: 0 auto;
+            }
+
+            @include large-screen {
+                padding: 0;
+                margin-top: 5em;
+
+                &.focused {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .SignUpForm-done {
+            flex: 1;
+            padding: 2em 1em;
+            text-align: center;
+
+            @include large-screen {
+                padding: 0;
+                margin-top: 4em;
+            }
+        }
+
+        .LoadingIndicator {
+            flex: 1;
+            font-size: 2em;
+            padding: 2em 0;
+            margin: 0;
+            @include large-screen {
+                margin: 2em 0;
+            }
+        }
+    }
+
+    .SignUpSplash-background {
+        flex: 1;
+        order: 1;
+        background: url(/static/images/cover.jpg) 40% 0% / cover no-repeat;
+
+        @include large-screen {
+            position: relative;
+            display: flex;
+            flex-grow: 2;
+            flex-shrink: 1;
+            flex-basis: auto;
+            order: 1;
+            flex-direction: column;
+            align-items: stretch;
+            min-height: 600px;
+            min-width: 0px;
+            margin: 0px;
+            padding: 0px;
+            background-position: 60% 0%;
+        }
+
+        .Header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 82px;
+
+            @include large-screen {
+                height: inherit;
+            }
+
+            .Logo {
+                height: 72px;
+                width: 72px;
+                margin-left: 10px;
+
+                @include large-screen {
+                    height: inherit;
+                    width: inherit;
+                }
+            }
+
+            .Logo .Logo-image {
+                background-image: url("/static/images/logo-white.png");
+                background-repeat: no-repeat;
+
+                @include large-screen {
+                    display: none;
+                }
+            }
+
+
+            .Header-nav {
+                .UserMenu {
+                    display: none;
+                }
+                .UserContinueButton-wrongUser {
+                    display: none;
+                }
+                .Header-loginButton, .UserContinueButton-button {
+                    @include button();
+                }
+            }
+        }
+
+        .SignUpSplash-backgroundContent {
+            min-height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.30) 0%,
+             rgba(0,0,0,0) 30%);
+
+            @include large-screen {
+                min-height: initial;
+            }
+            position: relative;
+            align-items: stretch;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis:0%;
+            flex-direction:column;
+            margin: 0;
+            padding: 0;
+
+            .SignUpSplash-backgroundContentTitle {
+
+                @include large-screen {
+                    align-items: stretch;
+                    display: flex;
+                    flex-basis:auto;
+                    flex-direction:column;
+                    flex-shrink:0;
+                    height: 100%;
+                    justify-content: center;
+                }
+
+                h1 {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    font-size: 150%;
+                    padding: 10%;
+                    text-align: center;
+                    color: white;
+
+                    @include large-screen {
+                        position: relative;
+                        font-size: 300%;
+                        bottom: initial;
+                    }
+                }
+            }
+
+            .SignUpSplash-backgroundContentFooter {
+                display: none;
+
+                @include large-screen {
+                    display: block;
+                    position: absolute;
+                    bottom: 2em;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    color: white;
+
+                    &:after {
+                        @include icon($fa-var-arrow-down);
+                        font-size: 1.5em;
+                    }
+
+                    p {
+                        margin-bottom: 0.5em;
+                    }
+                }
             }
         }
     }

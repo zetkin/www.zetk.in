@@ -44,19 +44,10 @@ foundation:
         gör Zetkin till något alldeles speciellt.
 splash:
     authenticated:
-        cancelLink: Avbryt
-        h1: 'Inloggad som {firstName} {lastName}'
-        logoutLink: Logga ut
-        p: |
-            Du kan inte skapa ett nytt användarkonto när du redan är inloggad.
     caption: |
         Gatufesten "Vår stad" organiserades med Zetkin av Vänsterpartiet i Malmö
         i maj 2014.
     h1: Delta i kampen för rättvisa
-    h2: Kom igång med ditt engagemang genom Zetkin
-    infoLink:
-        href: 'http://zetkin.org/sv'
-        text: Läs mer om Zetkin
     signUpLink: Skapa användarkonto
 zetkin:
     h1: Gör engagemang enkelt

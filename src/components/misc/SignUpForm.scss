@@ -1,60 +1,174 @@
 .SignUpForm {
     @include checkbox-wrapper;
+    transition: all 1s;
 }
+
+.SignUpForm-extraFields {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 1s;
+
+    & input:first-of-type {
+        margin-top: 0;
+    }
+}
+
+.SignUpForm.focused
+.SignUpForm-extraFields {
+    max-height: 20em;
+}
+
+.SignUpForm-title {
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 0.3em;
+}
+
+.SignUpForm-info {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0;
+}
+
 .SignUpForm-hiddenLabel {
-    color: inherit;
-    display: none;
+    position: absolute;
+    font-size: 0.7em;
+    margin-left: 1.2em;
+    margin-top: 0.5em;
+    color: lighten($c-text, 30);
+    opacity:0;
+    transition:opacity 0.5s;
+    transition-delay:0s;
+
     @include target-ie-6-7-8 {
         display: block;
         text-align: left;
     }
 }
+
+.SignUpForm.focused
+.SignUpForm-hiddenLabel {
+    opacity: 1;
+    transition:opacity 0.5s;
+    transition-delay:0.5s;
+}
+
 .SignUpForm-textInput {
-    color: inherit;
-    outline: none;
     display: block;
+    font-size: 1em;
     width: 100%;
-    max-width: 100%;
-    margin: 1em 0;
-    border: 0;
-    font-size: 1.0em;
-    border-bottom: 1px solid $c-text;
-    border-radius: 0;
-    background-color: transparent;
-    padding: 0.5em;
-    
-    @include target-ie-6-7-8 {
-        margin: 0 0 1em;
-    }
-    &:focus {
-        border-color: $c-brand-comp-light;
-    }
-}
-// .SignUpForm-checkboxLabel{
-//     color: inherit;
-//     margin-left: 1.5em;
-//     display: block;
-// }
-// .SignUpForm-checkbox {
-//   float: left;
-//   margin-top: 0.5em;
-// }
-.SignUpForm-privacyLink {
-    display: block;
     margin: 0.5em 0;
+    padding: 0.75em 0.75em 0.5em;
+    outline: none;
+    border: 1px solid #dedede;
+    border-radius: 2px;
+    color: $c-text;
+
+    &::placeholder {
+        color:lighten($c-text,30);
+    }
+    &::-ms-placeholder {
+        color:lighten($c-text,30);
+    }
 }
+
+.SignUpForm.focused
+.SignUpForm-textInput {
+    padding: 1.2em 0.75em 0.5em;
+    transition: padding 0.2s;
+
+    &::placeholder {
+        transition: color 0.5s;
+        color:lighten($c-text,100);
+    }
+    &::-ms-placeholder {
+        transition: color 0.5s;
+        color:lighten($c-text,100);
+    }
+}
+
+.SignUpForm-checkboxLabel {
+    display: inline-block;
+    font-size: 0.8em;
+    width: calc(100% - 2.5em);
+    margin-left: 2.5em;
+    margin-top: 1em;
+    color: lighten($c-text, 30);
+
+    &:before {
+        position: absolute;
+        margin-left: -2.5em;
+        margin-right: 0!important;
+        opacity:0;
+        transition:opacity 0.5s;
+        transition-delay:0s;
+    }
+}
+
+.SignUpForm.focused
+.SignUpForm-checkboxLabel:before {
+    opacity: 1;
+    transition: opacity 1s;
+    transition-delay: 1s;
+}
+
+.SignUpForm-privacyLink {
+    font-size: 0.8em;
+    margin-left: 2.5em;
+}
+
 .SignUpForm-submitButton {
     @include gradient-button;
     margin: 1em auto;
     display: block;
 
     &:disabled {
-        background: $c-ui-dark;
+        opacity: 0.6;
+        cursor: default;
     }
 }
+
 .SignUpForm-error {
-    border: 1px solid $c-brand-delete;
-    border-radius: 0.5em;
+    font-size: 0.9em;
+    background-color: $c-brand-main;
+    color: white;
+    padding: 2em 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    margin-left: -1.1em;
+    margin-right: -1.1em;
+
+    @include medium-screen {
+        margin-left: -2.5em;
+        margin-right: -2.5em;
+    }
+}
+
+.SignUpForm-errorAction {
+    @include button($color:white, $transparent:true);
+    color: inherit;
+    margin-top: 1em;
+}
+
+.SignUpForm-error +
+.SignUpForm-hiddenLabel +
+.SignUpForm-textInput {
+    margin-top: 0;
+}
+
+.LoadingIndicator {
     margin: 1em 0;
-    padding: 0.5em;
+}
+
+.SignUpForm-done
+.SignUpForm-subtitle {
+    margin-top: 0;
+
+    &:before {
+        @include icon($fa-var-envelope-o);
+        display: block;
+        margin: 0 auto;
+        font-size: 1.6em;
+    }
 }

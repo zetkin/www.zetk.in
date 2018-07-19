@@ -11,7 +11,7 @@ export default class LandingPage extends React.Component {
     render() {
         return (
             <div className="LandingPage">
-                <SignUpSplash showForm={ this.props.route.showSignUp }/>
+                <SignUpSplash/>
                 <ZetkinIntro/>
                 <ZetkinFeatures/>
                 <FoundationIntro/>
