@@ -33,6 +33,7 @@ export default class SignUpForm extends React.Component {
 
     componentDidMount() {
         this.setState({
+            withJavascript: true,
             privacyChecked: false,
             focused: false,
         });
@@ -95,6 +96,7 @@ export default class SignUpForm extends React.Component {
 
         let classes = cx('SignUpForm', {
             'focused': this.state.focused,
+            'withJavascript': this.state.withJavascript,
         });
 
         if (register.get('isPending')) {
@@ -110,38 +112,48 @@ export default class SignUpForm extends React.Component {
                 <p className="SignUpForm-info">{ msg('info') }</p>
                 { errorEl }
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="email">
-                    { msg('email') }</label>
-                <input className="SignUpForm-textInput" name="email"
-                    defaultValue={ this.state.email }
-                    placeholder={ msg('email') }
-                    autoComplete="off"/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="email">
+                        { msg('email') }</label>
+                    <input className="SignUpForm-textInput" name="email"
+                        defaultValue={ this.state.email }
+                        placeholder={ msg('email') }
+                        autoComplete="off"/>
+                </div>
 
                 <div className="SignUpForm-extraFields">
-                <label className="SignUpForm-hiddenLabel" htmlFor="fn">
-                    { msg('firstName') }</label>
-                <input className="SignUpForm-textInput" name="fn"
-                    defaultValue={ this.state.firstName }
-                    placeholder={ msg('firstName') }/>
+                    <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="fn">
+                        { msg('firstName') }</label>
+                    <input className="SignUpForm-textInput" name="fn"
+                        defaultValue={ this.state.firstName }
+                        placeholder={ msg('firstName') }/>
+                </div>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="ln">
-                    { msg('lastName') }</label>
-                <input className="SignUpForm-textInput" name="ln"
-                    defaultValue={ this.state.lastName }
-                    placeholder={ msg('lastName') }/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="ln">
+                        { msg('lastName') }</label>
+                    <input className="SignUpForm-textInput" name="ln"
+                        defaultValue={ this.state.lastName }
+                        placeholder={ msg('lastName') }/>
+                </div>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="phone">
-                    { msg('phone') }</label>
-                <input className="SignUpForm-textInput" name="phone"
-                    defaultValue={ this.state.phone }
-                    placeholder={ msg('phone') }/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="phone">
+                        { msg('phone') }</label>
+                    <input className="SignUpForm-textInput" name="phone"
+                        defaultValue={ this.state.phone }
+                        placeholder={ msg('phone') }/>
+                </div>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="password">
-                    { msg('password') }</label>
-                <input className="SignUpForm-textInput"
-                    type="password"
-                    name="password"
-                    placeholder={ msg('password') }/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="password">
+                        { msg('password') }</label>
+                    <input className="SignUpForm-textInput"
+                        type="password"
+                        name="password"
+                        placeholder={ msg('password') }/>
+                </div>
 
                 <input className="SignUpForm-checkbox"
                     name="privacy"
