@@ -16,6 +16,7 @@ const mapStateToProps = state => ({
 @injectIntl
 export default class SignUpForm extends React.Component {
     static propTypes = {
+        formAction: React.PropTypes.string,
         orgItem: ImPropTypes.map
     };
 
@@ -104,7 +105,7 @@ export default class SignUpForm extends React.Component {
         }
         else {
             return (
-            <form method="post"
+            <form method="post" action={ this.props.formAction || '' }
                 className={ classes }
                 onSubmit={ this.onSubmit.bind(this) }
                 onFocus={ this.onFocus.bind(this) }>

@@ -28,7 +28,11 @@ export default class SignUpSplash extends React.Component {
             );
         }
         else {
-            content = <SignUpForm/>;
+            content = (
+                <SignUpForm
+                    formAction="/register"
+                    />
+            );
         }
 
         return (
