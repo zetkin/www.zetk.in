@@ -27,7 +27,7 @@ export function register(firstName, lastName, email, phone, password, orgId) {
     return ({ dispatch, getState, z }) => {
         dispatch({
             type: types.REGISTER,
-            meta: { firstName, lastName, email },
+            meta: { firstName, lastName, email, phone },
             payload: {
                 promise: z.resource('users').post({
                     first_name: firstName,

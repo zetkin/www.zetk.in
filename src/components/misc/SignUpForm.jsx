@@ -40,6 +40,20 @@ export default class SignUpForm extends React.Component {
         });
     }
 
+    componentWillReceiveProps(nextProps) {
+        const cr = this.props.register;
+        const nr = nextProps.register;
+
+        if (cr.get('isPending') && !nr.get('isPending') && nr.get('errorMeta')) {
+            this.setState({
+                firstName: nr.getIn(['errorMeta', 'firstName']) || '',
+                lastName: nr.getIn(['errorMeta', 'lastName']) || '',
+                email: nr.getIn(['errorMeta', 'email']) || '',
+                phone: nr.getIn(['errorMeta', 'phone']) || '',
+            });
+        }
+    }
+
     renderComplete(intl, register, msg){
         const values = register.get('data').toJS();
 
