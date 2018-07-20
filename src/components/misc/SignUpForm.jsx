@@ -16,6 +16,7 @@ const mapStateToProps = state => ({
 @injectIntl
 export default class SignUpForm extends React.Component {
     static propTypes = {
+        formAction: React.PropTypes.string,
         orgItem: ImPropTypes.map
     };
 
@@ -33,9 +34,24 @@ export default class SignUpForm extends React.Component {
 
     componentDidMount() {
         this.setState({
+            withJavascript: true,
             privacyChecked: false,
             focused: false,
         });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const cr = this.props.register;
+        const nr = nextProps.register;
+
+        if (cr.get('isPending') && !nr.get('isPending') && nr.get('errorMeta')) {
+            this.setState({
+                firstName: nr.getIn(['errorMeta', 'firstName']) || '',
+                lastName: nr.getIn(['errorMeta', 'lastName']) || '',
+                email: nr.getIn(['errorMeta', 'email']) || '',
+                phone: nr.getIn(['errorMeta', 'phone']) || '',
+            });
+        }
     }
 
     renderComplete(intl, register, msg){
@@ -95,6 +111,7 @@ export default class SignUpForm extends React.Component {
 
         let classes = cx('SignUpForm', {
             'focused': this.state.focused,
+            'withJavascript': this.state.withJavascript,
         });
 
         if (register.get('isPending')) {
@@ -102,7 +119,7 @@ export default class SignUpForm extends React.Component {
         }
         else {
             return (
-            <form method="post"
+            <form method="post" action={ this.props.formAction || '' }
                 className={ classes }
                 onSubmit={ this.onSubmit.bind(this) }
                 onFocus={ this.onFocus.bind(this) }>
@@ -110,38 +127,48 @@ export default class SignUpForm extends React.Component {
                 <p className="SignUpForm-info">{ msg('info') }</p>
                 { errorEl }
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="email">
-                    { msg('email') }</label>
-                <input className="SignUpForm-textInput" name="email"
-                    defaultValue={ this.state.email }
-                    placeholder={ msg('email') }
-                    autoComplete="off"/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="email">
+                        { msg('email') }</label>
+                    <input className="SignUpForm-textInput" name="email"
+                        defaultValue={ this.state.email }
+                        placeholder={ msg('email') }
+                        autoComplete="off"/>
+                </div>
 
                 <div className="SignUpForm-extraFields">
-                <label className="SignUpForm-hiddenLabel" htmlFor="fn">
-                    { msg('firstName') }</label>
-                <input className="SignUpForm-textInput" name="fn"
-                    defaultValue={ this.state.firstName }
-                    placeholder={ msg('firstName') }/>
+                    <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="fn">
+                        { msg('firstName') }</label>
+                    <input className="SignUpForm-textInput" name="fn"
+                        defaultValue={ this.state.firstName }
+                        placeholder={ msg('firstName') }/>
+                </div>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="ln">
-                    { msg('lastName') }</label>
-                <input className="SignUpForm-textInput" name="ln"
-                    defaultValue={ this.state.lastName }
-                    placeholder={ msg('lastName') }/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="ln">
+                        { msg('lastName') }</label>
+                    <input className="SignUpForm-textInput" name="ln"
+                        defaultValue={ this.state.lastName }
+                        placeholder={ msg('lastName') }/>
+                </div>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="phone">
-                    { msg('phone') }</label>
-                <input className="SignUpForm-textInput" name="phone"
-                    defaultValue={ this.state.phone }
-                    placeholder={ msg('phone') }/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="phone">
+                        { msg('phone') }</label>
+                    <input className="SignUpForm-textInput" name="phone"
+                        defaultValue={ this.state.phone }
+                        placeholder={ msg('phone') }/>
+                </div>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="password">
-                    { msg('password') }</label>
-                <input className="SignUpForm-textInput"
-                    type="password"
-                    name="password"
-                    placeholder={ msg('password') }/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="password">
+                        { msg('password') }</label>
+                    <input className="SignUpForm-textInput"
+                        type="password"
+                        name="password"
+                        placeholder={ msg('password') }/>
+                </div>
 
                 <input className="SignUpForm-checkbox"
                     name="privacy"

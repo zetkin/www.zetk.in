@@ -1,21 +1,80 @@
 .SignUpForm {
     @include checkbox-wrapper;
     transition: all 1s;
-}
 
-.SignUpForm-extraFields {
-    max-height: 0;
-    overflow: hidden;
-    transition: all 1s;
+    &.withJavascript {
+        // Transition starting points
+        .SignUpForm-extraFields {
+            max-height: 0;
+            animation: none;
+        }
 
-    & input:first-of-type {
-        margin-top: 0;
+        .SignUpForm-hiddenLabel {
+            opacity:0;
+        }
+
+        .SignUpForm-textInput {
+            padding: 0.68em 0.75em 0.67em;
+
+            &::placeholder {
+                color:lighten($c-text,30);
+            }
+            &::-ms-placeholder {
+                color:lighten($c-text,30);
+            }
+        }
+
+        .SignUpForm-checkboxLabel:before {
+            opacity: 0;
+        }
+    }
+
+    &.focused {
+        // Transition endpoints
+        .SignUpForm-extraFields {
+            max-height: 20em;
+            transition: all 1s 0;
+        }
+
+        .SignUpForm-hiddenLabel {
+            opacity: 1;
+            transition: opacity 0.5s 0.5s;
+        }
+
+        .SignUpForm-textInput {
+            padding: 1.2em 0.75em 0.5em;
+            transition: padding 0.2s;
+
+            &::placeholder {
+                transition: color 0.5s;
+                color:lighten($c-text,100);
+            }
+            &::-ms-placeholder {
+                transition: color 0.5s;
+                color:lighten($c-text,100);
+            }
+        }
+
+        .SignUpForm-checkboxLabel:before {
+            opacity: 1;
+            transition: opacity 1s 1s;
+        }
     }
 }
 
-.SignUpForm.focused
 .SignUpForm-extraFields {
+    overflow: hidden;
     max-height: 20em;
+    animation: SignUpForm-extraFields-delayedEnter 0.1s 1s both;
+}
+
+@keyframes SignUpForm-extraFields-delayedEnter {
+    from {
+        max-height: 0em;
+    }
+    to {
+        max-heigth: 20em;
+    }
 }
 
 .SignUpForm-title {
@@ -31,15 +90,18 @@
     margin-top: 0;
 }
 
+.SignUpForm-textBox {
+    position: relative;
+    margin: 0 0 0.5em;
+}
+
 .SignUpForm-hiddenLabel {
     position: absolute;
     font-size: 0.7em;
     margin-left: 1.2em;
     margin-top: 0.5em;
     color: lighten($c-text, 30);
-    opacity:0;
-    transition:opacity 0.5s;
-    transition-delay:0s;
+    opacity: 1;
 
     @include target-ie-6-7-8 {
         display: block;
@@ -47,43 +109,20 @@
     }
 }
 
-.SignUpForm.focused
-.SignUpForm-hiddenLabel {
-    opacity: 1;
-    transition:opacity 0.5s;
-    transition-delay:0.5s;
-}
-
 .SignUpForm-textInput {
     display: block;
     font-size: 1em;
     width: 100%;
-    margin: 0.5em 0;
-    padding: 0.75em 0.75em 0.5em;
     outline: none;
     border: 1px solid #dedede;
     border-radius: 2px;
     color: $c-text;
-
-    &::placeholder {
-        color:lighten($c-text,30);
-    }
-    &::-ms-placeholder {
-        color:lighten($c-text,30);
-    }
-}
-
-.SignUpForm.focused
-.SignUpForm-textInput {
     padding: 1.2em 0.75em 0.5em;
-    transition: padding 0.2s;
 
     &::placeholder {
-        transition: color 0.5s;
         color:lighten($c-text,100);
     }
     &::-ms-placeholder {
-        transition: color 0.5s;
         color:lighten($c-text,100);
     }
 }
@@ -91,26 +130,15 @@
 .SignUpForm-checkboxLabel {
     display: inline-block;
     font-size: 0.8em;
-    width: calc(100% - 2.5em);
-    margin-left: 2.5em;
     margin-top: 1em;
     color: lighten($c-text, 30);
+    opacity: 1;
 
     &:before {
-        position: absolute;
-        margin-left: -2.5em;
-        margin-right: 0!important;
-        opacity:0;
-        transition:opacity 0.5s;
-        transition-delay:0s;
+        display: block;
+        float: left;
+        margin-right: 0.9em!important;
     }
-}
-
-.SignUpForm.focused
-.SignUpForm-checkboxLabel:before {
-    opacity: 1;
-    transition: opacity 1s;
-    transition-delay: 1s;
 }
 
 .SignUpForm-privacyLink {
