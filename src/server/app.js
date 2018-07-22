@@ -286,11 +286,8 @@ export default function initApp(messages) {
                 }
                 else if ('code' in req.params) {
                     let code = req.params.code;
-                    let data = {
-                        verification_code: code,
-                    };
 
-                    req.z.resource('users', 'me', 'verification_code').post(data)
+                    req.z.resource('users', 'me', 'verification_codes', code).put()
                         .then(function() {
                             res.redirect('/dashboard');
                         })
