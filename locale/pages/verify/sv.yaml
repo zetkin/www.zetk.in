@@ -1,10 +1,11 @@
-error:
+invalid:
     h1: E-posten kunde inte bekräftas
     p: |-
-        Det gick inte att bekräfta din e-postadress. Testa att klicka på knappen
-        i e-postmeddelandet igen, eller kontakta Zetkin Foundation på
-        info@zetkin.org om felet kvarstår.
-info:
+        Det gick inte att bekräfta din e-postadress. Det kan bero på att den
+        länk du fick via mail har blivit för gammal, eller för att ditt
+        e-postprogram ändrade länken. Kopiera och klistra in länken för att
+        testa igen, eller be om en ny bekräftelselänk med knappen nedan.
+missing:
     h1: Bekräfta din e-postadress
     p0: |-
         Innan du kan fortsätta och använda Zetkin måste du bekräfta din
@@ -13,3 +14,9 @@ info:
         Vi har skickat ett e-postmeddelande med en bekräftelselänk. Klicka på
         knappen i meddelandet för att bekräfta din e-postadress. Kolla ditt
         filter för skräppost om du inte hittar mailet.
+resend:
+    h1: Kolla din inkorg
+    p: >-
+        Vi har skickat en ny bekräftelselänk via mail. Glöm inte kolla i din
+        skräpkorg efter mailet.
+resendButton: Skicka en ny bekräftelselänk

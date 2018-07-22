@@ -12,6 +12,10 @@
     input[type=submit] {
         @include gradient-button;
         display: block;
-        margin: 1em auto;
+        margin: 4em auto 0;
+    }
+
+    .Button {
+        @include button();
     }
 }

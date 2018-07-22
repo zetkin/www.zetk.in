@@ -276,6 +276,29 @@ export default function initApp(messages) {
         }
     });
 
+    app.post('/verify/resend', auth.validate(authOpts), function(req, res, next) {
+        req.z.resource('/users/me').get()
+            .then(function(result) {
+                let user = result.data.data;
+
+                if (user.is_verified) {
+                    res.redirect('/dashboard');
+                }
+                else {
+                    req.z.resource('users', 'me', 'verification_codes').post()
+                        .then(function() {
+                            next();
+                        })
+                        .catch(function(err) {
+                            next();
+                        });
+                }
+            })
+            .catch(function() {
+                next();
+            });
+    });
+
     app.get('/verify/:code', auth.validate(authOpts), function(req, res, next) {
         req.z.resource('/users/me').get()
             .then(function(result) {
