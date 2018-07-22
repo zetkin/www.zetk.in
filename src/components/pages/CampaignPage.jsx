@@ -170,7 +170,7 @@ const ConnectInterstitial = props => {
         + props.org.get('id')
         + ',' + props.actionId
         + ',signup'
-        + '?onComplete=' + encodeURIComponent(props.basePath);
+        + '?onComplete=' + props.basePath;
 
     return (
         <div className="CampaignPage-interstitial">
@@ -199,7 +199,7 @@ const AuthInterstitial = props => {
         + props.orgId
         + ',' + props.actionId
         + ',signup'
-        + '?onComplete=' + encodeURIComponent(props.basePath);
+        + '?onComplete=' + props.basePath;
 
     return (
         <div className="CampaignPage-interstitial">
