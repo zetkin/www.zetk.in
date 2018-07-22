@@ -2,7 +2,7 @@ action:
     booked: Booked
     button:
         signUp: Sign up
-        undoSignUp: Undo Sign up
+        undoSignUp: Undo
     infoButton: Read more
     currentNeed: More activists needed here
     multiLocationLabel: |
