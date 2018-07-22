@@ -75,7 +75,7 @@ export default createReducer(initialState, {
             let orgId = res.meta.org.id;
             res.data.data.forEach(obj =>
                 actions[obj.id] = Object.assign(obj, {
-                    org_id: orgId
+                    org_id: orgId.toString(),
                 }));
         });
 
@@ -99,7 +99,7 @@ export default createReducer(initialState, {
         let actions = {};
         action.payload.data.data.forEach(obj =>
             actions[obj.id] = Object.assign(obj, {
-                org_id: action.meta.orgId
+                org_id: action.meta.orgId.toString(),
             }));
 
         return state
