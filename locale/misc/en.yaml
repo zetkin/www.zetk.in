@@ -21,6 +21,7 @@ signup:
             You must approve our privacy policy to register
         login: Log in instead
     firstName: First Name
+    info: Register a user account to start organizing with Zetkin
     lastName: Last Name
     password: Password
     phone: Phone number
@@ -31,5 +32,4 @@ signup:
         title: Read our privacy policy.
     submitButton: Sign up
     submitButtonOrg: Sign up and connect
-    title: Sign up
-    info: To find actions to join, you first need an user account.
+    title: Get started now
