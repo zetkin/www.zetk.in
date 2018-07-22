@@ -55,7 +55,7 @@ export default createReducer(initialState, {
         let orgs = {};
 
         action.payload.data.data.forEach(membership => {
-            orgs[membership.organization.id] = membership.organization;
+            orgs[membership.organization.id.toString()] = membership.organization;
             memberships[membership.organization.id] = membership;
         });
 
@@ -83,7 +83,7 @@ export default createReducer(initialState, {
     [types.RETRIEVE_ALL_ACTIONS + '_FULFILLED']: (state, action) => {
         let orgs = {};
         action.payload.forEach(res =>
-            orgs[res.meta.org.id] = res.meta.org);
+            orgs[res.meta.org.id.toString()] = res.meta.org);
 
         return state
             .setIn(['orgList', 'error'], null)
@@ -109,7 +109,7 @@ export default createReducer(initialState, {
         let orgs = {};
 
         action.payload.data.data.forEach(org => {
-            orgs[org.id] = org;
+            orgs[org.id.toString()] = org;
         });
 
         return state

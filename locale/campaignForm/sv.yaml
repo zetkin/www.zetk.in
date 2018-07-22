@@ -2,7 +2,7 @@ action:
     booked: Bokad
     button:
         signUp: Anmäl dig
-        undoSignUp: Ångra anmälan
+        undoSignUp: Ångra
     infoButton: Läs mer
     currentNeed: Fler aktivister behövs här
     multiLocationLabel: |
