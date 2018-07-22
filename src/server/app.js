@@ -276,6 +276,29 @@ export default function initApp(messages) {
         }
     });
 
+    app.post('/verify/resend', auth.validate(authOpts), function(req, res, next) {
+        req.z.resource('/users/me').get()
+            .then(function(result) {
+                let user = result.data.data;
+
+                if (user.is_verified) {
+                    res.redirect('/dashboard');
+                }
+                else {
+                    req.z.resource('users', 'me', 'verification_codes').post()
+                        .then(function() {
+                            next();
+                        })
+                        .catch(function(err) {
+                            next();
+                        });
+                }
+            })
+            .catch(function() {
+                next();
+            });
+    });
+
     app.get('/verify/:code', auth.validate(authOpts), function(req, res, next) {
         req.z.resource('/users/me').get()
             .then(function(result) {
@@ -286,11 +309,8 @@ export default function initApp(messages) {
                 }
                 else if ('code' in req.params) {
                     let code = req.params.code;
-                    let data = {
-                        verification_code: code,
-                    };
 
-                    req.z.resource('users', 'me', 'verification_code').post(data)
+                    req.z.resource('users', 'me', 'verification_codes', code).put()
                         .then(function() {
                             res.redirect('/dashboard');
                         })
