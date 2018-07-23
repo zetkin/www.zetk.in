@@ -17,6 +17,7 @@ import CampaignForm from '../../../../common/campaignForm/CampaignForm';
 import CampaignTabs from './CampaignTabs';
 
 const mapStateToProps = state => ({
+    orgList: state.getIn(['orgs', 'orgList']),
     campaignList: state.getIn(['campaigns', 'campaignList']),
     actionList: state.getIn(['actions', 'actionList']),
     responseList: state.getIn(['actions', 'responseList']),
@@ -103,6 +104,7 @@ export default class CampaignSectionPage extends SectionPage {
                 onSelect={ this.onTabSelect.bind(this) }
             />,
             <CampaignForm key="campaignForm"
+                orgList={ this.props.orgList.get('items') }
                 redirPath={ this.props.redirPath }
                 actionList={ scopedActionList }
                 responseList={ this.props.responseList }

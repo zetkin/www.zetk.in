@@ -1,6 +1,14 @@
 .Logo {
     height: 48px;
+    width: 48px;
     display: block;
+
+    .Logo-image {
+        background-image: url("/static/images/logo-red.png");
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
 
     img {
         height: 100%;
@@ -9,9 +17,11 @@
 
     @include medium-screen{
         height: 64px;
+        width: 64px;
     }
 
     @include large-screen{
         height: 72px;
+        width: 72px;
     }
 }

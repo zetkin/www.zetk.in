@@ -1,6 +1,7 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 import ImPropTypes from 'react-immutable-proptypes';
 
 import { register } from '../../actions/register';
@@ -15,6 +16,7 @@ const mapStateToProps = state => ({
 @injectIntl
 export default class SignUpForm extends React.Component {
     static propTypes = {
+        formAction: React.PropTypes.string,
         orgItem: ImPropTypes.map
     };
 
@@ -32,8 +34,24 @@ export default class SignUpForm extends React.Component {
 
     componentDidMount() {
         this.setState({
+            withJavascript: true,
             privacyChecked: false,
+            focused: false,
         });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const cr = this.props.register;
+        const nr = nextProps.register;
+
+        if (cr.get('isPending') && !nr.get('isPending') && nr.get('errorMeta')) {
+            this.setState({
+                firstName: nr.getIn(['errorMeta', 'firstName']) || '',
+                lastName: nr.getIn(['errorMeta', 'lastName']) || '',
+                email: nr.getIn(['errorMeta', 'email']) || '',
+                phone: nr.getIn(['errorMeta', 'phone']) || '',
+            });
+        }
     }
 
     renderComplete(intl, register, msg){
@@ -41,8 +59,10 @@ export default class SignUpForm extends React.Component {
 
         return(
             <div className="SignUpForm-done">
-                <h2 className="SignUpForm-title">{ msg('done.title', values) }</h2>
-                <p className="SignUpForm-subtitle">{ msg('done.subtitle') }</p>
+                <h2 className="SignUpForm-title">
+                    { msg('done.title', values) }</h2>
+                <p className="SignUpForm-subtitle">
+                    { msg('done.subtitle') }</p>
             </div>
         );
     }
@@ -52,21 +72,15 @@ export default class SignUpForm extends React.Component {
         const { privacyChecked } = this.state;
         const error = register.get('error');
         let errorEl;
-        const buttonLabel = orgItem ? msg('submitButtonOrg') : msg('submitButton');
-        const privacyLabel = orgItem  ? msg('privacyCheckOrg', {org: orgItem.get("title")}) : msg('privacyCheck');
-        let submitButton = (
-            <input className="SignUpForm-submitButton"
-                type="submit"
-                value={ buttonLabel }
-                disabled={!privacyChecked}/>
-        );
-
-        if (register.get('isPending')) {
-            submitButton = <LoadingIndicator/>
-        }
+        const buttonLabel = orgItem ?
+            msg('submitButtonOrg') : msg('submitButton');
+        const privacyLabel = orgItem  ?
+            msg('privacyCheckOrg', {org: orgItem.get("title")}) :
+            msg('privacyCheck');
 
         if (error) {
             let errorMessage
+            let errorAction
 
             if (error == 'privacy') {
                 errorMessage = msg('error.privacy');
@@ -74,6 +88,12 @@ export default class SignUpForm extends React.Component {
             else if (error.get('httpStatus') == 409) {
                 const values = register.get('data').toJS();
                 errorMessage = msg('error.exists', values);
+                errorAction = (
+                    <a className="SignUpForm-errorAction"
+                        href="/dashboard">
+                        { msg('error.login') }
+                        </a>
+                    );
             }
             else if (error.get('httpStatus') == 400) {
                 errorMessage = msg('error.invalid')
@@ -81,42 +101,74 @@ export default class SignUpForm extends React.Component {
 
             errorEl = (
                 <div className="SignUpForm-error">
-                    { errorMessage }
+                    <div className="SignUpForm-errorMessage">
+                        { errorMessage }
+                    </div>
+                    { errorAction }
                 </div>
             );
         }
 
-        return (
-            <form method="post"
-                className="SignUpForm"
-                onSubmit={ this.onSubmit.bind(this) }>
+        let classes = cx('SignUpForm', {
+            'focused': this.state.focused,
+            'withJavascript': this.state.withJavascript,
+        });
+
+        if (register.get('isPending')) {
+            return <LoadingIndicator/>;
+        }
+        else {
+            return (
+            <form method="post" action={ this.props.formAction || '' }
+                className={ classes }
+                onSubmit={ this.onSubmit.bind(this) }
+                onFocus={ this.onFocus.bind(this) }>
                 <h2 className="SignUpForm-title">{ msg('title') }</h2>
+                <p className="SignUpForm-info">{ msg('info') }</p>
                 { errorEl }
-                <label className="SignUpForm-hiddenLabel" htmlFor="fn">{ msg('firstName') }</label>
-                <input className="SignUpForm-textInput" name="fn"
-                    defaultValue={ this.state.firstName }
-                    placeholder={ msg('firstName') }/>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="ln">{ msg('lastName') }</label>
-                <input className="SignUpForm-textInput" name="ln"
-                    defaultValue={ this.state.lastName }
-                    placeholder={ msg('lastName') }/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="email">
+                        { msg('email') }</label>
+                    <input className="SignUpForm-textInput" name="email"
+                        defaultValue={ this.state.email }
+                        placeholder={ msg('email') }
+                        autoComplete="off"/>
+                </div>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="email">{ msg('email') }</label>
-                <input className="SignUpForm-textInput" name="email"
-                    defaultValue={ this.state.email }
-                    placeholder={ msg('email') }/>
+                <div className="SignUpForm-extraFields">
+                    <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="fn">
+                        { msg('firstName') }</label>
+                    <input className="SignUpForm-textInput" name="fn"
+                        defaultValue={ this.state.firstName }
+                        placeholder={ msg('firstName') }/>
+                </div>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="phone">{ msg('phone') }</label>
-                <input className="SignUpForm-textInput" name="phone"
-                    defaultValue={ this.state.phone }
-                    placeholder={ msg('phone') }/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="ln">
+                        { msg('lastName') }</label>
+                    <input className="SignUpForm-textInput" name="ln"
+                        defaultValue={ this.state.lastName }
+                        placeholder={ msg('lastName') }/>
+                </div>
 
-                <label className="SignUpForm-hiddenLabel" htmlFor="password">{ msg('password') }</label>
-                <input className="SignUpForm-textInput"
-                    type="password"
-                    name="password"
-                    placeholder={ msg('password') }/>
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="phone">
+                        { msg('phone') }</label>
+                    <input className="SignUpForm-textInput" name="phone"
+                        defaultValue={ this.state.phone }
+                        placeholder={ msg('phone') }/>
+                </div>
+
+                <div className="SignUpForm-textBox">
+                    <label className="SignUpForm-hiddenLabel" htmlFor="password">
+                        { msg('password') }</label>
+                    <input className="SignUpForm-textInput"
+                        type="password"
+                        name="password"
+                        placeholder={ msg('password') }/>
+                </div>
 
                 <input className="SignUpForm-checkbox"
                     name="privacy"
@@ -126,12 +178,20 @@ export default class SignUpForm extends React.Component {
                     onChange={ this.onPrivacyChange.bind(this) }
                     />
 
-                <label className="SignUpForm-checkboxLabel" htmlFor="privacy">{ privacyLabel }</label>
-                <a className="SignUpForm-privacyLink" href={ msg('privacyLink.href') }>{ msg('privacyLink.title') }</a>
-
-                { submitButton }
+                <label className="SignUpForm-checkboxLabel" htmlFor="privacy">
+                    { privacyLabel }</label>
+                <a className="SignUpForm-privacyLink" href=
+                    { msg('privacyLink.href') }>
+                        { msg('privacyLink.title') }</a>
+                </div>
+                <input className="SignUpForm-submitButton"
+                    type="submit"
+                    value={ buttonLabel }
+                    disabled={!privacyChecked}/>
             </form>
         )
+        }
+
     }
 
     render(){
@@ -148,6 +208,12 @@ export default class SignUpForm extends React.Component {
     onPrivacyChange(ev) {
         this.setState({
             privacyChecked: ev.target.checked,
+        })
+    }
+
+    onFocus(ev) {
+        this.setState({
+            focused: !this.props.focused,
         })
     }
 

@@ -19,7 +19,9 @@ signup:
             ifyllda.
         privacy: >-
             Du måste godkänna vår integritetspolicy för att registrera dig
+        login: Logga in istället
     firstName: Förnamn
+    info: Registrera ett användarkonto för att organisera dig med Zetkin
     lastName: Efternamn
     password: Lösenord
     phone: Telefonnummer
@@ -30,4 +32,4 @@ signup:
         title: Läs vår integritetspolicy.
     submitButton: Registrera
     submitButtonOrg: Registrera och anslut
-    title: Registrera
+    title: Kom igång direkt

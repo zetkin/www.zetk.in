@@ -43,18 +43,12 @@ foundation:
         antiracist and sustainable direction. That makes Zetkin very special.
 splash:
     authenticated:
-        cancelLink: Cancel
-        h1: 'Logged in as { firstName } { lastName }'
-        logoutLink: Log out
-        p: You can't create a new user account while already signed in.
+        h2: Logged in
     caption: >-
         The "Our city" street festival was organized with Zetkin by
         Vänsterpartiet in Malmö in May 2014.
     h1: Participate in the struggle for justice
-    h2: Kickstart your involvement with Zetkin
-    infoLink:
-        href: 'http://zetkin.org/en'
-        text: Learn about Zetkin
+    readAbout: Read about what you can do with Zetkin
     signUpLink: Sign up
 zetkin:
     h1: Participation made simple

@@ -16,6 +16,7 @@ import { loadLocaleHandler } from './locale';
 import formEndpoints from './forms';
 import preloader from './preloader';
 import routes from '../components/routes';
+import ops from './ops';
 import { setPasswordResetToken } from '../actions/password';
 import { organization } from '../store/orgs';
 
@@ -85,10 +86,59 @@ export default function initApp(messages) {
     app.get('/dashboard', auth.validate(authOpts));
     app.get('/dashboard/*', auth.validate(authOpts));
     app.get('/settings', auth.validate(authOpts));
-    app.get('/o/:org_id/campaigns/:campaign_id', auth.validate(authOpts));
     app.get('/o/:orgId/groups/:groupId', auth.validate(authOpts));
 
+    app.use('/ops', auth.validate(authOpts), ops);
     app.use(preloader(messages));
+
+    app.get('*', (req, res, next) => {
+        if (req.query.actionSignup) {
+            const [ orgId, actionId, op ] = req.query.actionSignup.split('/');
+
+            if (orgId && actionId && op) {
+                let fragment = '';
+
+                req.z.resource('orgs', orgId, 'actions', actionId)
+                    .get()
+                    .then(result => {
+                        const actionData = result.data.data;
+                        fragment = (new Date(actionData.start_time)).format('{yyyy}-{MM}-{dd}');
+
+                        // Find user personId from list of memberships
+                        const membershipList = req.store.getState().getIn(['orgs', 'membershipList']);
+                        const membership = membershipList.get('items').find(val => (
+                            val.getIn(['organization', 'id']) == orgId));
+                        const personId = membership.getIn(['profile', 'id']);
+
+                        const resource = req.z.resource('orgs', orgId, 'actions', actionId,
+                            'responses', personId);
+
+                        return (op == 'signup')? resource.put() : resource.del();
+                    })
+                    .then(() => {
+                        res.redirect(307, url.format({
+                            protocol: req.protocol,
+                            host: req.get('host'),
+                            pathname: req.path,
+                            hash: fragment,
+                        }));
+                    })
+                    .catch(err => {
+                        res.redirect(307, url.format({
+                            protocol: req.protocol,
+                            host: req.get('host'),
+                            pathname: req.path,
+                        }));
+                    });
+            }
+            else {
+                next();
+            }
+        }
+        else {
+            next();
+        }
+    });
 
     // Prefer slug over ID for org pages
     app.get('/o/:orgId', (req, res, next) => {
@@ -226,6 +276,29 @@ export default function initApp(messages) {
         }
     });
 
+    app.post('/verify/resend', auth.validate(authOpts), function(req, res, next) {
+        req.z.resource('/users/me').get()
+            .then(function(result) {
+                let user = result.data.data;
+
+                if (user.is_verified) {
+                    res.redirect('/dashboard');
+                }
+                else {
+                    req.z.resource('users', 'me', 'verification_codes').post()
+                        .then(function() {
+                            next();
+                        })
+                        .catch(function(err) {
+                            next();
+                        });
+                }
+            })
+            .catch(function() {
+                next();
+            });
+    });
+
     app.get('/verify/:code', auth.validate(authOpts), function(req, res, next) {
         req.z.resource('/users/me').get()
             .then(function(result) {
@@ -236,11 +309,8 @@ export default function initApp(messages) {
                 }
                 else if ('code' in req.params) {
                     let code = req.params.code;
-                    let data = {
-                        verification_code: code,
-                    };
 
-                    req.z.resource('users', 'me', 'verification_code').post(data)
+                    req.z.resource('users', 'me', 'verification_codes', code).put()
                         .then(function() {
                             res.redirect('/dashboard');
                         })

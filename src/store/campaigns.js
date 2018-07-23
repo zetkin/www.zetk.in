@@ -63,7 +63,7 @@ export default createReducer(initialState, {
         let campaign = {
             id: action.meta.campaignId.toString(),
             org_id: action.meta.orgId.toString(),
-            error: action.payload.data,
+            error: action.payload,
             isPending: false,
         };
 
