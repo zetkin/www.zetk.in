@@ -34,6 +34,7 @@ const mapStateToProps = (state, props) => {
         organization: o,
         isAuthenticated: !!state.getIn(['user', 'data']),
         isConnected: isConnected,
+        orgList: state.getIn(['orgs', 'orgList']),
         actionList: campaignActionList(state, props.params.campaignId),
         responseList: state.getIn(['actions', 'responseList']),
         userActionList: state.getIn(['actions', 'userActionList']),
@@ -102,6 +103,7 @@ export default class CampaignPage extends React.Component {
             form = (
                 <CampaignForm
                     redirPath={ this.props.location.pathname }
+                    orgList={ this.props.orgList.get('items') }
                     // TODO: Don't use full action list
                     actionList={ this.props.actionList }
                     responseList={ responseList }
