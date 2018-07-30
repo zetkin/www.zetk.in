@@ -21,3 +21,11 @@ interstitial:
         button: Create account
 notFound:
     h: The campaign could not be found
+    anon:
+        p: It may be available to signed in users only.
+        loginButton: Log in and try again
+    auth:
+        p: It may be available to connected users only.
+        connectButton: Connect to { org }
+    connected:
+        p: It looks like it doesn't exist. Try reaching out to the organization.
