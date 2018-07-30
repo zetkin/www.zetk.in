@@ -79,6 +79,7 @@ export default function initApp(messages) {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(auth.initialize(authOpts));
     app.get('/logout', auth.logout(authOpts));
+    app.get('/login', auth.login(authOpts));
 
     app.get('/l10n', loadLocaleHandler());
 
