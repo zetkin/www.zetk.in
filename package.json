@@ -1,6 +1,6 @@
 {
   "name": "www.zetk.in",
-  "version": "14.0.2",
+  "version": "14.1.0",
   "description": "Main (activist) front-end for Zetkin",
   "main": "src/server/main.js",
   "scripts": {
