@@ -20,7 +20,7 @@ import {
 
 const mapStateToProps = (state, props) => {
     let c = campaign(state, props.params.campaignId);
-    let o = c? organization(state, c.get('org_id')) : null;
+    let o = organization(state, props.params.orgId);
 
     let isConnected = false;
     const membershipListItems = state.getIn(['orgs', 'membershipList', 'items']);
@@ -81,7 +81,52 @@ export default class CampaignPage extends React.Component {
             campaignInfo = <LoadingIndicator />;
         }
         else if (!campaign || campaign.get('error')) {
-            campaignInfo = <Msg id="pages.campaign.notFound.h"/>;
+            const infoContent = [
+                <Msg key="h" tagName="h1" id="pages.campaign.notFound.h"/>,
+            ];
+
+            let loginButton = null;
+            if (this.props.isConnected) {
+                infoContent.push(
+                    <Msg key="p" tagName="p"
+                        id="pages.campaign.notFound.connected.p"/>
+                );
+            }
+            else if (this.props.isAuthenticated && this.props.organization) {
+                const org = this.props.organization.get('title');
+                const connectHref = '/o/' + this.props.organization.get('id') + '/connect';
+
+                infoContent.push(
+                    <Msg key="p" tagName="p"
+                        values={{ org }}
+                        id="pages.campaign.notFound.auth.p"/>,
+                    <Button key="button"
+                        labelMsg="pages.campaign.notFound.auth.connectButton"
+                        labelValues={{ org }}
+                        href={ connectHref } forceRefresh={ true }
+                        />,
+                );
+            }
+            else {
+                const loginHref = '/login'
+                    + '?redirPath=/o/' + this.props.params.orgId
+                    + '/campaigns/' + this.props.params.campaignId;
+
+                infoContent.push(
+                    <Msg key="p" tagName="p"
+                        id="pages.campaign.notFound.anon.p"/>,
+                    <Button key="button"
+                        labelMsg="pages.campaign.notFound.anon.loginButton"
+                        href={ loginHref } forceRefresh={ true }
+                        />,
+                );
+            }
+
+            campaignInfo = (
+                <div className="CampaignPage-notFound">
+                    { infoContent }
+                </div>
+            );
         }
         else if (campaign) {
             campaignInfo = [

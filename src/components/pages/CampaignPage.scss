@@ -18,6 +18,12 @@
     }
 }
 
+.CampaignPage-notFound {
+    .Button {
+        @include button();
+    }
+}
+
 .CampaignPage-interstitial {
     position: fixed;
     top: 0;
