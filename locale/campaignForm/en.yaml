@@ -33,6 +33,7 @@ filter:
         modal:
             clearButton: Show all activities
     modal:
+        title: Filter
         closeButton: Close
         toggleActionCount: |
             {count, plural,
