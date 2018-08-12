@@ -51,7 +51,7 @@ export default class Welcome extends React.Component {
             else if (recList.get('items').size) {
                 let orgItems = recList.get('items').toList().map(org => {
                     const logoSrc = '//api.'
-                        + process.env.ZETKIN_DOMAIN + '/orgs/'
+                        + process.env.ZETKIN_DOMAIN + '/v1/orgs/'
                         + org.get('id') + '/avatar';
 
                     return (
