@@ -7,9 +7,10 @@ interstitial:
             to { org }. Doing so gives them access to basic information about you.
             Do you want to connect to { org } and join their struggle for justice?
     intro:
-        h: Great that you want to join!
+        h: Almost there!
         p: |-
-            You need a Zetkin user account to be able to sign up.
+            Great that you want to take part! To sign up to this campaign, you need
+            to log in with a Zetkin user account.
     login:
         p: |-
             If you already have an account, you can log in and sign up right away.
