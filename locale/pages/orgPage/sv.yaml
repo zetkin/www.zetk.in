@@ -10,6 +10,12 @@ connected:
     p: >-
         Du hittar pågående kampanjer och uppdrag organiserade av {org} på "Min
         sida"
+notFound:
+    h: Organisationen finns inte
+    homeButton: Till Zetkins startsida
+    p: |-
+        Det finns ingen organisationssida här. Backa och se om du kan hitta en
+        annan väg, eller gå till Zetkins startsida.
 zetkin:
     description: >-
         {org} använder Zetkin, en plattform för att organisera aktivism.

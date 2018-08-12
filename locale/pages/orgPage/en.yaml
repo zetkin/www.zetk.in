@@ -12,6 +12,12 @@ connected:
     p: |-
         You can find on-going campaigns and assignments organized by { org }
         on "My page".
+notFound:
+    h: Organization not found
+    homeButton: To the Zetkin home page
+    p: |-
+        There is no organization page here. Retrace your steps and try to find
+        another way, or go to the Zetkin home page.
 zetkin:
     description: >-
         { org } uses Zetkin, a platform for organizing activism. Sign up and
