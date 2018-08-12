@@ -6,6 +6,7 @@ import CookieNotice from "../common/misc/CookieNotice";
 import Footer from './Footer';
 import GoogleAnalytics from './misc/GoogleAnalytics';
 import Header from './header/Header';
+import { campaign } from '../store/campaigns';
 import { organization } from '../store/orgs';
 
 
@@ -45,6 +46,13 @@ export default class App extends React.Component {
             let org = organization(this.props.fullState, this.props.params.orgId);
             if (org) {
                 title = org.get('title') + ' | ' + title;
+            }
+        }
+
+        if (this.props.params.campaignId) {
+            const c = campaign(this.props.fullState, this.props.params.campaignId);
+            if (c && c.get('title')) {
+                title = c.get('title') + ' | ' + title;
             }
         }
 

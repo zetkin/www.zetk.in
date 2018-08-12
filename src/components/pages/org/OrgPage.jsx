@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage as Msg } from 'react-intl';
 import { connect } from 'react-redux';
 
+import Button from '../../../common/misc/Button';
 import OrgCard from './OrgCard';
 import FormattedLink from '../../../common/misc/FormattedLink';
 import OrgContent from './OrgContent';
@@ -75,7 +76,15 @@ export default class OrgPage extends React.Component {
             )
         }
         else {
-            return null;
+            return (
+                <div className="OrgPage">
+                    <div className="OrgPage-notFound">
+                        <Msg tagName="h2" id="pages.orgPage.notFound.h"/>
+                        <Msg tagName="p" id="pages.orgPage.notFound.p"/>
+                        <Button href="/" labelMsg="pages.orgPage.notFound.homeButton"/>
+                    </div>
+                </div>
+            );
         }
     }
 }

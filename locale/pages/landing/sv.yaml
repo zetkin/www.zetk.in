@@ -44,6 +44,7 @@ foundation:
         gör Zetkin till något alldeles speciellt.
 splash:
     authenticated:
+        h2: Inloggad
     caption: |
         Gatufesten "Vår stad" organiserades med Zetkin av Vänsterpartiet i Malmö
         i maj 2014.
