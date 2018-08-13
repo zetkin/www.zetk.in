@@ -7,9 +7,10 @@ interstitial:
             ditt användarkonto, vilket ger dem tillgång till dina kontaktuppgifter.
             Vill du ansluta till { org } och gå med i deras kamp för rättvisa?
     intro:
-        h: Kul att du vill hjälpa till!
+        h: Nästan färdig!
         p: |-
-            För att kunna anmäla dig måste du ha ett användarkonto i Zetkin.
+            Kul att du vill hjälpa till! För att kunna anmäla dig måste du logga
+            in med ett användarkonto i Zetkin.
     login:
         p: |-
             Om du redan har ett konto kan du logga in och anmäla dig direkt.

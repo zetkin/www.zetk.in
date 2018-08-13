@@ -28,14 +28,11 @@ export default class ResetPasswordPage extends SimplePageBase {
         let content;
 
         if (this.props.reset) {
-            let loginUrl = '//login.' + process.env.ZETKIN_DOMAIN
-                + '/login?redirPath=/dashboard&appId='
-                + process.env.ZETKIN_APP_ID;
-
             content = [
                 <Msg key="p" tagName="p"
                     id="pages.resetPassword.after.p"/>,
-                <Button key="loginButton" href={ loginUrl }
+                <Button key="loginButton"
+                    href="/login" forceRefresh={ true }
                     labelMsg="pages.resetPassword.after.loginButton"/>,
             ];
         }
