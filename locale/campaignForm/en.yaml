@@ -25,11 +25,11 @@ calendar:
 filter:
     activity:
         active:
-            p: Filtering actions by activity
+            p: Showing only some actions based on activity.
             button: Show all actions
         inactive:
-            p: Showing all types of actions
-            button: Select types to show
+            p: Showing all actions regardless of activity.
+            button: Select activities to show
         modal:
             clearButton: Show all activities
     modal:
