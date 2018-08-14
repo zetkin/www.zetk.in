@@ -31,11 +31,11 @@
         margin: 0.5em;
 
         &.linkOrganize {
-            @include icon-button($fa-var-sitemap);
+            @include icon-button-add($fa-var-sitemap);
         }
 
         &.linkCall {
-            @include icon-button($fa-var-phone);
+            @include icon-button-add($fa-var-phone);
         }
     }
 }
