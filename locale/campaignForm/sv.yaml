@@ -29,7 +29,7 @@ filter:
             button: Visa alla aktioner
         inactive:
             p: Visar alla aktioner oavsett aktivitet.
-            button: Välja aktiviteter att visa
+            button: Välj aktiviteter att visa
         modal:
             clearButton: Visa oavsett aktivitet
     modal:
