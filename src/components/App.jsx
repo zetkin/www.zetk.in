@@ -40,7 +40,11 @@ export default class App extends React.Component {
             );
         }
 
+        let url = 'https://www.' + process.env.ZETKIN_DOMAIN + path;
         let title = 'Zetkin';
+        let desc = 'Zetkin '
+        let imageUrl = 'https://www.' + process.env.ZETKIN_DOMAIN
+            + '/static/images/social_image.jpg';
 
         if (this.props.params.orgId) {
             let org = organization(this.props.fullState, this.props.params.orgId);
@@ -53,6 +57,7 @@ export default class App extends React.Component {
             const c = campaign(this.props.fullState, this.props.params.campaignId);
             if (c && c.get('title')) {
                 title = c.get('title') + ' | ' + title;
+                desc = c.get('info_text');
             }
         }
 
@@ -70,6 +75,10 @@ export default class App extends React.Component {
                           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCih1zeZELzFJxP2SFkNJVDLs2ZCT_y3gY&libraries=visualization,geometry"/>
                     <link rel="icon" type="image/png"
                         href="/static/images/favicon.png"/>
+                    <meta property="og:url"                content={ url } />
+                    <meta property="og:title"              content={ title } />
+                    <meta property="og:description"        content={ desc } />
+                    <meta property="og:image"              content={ imageUrl } />
                 </head>
                 <body>
                     { header }
