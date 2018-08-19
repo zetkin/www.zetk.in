@@ -40,10 +40,10 @@ export default class App extends React.Component {
             );
         }
 
-        let url = 'https://www.' + process.env.ZETKIN_DOMAIN + path;
+        let url = 'http://www.' + process.env.ZETKIN_DOMAIN + path;
         let title = 'Zetkin';
         let desc = 'Zetkin '
-        let imageUrl = 'https://www.' + process.env.ZETKIN_DOMAIN
+        let imageUrl = 'http://www.' + process.env.ZETKIN_DOMAIN
             + '/static/images/social_image.jpg';
 
         if (this.props.params.orgId) {
