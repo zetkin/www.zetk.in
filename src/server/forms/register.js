@@ -13,6 +13,10 @@ export default (req, res, next) => {
         password: form.password,
     };
 
+    if (data.phone === '+') {
+        data.phone = '';
+    }
+
     let meta = {
         firstName: data.first_name,
         lastName: data.last_name,
