@@ -192,7 +192,7 @@ export default class SignUpForm extends React.Component {
                     <label className="SignUpForm-hiddenLabel" htmlFor="phone">
                         { msg('phone') }</label>
                     <input className="SignUpForm-textInput" name="phone"
-                        pattern="\d*"
+                        type="tel"
                         placeholder={ msg('phone') }
                         value={ this.state.phone }
                         onFocus={ this.onPhoneFocus.bind(this) }
