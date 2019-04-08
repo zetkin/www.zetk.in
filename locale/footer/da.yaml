@@ -1,9 +1,9 @@
 links:
     foundationLink:
-        href: 'http://zetkin.org/sv'
+        href: http://zetkin.org/en
         text: Zetkin Foundation
     manualLink:
-        href: 'http://manual.zetkin.org/sv'
+        href: http://manual.zetkin.org/sv
         text: Zetkin-manualen
     privacyLink:
         href: http://zetkin.org/privacy
