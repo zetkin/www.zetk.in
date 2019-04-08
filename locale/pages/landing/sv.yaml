@@ -1,6 +1,6 @@
 connect:
     applyLink:
-        href: 'http://zetkin.org/sv/anslut'
+        href: http://zetkin.org/sv/anslut
         text: Ansök om tillgång
     h1: Zetkin för din organisation
     h2: Vill du börja använda Zetkin i din organisation?
@@ -33,9 +33,9 @@ features:
     signUpLink: Registrera dig och kom igång
 foundation:
     h1: Utvecklat av aktivister
-    h2: 'Ett annorlunda företag, för ett annorlunda samhälle'
+    h2: Ett annorlunda företag, för ett annorlunda samhälle
     infoLink:
-        href: 'http://zetkin.org/sv/foundation'
+        href: http://zetkin.org/sv/foundation
         text: Läs mer om Zetkin Foundation
     paragraph: |
         Zetkin utvecklas av Zetkin Foundation – ett företag vars syfte inte

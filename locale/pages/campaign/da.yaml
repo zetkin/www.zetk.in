@@ -1,2 +1,28 @@
+interstitial:
+    connect:
+        button: Ja, tilslut
+        h: Vil du slutte dig til { org }?
+        p: |-
+            Før du kan melde dig til deres aktioner, skal du slutte din bruger til { org }. Når du gør det, giver du dem adgang til basale personoplysninger om dig selv.
+            Vil du slutte dig til { org } og være med i deres kamp for en retfærdig verden?
+    intro:
+        h: Næsten færdig!
+        p: Skønt at du vil være med! For at melde dig til denne kampagne skal du bruge
+            en Zetkin-bruger.
+    login:
+        button: Log ind
+        p: Hvis du allerede har en bruger, kan du logge ind og melde dig til med det
+            samme.
+    register:
+        button: Opret bruger
+        p: Hvis det er første gang du bruger Zetkin, skal du oprette en bruger.
 notFound:
+    anon:
+        loginButton: Log ind og prøv igen
+        p: Funktionen er muligvis kun tilgængelig når man er logget ind.
+    auth:
+        connectButton: Slut dig til { org }
+        p: Funktionen er muligvis kun tilgængelig for tilsluttede brugere.
+    connected:
+        p: Det ser ikke ud til at den findes. Prøv at tage fat i organisationen.
     h: Kampagnen kunne ikke findes

@@ -1,64 +1,55 @@
 connect:
     applyLink:
-        href: 'http://zetkin.org/sv/anslut'
-        text: Ansøg om adgang
-    h1: Zetkin for din organisation
+        href: http://zetkin.org/en/join
+        text: Anmod om adgang
+    h1: Zetkin til din organisation
     h2: Vil du anvende Zetkin i din organisation?
-    paragraph: >-
-        Såfremt din organisation arbejder imod de samme mål som Zetkin
-        Foundation, vil vi gerne hjælpe med at udvikle jeres aktivisme.
+    paragraph: Hvis din organisation arbejder for de samme mål som Zetkin Foundation,
+        vil vi gerne hjælpe med at udvikle jeres aktivisme.
 features:
     f1:
-        desc: >-
-            Hvis din organisation anvender Zetkin skal du blot tilslutte dig. Så
-            kan du tilmelde dig til aktiviteter, deltage i rundringninger og
-            andet.
+        desc: Hvis din organisation anvender Zetkin, skal du blot tilslutte dig. Så
+            kan du melde dig til aktiviteter, deltage i rundringninger og meget mere.
         title: Bliv aktiv i din organisation
     f2:
-        desc: >-
-            På "Min Side" holder du styr på kampagner du kan deltage i, se
-            hvilke aktiviteter du er booket til og se om du har fået nogle
-            opgaver.
+        desc: På "Min side" kan du holde styr på kampagner du kan deltage i, se hvilke
+            aktiviteter du er booket til, og tjekke om du har fået opgaver.
         title: Få et overblik
     f3:
-        desc: >-
-            Tilmeld dig aktiviteter i byen hurtigt og let. Derefter skal du blot
-            at dukke op.
-        title: Engager dig på gaderne
+        desc: Tilmeld dig aktiviteter i byen nemt og hurtigt. Så er det bare at dukke
+            op.
+        title: Gå på gaden
     f4:
-        desc: >-
-            Hjælp din organisation med at aktivere medlemmer, lav opkald uanset
-            hvor du befinder dig ved hjælp af Zetkins smarte ringeværktøj.
+        desc: Hjælp din organisation med at nå folk. Uanset hvor du er, kan du ringe
+            ud med Zetkins kvikke opkaldsapp.
         title: Deltag i ringerunder
     h1: Alt du behøver som aktivist
-    signUpLink: Registrer dig og kom i gang
+    signUpLink: Opret dig og kom i gang
 foundation:
     h1: Udviklet af aktivister
-    h2: 'Et anderledes firma, for et andet samfund'
+    h2: En anderledes virksomhed for et andet samfund
     infoLink:
-        href: 'http://zetkin.org/en/foundation'
+        href: http://zetkin.org/da/foundation
         text: Læs mere om Zetkin Foundation
-    paragraph: >-
-        Zetkin er udviklet af Zetkin Foundation - et selskab, hvis formål ikke
-        er at gøre profit, men at bidrage til radikal social forandring i
-        socialistisk, feministisk, anti-racistisk og bæredygtig retning. Det gør
-        Zetkin til noget særligt.
+    paragraph: Zetkin er udviklet af Zetkin Foundation – en virksomhed, der ikke arbejder
+        for profit, men for grundlæggende samfundsforandringer i en socialistisk,
+        feministisk, antiracistisk og bæredygtig retning. Det gør Zetkin til noget
+        særligt.
 splash:
     authenticated:
-    caption: >-
-        Gadefesten "Vår stad" blev arrangeret af Vänsterpartiet i Malmø med
-        Zetkin i maj 2014
-    h1: Deltag i kampen for retfærdighed
+        h2: Logget ind
+    caption: Gadefesten "Vår stad" blev arrangeret med Zetkin af Vänsterpartiet i
+        Malmø i maj 2014.
+    h1: Vær med i kampen for retfærdighed
+    readAbout: Læs mere om hvad du kan opnå med Zetkin
     signUpLink: Opret bruger
 zetkin:
-    h1: Gør engagement enkelt
-    h2: En platform for at organisere aktivisme
-    paragraph: >-
-        "Zetkin er en webbaseret platform der gør det det nemt at engagere sig.
-        Den bliver brugt af organisationer og individuelle aktivister som
-        deltager i organisationernes arbejde. Alle kan oprette en brugerkonto i
-        Zetkin. Som bruger af Zetkin, kan du deltage i arbejde og aktiviteter
-        arrangeret af de organisationer, du er forbundet til. "
+    h1: Gør det nemt at deltage
+    h2: En platform til at organisere aktivisme
+    paragraph: |-
+        Zetkin er en webbaseret platform der gør det nemt at deltage. Den bruges af organisationer og individuelle aktivister som led i deres organisationsarbejde.
+
+        Enhver kan oprette en brugerkonto i Zetkin. Som Zetkin-bruger kan du bidrage til indsatser og aktiviteter arrangeret af de organisationer du er tilsluttet.
     usp1: Trygt og sikkert
     usp2: Aktivisten i fokus
     usp3: Gennemprøvet

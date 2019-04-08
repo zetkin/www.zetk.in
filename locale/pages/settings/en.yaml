@@ -1,19 +1,17 @@
 connections:
     h: Organization connections
-    intro: >-
-        These are the organizations that you are connected to. You can
-        disconnect
-
+    intro: |-
+        These are the organizations that you are connected to. You can disconnect
         here. If you want to connect to a new organization you must contact them
-
         for an organization link.
 h: Settings
 language:
     h: Language
     options:
-        auto: >
-            Automatic ({ locale, select, sv {Swedish} en {English} da {Danish}
+        auto: 'Automatic ({ locale, select, sv {Swedish} en {English} da {Danish}
             })
+
+            '
         da: Danish
         en: English
         sv: Swedish

@@ -1,11 +1,10 @@
 connect:
     alreadyConnected: You are connected
-    connectLink: 'Connect to {org}'
-    description: >-
-        You are not yet a part of { org }. To help them change the world,
+    connectLink: Connect to {org}
+    description: You are not yet a part of { org }. To help them change the world,
         connect with them and start participating.
     login: Log in to connect
-    title: 'Hi { name }'
+    title: Hi { name }
 connected:
     dashboardButton: Go to My Page
     h: You are connected!
@@ -19,11 +18,10 @@ notFound:
         There is no organization page here. Retrace your steps and try to find
         another way, or go to the Zetkin home page.
 zetkin:
-    description: >-
-        { org } uses Zetkin, a platform for organizing activism. Sign up and
-        participate in the work and events organized by the organizations you
-        connect to.
+    description: '{ org } uses Zetkin, a platform for organizing activism. Sign up
+        and participate in the work and events organized by the organizations you
+        connect to.'
     infoLink:
-        href: 'http://www.zetkin.org/en'
+        href: http://www.zetkin.org/en
         text: Learn more about Zetkin
     title: Get organized

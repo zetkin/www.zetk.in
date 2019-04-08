@@ -1,0 +1,18 @@
+invalid:
+    h1: Vi kunne ikke bekræfte din e-mailadresse
+    p: Der opstod en fejl, da vi forsøgte at bekræfte din e-mailadresse. Måske er
+        bekræftelseslinket udløbet, eller det kan være blevet ændret af dit e-mailprogram.
+        Kopiér i stedet linket og sæt det ind i adresselinjen, eller bestil en ny
+        bekræftelses-e-mail.
+missing:
+    h1: Bekræft e-mailadresse
+    p0: Før du kan fortsætte med Zetkin, skal du bekræfte din e-mailadresse.
+    p1: Vi har sendt en besked til din e-mailadresse med et bekræftelseslink. Klik
+        på linket for at bekræfte din e-mailadresse. Hvis du ikke kan finde mailen,
+        så husk at tjekke din spam-mappe. Du kan også genfremsende den på knappen
+        herunder.
+resend:
+    h1: Tjek din e-mail
+    p: Vi har sendt dig en ny bekræftelsesmail. Hvis du ikke kan finde e-mailen, så
+        husk at tjekke din spam-mappe.
+resendButton: Send ny bekræftelse

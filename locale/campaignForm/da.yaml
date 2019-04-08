@@ -1,6 +1,19 @@
 action:
-    booked: booket
-    yesLabel: ja
+    booked: Booket
+    button:
+        signUp: Tilmeld
+        undoSignUp: Fortryd
+    currentNeed: Der er brug for flere aktivister her.
+    infoButton: Læs mere
+    multiLocationLabel: |+
+        {count, plural,
+            =2 {to steder}
+            =3 {tre steder}
+            =4 {fire steder}
+            =5 {fem steder}
+            other {# steder}
+        }
+
 calendar:
     weekDays:
         friday: F
@@ -11,26 +24,45 @@ calendar:
         tuesday: T
         wednesday: O
 filter:
-    activities:
-        h: |-
+    activity:
+        active:
+            button: Vis alle aktioner
+            p: Viser kun visse aktioner ud fra aktivitet.
+        inactive:
+            button: Vælg de aktiviteter du vil se
+            p: Viser alle aktioner uanset aktivitet.
+        modal:
+            clearButton: Vis alle aktiviteter
+    modal:
+        closeButton: Luk
+        title: Udvælg
+        toggleActionCount: |+
             {count, plural,
-                =0 {Filtrer efter handling}
-                =1 {Filtrerer efter 1 handling}
-                other {Filtrerer efter # handlinger}
+                =1 {En aktion}
+                other {# aktioner}
             }
-    campaigns:
-        h: |-
-            {count, plural,
-                =0 {Filtrer efter kampange}
-                =1 {Filtrerer efter 1 kampange}
-                other {Filtrerer efter # kampanger}
-            }
-    h: Filtrer aktioner
-    locations:
-        h: |-
-            {count, plural,
-                =0 {Filtrer efter sted}
-                =1 {Filtrerer efter 1 sted}
-                other {Filtrerer efter # steder}
-            }
-submitLabel: Gem mine tilmeldinger
+
+    showNeed:
+        button:
+            hide: Vis alle aktioner
+            show: Vis mig hvor der er brug for min indsats
+        p: |+
+            Der {count, plural,
+                =1 {er i øjeblikket en aktion}
+                other  {er i øjeblikket # aktioner}
+            } som behøver flere deltagere
+
+message:
+    showNeed:
+        p: |+
+            Der er behov for flere aktivister {count, plural,
+                =1 {til denne aktion}
+                other {til disse aktioner}
+            }. Hvis der ikke lige er noget for dig, kan du jo gå tilbage og melde dig til noget andet.
+
+        title: Der er brug for dig her!
+    yourActions:
+        p: |+
+            Her kan du holde styr på hvor du skal være. Hvis du lige har tilmeldt dig, men ikke vil alligevel, så kan du fortryde. Men hvis du allerede er blevet booket ind og vil melde afbud, skal du kontakte din organisation.
+
+        title: Dine kommende aktioner

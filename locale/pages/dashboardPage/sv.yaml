@@ -1,49 +1,48 @@
 greeting:
-    title: Hej {name}!
-    p: >-
-        Välkommen till din sida. Här hittar du pågående kampanjer, dina bokningar
-        och uppdrag, och kan anmäla dig till fler.
     buttonLabel: Till anmälan
+    p: Välkommen till din sida. Här hittar du pågående kampanjer, dina bokningar och
+        uppdrag, och kan anmäla dig till fler.
+    title: Hej {name}!
 menu:
-    campaign:
-        title: Kampanja
-        sub: Anmäl dig här
     calls:
-        title: Ringuppdrag
         sub: |
             {count, plural,
                 =0 {Du har inga uppdrag}
                 =1 {Du har ett uppdrag}
                 other {Du har # uppdrag}
             }
+        title: Ringuppdrag
+    campaign:
+        sub: Anmäl dig här
+        title: Kampanja
     orgs:
-        title: Organisationer
         sub: |
             {count, plural,
                 =0 {Du är inte ansluten till någon}
                 =1 {Ansluten till en organisation}
                 other {Ansluten till # organisationer}
             }
+        title: Organisationer
 section:
-    organizations:
-        title: Mina organisationer
-        desc: |
-            För att delta i din organisations arbete måste du vara ansluten.
-            Idag är du ansluten till dessa organisationer.
-        connectedOrgs:
-            title: Anslutna organisationer
+    call:
+        assignments:
             desc: |
                 {count, plural,
-                    =0 {Du är inte ansluten till några organisationer ännu.}
-                    =1 {Du är ansluten till en organisation.}
-                    other {Du är ansluten till # organisationer.}
+                    =0 {Du har inga uppdrag ännu.}
+                    =1 {Du har ett ringuppdrag.}
+                    other {Du har # pågående ringuppdrag.}
                 }
-        findOrgs:
-            title: Hitta din organisation
-            desc: Anslut en organisation till ditt Zetkin-konto
-            buttonLabel: Hitta organisationer
+            title: Pågående uppdrag
+        desc: 'När du får i uppgift att delta i rundringningar hittar du uppdragen
+            här.
+
+            '
+        title: Mina ringuppdrag
     campaign:
-        title: Kampanja
+        campaigns:
+            more: Visa alla
+            none: Dina organisationer har inga kampanjer
+            title: Pågående kampanjer
         desc: |
             Din organisations olika aktiviteter arrangeras i form av kampanjer.
             Hitta dina egna bokningar och anmäl dig till fler aktioner här.
@@ -51,22 +50,24 @@ section:
             p: |
                 Vill du anmäla dig till en ny aktion, eller ta
                 reda på var du är inbokad någonstans?
-        campaigns:
-            more: Visa alla
-            none: Dina organisationer har inga kampanjer
-            title: Pågående kampanjer
         tabs:
             planned: Alla aktioner
             signedUp: Mina aktioner
-    call:
-        title: Mina ringuppdrag
-        desc: |
-            När du får i uppgift att delta i rundringningar hittar du uppdragen här.
-        assignments:
-            title: Pågående uppdrag
+        title: Kampanja
+    organizations:
+        connectedOrgs:
             desc: |
                 {count, plural,
-                    =0 {Du har inga uppdrag ännu.}
-                    =1 {Du har ett ringuppdrag.}
-                    other {Du har # pågående ringuppdrag.}
+                    =0 {Du är inte ansluten till några organisationer ännu.}
+                    =1 {Du är ansluten till en organisation.}
+                    other {Du är ansluten till # organisationer.}
                 }
+            title: Anslutna organisationer
+        desc: |
+            För att delta i din organisations arbete måste du vara ansluten.
+            Idag är du ansluten till dessa organisationer.
+        findOrgs:
+            buttonLabel: Hitta organisationer
+            desc: Anslut en organisation till ditt Zetkin-konto
+            title: Hitta din organisation
+        title: Mina organisationer

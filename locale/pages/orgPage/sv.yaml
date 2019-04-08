@@ -1,15 +1,14 @@
 connect:
     alreadyConnected: Du är ansluten
-    connectLink: 'Anslut till {org}'
-    description: '{org} vill förändra världen. Om du vill bidra, anslut och börja delta.'
+    connectLink: Anslut till {org}
+    description: '{org} vill förändra världen. Om du vill bidra, anslut och börja
+        delta.'
     login: Logga in för att ansluta
-    title: 'Hej {name}'
+    title: Hej {name}
 connected:
     dashboardButton: Gå till Min sida
     h: Du är ansluten!
-    p: >-
-        Du hittar pågående kampanjer och uppdrag organiserade av {org} på "Min
-        sida"
+    p: Du hittar pågående kampanjer och uppdrag organiserade av {org} på "Min sida"
 notFound:
     h: Organisationen finns inte
     homeButton: Till Zetkins startsida
@@ -17,10 +16,9 @@ notFound:
         Det finns ingen organisationssida här. Backa och se om du kan hitta en
         annan väg, eller gå till Zetkins startsida.
 zetkin:
-    description: >-
-        {org} använder Zetkin, en plattform för att organisera aktivism.
-        Registrera dig och anslut till organisationer du vill arbeta med.
+    description: '{org} använder Zetkin, en plattform för att organisera aktivism.
+        Registrera dig och anslut till organisationer du vill arbeta med.'
     infoLink:
-        href: 'http://www.zetkin.org/sv'
+        href: http://www.zetkin.org/sv
         text: Läs mer om Zetkin
     title: Organisera dig

@@ -1,25 +1,29 @@
+privacy:
+    h: Acceptér vilkår
+    label: Jeg acceptérer nedenstående vilkår
+    p: Når du indsender din besvarelse, bliver de oplysninger du giver os, brugt til
+        at organisere aktivisme, og de bliver opbevaret og behandlet i Zetkin af {org}  i
+        overensstemmelse med Zetkins privatlivspolitik.
+    policyLink:
+        href: http://zetkin.org/privacy
+        label: Klik for at læse hele Zetkins privatlivspolitik
 signature:
     h: Vælg hvordan du vil underskrive
     options:
         anon:
-            desc: >-
-                Spørgeskemaet bliver sendt ind anonymt. Forudsat at du ikke har
-                afsløret sdig selv i dine besvarelser, vil organisationen ikke
-                at kunne knytte besvarelserne til dig.
-            label: Send in anonymt
+            desc: Spørgeskemaet bliver sendt ind anonymt. Forudsat at du ikke anført
+                personoplysninger i dine svar, vil organisationen ikke kunne knytte
+                besvarelsen til dig.
+            label: Send ind anonymt
         email:
-            desc: >-
-                Skriv under med navn og e-mailadresse tilhørende den der har
-                besvaret, dvs. dig selv, eller den du evt. sender besvarelsen
-                for.
+            desc: Underskriv med svarpersonens navn og e-mailadresse, altså dig selv
+                eller den person du sender besvarelsen på vegne af.
             emailLabel: E-mailadresse
             firstNameLabel: Fornavn
-            label: Skriv under med navn og e-mailadresse.
+            label: Skriv under med navn og e-mailadresse
             lastNameLabel: Efternavn
         user:
-            desc: >-
-                Når du er logget ind og underskriver spørgeskemabesvarelserne
-                som dig selv, bliver de koblet til din bruger, hvilket er til
-                stor hjælp for den organisation der skal behandle besvarelsen.
-            label: 'Skriv under som { firstName } { lastName }'
-submitButton: Indsend svar på spørgeskemaet
+            desc: Når du er logget ind og underskriver besvarelsen som dig selv, bliver
+                de knyttet til din bruger, og det er til stor hjælp for organisationen.
+            label: Skriv under som { firstName } { lastName }
+submitButton: Indsend besvarelse

@@ -1,3 +1,6 @@
+header:
+    h: Welcome!
+    intro: To get the most of Zetkin you need an organization.
 recommendations:
     list:
         h: Suggested organizations
@@ -9,11 +12,5 @@ recommendations:
         p: Looking for organizations…
     none:
         h: What now?
-        p: >-
-            We couldn't guess a good organization for you, but reach out to your
-            organization or see if you can find a link to their Zetkin page on their
-            website.
-header:
-    h: Welcome!
-    intro:
-        To get the most of Zetkin you need an organization.
+        p: We couldn't guess a good organization for you, but reach out to your organization
+            or see if you can find a link to their Zetkin page on their website.

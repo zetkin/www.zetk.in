@@ -1,6 +1,5 @@
 after:
-    p: |
-        Ett meddelande med instruktioner har skickats till { email }.
+    p: Ett meddelande med instruktioner har skickats till { email }.
     retryButton: Skicka på nytt
 before:
     p: |

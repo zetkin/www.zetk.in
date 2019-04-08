@@ -1,4 +1,26 @@
 connect:
-    alreadyConnected: Du er tilsluttet.
-    connectLink: 'Tilslut til {org}'
-    login: Log ind for at tilslutte
+    alreadyConnected: Du er tilsluttet
+    connectLink: Slut dig til {org}
+    description: Du er endnu ikke med hos { org }. Hvis du vil hjælpe dem med at ændre
+        verden, så tilslut dig, og kom i gang med at deltage.
+    login: Log ind for at tilslutte dig
+    title: Hej { name }
+connected:
+    dashboardButton: Gå til Min side
+    h: Du er tilsluttet!
+    p: |-
+        Du kan finde aktuelle kampagner og opgaver for { org }
+        på Min side.
+notFound:
+    h: Organisation ikke fundet
+    homeButton: Til Zetkins side
+    p: Der er ikke nogen organisationsside her. Prøv at gå tilbage og se efter en
+        anden vej, eller kig forbi Zetkins side.
+zetkin:
+    description: '{ org } bruger Zetkin, en platform til at organisere aktivisme.
+        Opret dig og deltag i arbejde og begivenheder arrangeret af de organisationer
+        du er tilsluttet.'
+    infoLink:
+        href: http://www.zetkin.org/da
+        text: Få mere at vide om Zetkin
+    title: Organisér dig

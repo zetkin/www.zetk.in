@@ -1,66 +1,54 @@
 connect:
     applyLink:
-        href: 'http://zetkin.org/en/join'
+        href: http://zetkin.org/en/join
         text: Apply for access
     h1: Zetkin for your organization
     h2: Do you want to start using Zetkin in your organization?
-    paragraph: >-
-        If your organization is working towards the same goal as Zetkin
-        Foundation we want to help you improve your activism.
+    paragraph: If your organization is working towards the same goal as Zetkin Foundation
+        we want to help you improve your activism.
 features:
     f1:
-        desc: >-
-            If your organization is using Zetkin, all you need to do is to
-            connect. That lets you sign up for actions, take part in phone
-            banking and more.
+        desc: If your organization is using Zetkin, all you need to do is to connect.
+            That lets you sign up for actions, take part in phone banking and more.
         title: Become active in your organization
     f2:
-        desc: >-
-            On "My Page" you can keep track of campaigns to take part in, what
-            actions you've been booked on, and your assignments.
+        desc: On "My Page" you can keep track of campaigns to take part in, what actions
+            you've been booked on, and your assignments.
         title: Keep track
     f3:
-        desc: >-
-            Sign up quickly and easily for actions on the streets of your city.
+        desc: Sign up quickly and easily for actions on the streets of your city.
             Then all you need to do is show up.
         title: Participate in the streets
     f4:
-        desc: >-
-            Help your organization reach out. Call wherever you are with the
-            smart phone banking tools of Zetkin.
+        desc: Help your organization reach out. Call wherever you are with the smart
+            phone banking tools of Zetkin.
         title: Take part in phone banking
     h1: All an activist can need
     signUpLink: Sign up and get started
 foundation:
     h1: Developed by activists
-    h2: 'A different company, for a different society'
+    h2: A different company, for a different society
     infoLink:
-        href: 'http://zetkin.org/en/foundation'
+        href: http://zetkin.org/en/foundation
         text: Learn about Zetkin Foundation
-    paragraph: >-
-        Zetkin is developed by Zetkin Foundation – a company that works not for
-        profit, but to radically change society in a socialist, feminist,
-        antiracist and sustainable direction. That makes Zetkin very special.
+    paragraph: Zetkin is developed by Zetkin Foundation – a company that works not
+        for profit, but to radically change society in a socialist, feminist, antiracist
+        and sustainable direction. That makes Zetkin very special.
 splash:
     authenticated:
         h2: Logged in
-    caption: >-
-        The "Our city" street festival was organized with Zetkin by
-        Vänsterpartiet in Malmö in May 2014.
+    caption: The "Our city" street festival was organized with Zetkin by Vänsterpartiet
+        in Malmö in May 2014.
     h1: Participate in the struggle for justice
     readAbout: Read about what you can do with Zetkin
     signUpLink: Sign up
 zetkin:
     h1: Participation made simple
     h2: A platform for organizing activism
-    paragraph: >-
-        Zetkin is a web based platform to make participation simple, used by
-        organizations and individual activists who participate in their work.
+    paragraph: |-
+        Zetkin is a web based platform to make participation simple, used by organizations and individual activists who participate in their work.
 
-
-        Anyone can create a user account in Zetkin. As a Zetkin user, you can
-        participate in work and events organized by the organizations you
-        connect to.
+        Anyone can create a user account in Zetkin. As a Zetkin user, you can participate in work and events organized by the organizations you connect to.
     usp1: Safe and secure
     usp2: Focused on activists
     usp3: Tried and tested

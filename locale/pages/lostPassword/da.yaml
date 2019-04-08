@@ -1,12 +1,12 @@
 after:
-    p: 'En e-mail med instruktioner er blevet sendt til { email }.'
+    p: En e-mail med vejledning er blevet sendt til { email }.
     retryButton: Send igen
 before:
-    p: >-
-        Har du glemt din adgangskode til Zetkin? Indtast din e-mailadresse, så
-        sender vi dig et link, hvor du kan vælge en ny adgangskode.
+    p: Har du glemt din adgangskode til Zetkin? Indtast din e-mailadresse, så sender
+        vi dig et link hvor du kan vælge en ny adgangskode.
     submitButton: Send link
 errors:
-    undefined: Der opstod en ukendt fejl. Kontroller e-mailadressen og prøv igen.
+    undefined: Der opstod en ukendt fejl. Tjek at e-mailadressen er rigtig og prøv
+        igen.
     unknownUser: Der findes ingen bruger med denne e-mailadresse.
-h: Glemt adgangskode?
+h: Har du glemt adgangskoden?

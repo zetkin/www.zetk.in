@@ -12,21 +12,20 @@ interstitial:
             Great that you want to take part! To sign up to this campaign, you need
             to log in with a Zetkin user account.
     login:
-        p: |-
-            If you already have an account, you can log in and sign up right away.
         button: Log in
+        p: If you already have an account, you can log in and sign up right away.
     register:
+        button: Create account
         p: |-
             If this is your first time using Zetkin you need to create a new user
             account.
-        button: Create account
 notFound:
-    h: The campaign could not be found
     anon:
-        p: It may be available to signed in users only.
         loginButton: Log in and try again
+        p: It may be available to signed in users only.
     auth:
-        p: It may be available to connected users only.
         connectButton: Connect to { org }
+        p: It may be available to connected users only.
     connected:
         p: It looks like it doesn't exist. Try reaching out to the organization.
+    h: The campaign could not be found

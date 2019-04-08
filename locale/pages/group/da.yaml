@@ -1,0 +1,9 @@
+members:
+    h: Medlemmer
+    list:
+        email: E-mail
+        managerLabel: '{name} er tovholder'
+        name: Navn
+        phone: Telefon
+notFound:
+    h: Gruppen kunne ikke findes

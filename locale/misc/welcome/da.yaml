@@ -1,0 +1,16 @@
+header:
+    h: Velkommen!
+    intro: Du skal bruge en organisation for at få gavn af Zetkin.
+recommendations:
+    list:
+        h: Forslag til organisationer
+        p: |-
+            Vi fandt {count, plural, =1 {en organisation} other {disse organisationer}}
+            du kunne være interesseret i at slutte dig til:
+    loading:
+        h: Forslag til organisationer
+        p: Leder efter organisationer...
+    none:
+        h: Hvad nu?
+        p: Vi kunne ikke gætte den rigtige organisation til dig, men tag fat i din
+            organisation, eller prøv at finde et Zetkin-link på dens hjemmeside.

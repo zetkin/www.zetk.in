@@ -1,0 +1,74 @@
+greeting:
+    buttonLabel: Oprettelse
+    p: Velkommen til din side. Her finder du igangværende kampagner og dine egne bookinger
+        og opgaver. Du kan også skrive dig op til flere.
+    title: Hej {name}!
+menu:
+    calls:
+        sub: |4+
+             {count, plural,
+                =0 {Du har ikke nogen opgaver}
+                =1 {Du har en opgave}
+                other {Du har # opgaver}
+            }
+
+        title: Ringeopgaver
+    campaign:
+        sub: Tilmeld dig her
+        title: Kampagne
+    orgs:
+        sub: |-
+            {count, plural,
+                =0 {Ikke sluttet til en organisation}
+                =1 {Sluttet til {count} organisation}
+                other {Sluttet til # organisationer}
+            }
+        title: Organisationer
+section:
+    call:
+        assignments:
+            desc: |4+
+                 {count, plural,
+                    =0 {Du har endnu ingen opgaver}
+                    =1 {Du har {count} aktuelle opgaver}
+                    other {Du har # aktuelle opgaver}
+                }
+
+            title: Aktuelle opgaver
+        desc: |+
+            Når du får opgaver i en rundringning, kan du se dem her.
+
+        title: Mine opkaldsopgaver
+    campaign:
+        campaigns:
+            more: Vis alle
+            none: Der er ingen aktuelle kampagner
+            title: Kampagner lige nu
+        desc: Støt din organisation ved at deltage i dens kampagneaktioner. Find dine
+            bookinger og meld dig til her.
+        guide:
+            p: |+
+                Leder du efter aktioner du kan skrive dig op til, eller vil du se hvad du allerede har meldt dig til?
+
+        tabs:
+            planned: Alle aktioner
+            signedUp: Mine aktioner
+        title: Kampagne
+    organizations:
+        connectedOrgs:
+            desc: |+
+                {count, plural,
+                    =0 {Du er endnu ikke sluttet til nogen organisationer}
+                    =1 {Du er sluttet til {count} organisation}
+                    other {Du er sluttet til # organisationer}
+                }
+
+            title: Tilsluttede organisationer
+        desc: |+
+            For at kunne tage del i din organisations arbejde skal du være tilsluttet. Her er de organisationer du er tilsluttet til lige nu.
+
+        findOrgs:
+            buttonLabel: Søg i organisationen
+            desc: Føj din organisation til din Zetkin-bruger.
+            title: Find din organisation
+        title: Mine organisationer

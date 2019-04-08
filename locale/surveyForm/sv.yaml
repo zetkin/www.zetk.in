@@ -1,12 +1,10 @@
 privacy:
     h: Acceptera villkor för lagring
     label: Jag accepterar nedanstående villkor
-    p: >-
-        När du skickar in enkäten kommer informationen att lagras i Zetkin och
-        hanteras av {org} i deras verksamhet, i enlighet med Zetkins
-        sekretesspolicy.
+    p: När du skickar in enkäten kommer informationen att lagras i Zetkin och hanteras
+        av {org} i deras verksamhet, i enlighet med Zetkins sekretesspolicy.
     policyLink:
-        href: 'http://zetkin.org/sv/sekretess'
+        href: http://zetkin.org/sv/sekretess
         label: Klicka här för att läsa Zetkins sekretesspolicy
 signature:
     h: Välj hur du vill signera
@@ -30,5 +28,5 @@ signature:
                 När du är inloggad och signerar enkätsvaren som dig själv
                 kopplas de till din användare, vilket är av stor hjälp för den
                 organisation som ska bearbeta enkäten.
-            label: 'Signera som { firstName } { lastName }'
+            label: Signera som { firstName } { lastName }
 submitButton: Skicka in enkätsvar
