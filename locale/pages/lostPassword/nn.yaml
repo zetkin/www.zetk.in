@@ -1,0 +1,12 @@
+after:
+    p: 'Ei melding med instruksjonar er sendt til { email }.'
+    retryButton: Send igjen
+before:
+    p: >-
+        Har du glømt Zetkinpassordet? Gi oss eposten din så sender vi ut ei
+        lenke der du kan velge nytt passord.
+    submitButton: Send lenke
+errors:
+    undefined: Ein ukjend feil oppstod. Sjekk at eposten er rett og prøv igjen.
+    unknownUser: Vi finn ingen brukar med den epostadressa
+h: Har du gløymt passordet?

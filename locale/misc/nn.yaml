@@ -1,0 +1,36 @@
+environmentWarning:
+    message: >-
+        Denne versjonen av Zetkin er under utvikling. Du vil sannsynlegvis bruke
+        live-versjonen www.zetk.in. Vil du navigere dit?
+cookieNotice:
+    msg: Zetkin bruker informasjonskapslar for å få heimesida til å fungere.
+    privacyLink:
+        label: Les personvernavtalen
+        href: 'http://zetkin.org/personvern'
+signup:
+    done:
+        subtitle: Sjekk innboksen for å stadfeste epostadressa di
+        title: 'Velkomen, { firstName }!'
+    email: Epost
+    error:
+        exists: 'Eposten { email } er allerede registrert'
+        invalid: Mislykka registrering. Pass på at du har fylt ut alle felta rett.
+        privacy: Du må godta personvernvilkåra for å registrere deg.
+        login: Logg inn i staden
+    firstName: Fornamn
+    info: Registrer brukarkonto for å drive organisasjonsarbeid med Zetkin
+    lastName: Etternamn
+    password: Passord
+    phone: Mobilnummer
+    privacyCheck: >-
+        Eg godkjenner at informasjonen blir behandla for å opprette brukarkonto
+        i Zetkin.
+    privacyCheckOrg: >-
+        Eg godkjenner at informasjonen blir brukt for å oppretthalde
+        brukarkontoen til Zetkin og { org }
+    privacyLink:
+        href: 'http://zetkin.org/personvern'
+        title: Les personvernreglane
+    submitButton: Registrer deg
+    submitButtonOrg: Register deg og finn kontaktar
+    title: Kom i gang

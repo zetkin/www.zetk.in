@@ -1,0 +1,9 @@
+members:
+    h: Medlemmar
+    list:
+        email: Epost
+        managerLabel: '{name} er gruppeforvaltar'
+        name: Namn
+        phone: Telefon
+notFound:
+    h: Denne gruppa finst ikkje

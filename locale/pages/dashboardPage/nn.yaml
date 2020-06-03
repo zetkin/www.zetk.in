@@ -1,0 +1,71 @@
+greeting:
+    title: 'Hei {name}!'
+    p: >-
+        Velkomen til sida di. Her kan du finne pågåande kampanjar, oppgåver og
+        ærende, og skrive deg opp på nye.
+    buttonLabel: Til registrering
+menu:
+    campaign:
+        title: Kampanje
+        sub: Registrer deg her
+    calls:
+        title: Ringeærende
+        sub: |-
+            {count, plural,
+                =0 {Du har ingen ærende}
+                =1 {Du har eitt ærende}
+                other {Du har # ærend}
+            }
+    orgs:
+        title: Organisasjonar
+        sub: |-
+            {count, plural,
+                =0 {Ikkje kopla til ein organisasjon}
+                =1 {Kopla til ein organisasjon}
+                other {Kopla til # organisasjonar}
+            }
+section:
+    organizations:
+        title: Mine organisasjonar
+        desc: >-
+            For å delta i organisasjonane dine må du kople til. Dette er
+            organisasjonane du er tilkopla i dag.
+        connectedOrgs:
+            title: Organisasjonar du er kopla til
+            desc: |-
+                {count, plural,
+                    =0 {Du er ikkje kopla til nokon organisasjon enno}
+                    =1 {Du er kopla til ein organisasjon}
+                    other {Du er kopla til # organisasjonar}
+                }
+        findOrgs:
+            title: Finn organisasjonen din
+            desc: Legg til din organisasjon i Zetkinkontoen
+            buttonLabel: Søk etter organisasjon
+    campaign:
+        title: Kampanje
+        desc: >-
+            Hjelp organisasjonen din gjennom å delta i aksjonar og kampanjar.
+            Finn bestillingane dine og skriv deg opp her.
+        guide:
+            p: >-
+                Vil du finne aksjonar du kan melde deg på? Eller finne ut av kva
+                du skal gjere?
+        campaigns:
+            more: Vis alle
+            none: Det finst ingen pågåande kampanjar
+            title: Pågåande kampanjar
+        tabs:
+            planned: Alle handlingar
+            signedUp: Mine aksjonar
+    call:
+        title: Mine ringeærende
+        desc: Når du blir tildelt ringeærende finn du dei her.
+        assignments:
+            title: Pågåande ærende
+            desc: |-
+                {count, plural,
+                    =0 {Du har ingen ærende enno}
+                    =1 {Du har ein pågåande ærende}
+                    other {Du har # pågåande ærende}
+                }

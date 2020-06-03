@@ -1,0 +1,20 @@
+invalid:
+    h1: Eposten din kunne ikkje bekreftast
+    p: >-
+        Det oppstod ein feil da vi prøvde å stadfeste adressa di. Dette kan vere
+        fordi tida gjekk ut eller fordi epost-lesaren din endra på lenka. Kopier
+        og lim inn lenka for å prøve igjen, eller be om ny lenke for å
+        stadfeste.
+missing:
+    h1: Stadfest epostadressa di
+    p0: Før du kan bruke Zetkin må du stadfeste epostadressa di.
+    p1: >-
+        Vi har sent ei melding til eposten din med ei lenke. Du må klikke på
+        lenka for å stadfeste adressa di. Sjekk søppelpost dersom du ikkje finn
+        meldinga, eller send ei ny melding med knappen under.
+resend:
+    h1: Sjekk eposten din
+    p: >-
+        Vi har sendt ut ei ny melding om stadfesting. Sjekk søppelposten dersom
+        du ikkje finn meldinga.
+resendButton: Send ny stadfesting

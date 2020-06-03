@@ -1,0 +1,8 @@
+call: Ring
+login: Logg inn
+organize: Organisér
+user:
+    continue: Gå til mi side
+    logout: Logg ut
+    settings: Innstillingar
+    wrongUser: Er dette ikkje deg?

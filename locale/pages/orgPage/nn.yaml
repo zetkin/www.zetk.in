@@ -1,0 +1,27 @@
+connect:
+    alreadyConnected: Du er tilkopla
+    connectLink: 'Kople til {org}'
+    description: 'Du er ikkje enno del av { org }. Kople til for å endre verda og delta.'
+    login: Logg inn for å kople til
+    title: 'Hei { name }'
+connected:
+    dashboardButton: Gå til mi side
+    h: Du er tilkopla!
+    p: |-
+        Du finn pågåande kampanjer og ærende organisert av { org }
+        på "Mi side".
+notFound:
+    h: Organisasjonen kunne ikkje finnast
+    homeButton: Til Zetkin si heimeside
+    p: >-
+        Det er inga organisasjonsside her. Gå tilbake og prøv å finne den på
+        nytt, eller gå til Zetkin si heimeside.
+zetkin:
+    description: >-
+        { org } bruker Zetkin, ein plattform for å organisere aktivisme.
+        Registrer deg for å delta i arbeidet og arrangementa til organisasjonane
+        du er kopla til.
+    infoLink:
+        href: 'http://www.zetkin.org/no'
+        text: Lær meir om Zetkin
+    title: Organisér deg
