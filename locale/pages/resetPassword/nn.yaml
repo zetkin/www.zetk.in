@@ -1,0 +1,7 @@
+after:
+    loginButton: Logg in
+    p: Passordet vart oppdatert. Du kan logge inn med det nye passordet.
+before:
+    p: Vel eit nytt passord du vil bruke i framtida.
+    submitButton: Lagre passord
+h: Still om passord

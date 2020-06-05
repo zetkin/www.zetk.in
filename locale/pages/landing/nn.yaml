@@ -1,0 +1,66 @@
+connect:
+    applyLink:
+        href: 'http://zetkin.org/en/blimed'
+        text: Søk om tilgang
+    h1: Zetkin for din organisasjon
+    h2: Vil du begynne og bruke Zetkin i din organisasjon?
+    paragraph: >-
+        Dersom organisasjonen din jobbar mot same mål som Zetkin Foundation vil
+        vi hjelpe dykk å forbetre aktivismen.
+features:
+    f1:
+        desc: >-
+            Dersom organisasjonen din bruker Zetkin, treng du berre kople til.
+            Da kan du melde deg på aksjonar, delta i telefonkampanjar og meir.
+        title: Bli aktiv i organisasjonen din
+    f2:
+        desc: >-
+            På "mi side" kan du spore kampanjar du deltek i, aksjonar du har
+            skrive deg opp på og dine ærende.
+        title: Hald oversikt
+    f3:
+        desc: >-
+            Registrer deg raskt og enkelt på aksjonar i gatene der du bur. Så
+            treng du berre dukke opp.
+        title: Delta i gatene
+    f4:
+        desc: >-
+            Hjelp organisasjonen å nå ut. Ring uansett kor du er med
+            smarttelefonverktøya til Zetkin.
+        title: Delta i telefonkampanje
+    h1: Alt ein aktivist treng
+    signUpLink: Registrer deg og kom i gang
+foundation:
+    h1: Utvikla av aktivistar
+    h2: 'Eit annleis selskap, for eit annleis samfunn'
+    infoLink:
+        href: 'http://zetkin.org/no/stifting'
+        text: Lær meir om Zetkin Foundation
+    paragraph: >-
+        Zetkin er utvikla av Zetkin Foundation – eit selskap som ikkje jobbar
+        for profitt, og som vil radikalt endre samfunnet i ei sosialistisk,
+        feministisk, antirasistisk og bærekraftig retning. Det gjer Zetkin
+        unikt.
+splash:
+    authenticated:
+        h2: Innlogga
+    caption: >-
+        Gatefestivalen "Vår stad" vart organisert av Zetkin og Vänsterpartiet i
+        Malmö i mai 2014.
+    h1: Delta i kampen for rettferd
+    readAbout: Les om det du kan gjere med Zetkin
+    signUpLink: Registrer deg
+zetkin:
+    h1: Enkel deltaking
+    h2: Ein plattform for å organisere aktivisme
+    paragraph: >-
+        Zetkin er ein nettbasert platform som gjer deltaking enkelt, og brukast
+        av lag, organisasjonar, og dei einskilde aktivistane som deltek i
+        arbeidet deira.
+
+
+        Alle kan skape brukarkonto i Zetkin. Som Zetkinbrukar kan du delta i
+        prosjekt og arrangement som er organiserte av laga du er kopla til.
+    usp1: Trygt og sikkert
+    usp2: Med fokus på aktivistar
+    usp3: Testa

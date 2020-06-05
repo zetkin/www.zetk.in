@@ -1,0 +1,24 @@
+connections:
+    h: Organisasjonstilkoplingar
+    intro: >-
+        Dette er organisasjonane du er kopla til. Du kan kople frå her. Dersom
+        du vil kople til ein ny organisasjon må du kontakte dei for å få tak i
+        ei organisasjonslenkje.
+h: Innstillingar
+language:
+    h: Språk
+    options:
+        auto: >-
+            Automatisk ({ locale, select, sv {Swedish} en {English} da {Danish}
+            nn {Nynorsk} other {unknown} })
+        da: Dansk
+        en: Engelsk
+        sv: Svensk
+    p: Vel kva for eit språk du vil bruke i Zetkin (når du er innlogga).
+password:
+    error: Feil passord
+    h: Bytt passord
+    newPassword: Nytt passord
+    oldPassword: Noverande passord
+    submitButton: Bytt passord
+    success: Passordet ditt vart endra

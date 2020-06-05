@@ -1,0 +1,20 @@
+recommendations:
+    list:
+        h: Føreslegne organisasjonar
+        p: >-
+            Vi fann {count, plural, =1 {ein organisasjon} other {desse
+            organisasjonane}}
+
+            som du kanskje vil kople til:
+    loading:
+        h: Forslag
+        p: Ser etter organisasjonar
+    none:
+        h: Kva no?
+        p: >-
+            Vi kunne ikkje foreslå ein organisasjon for deg. Ta kontakt med
+            organisasjonen din eller sjå om du finn ei lenke til Zetkin på
+            heimesida deira.
+header:
+    h: Velkomen!
+    intro: For å bruke Zetkin optimalt treng du ein organisasjon.

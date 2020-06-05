@@ -16,6 +16,7 @@ language:
             })
         da: Danish
         en: English
+        nn: Norwegian (nynorsk)
         sv: Swedish
     p: Select which language you want to use Zetkin in (when signed in).
 password:

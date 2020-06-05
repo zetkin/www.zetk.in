@@ -1,0 +1,33 @@
+interstitial:
+    connect:
+        button: 'Ja, kople til'
+        h: 'Kople til { org }?'
+        p: >-
+            Før du kan skrive deg opp på aksjonar må du kople kontoen din til {
+            org }. Når du gjer det får organisasjonen grunnleggande informasjon
+            om deg. Vil du kople til { org } og delta i kampen for rettferd?
+    intro:
+        h: Nesten der!
+        p: >-
+            Flott at du vil delta! For å registrere deg på denne kampanjen, må
+            du logge inn i Zetkin med brukarkonto.
+    login:
+        p: >-
+            Dersom du allereie har ein konto kan du logge inn og melde deg på
+            med ein gong.
+        button: Logg inn
+    register:
+        p: >-
+            Dersom dette er fyrste gong du bruker Zetkin må du skape ny
+            brukarkonto.
+        button: Skap konto
+notFound:
+    h: Kampanjen kunne ikkje finnast
+    anon:
+        p: Dette kan vere tilgjengeleg einast for registrerte brukarar.
+        loginButton: Logg inn og prøv igjen
+    auth:
+        p: Dette kan vere tilgjengeleg berre for tilkopla brukarar
+        connectButton: 'Kople til { org }'
+    connected:
+        p: Vi finn ikkje det du ser etter. Prøv å kontakte organisasjonen.
