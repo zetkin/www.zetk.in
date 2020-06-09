@@ -1,0 +1,66 @@
+action:
+    booked: Bestilt
+    button:
+        signUp: Registrer deg
+        undoSignUp: Gjer om
+    infoButton: Les meir
+    currentNeed: Fleire aktivistar trengst her
+    multiLocationLabel: |-
+        {count, plural,
+            =2 {På to plassar}
+            =3 {På tre plassar}
+            =4 {På fire plassar}
+            =5 {På fem plassar}
+            other {På # plassar}
+        }
+calendar:
+    weekDays:
+        friday: F
+        monday: M
+        saturday: S
+        sunday: S
+        thursday: T
+        tuesday: T
+        wednesday: W
+filter:
+    activity:
+        active:
+            p: Viser einast nokre aksjonar basert på aktivitet
+            button: Vis alle aksjonar
+        inactive:
+            p: Viser alle aksjonar uavhengig av aktivitet
+            button: Vel aktivitetar du vil sjå
+        modal:
+            clearButton: Vis alle aktivitetar
+    modal:
+        title: Filter
+        closeButton: Steng
+        toggleActionCount: |
+            {count, plural,
+                =1 {Ein aksjon}
+                other {# aksjonar}
+            }
+    showNeed:
+        p: |
+            Det {count, plural,
+                =1 {er for tida berre ein aksjon}
+                other  {er for tida # aksjonar}
+            } som treng fleire deltakarar
+        button:
+            show: Vis meg der eg trengst
+            hide: Vis alle handlingar
+message:
+    yourActions:
+        title: Dine komande aksjonar
+        p: >-
+            Her kan du spore kvar du skal vere. Dersom du har skrive deg opp og
+            ombestemt deg, kan du melde deg av. Men dersom du er tildelt eit
+            ærende og vil melde deg av, må du kontakte organisasjonen.
+    showNeed:
+        title: Du trengst her!
+        p: >-
+            Fleire aktivistar trengst på {count, plural,
+                =1 {denne aksjonen}
+                other {desse aksjonane}
+            }. Dersom du ikkje finn noko som funkar for deg kan du sjølvsagt gå
+            tilbake og skrive deg opp på noko anna.

@@ -1,0 +1,6 @@
+deleteLink: Kople frå
+empty: Du er ikkje kopla til nokon organisasjon.
+roles:
+    admin: Du er administrator
+    none: Du har inga offisiell rolle
+    organizer: Du er organisator

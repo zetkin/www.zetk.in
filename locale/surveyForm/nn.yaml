@@ -1,0 +1,34 @@
+privacy:
+    h: Godta vilkåra
+    label: Eg godtek vilkåra under
+    p: >-
+        Når du sender inn undersøkinga vil informasjonen bli oppbevart og
+        behandla i Zetkin av {org} for å organisere aktivisme, i tråd med Zetkin
+        sine vilkår for personvern.
+    policyLink:
+        href: 'http://zetkin.org/personvern'
+        label: Klikk her for å lese Zetkin sine personvernvilkår
+signature:
+    h: Vel korleis du vil signere
+    options:
+        anon:
+            desc: >-
+                Undersøkinga er anonym. Dersom du ikkje har inkludert personleg
+                informasjon i svara, kan ikkje organisasjonen spore svara
+                tilbake til deg.
+            label: Svar anonymt
+        email:
+            desc: >-
+                Skriv under med namn og epost til den svarande. Dvs. deg sjølv
+                eller den du svarer på vegne av.
+            emailLabel: Epostadresse
+            firstNameLabel: Fornamn
+            label: Logg inn med namn og epost
+            lastNameLabel: Etternamn
+        user:
+            desc: >-
+                Skriv du under på undersøkinga som deg sjølv medan du er
+                autentisert, koplast den til deg. Det er til stor hjelp for
+                organisasjonen.
+            label: 'Logg inn som { firstName } { lastName }'
+submitButton: Send inn undersøking
