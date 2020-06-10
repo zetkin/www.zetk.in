@@ -6,7 +6,7 @@ import Button from '../../../../common/misc/Button';
 import SectionPage from './SectionPage';
 
 import ConnectionList from '../../../misc/ConnectionList';
-import { deleteUserMembership } from '../../../../actions/org';
+import { deleteUserMembership, updateUserMembership } from '../../../../actions/org';
 
 const mapStateToProps = state => ({
     orgList: state.getIn(['orgs', 'membershipList']),
@@ -32,6 +32,7 @@ export default class OrgSectionPage extends SectionPage {
                 <ConnectionList
                     connectionList={ this.props.orgList }
                     onDisconnect={ this.onConnectionListDisconnect.bind(this) }
+                    onFollow={ this.onConnectionListFollow.bind(this) }
                     />
             </div>,
             /*
@@ -60,5 +61,10 @@ export default class OrgSectionPage extends SectionPage {
 
     onConnectionListDisconnect(org) {
         this.props.dispatch(deleteUserMembership(org.get('id')));
+    }
+
+    onConnectionListFollow(org) {
+        console.log('follow');
+        this.props.dispatch(updateUserMembership(org.get('id'), { follow: true  }));
     }
 }

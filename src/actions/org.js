@@ -23,6 +23,19 @@ export function retrieveUserMemberships() {
     };
 }
 
+export function updateUserMembershipFollow(orgId, data) {
+    console.log('follow');
+    return ({ dispatch, z }) => {
+        dispatch({
+            types: types.UPDATE_USER_MEMBERSHIP,
+            meta: { orgId },
+            payload: {
+                promise: z.resource('users', 'me', 'memberships', orgId).patch(data)
+            }
+        })
+    }
+}
+
 export function deleteUserMembership(orgId) {
     return ({ dispatch, z }) => {
         dispatch({

@@ -34,10 +34,17 @@ export default class ConnectionList extends React.Component {
                                 <Msg id={ roleMsg }/>
                             </p>
                         </Link>
-                        <FormattedLink className="ConnectionList-disconnect"
-                            msgId="misc.connectionList.deleteLink"
-                            onClick={ this.onDeleteLinkClick.bind(this, org) }
-                            />
+                        { i.get('follow') ?
+                            <FormattedLink className="ConnectionList-disconnect"
+                                msgId="misc.connectionList.deleteLink"
+                                onClick={ this.onDeleteLinkClick.bind(this, org) }
+                                />
+                            :
+                            <FormattedLink className="ConnectionList-disconnect"
+                                msgId="misc.connectionList.followLink"
+                                onClick={ this.onFollowLinkClick.bind(this, org) }
+                                />
+                        }
                         </li>
                     );
                 });
@@ -67,6 +74,12 @@ export default class ConnectionList extends React.Component {
     onDeleteLinkClick(org) {
         if (this.props.onDisconnect) {
             this.props.onDisconnect(org);
+        }
+    }
+
+    onFollowLinkClick(org) {
+        if(this.props.onFollow) {
+            this.props.onFollow(org);
         }
     }
 }
