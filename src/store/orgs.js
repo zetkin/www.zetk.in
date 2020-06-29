@@ -119,4 +119,14 @@ export default createReducer(initialState, {
                 items.merge(immutable.fromJS(orgs)) :
                 immutable.fromJS(orgs));
     },
+    [types.FOLLOW_ORGANIZATION + '_FULFILLED']: (state, action) => {
+        const [k, v] = state.get(['membershipList', 'items']).findEntry(value => value.getIn(['organization','id']) == orgId);
+        return state
+            .setIn(['membershipList', 'items', k, 'follow'], true);
+    },
+    [types.UNFOLLOW_ORGANIZATION + '_FULFILLED']: (state, action) => {
+        const [k, v] = state.getIn(['membershipList', 'items']).findEntry(value => value.getIn(['organization','id']) == orgId);
+        return state
+            .setIn(['membershipList', 'items', k, 'follow'], false);
+    }
 });

@@ -23,14 +23,25 @@ export function retrieveUserMemberships() {
     };
 }
 
-export function updateUserMembershipFollow(orgId, data) {
-    console.log('follow');
+export function followOrganization(orgId) {
     return ({ dispatch, z }) => {
         dispatch({
-            types: types.UPDATE_USER_MEMBERSHIP,
+            types: types.FOLLOW_ORGANIZATION,
             meta: { orgId },
             payload: {
-                promise: z.resource('users', 'me', 'memberships', orgId).patch(data)
+                promise: z.resource('users', 'me', 'following', orgId).put()
+            }
+        })
+    }
+}
+
+export function unfollowOrganization(orgId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            types: types.UNFOLLOW_ORGANIZATION,
+            meta: { orgId },
+            payload: {
+                promise: z.resource('users', 'me', 'following', orgId).del()
             }
         })
     }

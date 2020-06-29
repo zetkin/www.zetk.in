@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
     user: state.get('user'),
     campaignList: state.getIn(['campaigns', 'campaignList']),
     callAssignmentList: state.getIn(['callAssignments', 'assignmentList']),
-    orgList: state.getIn(['orgs', 'membershipList']),
+    orgList: state.getIn(['orgs', 'membershipList', 'items']).filter(o => o.get('follow')),
     surveyList: state.getIn(['surveys', 'surveyList']),
 });
 
@@ -39,7 +39,7 @@ export default class DashboardMenu extends React.Component {
             { id: 'pages.dashboardPage.menu.calls.sub' },
             { count: (callAssignments? callAssignments.size : 0) });
 
-        let orgs = this.props.orgList.get('items');
+        let orgs = this.props.orgList;
         let orgsSub;
 
         orgsSub = this.props.intl.formatMessage(

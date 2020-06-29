@@ -38,6 +38,7 @@ export default class OrgContent extends React.Component {
                     <div className="OrgContent-cta">
                         <ConnectLink isAuthenticated={this.props.isAuthenticated}
                             isMember={this.props.isMember}
+                            isFollowing={this.props.isFollowing}
                             orgItem={orgItem}
                             />
                     </div>

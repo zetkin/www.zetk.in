@@ -191,6 +191,17 @@ export default function initApp(messages) {
             });
     });
 
+    app.use('/o/:orgId/follow', (req, res, next) => {
+        req.z.resource('orgs', req.params.orgId, 'follow').put()
+            .then(() => {
+                res.redirect('/o/' + req.params.orgId);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500);
+            });
+    });
+
     app.post('/o/:orgId/surveys/:surveyId', formEndpoints.survey);
     app.post('/forms/actionResponse', auth.validate(authOpts), formEndpoints.actionResponse);
     app.post('/lost-password', formEndpoints.lostPassword);

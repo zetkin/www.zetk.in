@@ -22,10 +22,13 @@ const mapStateToProps = (state, props) => {
     }
 
     let isMember = false;
+    let isFollowing = false;
     let membershipItems = state.getIn(['orgs', 'membershipList', 'items']);
     if (membershipItems && orgItem) {
-        isMember = !!membershipItems.find(m =>
+        const membership = membershipItems.find(m =>
             m.getIn(['organization', 'id']) == orgItem.get('id'));
+        isMember = !!membership;
+        isFollowing = isMember ? membership.get('follow') : false;
     }
 
     const user = state.getIn(['user', 'data']);
@@ -35,6 +38,7 @@ const mapStateToProps = (state, props) => {
         user,
         orgItem,
         isMember,
+        isFollowing,
         isAuthenticated,
     }
 };
@@ -50,7 +54,7 @@ export default class OrgPage extends React.Component {
 
     render() {
         if (this.props.orgItem) {
-            const {user, orgItem, isMember, isAuthenticated} = this.props;
+            const {user, orgItem, isMember, isFollowing, isAuthenticated} = this.props;
 
             return (
                 <div className="OrgPage">
@@ -59,15 +63,17 @@ export default class OrgPage extends React.Component {
                         <div className="OrgPage-headerContainer">
                             <OrgCard orgItem={orgItem}/>
                             <div className="OrgPage-bar">
-                                <ConnectLink isAuthenticated={this.props.isAuthenticated}
-                                    isMember={this.props.isMember}
+                                <ConnectLink isAuthenticated={isAuthenticated}
+                                    isMember={isMember}
+                                    isFollowing={isFollowing}
                                     orgItem={orgItem}
                                     />
                             </div>
                         </div>
                     </div>
-                    <OrgContent isAuthenticated={this.props.isAuthenticated}
-                        isMember={this.props.isMember}
+                    <OrgContent isAuthenticated={isAuthenticated}
+                        isMember={isMember}
+                        isFollowing={isFollowing}
                         orgItem={orgItem}
                         user={user}
                         />

@@ -6,7 +6,7 @@ import Button from '../../../../common/misc/Button';
 import SectionPage from './SectionPage';
 
 import ConnectionList from '../../../misc/ConnectionList';
-import { deleteUserMembership, updateUserMembership } from '../../../../actions/org';
+import { deleteUserMembership, updateUserMembership, followOrganization, unfollowOrganization } from '../../../../actions/org';
 
 const mapStateToProps = state => ({
     orgList: state.getIn(['orgs', 'membershipList']),
@@ -19,7 +19,7 @@ export default class OrgSectionPage extends SectionPage {
 
     renderSectionContent(data) {
 
-        let orgs = this.props.orgList.get('items');
+        const followedOrgs = this.props.orgList.get('items').filter(i => i.get('follow'));
 
         return [
             <div className="OrgSectionPage-connected" key="connected">
@@ -28,11 +28,10 @@ export default class OrgSectionPage extends SectionPage {
                     />
                 <Msg tagName="p"
                     id="pages.dashboardPage.section.organizations.connectedOrgs.desc"
-                    values={{ count: (orgs? orgs.size : 0) }} />
+                    values={{ count: (followedOrgs? followedOrgs.size : 0) }} />
                 <ConnectionList
-                    connectionList={ this.props.orgList }
-                    onDisconnect={ this.onConnectionListDisconnect.bind(this) }
-                    onFollow={ this.onConnectionListFollow.bind(this) }
+                    connectionList={ followedOrgs }
+                    onUpdateFollow={ this.onConnectionListUpdateFollow.bind(this) }
                     />
             </div>,
             /*
@@ -63,8 +62,11 @@ export default class OrgSectionPage extends SectionPage {
         this.props.dispatch(deleteUserMembership(org.get('id')));
     }
 
-    onConnectionListFollow(org) {
-        console.log('follow');
-        this.props.dispatch(updateUserMembership(org.get('id'), { follow: true  }));
+    onConnectionListUpdateFollow(org, follow) {
+        if(follow) {
+            this.props.dispatch(followOrganization(org));
+        } else {
+            this.props.dispatch(unfollowOrganization(org));
+	}
     }
 }

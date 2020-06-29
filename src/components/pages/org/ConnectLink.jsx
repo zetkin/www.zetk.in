@@ -5,16 +5,26 @@ import FormattedLink from '../../../common/misc/FormattedLink';
 
 export default class ConnectLink extends React.Component {
     render() {
-        const {isAuthenticated, isMember, orgItem} = this.props;
+        const {isAuthenticated, isMember, isFollowing, orgItem} = this.props;
         let connectLink = null;
 
         if (orgItem) {
-            if (isMember) {
+            if (isFollowing) {
                 connectLink = (
                     <span className="ConnectLink-connected">
                         <Msg id="pages.orgPage.connect.alreadyConnected" 
                     className="ConnectLink-connected"/>
                     </span>
+                );
+            }
+            else if(isMember) {
+                let followHref = '/o/' + orgItem.get('id') + '/follow';
+                connectLink = (
+                    <FormattedLink href={ followHref } forceRefresh={ true }
+                        msgId="pages.orgPage.connect.connectLink"
+                        msgValues={{ org: orgItem.get('title') }}
+                        className="ConnectLink"
+                        />
                 );
             }
             else if (isAuthenticated) {

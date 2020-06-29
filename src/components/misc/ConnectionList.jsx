@@ -7,7 +7,6 @@ import FormattedLink from '../../common/misc/FormattedLink';
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
 import OrgAvatar from '../misc/OrgAvatar';
 
-
 export default class ConnectionList extends React.Component {
     render() {
         let content = null;
@@ -18,9 +17,8 @@ export default class ConnectionList extends React.Component {
         else {
             let list = this.props.connectionList;
             let items;
-
-            if (list.get('items').size) {
-                items = list.get('items').toList().map(i => {
+            if (list.size) {
+                items = list.toList().map(i => {
                     let roleMsg = 'misc.connectionList.roles.' + (i.get('role') || 'none');
                     let org = i.get('organization');
                     let orgLink = "/o/" + org.get('id') + "/";
@@ -34,17 +32,10 @@ export default class ConnectionList extends React.Component {
                                 <Msg id={ roleMsg }/>
                             </p>
                         </Link>
-                        { i.get('follow') ?
-                            <FormattedLink className="ConnectionList-disconnect"
-                                msgId="misc.connectionList.deleteLink"
-                                onClick={ this.onDeleteLinkClick.bind(this, org) }
-                                />
-                            :
-                            <FormattedLink className="ConnectionList-disconnect"
-                                msgId="misc.connectionList.followLink"
-                                onClick={ this.onFollowLinkClick.bind(this, org) }
-                                />
-                        }
+			<FormattedLink className="ConnectionList-disconnect"
+			    msgId="misc.connectionList.deleteLink"
+			    onClick={ this.onUpdateFollowLinkClick.bind(this, org.get('id'), false) }
+			    />
                         </li>
                     );
                 });
@@ -77,9 +68,9 @@ export default class ConnectionList extends React.Component {
         }
     }
 
-    onFollowLinkClick(org) {
-        if(this.props.onFollow) {
-            this.props.onFollow(org);
+    onUpdateFollowLinkClick(org, follow) {
+        if(this.props.onUpdateFollow) {
+            this.props.onUpdateFollow(org, follow);
         }
     }
 }

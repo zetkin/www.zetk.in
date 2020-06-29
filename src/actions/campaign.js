@@ -3,9 +3,9 @@ import * as types from '.';
 
 export function retrieveAllCampaigns() {
     return ({ dispatch, z }) => {
-        // Load list of organizations, then iterate over and load campaigns
-        // for each of the organizations.
-        let promise = z.resource('orgs').get()
+        // Load list of organizations followed, then iterate over and load
+        // campaigns for each of the organizations.
+        let promise = z.resource('following').get()
             .then(res => {
                 let orgs = res.data.data;
                 return Promise.all(orgs.map(org => (
