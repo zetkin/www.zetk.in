@@ -62,6 +62,7 @@ export default function initApp(messages) {
         app.get('/static/main.js', function(req, res) {
             let wpMainJs = url.format({
                 hostname: req.host,
+                protocol: 'http',
                 port: process.env.WEBPACK_PORT || 81,
                 pathname: '/static/main.js',
             });
