@@ -67,6 +67,6 @@ export default class OrgSectionPage extends SectionPage {
             this.props.dispatch(followOrganization(org));
         } else {
             this.props.dispatch(unfollowOrganization(org));
-	}
+        }
     }
 }

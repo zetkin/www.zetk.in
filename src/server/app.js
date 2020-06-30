@@ -192,7 +192,7 @@ export default function initApp(messages) {
     });
 
     app.use('/o/:orgId/follow', (req, res, next) => {
-        req.z.resource('orgs', req.params.orgId, 'follow').put()
+        req.z.resource('users', 'me', 'following', req.params.orgId).put()
             .then(() => {
                 res.redirect('/o/' + req.params.orgId);
             })

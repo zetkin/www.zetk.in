@@ -32,10 +32,10 @@ export default class ConnectionList extends React.Component {
                                 <Msg id={ roleMsg }/>
                             </p>
                         </Link>
-			<FormattedLink className="ConnectionList-disconnect"
-			    msgId="misc.connectionList.deleteLink"
-			    onClick={ this.onUpdateFollowLinkClick.bind(this, org.get('id'), false) }
-			    />
+                        <FormattedLink className="ConnectionList-disconnect"
+                            msgId="misc.connectionList.deleteLink"
+                            onClick={ this.onUpdateFollowLinkClick.bind(this, org.get('id'), false) }
+                            />
                         </li>
                     );
                 });

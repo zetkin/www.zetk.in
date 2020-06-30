@@ -26,7 +26,7 @@ export function retrieveUserMemberships() {
 export function followOrganization(orgId) {
     return ({ dispatch, z }) => {
         dispatch({
-            types: types.FOLLOW_ORGANIZATION,
+            type: types.FOLLOW_ORGANIZATION,
             meta: { orgId },
             payload: {
                 promise: z.resource('users', 'me', 'following', orgId).put()
@@ -38,7 +38,7 @@ export function followOrganization(orgId) {
 export function unfollowOrganization(orgId) {
     return ({ dispatch, z }) => {
         dispatch({
-            types: types.UNFOLLOW_ORGANIZATION,
+            type: types.UNFOLLOW_ORGANIZATION,
             meta: { orgId },
             payload: {
                 promise: z.resource('users', 'me', 'following', orgId).del()

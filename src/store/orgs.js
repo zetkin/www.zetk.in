@@ -120,12 +120,12 @@ export default createReducer(initialState, {
                 immutable.fromJS(orgs));
     },
     [types.FOLLOW_ORGANIZATION + '_FULFILLED']: (state, action) => {
-        const [k, v] = state.get(['membershipList', 'items']).findEntry(value => value.getIn(['organization','id']) == orgId);
+        const [k, v] = state.get(['membershipList', 'items']).findEntry(value => value.getIn(['organization','id']) == action.meta.orgId);
         return state
             .setIn(['membershipList', 'items', k, 'follow'], true);
     },
     [types.UNFOLLOW_ORGANIZATION + '_FULFILLED']: (state, action) => {
-        const [k, v] = state.getIn(['membershipList', 'items']).findEntry(value => value.getIn(['organization','id']) == orgId);
+        const [k, v] = state.getIn(['membershipList', 'items']).findEntry(value => value.getIn(['organization','id']) == action.meta.orgId);
         return state
             .setIn(['membershipList', 'items', k, 'follow'], false);
     }
