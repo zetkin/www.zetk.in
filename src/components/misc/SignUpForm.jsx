@@ -154,14 +154,11 @@ export default class SignUpForm extends React.Component {
                         placeholder={ msg('lastName') }/>
                 </div>
 
-                <div className="SignUpForm-textBox">
-                    <label className="SignUpForm-hiddenLabel" htmlFor="phone">
-                        { msg('phone') }</label>
-                    <PhoneInput className="SignUpForm-textInput" name="phone"
-                        defaultCountry={ orgItem && orgItem.get('country') }
-                        defaultValue={ this.state.phone }
-                        placeholder={ msg('phone') }/>
-                </div>
+                <PhoneInput className="SignUpForm-textInput" name="phone"
+                    defaultCountry={ orgItem && orgItem.get('country') }
+                    defaultValue={ this.state.phone }
+                    placeholder={ msg('phone') }
+                    error={ error } />
 
                 <div className="SignUpForm-textBox">
                     <label className="SignUpForm-hiddenLabel" htmlFor="password">
