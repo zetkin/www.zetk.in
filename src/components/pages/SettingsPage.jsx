@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
     user: state.get('user'),
     browserLocale: state.getIn(['intl', 'browserLocale']),
     passwordStore: state.get('password'),
-    connectionList: state.getIn(['orgs', 'membershipList']),
+    connectionList: state.getIn(['orgs', 'followingList']),
 });
 
 @connect(mapStateToProps)

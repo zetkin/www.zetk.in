@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
     actionList: state.getIn(['actions', 'actionList']),
     responseList: state.getIn(['actions', 'responseList']),
     userActionList: state.getIn(['actions', 'userActionList']),
-    hasMemberships: !!state.getIn(['orgs', 'membershipList', 'items']).filter(i => i.get('follow')).size, // error when logged out
+    hasMemberships: !!state.getIn(['orgs', 'followingList', 'items']).size, // error when logged out
 });
 
 

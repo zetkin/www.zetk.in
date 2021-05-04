@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
     user: state.get('user'),
     campaignList: state.getIn(['campaigns', 'campaignList']),
     callAssignmentList: state.getIn(['callAssignments', 'assignmentList']),
-    orgList: state.getIn(['orgs', 'membershipList', 'items']).filter(o => o.get('follow')),
+    orgList: state.getIn(['orgs', 'followingList', 'items']).filter(o => o.get('follow')),
     surveyList: state.getIn(['surveys', 'surveyList']),
 });
 

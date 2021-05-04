@@ -9,8 +9,7 @@ import ConnectionList from '../../../misc/ConnectionList';
 import { deleteUserMembership, updateUserMembership, followOrganization, unfollowOrganization } from '../../../../actions/org';
 
 const mapStateToProps = state => ({
-    orgList: state.getIn(['orgs', 'membershipList']),
-    hasMemberships: !!state.getIn(['orgs', 'membershipList', 'items']).size,
+    orgList: state.getIn(['orgs', 'followingList']),
 });
 
 
@@ -19,8 +18,6 @@ export default class OrgSectionPage extends SectionPage {
 
     renderSectionContent(data) {
 
-        const followedOrgs = this.props.orgList.get('items').filter(i => i.get('follow'));
-
         return [
             <div className="OrgSectionPage-connected" key="connected">
                 <Msg tagName="h3"
@@ -28,9 +25,9 @@ export default class OrgSectionPage extends SectionPage {
                     />
                 <Msg tagName="p"
                     id="pages.dashboardPage.section.organizations.connectedOrgs.desc"
-                    values={{ count: (followedOrgs? followedOrgs.size : 0) }} />
+                    values={{ count: this.props.orgList.get('items').size  }} />
                 <ConnectionList
-                    connectionList={ followedOrgs }
+                    connectionList={ this.props.orgList }
                     onUpdateFollow={ this.onConnectionListUpdateFollow.bind(this) }
                     />
             </div>,

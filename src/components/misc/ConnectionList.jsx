@@ -15,7 +15,7 @@ export default class ConnectionList extends React.Component {
             content = <LoadingIndicator />;
         }
         else {
-            let list = this.props.connectionList;
+            let list = this.props.connectionList.get('items');
             let items;
             if (list.size) {
                 items = list.toList().map(i => {
