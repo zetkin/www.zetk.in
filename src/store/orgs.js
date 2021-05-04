@@ -122,12 +122,14 @@ export default createReducer(initialState, {
     [types.FOLLOW_ORGANIZATION + '_FULFILLED']: (state, action) => {
         const [k, v] = state.get(['membershipList', 'items']).findEntry(value => value.getIn(['organization','id']) == action.meta.orgId);
         return state
-            .setIn(['membershipList', 'items', k, 'follow'], true);
+            .setIn(['membershipList', 'items', k, 'follow'], true)
+            .insertIn(['followingList', 'items'], v);
     },
     [types.UNFOLLOW_ORGANIZATION + '_FULFILLED']: (state, action) => {
-        const [k, v] = state.getIn(['membershipList', 'items']).findEntry(value => value.getIn(['organization','id']) == action.meta.orgId);
+        const orgKey = action.meta.orgId.toString();
         return state
-            .setIn(['membershipList', 'items', k, 'follow'], false);
+            .setIn(['membershipList', 'items', orgKey, 'follow'], false)
+            .deleteIn(['followingList', 'items', orgKey]);
     },
     [types.RETRIEVE_USER_FOLLOWING + '_PENDING']: (state, action) => {
         return state

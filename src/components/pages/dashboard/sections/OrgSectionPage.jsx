@@ -6,7 +6,7 @@ import Button from '../../../../common/misc/Button';
 import SectionPage from './SectionPage';
 
 import ConnectionList from '../../../misc/ConnectionList';
-import { deleteUserMembership, updateUserMembership, followOrganization, unfollowOrganization } from '../../../../actions/org';
+import { followOrganization, unfollowOrganization } from '../../../../actions/org';
 
 const mapStateToProps = state => ({
     orgList: state.getIn(['orgs', 'followingList']),
@@ -53,10 +53,6 @@ export default class OrgSectionPage extends SectionPage {
     getSectionDesc(data) {
         return <Msg tagName="p"
                     id="pages.dashboardPage.section.organizations.desc" />;
-    }
-
-    onConnectionListDisconnect(org) {
-        this.props.dispatch(deleteUserMembership(org.get('id')));
     }
 
     onConnectionListUpdateFollow(org, follow) {
