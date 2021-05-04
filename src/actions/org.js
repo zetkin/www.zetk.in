@@ -23,6 +23,42 @@ export function retrieveUserMemberships() {
     };
 }
 
+export function followOrganization(orgId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.FOLLOW_ORGANIZATION,
+            meta: { orgId },
+            payload: {
+                promise: z.resource('users', 'me', 'following', orgId).put()
+            }
+        })
+    }
+}
+
+export function unfollowOrganization(orgId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.UNFOLLOW_ORGANIZATION,
+            meta: { orgId },
+            payload: {
+                promise: z.resource('users', 'me', 'following', orgId).del()
+            }
+        })
+    }
+}
+
+export function retrieveUserFollowing(orgId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.RETRIEVE_USER_FOLLOWING,
+            meta: { orgId },
+            payload: {
+                promise: z.resource('users', 'me', 'following').get()
+            }
+        })
+    }
+}
+
 export function deleteUserMembership(orgId) {
     return ({ dispatch, z }) => {
         dispatch({

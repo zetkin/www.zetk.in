@@ -6,11 +6,10 @@ import Button from '../../../../common/misc/Button';
 import SectionPage from './SectionPage';
 
 import ConnectionList from '../../../misc/ConnectionList';
-import { deleteUserMembership } from '../../../../actions/org';
+import { followOrganization, unfollowOrganization } from '../../../../actions/org';
 
 const mapStateToProps = state => ({
-    orgList: state.getIn(['orgs', 'membershipList']),
-    hasMemberships: !!state.getIn(['orgs', 'membershipList', 'items']).size,
+    orgList: state.getIn(['orgs', 'followingList']),
 });
 
 
@@ -19,8 +18,6 @@ export default class OrgSectionPage extends SectionPage {
 
     renderSectionContent(data) {
 
-        let orgs = this.props.orgList.get('items');
-
         return [
             <div className="OrgSectionPage-connected" key="connected">
                 <Msg tagName="h3"
@@ -28,10 +25,10 @@ export default class OrgSectionPage extends SectionPage {
                     />
                 <Msg tagName="p"
                     id="pages.dashboardPage.section.organizations.connectedOrgs.desc"
-                    values={{ count: (orgs? orgs.size : 0) }} />
+                    values={{ count: this.props.orgList.get('items').size  }} />
                 <ConnectionList
                     connectionList={ this.props.orgList }
-                    onDisconnect={ this.onConnectionListDisconnect.bind(this) }
+                    onUpdateFollow={ this.onConnectionListUpdateFollow.bind(this) }
                     />
             </div>,
             /*
@@ -58,7 +55,11 @@ export default class OrgSectionPage extends SectionPage {
                     id="pages.dashboardPage.section.organizations.desc" />;
     }
 
-    onConnectionListDisconnect(org) {
-        this.props.dispatch(deleteUserMembership(org.get('id')));
+    onConnectionListUpdateFollow(org, follow) {
+        if(follow) {
+            this.props.dispatch(followOrganization(org));
+        } else {
+            this.props.dispatch(unfollowOrganization(org));
+        }
     }
 }

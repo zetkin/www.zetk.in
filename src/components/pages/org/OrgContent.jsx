@@ -9,9 +9,9 @@ import SignUpForm from '../../misc/SignUpForm';
 @injectIntl
 export default class OrgContent extends React.Component {
     render() {
-        const {isAuthenticated, isMember, orgItem, user} = this.props
+        const {isAuthenticated, isMember, isFollowing, orgItem, user} = this.props
         let content =[];
-        if (isMember) {
+        if (isFollowing) {
             content.push(
                 <div className="OrgContent-column" key="connected">
                     <Msg tagName="h2" id="pages.orgPage.connected.h"
@@ -38,6 +38,7 @@ export default class OrgContent extends React.Component {
                     <div className="OrgContent-cta">
                         <ConnectLink isAuthenticated={this.props.isAuthenticated}
                             isMember={this.props.isMember}
+                            isFollowing={this.props.isFollowing}
                             orgItem={orgItem}
                             />
                     </div>

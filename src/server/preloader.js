@@ -15,6 +15,7 @@ import {
 import {
     retrieveOrganization,
     retrieveUserMemberships,
+    retrieveUserFollowing,
 } from '../actions/org';
 import {
     retrieveAllActions,
@@ -35,6 +36,7 @@ export default (messages) => {
 
     preloader.get('*', waitForActions(req => [
         retrieveUserMemberships(),
+        retrieveUserFollowing(),
     ]));
 
     preloader.get(['/dashboard/*', '/dashboard'], waitForActions(req => [
