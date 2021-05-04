@@ -128,5 +128,29 @@ export default createReducer(initialState, {
         const [k, v] = state.getIn(['membershipList', 'items']).findEntry(value => value.getIn(['organization','id']) == action.meta.orgId);
         return state
             .setIn(['membershipList', 'items', k, 'follow'], false);
-    }
+    },
+    [types.RETRIEVE_USER_FOLLOWING + '_PENDING']: (state, action) => {
+        return state
+            .setIn(['orgList', 'error'], null)
+            .setIn(['orgList', 'isPending'], true)
+            .setIn(['followingList', 'error'], null)
+            .setIn(['followingList', 'isPending'], true);
+    },
+    [types.RETRIEVE_USER_FOLLOWING + '_FULFILLED']: (state, action) => {
+        let memberships = {};
+        let orgs = {};
+
+        action.payload.data.data.forEach(membership => {
+            orgs[membership.organization.id.toString()] = membership.organization;
+            memberships[membership.organization.id] = membership;
+        });
+
+        return state
+            .setIn(['followingList', 'error'], null)
+            .setIn(['followingList', 'isPending'], false)
+            .updateIn(['followingList', 'items'], items => items?
+                items.merge(immutable.fromJS(memberships)) :
+                immutable.fromJS(memberships));
+    },
+
 });

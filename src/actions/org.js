@@ -47,6 +47,18 @@ export function unfollowOrganization(orgId) {
     }
 }
 
+export function retrieveUserFollowing(orgId) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.RETRIEVE_USER_FOLLOWING,
+            meta: { orgId },
+            payload: {
+                promise: z.resource('users', 'me', 'following').get()
+            }
+        })
+    }
+}
+
 export function deleteUserMembership(orgId) {
     return ({ dispatch, z }) => {
         dispatch({
