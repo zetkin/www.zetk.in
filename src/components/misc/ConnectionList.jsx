@@ -7,7 +7,6 @@ import FormattedLink from '../../common/misc/FormattedLink';
 import LoadingIndicator from '../../common/misc/LoadingIndicator';
 import OrgAvatar from '../misc/OrgAvatar';
 
-
 export default class ConnectionList extends React.Component {
     render() {
         let content = null;
@@ -16,11 +15,10 @@ export default class ConnectionList extends React.Component {
             content = <LoadingIndicator />;
         }
         else {
-            let list = this.props.connectionList;
+            let list = this.props.connectionList.get('items');
             let items;
-
-            if (list.get('items').size) {
-                items = list.get('items').toList().map(i => {
+            if (list.size) {
+                items = list.toList().map(i => {
                     let roleMsg = 'misc.connectionList.roles.' + (i.get('role') || 'none');
                     let org = i.get('organization');
                     let orgLink = "/o/" + org.get('id') + "/";
@@ -36,7 +34,7 @@ export default class ConnectionList extends React.Component {
                         </Link>
                         <FormattedLink className="ConnectionList-disconnect"
                             msgId="misc.connectionList.deleteLink"
-                            onClick={ this.onDeleteLinkClick.bind(this, org) }
+                            onClick={ this.onUpdateFollowLinkClick.bind(this, org.get('id'), false) }
                             />
                         </li>
                     );
@@ -67,6 +65,12 @@ export default class ConnectionList extends React.Component {
     onDeleteLinkClick(org) {
         if (this.props.onDisconnect) {
             this.props.onDisconnect(org);
+        }
+    }
+
+    onUpdateFollowLinkClick(org, follow) {
+        if(this.props.onUpdateFollow) {
+            this.props.onUpdateFollow(org, follow);
         }
     }
 }

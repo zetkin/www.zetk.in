@@ -23,7 +23,7 @@ const mapStateToProps = (state, props) => {
     let o = organization(state, props.params.orgId);
 
     let isConnected = false;
-    const membershipListItems = state.getIn(['orgs', 'membershipList', 'items']);
+    const membershipListItems = state.getIn(['orgs', 'followingList', 'items']);
     if (o && membershipListItems) {
         isConnected = !!membershipListItems.find(m =>
             m.getIn(['organization', 'id']) == o.get('id'));

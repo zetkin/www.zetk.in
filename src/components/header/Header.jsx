@@ -56,7 +56,7 @@ export default class Header extends React.Component {
                 );
             }
 
-            let memberships = this.props.orgs.getIn(['membershipList', 'items']);
+            let memberships = this.props.orgs.getIn(['followingList', 'items']);
 
             let isOfficial = memberships && !!memberships.find(item => item.get('role') != null);
 

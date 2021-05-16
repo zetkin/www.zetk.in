@@ -6,7 +6,7 @@ import ConnectionList from '../misc/ConnectionList';
 import SimplePageBase from './SimplePageBase';
 
 import { updateUserLang } from '../../actions/user';
-import { deleteUserMembership } from '../../actions/org';
+import { followOrganization,  unfollowOrganization } from '../../actions/org';
 
 import {
     changePassword,
@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
     user: state.get('user'),
     browserLocale: state.getIn(['intl', 'browserLocale']),
     passwordStore: state.get('password'),
-    connectionList: state.getIn(['orgs', 'membershipList']),
+    connectionList: state.getIn(['orgs', 'followingList']),
 });
 
 @connect(mapStateToProps)
@@ -83,7 +83,7 @@ export default class SettingsPage extends SimplePageBase {
                 <Msg tagName="p" id="pages.settings.connections.intro"/>
                 <ConnectionList
                     connectionList={ this.props.connectionList }
-                    onDisconnect={ this.onConnectionListDisconnect.bind(this) }
+                    onUpdateFollow={ this.onConnectionListUpdateFollow.bind(this) }
                     />
 
                 <Msg tagName="h2" id="pages.settings.password.h"/>
@@ -115,8 +115,12 @@ export default class SettingsPage extends SimplePageBase {
         );
     }
 
-    onConnectionListDisconnect(org) {
-        this.props.dispatch(deleteUserMembership(org.get('id')));
+    onConnectionListUpdateFollow(org, follow) {
+        if(follow) {
+            this.props.dispatch(followOrganization(org));
+        } else {
+            this.props.dispatch(unfollowOrganization(org));
+        }
     }
 
     onLangChange(ev) {

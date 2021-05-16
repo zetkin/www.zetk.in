@@ -62,6 +62,7 @@ export default function initApp(messages) {
         app.get('/static/main.js', function(req, res) {
             let wpMainJs = url.format({
                 hostname: req.host,
+                protocol: 'http',
                 port: process.env.WEBPACK_PORT || 81,
                 pathname: '/static/main.js',
             });
@@ -182,6 +183,17 @@ export default function initApp(messages) {
 
     app.use('/o/:orgId/connect', (req, res, next) => {
         req.z.resource('orgs', req.params.orgId, 'join_requests').post()
+            .then(() => {
+                res.redirect('/o/' + req.params.orgId);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500);
+            });
+    });
+
+    app.use('/o/:orgId/follow', (req, res, next) => {
+        req.z.resource('users', 'me', 'following', req.params.orgId).put()
             .then(() => {
                 res.redirect('/o/' + req.params.orgId);
             })
