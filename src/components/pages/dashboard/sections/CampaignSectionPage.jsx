@@ -103,7 +103,7 @@ export default class CampaignSectionPage extends SectionPage {
                 selected={ selectedTab }
                 onSelect={ this.onTabSelect.bind(this) }
             />,
-            <CampaignForm key="campaignForm"
+            <CampaignForm key={ selectedTab }
                 activityFilter={ selectedTab !== 'signed' }
                 orgList={ this.props.orgList.get('items') }
                 redirPath={ this.props.redirPath }
