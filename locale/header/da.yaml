@@ -1,8 +1,8 @@
 call: Opkald
 login: Log ind
-organize: Organiser
+organize: Organisér
 user:
-    continue: Gå til min side
+    continue: Gå til Min side
     logout: Log ud
     settings: Indstillinger
     wrongUser: Er dette ikke dig?

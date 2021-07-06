@@ -1,32 +1,30 @@
-environmentWarning:
-    message: >-
-        This is a development version of Zetkin. You probably want to use the
-        live Zetkin at www.zetk.in. Do you want to navigate there?
 cookieNotice:
     msg: Zetkin uses cookies to enhance your experience and for this website to work.
     privacyLink:
-        label: Read our privacy policy
         href: http://zetkin.org/privacy
+        label: Read our privacy policy
+environmentWarning:
+    message: This is a development version of Zetkin. You probably want to use the
+        live Zetkin at www.zetk.in. Do you want to navigate there?
 signup:
     done:
         subtitle: Check your inbox to verify your e-mail address
-        title: 'Welcome, { firstName }!'
+        title: Welcome, { firstName }!
     email: Email
     error:
-        exists: 'The e-mail address { email } is already registered'
-        invalid: >-
-            Registration failed. Please make sure all fields are filled out
-            correctly.
-        privacy: >-
-            You must approve our privacy policy to register
+        exists: The e-mail address { email } is already registered
+        invalid: Registration failed. Please make sure all fields are filled out correctly.
         login: Log in instead
+        privacy: You must approve our privacy policy to register
     firstName: First Name
     info: Register a user account to start organizing with Zetkin
     lastName: Last Name
     password: Password
     phone: Mobile Phone Number
-    privacyCheck: I approve that my information is processed in order to maintain a user acount for Zetkin.
-    privacyCheckOrg: I approve that my information is processed in order to maintain a user acount for Zetkin and {org}.
+    privacyCheck: I approve that my information is processed in order to maintain
+        a user acount for Zetkin.
+    privacyCheckOrg: I approve that my information is processed in order to maintain
+        a user acount for Zetkin and {org}.
     privacyLink:
         href: http://zetkin.org/privacy
         title: Read our privacy policy.

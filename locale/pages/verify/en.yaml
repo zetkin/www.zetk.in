@@ -7,17 +7,12 @@ invalid:
         or request a new verification e-mail.
 missing:
     h1: Verify your e-mail address
-    p0: >-
-        Before you can continue using Zetkin you have to verify your e-mail
-        address.
-    p1: >-
-        We have sent a message to your e-mail containing a verification link.
-        Click the link to verify your e-mail address. Be sure to check your spam
-        folder if you cannot find the e-mail, or re-send it using the button
-        below.
+    p0: Before you can continue using Zetkin you have to verify your e-mail address.
+    p1: We have sent a message to your e-mail containing a verification link. Click
+        the link to verify your e-mail address. Be sure to check your spam folder
+        if you cannot find the e-mail, or re-send it using the button below.
 resend:
     h1: Check your e-mail
-    p: >-
-        We have sent a new e-mail verification message. Make sure to check your
-        spam folder if you can't find the message.
+    p: We have sent a new e-mail verification message. Make sure to check your spam
+        folder if you can't find the message.
 resendButton: Send a new verification

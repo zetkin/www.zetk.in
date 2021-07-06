@@ -16,7 +16,6 @@ missing:
         filter för skräppost om du inte hittar mailet.
 resend:
     h1: Kolla din inkorg
-    p: >-
-        Vi har skickat en ny bekräftelselänk via mail. Glöm inte kolla i din
-        skräpkorg efter mailet.
+    p: Vi har skickat en ny bekräftelselänk via mail. Glöm inte kolla i din skräpkorg
+        efter mailet.
 resendButton: Skicka en ny bekräftelselänk

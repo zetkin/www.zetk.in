@@ -3,8 +3,8 @@ action:
     button:
         signUp: Anmäl dig
         undoSignUp: Ångra
-    infoButton: Läs mer
     currentNeed: Fler aktivister behövs här
+    infoButton: Läs mer
     multiLocationLabel: |
         {count, plural,
             =2 {På två platser}
@@ -25,40 +25,32 @@ calendar:
 filter:
     activity:
         active:
-            p: Visar bara vissa aktioner baserat på aktivitet.
             button: Visa alla aktioner
+            p: Visar bara vissa aktioner baserat på aktivitet.
         inactive:
-            p: Visar alla aktioner oavsett aktivitet.
             button: Välj aktiviteter att visa
+            p: Visar alla aktioner oavsett aktivitet.
         modal:
             clearButton: Visa oavsett aktivitet
     modal:
-        title: Filtrera
         closeButton: Stäng
+        title: Filtrera
         toggleActionCount: |
             {count, plural,
                 =1 {En aktion}
                 other {# aktioner}
             }
     showNeed:
+        button:
+            hide: Visa alla aktioner
+            show: Visa mig var jag behövs
         p: |
             Just nu behövs det fler aktivister på {count, plural,
                 =1 {en aktion}
                 other {# aktioner}
             }.
-        button:
-            show: Visa mig var jag behövs
-            hide: Visa alla aktioner
 message:
-    yourActions:
-        title: Dina aktuella aktioner
-        p: |
-            Här håller du koll på var du ska vara framöver. Om
-            du nyligen anmält dig kan du ångra din anmälan, men
-            när du blivit inbokad måste du kontakta din organisation
-            om du behöver ställa in.
     showNeed:
-        title: Du behövs här!
         p: |
             På {count, plural,
                 =1 {den här aktionen}
@@ -66,3 +58,11 @@ message:
             } behövs fler aktivister just nu. Om du inte hittar någon som
             passar kan du så klart ändå gå tillbaka och anmäla dig till något
             annat.
+        title: Du behövs här!
+    yourActions:
+        p: |
+            Här håller du koll på var du ska vara framöver. Om
+            du nyligen anmält dig kan du ångra din anmälan, men
+            när du blivit inbokad måste du kontakta din organisation
+            om du behöver ställa in.
+        title: Dina aktuella aktioner

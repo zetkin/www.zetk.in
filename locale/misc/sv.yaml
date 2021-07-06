@@ -1,32 +1,32 @@
-environmentWarning:
-    message: >-
-        Detta är en utvecklingsversion av Zetkin. Du vill antagligen använda
-        verkliga Zetkin på www.zetk.in. Vill du navigera dit nu?
 cookieNotice:
-    msg: Zetkin använder cookies för att förbättra användarupplevelsen och för att vissa funktioner ska fungera.
+    msg: Zetkin använder cookies för att förbättra användarupplevelsen och för att
+        vissa funktioner ska fungera.
     privacyLink:
-        label: Läs vår integritetspolicy
         href: http://zetkin.org/sv/sekretess
+        label: Läs vår integritetspolicy
+environmentWarning:
+    message: Detta är en utvecklingsversion av Zetkin. Du vill antagligen använda
+        verkliga Zetkin på www.zetk.in. Vill du navigera dit nu?
 signup:
     done:
         subtitle: Kolla din inbox för att bekräfta din e-postadress
-        title: 'Välkommen, {firstName}!'
+        title: Välkommen, {firstName}!
     email: E-post
     error:
-        exists: 'E-postadressen { email } är redan registrerad.'
-        invalid: >-
-            Registreringen misslyckades. Kontrollera att alla fält är korrekt
+        exists: E-postadressen { email } är redan registrerad.
+        invalid: Registreringen misslyckades. Kontrollera att alla fält är korrekt
             ifyllda.
-        privacy: >-
-            Du måste godkänna vår integritetspolicy för att registrera dig
         login: Logga in istället
+        privacy: Du måste godkänna vår integritetspolicy för att registrera dig
     firstName: Förnamn
     info: Registrera ett användarkonto för att organisera dig med Zetkin
     lastName: Efternamn
     password: Lösenord
     phone: Telefonnummer
-    privacyCheck: Jag kodkänner att mina personuppgifter används för att skapa ett konto på Zetkin.
-    privacyCheckOrg: Jag kodkänner att mina personuppgifter används för att skapa ett konto på Zetkin och delas med {org}.
+    privacyCheck: Jag kodkänner att mina personuppgifter används för att skapa ett
+        konto på Zetkin.
+    privacyCheckOrg: Jag kodkänner att mina personuppgifter används för att skapa
+        ett konto på Zetkin och delas med {org}.
     privacyLink:
         href: http://www.zetkin.org/sv/sekretess
         title: Läs vår integritetspolicy.

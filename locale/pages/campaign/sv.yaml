@@ -12,23 +12,22 @@ interstitial:
             Kul att du vill hjälpa till! För att kunna anmäla dig måste du logga
             in med ett användarkonto i Zetkin.
     login:
-        p: |-
-            Om du redan har ett konto kan du logga in och anmäla dig direkt.
         button: Logga in
+        p: Om du redan har ett konto kan du logga in och anmäla dig direkt.
     register:
+        button: Skapa användarkonto
         p: |-
             Om detta är första gången du använder Zetkin måste du skapa ett
             nytt användarkonto.
-        button: Skapa användarkonto
 notFound:
-    h: Kampanjen hittades inte
     anon:
-        p: Eventuellt är den endast tillgänglig för inloggade användare.
         loginButton: Logga in och försök igen
+        p: Eventuellt är den endast tillgänglig för inloggade användare.
     auth:
-        p: Eventuellt måste du vara ansluten till { org } för att få tillgång.
         connectButton: Anslut till { org }
+        p: Eventuellt är den endast tillgänglig för anslutna användare.
     connected:
         p: |-
             Det verkar som att den inte existerar. Kontakta din organisation om
             du inte hittar rätt
+    h: Kampanjen hittades inte
