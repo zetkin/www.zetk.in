@@ -1,12 +1,9 @@
 links:
     foundationLink:
-        href: 'http://zetkin.org/no'
         text: Zetkin Foundation
     manualLink:
-        href: 'http://manual.zetkin.org/no'
         text: Zetkinmanualen
     privacyLink:
-        href: 'http://zetkin.org/personvern'
         text: Personvern hos Zetkin
 summary: >-
     Zetkin er ein plattform for å organisere aktivisme. Zetkin er utvikla av
