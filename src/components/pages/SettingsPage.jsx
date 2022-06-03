@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ConnectionList from '../misc/ConnectionList';
 import SimplePageBase from './SimplePageBase';
 
-import { updateUserLang } from '../../actions/user';
+import { updateUserLang, updateUserData } from '../../actions/user';
 import { followOrganization,  unfollowOrganization } from '../../actions/org';
 
 import {
@@ -50,12 +50,19 @@ export default class SettingsPage extends SimplePageBase {
             }
         }
 
-        let submitLabel = this.props.intl.formatMessage(
+        let submitPasswordLabel = this.props.intl.formatMessage(
             { id: 'pages.settings.password.submitButton' });
 
-        let submitEnabled = (this.state.oldPassword.length
+        let submitEmailLabel = this.props.intl.formatMessage(
+            { id: 'pages.settings.email.submitButton' });
+
+        let passwordSubmitEnabled = (this.state.oldPassword.length
             && this.state.newPassword.length >= 6
             && !passwordPending);
+
+        let emailSubmitEnabled = (this.state.email
+            && !(this.props.user.getIn(['data', 'email']) && 
+                this.props.user.getIn(['data', 'email_is_verified'])));
 
         let lang = this.props.user.getIn(['data', 'lang']) || 'auto';
         let langOptions = [ 'auto', 'sv', 'en', 'da', 'nn' ];
@@ -86,6 +93,25 @@ export default class SettingsPage extends SimplePageBase {
                     onUpdateFollow={ this.onConnectionListUpdateFollow.bind(this) }
                     />
 
+                <Msg tagName="h2" id="pages.settings.email.h"/>
+                { msg }
+                <form onSubmit={ this.onSubmitEmail.bind(this) }>
+                    <ul>
+                        <li>
+                            <label htmlFor="new_email">
+                                <Msg id="pages.settings.email.newEmail"/>
+                            </label>
+                            <input type="email" id="new_email"
+                                onChange={ this.onChangeEmail.bind(this) }
+                                value={ this.state.email }/>
+                        </li>
+                    </ul>
+                    <input type="submit"
+                        value={ submitEmailLabel }
+                        disabled={ !emailSubmitEnabled }/>
+                </form>
+
+
                 <Msg tagName="h2" id="pages.settings.password.h"/>
                 { msg }
                 <form onSubmit={ this.onSubmitPassword.bind(this) }>
@@ -108,8 +134,8 @@ export default class SettingsPage extends SimplePageBase {
                         </li>
                     </ul>
                     <input type="submit"
-                        value={ submitLabel }
-                        disabled={ !submitEnabled }/>
+                        value={ submitPasswordLabel }
+                        disabled={ !passwordSubmitEnabled }/>
                 </form>
             </div>
         );
@@ -141,6 +167,15 @@ export default class SettingsPage extends SimplePageBase {
         ev.preventDefault();
     }
 
+    onSubmitEmail(ev) {
+        this.props.dispatch( updateUserData({
+                email: this.state.email
+            })
+        );
+
+        ev.preventDefault();
+    }
+
     onChangeNewPwd(ev) {
         this.setState({
             newPassword: ev.target.value
@@ -159,5 +194,11 @@ export default class SettingsPage extends SimplePageBase {
         if (this.props.passwordStore.get('changed')) {
             this.props.dispatch(resetPasswordChanged());
         }
+    }
+
+    onChangeEmail(ev) {
+        this.setState({
+            email: ev.target.value
+        });
     }
 }

@@ -13,7 +13,8 @@ signup:
         title: 'Velkomen, { firstName }!'
     email: Epost
     error:
-        exists: 'Eposten { email } er allerede registrert'
+        emailExists: 'Eposten { email } er allerede registrert'
+        phoneExists: 'Telefonnummeret { phone } er allerede registrert'
         invalid: Mislykka registrering. Pass på at du har fylt ut alle felta rett.
         privacy: Du må godta personvernvilkåra for å registrere deg.
         login: Logg inn i staden

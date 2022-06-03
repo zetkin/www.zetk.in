@@ -13,7 +13,8 @@ signup:
         title: 'Välkommen, {firstName}!'
     email: E-post
     error:
-        exists: 'E-postadressen { email } är redan registrerad.'
+        emailExists: 'E-postadressen { email } är redan registrerad.'
+        phoneExists: 'Telefonnumret { phone } är redan registrerat.'
         invalid: >-
             Registreringen misslyckades. Kontrollera att alla fält är korrekt
             ifyllda.

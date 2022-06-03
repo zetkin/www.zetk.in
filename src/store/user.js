@@ -19,4 +19,7 @@ export default createReducer(initialState, {
 
         return state;
     },
+    [types.UPDATE_USER + '_FULFILLED']: (state, action) => {
+        return state;
+    },
 });

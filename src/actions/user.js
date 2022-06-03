@@ -8,6 +8,15 @@ export function setUserData(data) {
     };
 }
 
+export function updateUser(data) {
+    return ({ dispatch, z }) => {
+        dispatch({
+            type: types.UPDATE_USER,
+            payload: z.resource('users', 'me').patch(data),
+        });
+    };
+}
+
 export function updateUserLang(lang) {
     return ({ dispatch, z }) => {
         dispatch({
