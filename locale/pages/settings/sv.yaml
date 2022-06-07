@@ -22,3 +22,8 @@ password:
     oldPassword: Nuvarande lösenord
     submitButton: Byt lösenord
     success: Lösenordet ändrades
+email:
+    h: Byt e-postadress
+    newEmail: Ny e-postadress
+    submitButton: Byt e-post
+    notVerified: E-post är inte verifierad. Kolla din e-post.

@@ -3,7 +3,8 @@ export const REGISTER = 'REGISTER';
 export const SET_INTL_DATA = 'SET_INTL_DATA';
 export const SET_USER_DATA = 'SET_USER_DATA';
 export const UPDATE_USER_LANG = 'UPDATE_USER_LANG';
-export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_USER_EMAIL = 'UPDATE_USER_EMAIL';
+export const RESET_EMAIL_CHANGED = 'RESET_EMAIL_CHANGED';
 export const SET_HELP_SEEN = 'SET_HELP_SEEN';
 export const SET_HELP_DISMISSED = 'SET_HELP_DISMISSED';
 

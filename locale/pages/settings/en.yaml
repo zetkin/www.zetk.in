@@ -26,3 +26,8 @@ password:
     oldPassword: Current password
     submitButton: Change password
     success: Your password was changed
+email:
+    h: Change E-mail address
+    newEmail: New E-mail
+    submitButton: Change E-mail
+    notVerified: E-mail is not verified. Please check your e-mail.
