@@ -27,3 +27,4 @@ email:
     newEmail: Ny e-postadress
     submitButton: Byt e-post
     notVerified: E-post är inte verifierad. Kolla din e-post.
+    cannot: Kan inte byta email. Var god kontakta info@zetkin.org

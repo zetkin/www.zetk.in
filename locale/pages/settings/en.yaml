@@ -31,3 +31,4 @@ email:
     newEmail: New E-mail
     submitButton: Change E-mail
     notVerified: E-mail is not verified. Please check your e-mail.
+    cannot: Cannot change email. Please contact info@zetkin.org
