@@ -4,7 +4,6 @@ import { injectIntl } from 'react-intl';
 
 import CookieNotice from "../common/misc/CookieNotice";
 import Footer from './Footer';
-import GoogleAnalytics from './misc/GoogleAnalytics';
 import Header from './header/Header';
 import { campaign } from '../store/campaigns';
 import { organization } from '../store/orgs';
@@ -89,7 +88,6 @@ export default class App extends React.Component {
                     <script type="text/json"
                         id="App-initialState"
                         dangerouslySetInnerHTML={{ __html: stateJson }}/>
-                    <GoogleAnalytics/>
                     <CookieNotice />
                 </body>
             </html>
