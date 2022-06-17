@@ -9,7 +9,6 @@ signup:
     email: E-mailadresse
     error:
         emailExists: 'E-mailadressen { email } er allerede registrered'
-        phoneExists: 'E-mailadressen { phone } er allerede registreret'
         invalid: >-
             Registreringen mislykkedes. Kontroller venligst at alle felter
             er korrekt udfyldte.

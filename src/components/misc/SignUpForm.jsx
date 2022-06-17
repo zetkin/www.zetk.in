@@ -88,10 +88,10 @@ export default class SignUpForm extends React.Component {
             }
             else if (error.get('httpStatus') == 409) {
                 const values = register.get('data').toJS();
-                const error_desc = error.getIn(['data', 'error', 'description']);
-                if (error_desc == 'duplicate_email') {
+                const errorDesc = error.getIn(['data', 'error', 'description']);
+                if (errorDesc == 'duplicate_email') {
                     errorMessage = msg('error.emailExists', values);
-                } else if (error_desc == 'duplicate_phone') {
+                } else if (errorDesc == 'duplicate_phone') {
                     errorMessage = msg('error.phoneExists', values);
                 }
                 errorAction = (

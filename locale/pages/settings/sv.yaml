@@ -28,3 +28,7 @@ email:
     submitButton: Byt e-post
     notVerified: E-post är inte verifierad. Kolla din e-post.
     cannot: Kan inte byta email. Var god kontakta info@zetkin.org
+    success: E-posten har ändrats. Ny e-post är {email}
+    error:
+      409: E-postadressen är redan registrerad på en annan användare.
+      400: E-postadressen är inte giltig.

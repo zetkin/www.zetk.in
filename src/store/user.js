@@ -27,9 +27,11 @@ export default createReducer(initialState, {
             .set('changeError', false);
     },
     [types.UPDATE_USER_EMAIL + '_REJECTED']: (state, action) => {
+        // reset isChangePending ad set the error code to changeError
         return state
             .set('isChangePending', false)
-            .set('changeError', true);
+            .set('changed', null)
+            .set('changeError', action.payload.data.error.title);
     },
     [types.UPDATE_USER_EMAIL + '_PENDING']: (state, action) => {
         return state

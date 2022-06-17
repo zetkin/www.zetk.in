@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ConnectionList from '../misc/ConnectionList';
 import SimplePageBase from './SimplePageBase';
 
-import { updateUserLang, updateUserEmail, resetEmailChanged } from '../../actions/user';
+import { updateUserLang, updateUserEmail } from '../../actions/user';
 import { followOrganization,  unfollowOrganization } from '../../actions/org';
 
 import {
@@ -47,7 +47,7 @@ export default class SettingsPage extends SimplePageBase {
             else {
                 passwordMsg = <p className="SettingsPage-msg-success" id="pages.settings.password.success">Password changed</p>
                 setTimeout( () => {
-                    this.props.dispatch(resetEmailChanged());
+                    this.props.dispatch(resetPasswordChanged());
                 }, 10000);
             }
         }
@@ -57,16 +57,21 @@ export default class SettingsPage extends SimplePageBase {
         const emailError = this.props.user.get('changeError');
 
         let emailMsg = null;
-
+ 
         if (emailChanged) {
-            if (passwordError) {
-                emailMsg = <p className="SettingsPage-msg-error" id="pages.settings.email.error">Cannot set email</p>
-            } else {
-                emailMsg = <p className="SettingsPage-msg-success" id="pages.settings.email.success">Email changed</p>
-                    setTimeout( () => {
-                        this.props.dispatch(resetEmailChanged());
-                    }, 10000);
-            }
+            const emailSuccessLabel = this.props.intl.formatMessage(
+                { id: 'pages.settings.email.success' },
+                {
+                    email: this.props.user.getIn(['data', 'email'])
+                });
+            emailMsg = <p className="SettingsPage-msg-success">{ emailSuccessLabel }</p>
+        } else if (emailError) {
+            let errorCode = emailError.substring(0,3);
+            const emailErrorLabel = this.props.intl.formatMessage(
+                {
+                    id: 'pages.settings.email.error.' + errorCode,
+                });
+            emailMsg = <p className="SettingsPage-msg-error">{ emailErrorLabel }</p>
         }
 
         let submitPasswordLabel = this.props.intl.formatMessage(
@@ -75,8 +80,13 @@ export default class SettingsPage extends SimplePageBase {
         let submitEmailLabel = this.props.intl.formatMessage(
             { id: 'pages.settings.email.submitButton' });
 
-        const notVerifiedLabel = this.props.intl.formatMessage(
-            { id: 'pages.settings.email.notVerified' });
+
+        let emailVerified = null;
+        if (!this.props.user.getIn(['data', 'email_is_verified']) && this.props.user.getIn(['data', 'email'])) {
+            const notVerifiedLabel = this.props.intl.formatMessage(
+                { id: 'pages.settings.email.notVerified' });
+            emailVerified = <p className="notVerified">{ notVerifiedLabel }</p>
+        }
 
         let passwordSubmitEnabled = (this.state.oldPassword.length
             && this.state.newPassword.length >= 6
@@ -90,7 +100,6 @@ export default class SettingsPage extends SimplePageBase {
         const emailSubmitEnabled = this.state.email 
             && this.state.email != this.props.user.getIn(['data', 'email']) 
             && !emailPending;
-        let emailVerified = this.props.user.getIn(['data', 'email_is_verified']);
         
         let emailForm;
         if (showEmail) {
@@ -110,9 +119,6 @@ export default class SettingsPage extends SimplePageBase {
                 <input type="submit"
                     value={ submitEmailLabel }
                     disabled={ !emailSubmitEnabled }/>
-
-                { !emailVerified ? 
-                    <p className="notVerified">{ notVerifiedLabel }</p> : null }
             </form>);
         }
         else {
@@ -149,8 +155,9 @@ export default class SettingsPage extends SimplePageBase {
                     />
 
                 <Msg tagName="h2" id="pages.settings.email.h"/>
-                { emailMsg }
                 { emailForm }
+                { emailMsg }
+                { emailVerified }
 
                 <Msg tagName="h2" id="pages.settings.password.h"/>
                 { passwordMsg }
