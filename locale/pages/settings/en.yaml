@@ -31,7 +31,7 @@ email:
     newEmail: New E-mail
     submitButton: Change E-mail
     notVerified: E-mail is not verified. Please check your e-mail.
-    cannot: Cannot change email. Please contact info@zetkin.org
+    cannot: "Your email is {email}. Please contact info@zetkin.org if you need to change it."
     success: Email has been changed. New email is {email}
     error:
       409: The e-mail is already registered to another user.

@@ -122,7 +122,11 @@ export default class SettingsPage extends SimplePageBase {
             </form>);
         }
         else {
-            emailForm = <Msg tagName="p" id="pages.settings.email.cannot"/>;
+            let cannotChangeEmailLabel = this.props.intl.formatMessage(
+                { id: 'pages.settings.email.cannot' }, {
+                    email: this.props.user.getIn(['data', 'email']),
+                });
+            emailForm = <p>{ cannotChangeEmailLabel }</p>;
         }
 
         let lang = this.props.user.getIn(['data', 'lang']) || 'auto';
