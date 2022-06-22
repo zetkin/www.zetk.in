@@ -8,7 +8,7 @@ signup:
         title: 'Velkommen, { firstName }!'
     email: E-mailadresse
     error:
-        exists: 'E-mailadressen { email } er allerede registrered'
+        emailExists: 'E-mailadressen { email } er allerede registrered'
         invalid: >-
             Registreringen mislykkedes. Kontroller venligst at alle felter
             er korrekt udfyldte.

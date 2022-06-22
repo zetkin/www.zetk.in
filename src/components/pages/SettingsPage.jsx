@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ConnectionList from '../misc/ConnectionList';
 import SimplePageBase from './SimplePageBase';
 
-import { updateUserLang } from '../../actions/user';
+import { updateUserLang, updateUserEmail } from '../../actions/user';
 import { followOrganization,  unfollowOrganization } from '../../actions/org';
 
 import {
@@ -29,33 +29,105 @@ export default class SettingsPage extends SimplePageBase {
         this.state = {
             oldPassword: '',
             newPassword: '',
+            email: this.props.user.getIn(['data', 'email']),
         };
+
     }
 
     renderContent() {
         const passwordPending = this.props.passwordStore.get('isChangePending');
         const passwordChanged = this.props.passwordStore.get('changed');
         const passwordError = this.props.passwordStore.get('changeError');
-        let msg = null;
+        let passwordMsg = null;
 
         if (passwordChanged) {
             if (passwordError) {
-                msg = <p className="SettingsPage-msg-error" id="pages.settings.password.error">Wrong password</p>
+                passwordMsg = <p className="SettingsPage-msg-error" id="pages.settings.password.error">Wrong password</p>
             }
             else {
-                msg = <p className="SettingsPage-msg-success" id="pages.settings.password.success">Password changed</p>
+                passwordMsg = <p className="SettingsPage-msg-success" id="pages.settings.password.success">Password changed</p>
                 setTimeout( () => {
                     this.props.dispatch(resetPasswordChanged());
                 }, 10000);
             }
         }
 
-        let submitLabel = this.props.intl.formatMessage(
+        const emailPending = this.props.user.get('isChangePending');
+        const emailChanged = this.props.user.get('changed');
+        const emailError = this.props.user.get('changeError');
+
+        let emailMsg = null;
+ 
+        if (emailChanged) {
+            const emailSuccessLabel = this.props.intl.formatMessage(
+                { id: 'pages.settings.email.success' },
+                {
+                    email: this.props.user.getIn(['data', 'email'])
+                });
+            emailMsg = <p className="SettingsPage-msg-success">{ emailSuccessLabel }</p>
+        } else if (emailError) {
+            let errorCode = emailError.substring(0,3);
+            const emailErrorLabel = this.props.intl.formatMessage(
+                {
+                    id: 'pages.settings.email.error.' + errorCode,
+                });
+            emailMsg = <p className="SettingsPage-msg-error">{ emailErrorLabel }</p>
+        }
+
+        let submitPasswordLabel = this.props.intl.formatMessage(
             { id: 'pages.settings.password.submitButton' });
 
-        let submitEnabled = (this.state.oldPassword.length
+        let submitEmailLabel = this.props.intl.formatMessage(
+            { id: 'pages.settings.email.submitButton' });
+
+
+        let emailVerified = null;
+        if (!this.props.user.getIn(['data', 'email_is_verified']) && this.props.user.getIn(['data', 'email'])) {
+            const notVerifiedLabel = this.props.intl.formatMessage(
+                { id: 'pages.settings.email.notVerified' });
+            emailVerified = <p className="notVerified">{ notVerifiedLabel }</p>
+        }
+
+        let passwordSubmitEnabled = (this.state.oldPassword.length
             && this.state.newPassword.length >= 6
             && !passwordPending);
+
+        // Show the email settings if the email is not set (or not verifed), or if the user is logged in with level 2 authentication
+        let showEmail = !this.props.user.getIn(['data', 'email'])
+            || !this.props.user.getIn(['data', 'email_is_verified'])
+            || this.props.user.getIn(['data', 'level']) >= 2;
+
+        const emailSubmitEnabled = this.state.email 
+            && this.state.email != this.props.user.getIn(['data', 'email']) 
+            && !emailPending;
+        
+        let emailForm;
+        if (showEmail) {
+            emailForm = (
+            <form onSubmit={ this.onSubmitEmail.bind(this) }>
+                <ul>
+                    <li>
+                        <label htmlFor="new_email">
+                            <Msg id="pages.settings.email.newEmail"/>
+                        </label>
+                        <input type="email" id="new_email"
+                            onChange={ this.onChangeEmail.bind(this) }
+                            value={ this.state.email }/>
+
+                    </li>
+                </ul>
+                <input type="submit"
+                    value={ submitEmailLabel }
+                    disabled={ !emailSubmitEnabled }/>
+            </form>);
+        }
+        else {
+            let cannotChangeEmailLabel = this.props.intl.formatMessage(
+                { id: 'pages.settings.email.cannot' }, {
+                    email: this.props.user.getIn(['data', 'email']),
+                });
+            emailForm = <p>{ cannotChangeEmailLabel }</p>;
+        }
 
         let lang = this.props.user.getIn(['data', 'lang']) || 'auto';
         let langOptions = [ 'auto', 'sv', 'en', 'da', 'nn' ];
@@ -86,8 +158,13 @@ export default class SettingsPage extends SimplePageBase {
                     onUpdateFollow={ this.onConnectionListUpdateFollow.bind(this) }
                     />
 
+                <Msg tagName="h2" id="pages.settings.email.h"/>
+                { emailForm }
+                { emailMsg }
+                { emailVerified }
+
                 <Msg tagName="h2" id="pages.settings.password.h"/>
-                { msg }
+                { passwordMsg }
                 <form onSubmit={ this.onSubmitPassword.bind(this) }>
                     <ul>
                         <li>
@@ -108,8 +185,8 @@ export default class SettingsPage extends SimplePageBase {
                         </li>
                     </ul>
                     <input type="submit"
-                        value={ submitLabel }
-                        disabled={ !submitEnabled }/>
+                        value={ submitPasswordLabel }
+                        disabled={ !passwordSubmitEnabled } />
                 </form>
             </div>
         );
@@ -141,6 +218,12 @@ export default class SettingsPage extends SimplePageBase {
         ev.preventDefault();
     }
 
+    onSubmitEmail(ev) {
+        this.props.dispatch( updateUserEmail(this.state.email) );
+
+        ev.preventDefault();
+    }
+
     onChangeNewPwd(ev) {
         this.setState({
             newPassword: ev.target.value
@@ -159,5 +242,11 @@ export default class SettingsPage extends SimplePageBase {
         if (this.props.passwordStore.get('changed')) {
             this.props.dispatch(resetPasswordChanged());
         }
+    }
+
+    onChangeEmail(ev) {
+        this.setState({
+            email: ev.target.value
+        });
     }
 }

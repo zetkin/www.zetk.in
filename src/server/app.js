@@ -317,7 +317,7 @@ export default function initApp(messages) {
             .then(function(result) {
                 let user = result.data.data;
 
-                if (user.is_verified) {
+                if (user.email_is_verified) {
                     res.redirect('/dashboard');
                 }
                 else if ('code' in req.params) {

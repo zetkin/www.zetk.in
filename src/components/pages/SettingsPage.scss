@@ -13,11 +13,19 @@
         margin: 1em 0 0;
     }
 
-    input[type=password] {
+    input[type=password], input[type=email] {
         margin: 0.2em 0;
         width: 100%;
         max-width: 400px;
         padding: 0.2em;
         font-size: 1.2em;
+    }
+
+    .notVerified {
+        color: $c-brand-main-orange;
+    }
+
+    .SettingsPage-msg-error {
+        color: $c-brand-main-orange;
     }
 }
