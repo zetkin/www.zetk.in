@@ -60,11 +60,14 @@ export default class SurveyPage extends React.Component {
                 </p>
             ];
 
-            let sigOptions = ['email'];
-            if (survey.get('allow_anonymous')) {
+            let sigOptions = [];
+            if (survey.get('signature') == 'allow_anonymous' || survey.get('signature') == 'require_signature') {
+                sigOptions.push('email')
+            }
+            if (survey.get('signature') == 'allow_anonymous' || survey.get('signature') == 'force_anonymous') {
                 sigOptions.push('anon');
             }
-            if (this.props.isConnected) {
+            if (this.props.isConnected && survey.get('signature') != 'force_anonymous') {
                 sigOptions.unshift('user');
             }
 

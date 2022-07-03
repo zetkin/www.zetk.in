@@ -155,6 +155,8 @@ export default class CampaignPage extends React.Component {
                     userActionList={ userActionList }
                     needFilterEnabled={ true }
                     onResponse={ this.onResponse.bind(this) }
+                    onFilterChange={ this.onFilterChange.bind(this) }
+                    filter={ this.getFiltersFromQuery() }
                     />
             );
         }
@@ -192,6 +194,26 @@ export default class CampaignPage extends React.Component {
                 { form }
             </div>
         );
+    }
+
+    onFilterChange(selected) {
+        let search;
+        if(selected) {
+            search = '?filter=' + encodeURIComponent(selected.join(';'))
+
+        }
+
+        this.props.history.push({
+            pathname: this.props.location.pathname,
+            search: search,
+        })
+    }
+
+    getFiltersFromQuery() {
+        const query = this.props.location.query;
+        if (query['filter']) {
+            return decodeURIComponent(query['filter']).split(';');
+        }
     }
 
     onResponse(action, checked) {

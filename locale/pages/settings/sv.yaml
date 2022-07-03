@@ -22,3 +22,13 @@ password:
     oldPassword: Nuvarande lösenord
     submitButton: Byt lösenord
     success: Lösenordet ändrades
+email:
+    h: Byt e-postadress
+    newEmail: Ny e-postadress
+    submitButton: Byt e-post
+    notVerified: E-post är inte verifierad. Kolla din e-post.
+    cannot: Din e-postadress är { email }. Var god kontakta info@zetkin.org om du vill byta.
+    success: E-posten har ändrats. Ny e-post är {email}
+    error:
+      409: E-postadressen är redan registrerad på en annan användare.
+      400: E-postadressen är inte giltig.

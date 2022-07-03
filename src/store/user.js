@@ -19,4 +19,26 @@ export default createReducer(initialState, {
 
         return state;
     },
+    [types.UPDATE_USER_EMAIL + '_FULFILLED']: (state, action) => {
+        return state
+            .setIn(['data', 'email'], action.payload.data.data.email)
+            .set('changed', Date.now())
+            .set('isChangePending', false)
+            .set('changeError', false);
+    },
+    [types.UPDATE_USER_EMAIL + '_REJECTED']: (state, action) => {
+        // reset isChangePending ad set the error code to changeError
+        return state
+            .set('isChangePending', false)
+            .set('changed', null)
+            .set('changeError', action.payload.data.error.title);
+    },
+    [types.UPDATE_USER_EMAIL + '_PENDING']: (state, action) => {
+        return state
+            .set('isChangePending', true)
+    },
+    [types.RESET_EMAIL_CHANGED]: (state, action) => {
+        return state
+            .set('changed', null);
+    },
 });

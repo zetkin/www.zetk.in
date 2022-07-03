@@ -13,7 +13,8 @@ signup:
         title: 'Welcome, { firstName }!'
     email: Email
     error:
-        exists: 'The e-mail address { email } is already registered'
+        emailExists: 'The e-mail address { email } is already registered'
+        phoneExists: 'The phone number { phone } is already registered'
         invalid: >-
             Registration failed. Please make sure all fields are filled out
             correctly.

@@ -88,7 +88,12 @@ export default class SignUpForm extends React.Component {
             }
             else if (error.get('httpStatus') == 409) {
                 const values = register.get('data').toJS();
-                errorMessage = msg('error.exists', values);
+                const errorDesc = error.getIn(['data', 'error', 'description']);
+                if (errorDesc == 'duplicate_email') {
+                    errorMessage = msg('error.emailExists', values);
+                } else if (errorDesc == 'duplicate_phone') {
+                    errorMessage = msg('error.phoneExists', values);
+                }
                 errorAction = (
                     <a className="SignUpForm-errorAction"
                         href="/dashboard">
