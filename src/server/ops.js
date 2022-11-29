@@ -46,7 +46,16 @@ const OPS = {
                     const membership = result.data.data.find(m => m.organization.id == orgId);
 
                     if (membership) {
-                        return membership.profile.id;
+                        // Make sure the is following the relevant organization
+                        if (membership.follow) {
+                            return membership.profile.id;
+                        } else {
+                            return req.z.resource('users', 'me', 'following', orgId)
+                                .put()
+                                .then(followResult => {
+                                    return membership.profile.id;
+                                });
+                        }
                     }
                     else {
                         return req.z.resource('orgs', orgId, 'join_requests')
