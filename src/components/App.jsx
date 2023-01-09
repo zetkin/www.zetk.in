@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Header from './header/Header';
 import { campaign } from '../store/campaigns';
 import { organization } from '../store/orgs';
+import CleanStateJson from '../common/misc/CleanStateJson';
 
 
 @injectIntl
@@ -26,7 +27,6 @@ export default class App extends React.Component {
 
     render() {
         let path = this.props.location.pathname;
-        let stateJson = JSON.stringify(this.props.fullState);
         let showContinueButton = (path == '/' || path == '/register');
 
         let header;
@@ -85,9 +85,7 @@ export default class App extends React.Component {
                         { this.props.children }
                     </div>
                     <Footer />
-                    <script type="text/json"
-                        id="App-initialState"
-                        dangerouslySetInnerHTML={{ __html: stateJson }}/>
+                    <CleanStateJson state={this.props.fullState.toJS()}/>
                     <CookieNotice />
                 </body>
             </html>

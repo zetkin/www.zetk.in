@@ -47,6 +47,7 @@
     "gulp-uglify": "^2.0.0",
     "immutable": "^3.8.1",
     "intl": "^1.2.5",
+    "isomorphic-dompurify": "^0.15.0",
     "libphonenumber-js": "^1.8.1",
     "linkifyjs": "^2.1.6",
     "negotiator": "^0.6.1",
