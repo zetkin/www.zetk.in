@@ -8,6 +8,8 @@ privacy:
     policyLink:
         href: 'http://zetkin.org/privacy'
         label: Klikk her for å lese Zetkin sine personvernvilkår
+select:
+    default: Velge et alternativ
 signature:
     h: Vel korleis du vil signere
     options:

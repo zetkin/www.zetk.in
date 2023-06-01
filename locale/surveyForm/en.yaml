@@ -8,6 +8,8 @@ privacy:
     policyLink:
         href: 'http://zetkin.org/privacy'
         label: Click to read the full Zetkin Privacy Policy
+select:
+    default: Select an option
 signature:
     h: Choose how to sign
     options:

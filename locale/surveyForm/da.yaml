@@ -1,3 +1,5 @@
+select:
+    default: Vælge et alternativ
 signature:
     h: Vælg hvordan du vil underskrive
     options:

@@ -8,6 +8,8 @@ privacy:
     policyLink:
         href: 'http://zetkin.org/sv/sekretess'
         label: Klicka här för att läsa Zetkins sekretesspolicy
+select:
+    default: Välj ett alternativ
 signature:
     h: Välj hur du vill signera
     options:
