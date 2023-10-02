@@ -1,0 +1,31 @@
+connections:
+    intro: Mit folgenden Organisationen bist du verbunden. Du kannst hier Organisationen
+        aus deiner Liste entfernen. Wenn du dich mit einer weiteren Organisation verbinden
+        möchtest, musst du diese um ihren Link bitten.
+email:
+    cannot: Deine E-Mail ist {email}. Bitte kontaktiere info@zetkin.org, um diese
+        zu ändern.
+    error:
+        '400': Diese E-Mail ist ungültig.
+        '409': Diese E-Mail ist einem anderen Profil zugeordnet.
+    h: E-Mail ändern
+    newEmail: Neue E-Mail
+    notVerified: E-Mail ist nicht bestätigt. Bitte überprüfe deinen Posteingang.
+    submitButton: E-Mail ändern
+    success: Deine E-Mail wurde geändert. Die neue E-Mail ist {email}
+h: Einstellungen
+language:
+    h: Sprache
+    options:
+        da: Dänisch
+        en: Englisch
+        nn: Norwegisch
+        sv: Schwedisch
+    p: Wähle die Sprache, in der du Zetkin nutzen möchtest.
+password:
+    error: Falsches Passwort
+    h: Passwort ändern
+    newPassword: Neues Passwort
+    oldPassword: Aktuelles Passwort
+    submitButton: Passwort ändern
+    success: Dein Passwort wurde geändert

@@ -1,0 +1,12 @@
+after:
+    p: Eine Nachricht mit Anweisungen wurde an { email } geschickt.
+    retryButton: Nochmals versenden
+before:
+    p: Passwort für Zetkin vergessen? Gib deine E-Mailadresse an und wir schicken
+        dir einen Link an dein Postfach, um ein neues Passwort zu setzen.
+    submitButton: Link versenden
+errors:
+    undefined: Ein unbekannter Fehler ist aufgetreten. Bitte überprüfe deine E-Mailadresse
+        und versuche es nochmal.
+    unknownUser: Kein Profil mit dieser E-Mailadresse gefunden.
+h: Passwort vergessen?

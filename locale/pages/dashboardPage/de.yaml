@@ -1,0 +1,66 @@
+greeting:
+    p: Willkommen auf deiner Seite. Hier findest du laufende Aktivitäten, deine Buchungen
+        und Aufgaben sowie weitere Aktivitäten, für die du dich anmelden kannst.
+    title: Hallo {name}
+menu:
+    calls:
+        sub: |-
+            {count, plural,
+            =0 {Du hast keine Telefonaktionen}
+            =1 {Du hast eine Telefonaktion}
+            other {Du hast # Telefonaktionen}
+            }
+        title: Telefonaktionen
+    campaign:
+        sub: Hier anmelden
+        title: Kampagne
+    orgs:
+        sub: |-
+            {count, plural,
+            =0 {mit keiner Organisation verbunden}
+            =1 {mit {count} Organisation verbunden}
+            other {mit # Organisationen verbunden}
+            }
+        title: Organisationen
+section:
+    call:
+        assignments:
+            desc: |-
+                {count, plural,
+                =0 {Du hast bisher keine Telefonaktionen}
+                =1 {Du hast {count} laufende Telefonaktion}
+                other {Du hast # laufende Telefonaktionen}
+                }
+            title: Aktuelle Telefonaktionen
+        desc: Hier findest du Telefonaktionen, die dir zugeordnet wurden.
+        title: Meine Telefonaktionen
+    campaign:
+        campaigns:
+            more: Alle anzeigen
+            none: Es gibt keine laufenden Kampagnen
+            title: Laufende Kampagnen
+        desc: Nimm an Aktivitäten teil und stärke damit deine Organisation. Finde
+            einen Überblick deiner Buchungen und Anmeldungen hier.
+        guide:
+            p: Möchtest du Aktivitäten finden, bei denen du dich anmelden kannst oder
+                einen Überblick deiner anstehenden Aktivitäten sehen?
+        tabs:
+            planned: Alle Aktivitäten
+            signedUp: Meine Aktivitäten
+        title: Kampagne
+    organizations:
+        connectedOrgs:
+            desc: |-
+                {count, plural,
+                =0 {Du bist bisher mit keiner Organisation verbunden}
+                =1 {Du bist mit {count} Organisation verbunden}
+                other {Du bist mit # Organisationen verbunden}
+                }
+            title: Verbundene Organisationen
+        desc: Um an der Arbeit deiner Organisation teilzuhaben, musst du dich verbinden.
+            Mit folgenden Organisationen bist du aktuell verbunden.
+        findOrgs:
+            buttonLabel: Suche Organisation
+            desc: Füge deine Organisation zu deinem Zetkinprofil hinzu.
+            title: Finde deine Organisation
+        title: Meine Organisationen
