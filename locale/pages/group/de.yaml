@@ -1,0 +1,9 @@
+members:
+    h: Mitglieder
+    list:
+        email: E-Mail
+        managerLabel: '{name} ist ein Gruppenmitglied'
+        name: Name
+        phone: Telefonnummer
+notFound:
+    h: Die Gruppe wurde nicht gefunden

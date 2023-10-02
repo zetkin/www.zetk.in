@@ -1,0 +1,34 @@
+cookieNotice:
+    msg: Zetkin nutzt Cookies um deine Nutzer*innen-Erfahrung zu verbessern.
+    privacyLink:
+        href: http://zetkin.org/privacy
+        label: Lies unsere Datenschutzbestimmungen.
+environmentWarning:
+    message: Dies ist eine Version von Zetkin.
+signup:
+    done:
+        subtitle: Überprüfe deinen Posteingang um deine E-Mail Adresse zu bestätigen.
+        title: Willkommen, { firstName }!
+    email: E-Mail
+    error:
+        emailExists: Diese E-Mail Adresse existiert bereits
+        invalid: Registrierung fehlgeschlagen. Bitte überprüfe alle Felder auf korrekte
+            Angaben.
+        login: Logge dich ein
+        phoneExists: Diese Telefonnummer { phone } existiert bereits
+        privacy: Du musst der Datenschutzerklärung zustimmen, um dich zu registrieren
+    firstName: Vorname
+    info: Registriere ein Profil, um Organizing mit Zetkin zu starten
+    lastName: Nachname
+    password: Passwort
+    phone: Handynummer
+    privacyCheck: Ich bestätige hiermit, dass meine Daten verarbeitet werden, um ein
+        Profil bei Zetkin zu verwalten.
+    privacyCheckOrg: Ich bestätige hiermit, dass meine Daten verarbeitet werden, um
+        ein Profil bei Zetkin und { org } zu verwalten.
+    privacyLink:
+        href: http://zetkin.org/privacy
+        title: Lies unsere Datenschutzbestimmungen.
+    submitButton: Registrieren
+    submitButtonOrg: Registriere und verbinde dich
+    title: Jetzt loslegen

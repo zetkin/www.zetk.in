@@ -1,0 +1,8 @@
+after:
+    loginButton: Einloggen
+    p: Dein Passwort wurde zurückgesetzt. Du kannst dich jetzt mit deinem neuen Passwort
+        einloggen.
+before:
+    p: Erstelle ein neues Passwort.
+    submitButton: Passwort speichern
+h: Passwort zurücksetzen

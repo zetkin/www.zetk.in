@@ -1,0 +1,6 @@
+deleteLink: Entfernen
+empty: Du bist mit keiner Organisation verbunden.
+roles:
+    admin: Du bist Administrator*in
+    none: Du hast keine formale Rolle
+    organizer: Du bist Organizer*in

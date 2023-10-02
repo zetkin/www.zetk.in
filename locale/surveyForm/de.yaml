@@ -1,0 +1,29 @@
+privacy:
+    h: Akzeptieren
+    label: Ich akzeptiere die untenstehenden Bestimmungen
+    p: Wenn du an dieser Umfrage teilnimmst, werden die Informationen in Übereinstimmung
+        mit den Datenschutzrichtlinien bei Zektin von {org} gespeichert und verarbeitet,
+        um Aktivitäten zu organisieren.
+    policyLink:
+        label: Klicke hier, um die vollständigen Datenschutzbestimmungen bei Zetkin
+            zu lesen
+signature:
+    h: Art des Unterschreibens auswählen
+    options:
+        anon:
+            desc: Deine Umfrageteilnahme wird anonymisiert. Soweit du keine persönlichen
+                Daten in den Antworten angegeben hast, kann die Organisation die Antworten
+                nicht auf dich zurückführen.
+            label: Anonym einreichen
+        email:
+            desc: Unterschreibe mit deinem Name und deiner E-Mail. Falls du Antworten
+                einer anderen Person einreichst, gib deren Name und E-Mail an.
+            emailLabel: E-Mail
+            firstNameLabel: Vorname
+            label: Mit Name und E-Mail unterschreiben
+            lastNameLabel: Nachname
+        user:
+            desc: Deine Umfrageteilnahme zu unterschreiben und damit zu personalisieren
+                wird deine Organisation sehr in der Durchführung von Aktivitäten unterstützen.
+            label: Als { firstName } { lastName } unterschreiben
+submitButton: Umfrage einreichen

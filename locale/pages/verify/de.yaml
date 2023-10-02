@@ -1,0 +1,18 @@
+invalid:
+    h1: Deine E-Mailadresse konnte nicht bestätigt werden
+    p: Es ist ein Fehler aufgetreten beim Bestätigen deiner E-Mailadresse. Eventuell
+        ist der Bestätigungslink abgelaufen. Kopiere den Link und füge ihn in den
+        Browser ein, um es erneut zu probieren oder fordere eine neue Bestätigungsmail
+        an.
+missing:
+    h1: Verifiziere deine E-Mailadresse
+    p0: Bevor du Zetkin weiternutzen kannst, musst du deine E-Mailadresse verifizieren.
+    p1: Wir haben eine Bestätigungsmail an dein Postfach geschickt. Bitte klicke auf
+        den Link in der E-Mail, um deine E-Mailadresse zu bestätigen. Bitte überprüfe
+        deinen Spamordner falls du sie nicht finden kannst oder klicke auf den Button
+        hier, um sie erneut zu verschicken.
+resend:
+    h1: Überprüfe deine E-Mail
+    p: Wir haben dir eine Bestätigungsmail an dein Postfach geschickt. Bitte überprüfe
+        deinen Spamordner falls du sie nicht finden kannst.
+resendButton: Nochmals versenden

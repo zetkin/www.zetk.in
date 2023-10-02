@@ -1,0 +1,51 @@
+connect:
+    applyLink:
+        text: Zugang anfordern
+    h1: Zetkin für deine Organisation
+    h2: Möchtest du Zetkin in deiner Organisation benutzen?
+    paragraph: Falls deine Organisation die gleichen Ziele wie die Zetkin Foundation
+        verfolgt, helfen wir dir gerne deinen Aktivismus zu professionalisieren.
+features:
+    f1:
+        desc: Falls deine Organisation Zetkin nutzt, musst du dich nur mit ihr verbinden.
+            Dann kannst du dich für Aktionen anmelden, an Telefonaktionen teilnehmen
+            und mehr.
+        title: Werde aktiv in deiner Organisation
+    f2:
+        desc: Auf "Meine Seite" hast du einen Überblick über Kampagnen, die Aktionen,
+            für die du gebucht wurdest und deine Telefonaktionen.
+        title: Bleib auf dem Laufenden
+    f3:
+        desc: Melde dich schnell und unkompliziert für Aktionen in deiner Stadt an.
+            Dann musst du nur noch auftauchen.
+        title: In den Straßen teilnehmen
+    f4:
+        desc: Hilf deiner Organisation stärker zu werden. Mache Telefonaktionen von
+            wo immer du bist mit dem Telefonierwerkzeug von Zetkin.
+        title: An Telefonaktionen teilnehmen
+    h1: Alles, was ein*e Aktivist*in braucht
+    signUpLink: Registriere dich und leg los
+foundation:
+    h1: Von Aktivist*innen entwickelt
+    h2: Ein anderes Unternehmen für eine andere Gesellschaft
+    infoLink:
+        text: Zetkin Foundation kennenlernen
+    paragraph: 'Zetkin wird von Zetkin Foundation entwickelt: ein non-profit Unternehmen,
+        das radikale Veränderung hinzu einer sozialistischen, feministischen, antirassistischen
+        und nachhaltigen Gesellschaft anstrebt. Das macht Zetkin besonders.'
+splash:
+    authenticated:
+        h2: Eingeloggt
+    caption: Das "Unsere Stadt" Straßenfestival im Mai 2014 wurde von der Vänsterpartiet
+        in Mälmö mit Zetkin organisiert.
+    h1: Am Kampf für Gerechtigkeit teilhaben
+    readAbout: Lies hier, was du mit Zetkin machen kannst
+    signUpLink: Registrieren
+zetkin:
+    h1: Beteiligen leicht gemacht
+    h2: Eine Organizing Plattform
+    paragraph: Zetkin ist eine web-basierte Plattform um Beteiligung zu erleichtern
+        und wird von Organisationen und aktivistischen Einzelpersonen in ihren Strukturen
+        genutzt.
+    usp2: Auf Aktivist*innen ausgerichtet
+    usp3: Getestet
