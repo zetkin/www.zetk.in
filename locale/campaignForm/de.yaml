@@ -62,6 +62,6 @@ message:
     yourActions:
         p: Hier ist dein Überblick, wo du dabei sein wirst. Wenn du dich gerade angemeldet
             hast und deine Meinung änderst, kannst du dich direkt wieder abmelden.
-            Sobald du aber bestätigt wurdest, musst du dich bei der Kontaktperson
-            melden, um abzusagen.
+            Sobald du aber bestätigt wurdest, kannst du nur direkt bei der Kontaktperson
+            absagen.
         title: Deine anstehenden Aktivitäten
