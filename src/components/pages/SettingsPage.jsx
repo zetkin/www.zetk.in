@@ -130,7 +130,7 @@ export default class SettingsPage extends SimplePageBase {
         }
 
         let lang = this.props.user.getIn(['data', 'lang']) || 'auto';
-        let langOptions = [ 'auto', 'sv', 'en', 'da', 'nn' ];
+        let langOptions = [ 'auto', 'sv', 'en', 'da', 'nn', 'de' ];
 
         return (
             <div className="SettingsPage">
