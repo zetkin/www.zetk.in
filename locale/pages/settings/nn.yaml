@@ -14,6 +14,7 @@ language:
         da: Dansk
         en: Engelsk
         sv: Svensk
+        de: Tysk
     p: Vel kva for eit språk du vil bruke i Zetkin (når du er innlogga).
 password:
     error: Feil passord

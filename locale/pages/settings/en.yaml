@@ -18,6 +18,7 @@ language:
         en: English
         nn: Norwegian (nynorsk)
         sv: Swedish
+        de: German
     p: Select which language you want to use Zetkin in (when signed in).
 password:
     error: Wrong password
