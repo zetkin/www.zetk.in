@@ -3,35 +3,35 @@ connect:
         text: Zugang anfordern
     h1: Zetkin für deine Organisation
     h2: Möchtest du Zetkin in deiner Organisation benutzen?
-    paragraph: Falls deine Organisation die gleichen Ziele wie die Zetkin Foundation
-        verfolgt, helfen wir dir gerne deinen Aktivismus zu professionalisieren.
+    paragraph: Falls ihr die gleichen Ziele wie die Zetkin Foundation verfolgt, helfen
+        wir dir gerne deine Organisation zu professionalisieren.
 features:
     f1:
-        desc: Falls deine Organisation Zetkin nutzt, musst du dich nur mit ihr verbinden.
-            Dann kannst du dich für Aktionen anmelden, an Telefonaktionen teilnehmen
-            und mehr.
+        desc: Falls deine Organisation Zetkin nutzt, brauchst du dich nur mit ihr
+            verbinden. Dann kannst du dich für Aktivitäten anmelden, an Telefonaktionen
+            teilnehmen und mehr.
         title: Werde aktiv in deiner Organisation
     f2:
-        desc: Auf "Meine Seite" hast du einen Überblick über Kampagnen, die Aktionen,
-            für die du gebucht wurdest und deine Telefonaktionen.
+        desc: Auf "Meine Seite" hast du einen Überblick über Aktionen, Kampagnen und
+            Telefonaktionen, für die du gebucht wurdest.
         title: Bleib auf dem Laufenden
     f3:
         desc: Melde dich schnell und unkompliziert für Aktionen in deiner Stadt an.
             Dann musst du nur noch auftauchen.
-        title: In den Straßen teilnehmen
+        title: Beteilige dich auf den Straßen
     f4:
         desc: Hilf deiner Organisation stärker zu werden. Mache Telefonaktionen von
-            wo immer du bist mit dem Telefonierwerkzeug von Zetkin.
-        title: An Telefonaktionen teilnehmen
-    h1: Alles, was ein*e Aktivist*in braucht
+            wo immer du bist mit dem Telefonierprogramm von Zetkin.
+        title: Nimm an Telefonaktionen teil
+    h1: Alles, was Aktive brauchen
     signUpLink: Registriere dich und leg los
 foundation:
-    h1: Von Aktivist*innen entwickelt
+    h1: Von Organizer*innen entwickelt
     h2: Ein anderes Unternehmen für eine andere Gesellschaft
     infoLink:
         text: Zetkin Foundation kennenlernen
     paragraph: 'Zetkin wird von Zetkin Foundation entwickelt: ein non-profit Unternehmen,
-        das radikale Veränderung hinzu einer sozialistischen, feministischen, antirassistischen
+        das radikale Veränderung hin zu einer sozialistischen, feministischen, antirassistischen
         und nachhaltigen Gesellschaft anstrebt. Das macht Zetkin besonders.'
 splash:
     authenticated:
@@ -43,9 +43,12 @@ splash:
     signUpLink: Registrieren
 zetkin:
     h1: Beteiligen leicht gemacht
-    h2: Eine Organizing Plattform
-    paragraph: Zetkin ist eine web-basierte Plattform um Beteiligung zu erleichtern
-        und wird von Organisationen und aktivistischen Einzelpersonen in ihren Strukturen
-        genutzt.
-    usp2: Auf Aktivist*innen ausgerichtet
-    usp3: Getestet
+    h2: Eine Plattform für Aktivierung mit Organizing-Methoden
+    paragraph: Zetkin ist eine web-basierte Plattform, um Beteiligung für Aktive zu
+        erleichtern und wird von Organisationen genutzt, um ihre Mitgliederkommunikation
+        zu verbessern. Jede Person kann Zetkin nutzen. Als Nutzer*in kannst du an
+        Aktionen und anderen Tätigkeiten der Organisationen teilhaben, mit denen du
+        verbunden bist.
+    usp1: sicher
+    usp2: auf Aktivist*innen ausgerichtet
+    usp3: getestet

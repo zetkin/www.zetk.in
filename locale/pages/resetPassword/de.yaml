@@ -1,5 +1,5 @@
 after:
-    loginButton: Einloggen
+    loginButton: Login
     p: Dein Passwort wurde zurückgesetzt. Du kannst dich jetzt mit deinem neuen Passwort
         einloggen.
 before:

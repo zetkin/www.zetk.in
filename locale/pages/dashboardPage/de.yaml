@@ -1,4 +1,5 @@
 greeting:
+    buttonLabel: Für Aktivitäten anmelden
     p: Willkommen auf deiner Seite. Hier findest du laufende Aktivitäten, deine Buchungen
         und Aufgaben sowie weitere Aktivitäten, für die du dich anmelden kannst.
     title: Hallo {name}

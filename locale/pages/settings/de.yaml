@@ -1,7 +1,8 @@
 connections:
+    h: Verbundene Organisationen
     intro: Mit folgenden Organisationen bist du verbunden. Du kannst hier Organisationen
         aus deiner Liste entfernen. Wenn du dich mit einer weiteren Organisation verbinden
-        möchtest, musst du diese um ihren Link bitten.
+        möchtest, musst du diese um ihren Link bitten oder du schaust auf https://digital.die-linke.de/zetkin/.
 email:
     cannot: Deine E-Mail ist {email}. Bitte kontaktiere info@zetkin.org, um diese
         zu ändern.
@@ -17,6 +18,8 @@ h: Einstellungen
 language:
     h: Sprache
     options:
+        auto: Automatisch ({ locale, select, sv {Schwedisch} en {Englisch} da {Dänisch}
+            })
         da: Dänisch
         en: Englisch
         nn: Norwegisch

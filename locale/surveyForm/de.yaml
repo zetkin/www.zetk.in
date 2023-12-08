@@ -5,10 +5,9 @@ privacy:
         mit den Datenschutzrichtlinien bei Zektin von {org} gespeichert und verarbeitet,
         um Aktivitäten zu organisieren.
     policyLink:
-        label: Klicke hier, um die vollständigen Datenschutzbestimmungen bei Zetkin
-            zu lesen
+        label: Klicke hier, um die vollständigen Datenschutzbestimmungen zu lesen
 signature:
-    h: Art des Unterschreibens auswählen
+    h: Deine persönlichen Angaben
     options:
         anon:
             desc: Deine Umfrageteilnahme wird anonymisiert. Soweit du keine persönlichen
@@ -16,14 +15,15 @@ signature:
                 nicht auf dich zurückführen.
             label: Anonym einreichen
         email:
-            desc: Unterschreibe mit deinem Name und deiner E-Mail. Falls du Antworten
-                einer anderen Person einreichst, gib deren Name und E-Mail an.
+            desc: Um deine Antworten zuordnen zu können, gib bitte deinen Namen und
+                deine E-Mail-Adresse an. Falls du Antworten einer anderen Person einreichst,
+                gib deren Namen und E-Mail an.
             emailLabel: E-Mail
             firstNameLabel: Vorname
-            label: Mit Name und E-Mail unterschreiben
+            label: Mit Name und E-Mail einreichen
             lastNameLabel: Nachname
         user:
-            desc: Deine Umfrageteilnahme zu unterschreiben und damit zu personalisieren
-                wird deine Organisation sehr in der Durchführung von Aktivitäten unterstützen.
-            label: Als { firstName } { lastName } unterschreiben
-submitButton: Umfrage einreichen
+            desc: Deine Umfrageteilnahme zu personalisieren unterstützt deine Organisation
+                sehr in der Durchführung von Aktivitäten.
+            label: Als { firstName } { lastName } einreichen
+submitButton: Abschicken
