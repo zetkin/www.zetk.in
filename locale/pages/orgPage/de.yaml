@@ -1,0 +1,22 @@
+connect:
+    alreadyConnected: Du bist verbunden
+    connectLink: Verbinde dich mit  { org }
+    description: Du bist noch nicht Teil von { org }. Um gemeinsam die Welt zu verändern,
+        verbinde dich mit { org } und nimm teil.
+    login: Login
+    title: Hallo { name }
+connected:
+    dashboardButton: Gehe zu Meine Seite
+    h: Du bist verbunden!
+    p: Du kannst laufende Kampagnen und Aufgaben von { org } auf "Meine Seite" finden.
+notFound:
+    h: Organisation nicht gefunden
+    homeButton: Zur Zetkin Startseite
+    p: Hier existiert keine Organisationsseite. Gehe zurück und finden einen anderen
+        Weg oder gehe zurück zur Zetkin Startseite.
+zetkin:
+    description: '{ org } nutzt Zetkin, eine Plattform für Aktivierung mit Organizing-Methoden.
+        Registriere dich und werde Teil der Aktivitäten.'
+    infoLink:
+        text: Mehr über Zetkin erfahren
+    title: Organisiere dich

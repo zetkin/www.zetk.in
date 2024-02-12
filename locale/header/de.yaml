@@ -1,0 +1,8 @@
+call: Telefonieren
+login: Login
+organize: Organize
+user:
+    continue: Gehe zu Meine Seite
+    logout: Ausloggen
+    settings: Einstellungen
+    wrongUser: Das bist nicht du?

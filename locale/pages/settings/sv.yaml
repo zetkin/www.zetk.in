@@ -14,6 +14,7 @@ language:
         da: Danska
         en: Engelska
         sv: Svenska
+        de: Tyska
     p: Välj vilket språk du vill använda Zetkin på (när du är inloggad).
 password:
     error: Fel lösen

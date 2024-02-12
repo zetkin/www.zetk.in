@@ -12,6 +12,7 @@ language:
         da: Dansk
         en: Engelsk
         sv: Svensk
+        de: Tysk
     p: Vælg det sprog du vil anvende når du er logget ind på Zetkin
 password:
     error: Forkert adgangskode

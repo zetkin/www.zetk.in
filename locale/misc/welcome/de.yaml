@@ -1,0 +1,15 @@
+header:
+    h: Willkommen!
+    intro: Um Zetkin effektiv zu nutzen, brauchst du eine Organisation.
+recommendations:
+    list:
+        h: Vorgeschlagene Organisationen
+        p: 'Wir haben {count, plural, =1 {eine Organisation} other {diese Organisationen}},
+            mit denen du dich verbinden könntest:'
+    loading:
+        h: Vorgeschlagene Organisationen
+        p: Suche Organisationen...
+    none:
+        h: Was jetzt?
+        p: Wir konnten keine passende Organisation für dich finden. Suche deine Organisationsseite
+            unter https://digital.die-linke.de/zetkin/

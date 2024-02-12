@@ -1,0 +1,29 @@
+interstitial:
+    connect:
+        button: Ja, verbinden
+        h: Mit { org } verbinden?
+        p: Bevor du dich hier für Aktionen anmelden kannst, musst du dein Profil mit
+            { org } verbinden. Dadurch erhält die Organisation deine persönlichen
+            Angaben. Möchtest du dich mit { org } verbinden und für Gerechtigkeit
+            an ihrer Seite kämpfen?
+    intro:
+        h: Fast geschafft!
+        p: Mega, dass du dabei sein möchtest. Du musst dich in dein Zetkinprofil einloggen,
+            um Teil der Kampagne zu werden.
+    login:
+        button: Login
+        p: Falls du schon ein Profil hast, kannst du dich einloggen und direkt anmelden.
+    register:
+        button: Profil erstellen
+        p: Falls du neu hier bist, musst du ein neues Benutzer*innenprofil erstellen.
+notFound:
+    anon:
+        loginButton: Einloggen und erneut versuchen
+        p: Eventuell ist diese Funktion nur für eingeloggte Benutzer*innen verfügbar.
+    auth:
+        connectButton: Mit { org } verbinden
+        p: Eventuell ist diese Funktion nur für mit { org } verbundene Benutzer*innen
+            verfügbar.
+    connected:
+        p: Scheint nicht zu existieren. Bitte kontaktiere die Organisation.
+    h: Die Kampagne konnte nicht gefunden werden
