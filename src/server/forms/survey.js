@@ -38,10 +38,10 @@ export default (req, res, next) => {
 
         if (type == 'options') {
             if (Array.isArray(form[name])) {
-                responses[q_id].options = form[name].map(o => parseInt(o));
+                responses[q_id].options = form[name].map(o => parseInt(o)).filter(id => !!id);
             }
             else {
-                responses[q_id].options = [ parseInt(form[name]) ];
+                responses[q_id].options = [ parseInt(form[name]) ].filter(id => !!id);
             }
         }
         else if (type == 'text') {
