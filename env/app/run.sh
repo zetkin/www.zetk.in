@@ -7,7 +7,6 @@ then
     npm install --unsafe-perm
     node build/app/server/main
 else
-    npm install --unsafe-perm
     ./node_modules/.bin/concurrently \
         --kill-others \
         --prefix name \
