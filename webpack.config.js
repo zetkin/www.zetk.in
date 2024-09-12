@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const APP_ID = process.env.ZETKIN_APP_ID || 'a4';
 const USE_TLS = process.env.ZETKIN_USE_TLS || 0;
 const DOMAIN = process.env.ZETKIN_DOMAIN;
+const ZETKIN_APP_URL = process.env.ZETKIN_APP_URL;
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const WEBPACK_HOST = process.env.WEBPACK_HOST || 'www.dev.zetkin.org';
@@ -73,6 +74,7 @@ const config = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
             'process.env.ZETKIN_DOMAIN': JSON.stringify(DOMAIN),
+            'process.env.ZETKIN_APP_URL': JSON.stringify(ZETKIN_APP_URL),
             'process.env.ZETKIN_APP_ID': JSON.stringify(APP_ID),
             'process.env.ZETKIN_USE_TLS': JSON.stringify(USE_TLS),
         }),

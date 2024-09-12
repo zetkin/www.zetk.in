@@ -6,6 +6,7 @@ import Button from '../../common/misc/Button';
 import Logo from './Logo';
 import UserContinueButton from './UserContinueButton';
 import UserMenu from '../../common/misc/userMenu/UserMenu';
+import OrganizePopup from './OrganizePopup';
 
 
 const mapStateToProps = state => ({
@@ -62,10 +63,10 @@ export default class Header extends React.Component {
 
             if (isOfficial) {
                 let organizeUrl = '//organize.' + process.env.ZETKIN_DOMAIN + '/';
+                let gen3Url = process.env.ZETKIN_APP_URL + '/organize/';
 
                 organizeLink = (
-                    <Button href={ organizeUrl } labelMsg="header.organize"
-                        className="Header-navLink linkOrganize"/>
+                    <OrganizePopup organizeUrl={organizeUrl} gen3Url={gen3Url} />
                 );
             }
         }

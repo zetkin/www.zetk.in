@@ -6,3 +6,5 @@ user:
     logout: Sign out
     settings: Settings
     wrongUser: Is this not you?
+newOrganizePortal: New Organizer Portal
+oldOrganizePortal: Old Organizer Portal

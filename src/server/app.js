@@ -33,6 +33,7 @@ if (SENTRY_DSN) {
             domain: process.env.ZETKIN_DOMAIN,
         },
     };
+    let test = 0;
 
     Raven.config(SENTRY_DSN, ravenConfig).install();
 }
