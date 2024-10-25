@@ -61,7 +61,7 @@ export default class Header extends React.Component {
             let isOfficial = memberships && !!memberships.find(item => item.get('role') != null);
 
             if (isOfficial) {
-                let organizeUrl = '//organize.' + process.env.ZETKIN_DOMAIN + '/';
+                const organizeUrl = process.env.ZETKIN_APP_URL + '/organize';
 
                 organizeLink = (
                     <Button href={ organizeUrl } labelMsg="header.organize"
